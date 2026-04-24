@@ -65,7 +65,7 @@
 \begin{center}
     \begin{figure}
         \vspace{-1.0cm}
-        \includegraphics[scale = 0.25, left]{Images/IST_A.png} % IST logo
+        \includegraphics[scale = 0.25, left]{../Images/IST_A.png} % IST logo
     \end{figure}
     \mbox{}\\[2.0cm]
     \textsc{\Huge Advanced Network Security and Architectures}\\[2.5cm]
@@ -121,6 +121,35 @@
 % Body
 % ----------------------------------------------------------------------
 \section{Objective}
+
+The main objective of this laboratory work is to study and experimentally evaluate a set of common network attacks and their corresponding countermeasures in a controlled environment using GNS3.
+
+In particular, the following attacks are addressed:
+
+\begin{itemize}
+    \item \textbf{MAC table overflow:} to understand how a switch can be forced to behave as a hub by saturating its MAC address table, and to evaluate mitigation mechanisms such as port security.
+    
+    \item \textbf{DHCP spoofing:} to demonstrate how a rogue DHCP server can provide malicious network configurations to clients, and to analyze the effectiveness of DHCP snooping as a countermeasure.
+    
+    \item \textbf{ARP poisoning (Man-in-the-Middle):} to perform a MitM attack by manipulating ARP tables, and to study the use of Dynamic ARP Inspection (DAI) for protection.
+    
+    \item \textbf{DNS spoofing:} to analyze how a victim can be redirected to a fake web server through DNS manipulation combined with ARP poisoning.
+    
+    \item \textbf{RIP poisoning:} to investigate how routing tables can be corrupted using forged RIP messages, leading to traffic redirection, and to explore authentication-based defenses.
+\end{itemize}
+
+Additionally, this work aims to:
+
+\begin{itemize}
+    \item Analyze network behavior through packet captures using Wireshark;
+    \item Interpret device-level information using Cisco IOS commands;
+    \item Evaluate the practical feasibility and limitations of each attack;
+    \item Compare experimental results with theoretical expectations.
+\end{itemize}
+
+\newpage
+
+\section{MAC Table Overflow}
 
 
 \end{document}
