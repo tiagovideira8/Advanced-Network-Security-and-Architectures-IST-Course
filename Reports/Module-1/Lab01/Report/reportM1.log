@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.31)  28 APR 2026 17:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.31)  28 APR 2026 18:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -494,7 +494,7 @@ Package hyperref Info: Link coloring ON on input line 61.
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 61.
-<../Images/IST_A.png, id=58, 709.6914pt x 394.1124pt>
+<../Images/IST_A.png, id=74, 709.6914pt x 394.1124pt>
 File: ../Images/IST_A.png Graphic file (type png)
 <use ../Images/IST_A.png>
 Package pdftex.def Info: ../Images/IST_A.png  used on input line 69.
@@ -515,32 +515,43 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout4 = `reportM1.toc'.
 
  [1] [2] [3{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-<../Images/wireshark1.jpeg, id=103, 1371.1225pt x 673.51625pt>
+<../Images/wireshark1.jpeg, id=123, 1371.1225pt x 673.51625pt>
 File: ../Images/wireshark1.jpeg Graphic file (type jpg)
 <use ../Images/wireshark1.jpeg>
 Package pdftex.def Info: ../Images/wireshark1.jpeg  used on input line 175.
 (pdftex.def)             Requested size: 483.69687pt x 237.59436pt.
- [4 <../Images/wireshark1.jpeg>] [5] [6] [7] (./reportM1.aux)
+ [4 <../Images/wireshark1.jpeg>]
+<../Images/wireshark2.png, id=133, 916.42375pt x 75.28125pt>
+File: ../Images/wireshark2.png Graphic file (type png)
+<use ../Images/wireshark2.png>
+Package pdftex.def Info: ../Images/wireshark2.png  used on input line 208.
+(pdftex.def)             Requested size: 483.69687pt x 39.73459pt.
+<../Images/wireshark3.png, id=135, 876.27374pt x 238.8925pt>
+File: ../Images/wireshark3.png Graphic file (type png)
+<use ../Images/wireshark3.png>
+Package pdftex.def Info: ../Images/wireshark3.png  used on input line 217.
+(pdftex.def)             Requested size: 483.69687pt x 131.86879pt.
+ [5 <../Images/wireshark2.png> <../Images/wireshark3.png>] [6] [7] [8] (./reportM1.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `reportM1.out' has not changed.
-(rerunfilecheck)             Checksum: DE0B192244B4AFD0E00597E10F050BC2;1749.
+(rerunfilecheck)             Checksum: 9011E7967FEC9BF2159AE7080F622E55;2363.
  ) 
 Here is how much of TeX's memory you used:
- 18999 strings out of 467525
- 371385 string characters out of 5418982
- 839972 words of memory out of 5000000
- 47638 multiletter control sequences out of 15000+600000
+ 19026 strings out of 467525
+ 372051 string characters out of 5418982
+ 840163 words of memory out of 5000000
+ 47658 multiletter control sequences out of 15000+600000
  638381 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,117p,522b,1053s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,117p,542b,1053s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on reportM1.pdf (8 pages, 386747 bytes).
+Output written on reportM1.pdf (9 pages, 1387505 bytes).
 PDF statistics:
- 165 PDF objects out of 1000 (max. 8388607)
- 134 compressed objects within 2 object streams
- 24 named destinations out of 1000 (max. 500000)
- 125 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 202 PDF objects out of 1000 (max. 8388607)
+ 166 compressed objects within 2 object streams
+ 31 named destinations out of 1000 (max. 500000)
+ 167 words of extra memory for PDF output out of 10000 (max. 10000000)
 

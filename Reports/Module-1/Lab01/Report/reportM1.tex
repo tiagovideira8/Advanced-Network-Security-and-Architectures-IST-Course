@@ -198,6 +198,46 @@ Therefore, although the attack is theoretically possible, its practical feasibil
 
 \subsection{DHCP spoofing}
 
+\subsubsection{Attack and Countermeasure}  
+The DHCP spoofing attack was performed by introducing a rogue DHCP server that responds to DHCP Discover messages with malicious configuration parameters.
+
+As observed in Wireshark (Figure~\ref{fig:dhcp_attack}), multiple DHCP Offer messages were received for the same transaction ID, indicating a race condition between the legitimate and the rogue DHCP servers. The victim accepts the first Offer received, which may result in a malicious gateway configuration provided by the attacker.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{../Images/wireshark2.png}
+    \caption{Wireshark capture showing multiple DHCP Offer messages (attack)}
+    \label{fig:dhcp_attack}
+\end{figure}
+
+After enabling DHCP snooping and configuring the port connected to the legitimate DHCP server as trusted, only one DHCP Offer was observed (Figure~\ref{fig:dhcp_snooping}). The rogue DHCP responses were blocked by the switch, and the client received a valid configuration. This confirms that DHCP snooping effectively mitigates the attack.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{../Images/wireshark3.png}
+    \caption{Wireshark capture with DHCP snooping enabled (only legitimate Offer)}
+    \label{fig:dhcp_snooping}
+\end{figure}
+
+
+
+\subsubsection{AI Prediction}  
+The AI predicted that the victim closer to the attacker would be more likely to be compromised, since the rogue DHCP Offer would arrive first. This prediction matched the experimental results, where the victim receiving the first Offer obtained the malicious configuration.
+
+\subsubsection{Switch Comparison}  
+Cisco Catalyst 2960 supports DHCP snooping, allowing ports to be classified as trusted or untrusted and blocking DHCP server messages from untrusted ports.
+
+Link: \url{www.cisco.com/c/en/us/products/switches/catalyst-2960-series-switches/index.html}
+
+\vspace{0.3cm}
+
+The TP-Link TL-SF1005D does not support DHCP snooping, as it is an unmanaged switch without configuration capabilities or security features.
+
+Link: \url{www.tp-link.com/en/home-networking/soho-switch/tl-sf1005d/}
+
+\subsubsection{Feasibility}  
+The attack is feasible in networks without DHCP snooping, especially when the attacker is closer to the victim than the legitimate DHCP server. However, due to the race condition, success is not guaranteed. When DHCP snooping is enabled, the attack becomes ineffective.
+
 \subsection{ARP poisoning (MitM)}
 
 \subsection{DNS spoofing}
