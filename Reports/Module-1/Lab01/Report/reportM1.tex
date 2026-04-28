@@ -7,6 +7,7 @@
 \usepackage[utf8]{inputenc} % Codification
 \usepackage[english]{babel} % Writing idiom
 
+\usepackage{graphicx}
 \usepackage[export]{adjustbox} % Align images
 \usepackage{amsmath} % Extra commands for math mode
 \usepackage{amssymb} % Mathematical symbols
@@ -159,6 +160,50 @@ Additionally, this work aims to:
 \newpage
 
 \subsection{MAC Table Overflow}
+
+\subsubsection{Attack and Countermeasure}  
+The MAC table overflow attack was performed using the \texttt{camov.py} script, generating a large number of frames with different spoofed MAC addresses.  
+
+As observed in Wireshark (Figure~\ref{fig:mac_overflow}), a high volume of traffic with varying source addresses was captured, indicating the flooding behavior of the attack.
+
+The switch behavior was analyzed using \texttt{show mac address-table}.  
+
+To mitigate the attack, port security was configured, limiting the number of MAC addresses per port and preventing the insertion of multiple spoofed entries.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{../Images/wireshark1.jpeg}
+    \caption{Wireshark capture during MAC table overflow attack}
+    \label{fig:mac_overflow}
+\end{figure}
+
+\subsubsection{Switch Comparison}  
+
+Cisco Catalyst 2960 supports port security, allowing the configuration of a maximum number of MAC addresses per port and defining actions when violations occur (e.g., restrict or shutdown). This makes it possible to prevent MAC table overflow attacks.
+
+Link: \url{www.cisco.com/c/en/us/products/switches/catalyst-2960-series-switches/index.html}
+
+\vspace{0.3cm}
+
+In contrast, the TP-Link TL-SF1005D is an unmanaged switch that does not support port security or any traffic control mechanisms, as it lacks a configuration interface. Therefore, it cannot prevent MAC flooding attacks.
+
+Link: \url{www.tp-link.com/en/home-networking/soho-switch/tl-sf1005d/}
+
+\subsubsection{Feasibility}  
+The objective of this attack is to flood the switch MAC address table, forcing the switch to behave like a hub. In that state, frames may be forwarded to all ports, allowing the attacker to listen to conversations between other hosts.
+
+However, in practice, the attack may be difficult to execute successfully on modern switches because their MAC address tables are large. Additionally, the high amount of generated traffic can cause network instability or a denial-of-service condition, instead of allowing the attacker to reliably capture useful traffic.
+
+Therefore, although the attack is theoretically possible, its practical feasibility is limited and depends on the switch capacity, configuration, and security features.
+
+\subsection{DHCP spoofing}
+
+\subsection{ARP poisoning (MitM)}
+
+\subsection{DNS spoofing}
+
+\subsection{RIP poisoning}
+
 
 
 %% DAQUI PARA BAIXO LAB 2 E 3
