@@ -34,6 +34,35 @@ This laboratory assignment explores common network attacks and the mechanisms us
 
 ### RIP Poisoning
 
+#### How RIP normally works
+
+Routers periodically send RIP Response messages (every ~30s)
+
+These messages contain:
+- Destination networks
+- Metric (hop count)
+- Routers pick routes based on:
+- Lowest metric (shortest path)
+- Longest prefix match (more specific route wins)
+
+#### What the attacker does
+
+The attacker sends fake RIP responses claiming:
+
+“Hey, I have a better route to the Web Server!”
+
+Two main tricks:
+
+1. Lower metric attack
+- Advertise same network with smaller hop count
+- Router prefers attacker
+
+2. Longest prefix match (more powerful)
+- Advertise more specific subnet
+- Legit: 10.0.0.0/24
+- Attacker: 10.0.0.0/25
+- Router prefers attacker even if metric is worse
+
 #### What to capture (important for report)
 
 Use:
