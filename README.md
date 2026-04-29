@@ -29,3 +29,45 @@ This laboratory assignment explores common network attacks and the mechanisms us
 * Cisco c3725
 * VPCS
 * saar-tools container
+
+## Notes for the report
+
+### RIP Poisoning
+
+#### What to capture (important for report)
+
+Use:
+- Wireshark
+- Cisco CLI
+- Browser screenshots
+
+Show:
+- Normal RIP updates
+- Fake RIP packets
+- Routing table BEFORE / AFTER
+- Browser redirection
+
+#### AI prediction (for your report)
+
+AI predicts that:
+-Longer prefix → preferred route
+-Auto-summary reduces attack effectiveness
+
+👉 Then compare with your results.
+
+#### Final insight (for your discussion)
+
+This attack works because:
+- RIP has no integrity by default
+- Trusts any received update
+- No validation of source
+
+#### Feasibility (your opinion section)
+
+Real-world:
+- ❌ Rare today (RIP mostly obsolete)
+- ✅ Still relevant conceptually:
+
+Similar attacks exist in:
+- BGP hijacking
+- OSPF attacks
