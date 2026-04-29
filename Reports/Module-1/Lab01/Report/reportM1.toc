@@ -11,8 +11,14 @@
 \contentsline {subsubsection}{\numberline {2.3.2}AI Prediction}{6}{subsubsection.2.3.2}%
 \contentsline {subsubsection}{\numberline {2.3.3}Switch Comparison}{6}{subsubsection.2.3.3}%
 \contentsline {subsubsection}{\numberline {2.3.4}Feasibility}{6}{subsubsection.2.3.4}%
-\contentsline {subsection}{\numberline {2.4}ARP poisoning (MitM)}{6}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}DNS spoofing}{6}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}RIP poisoning}{6}{subsection.2.6}%
-\contentsline {section}{\numberline {3}Firewalls}{7}{section.3}%
-\contentsline {section}{\numberline {4}AAA}{8}{section.4}%
+\contentsline {subsection}{\numberline {2.4}ARP poisoning (MitM)}{7}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Network Topology}{7}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Attack and Countermeasure}{7}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Defense Statistics}{8}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}AI Configuration vs Experimental Setup}{9}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}Switch Comparison}{9}{subsubsection.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.6}Feasibility}{9}{subsubsection.2.4.6}%
+\contentsline {subsection}{\numberline {2.5}DNS spoofing}{9}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}RIP poisoning}{9}{subsection.2.6}%
+\contentsline {section}{\numberline {3}Firewalls}{10}{section.3}%
+\contentsline {section}{\numberline {4}AAA}{11}{section.4}%
