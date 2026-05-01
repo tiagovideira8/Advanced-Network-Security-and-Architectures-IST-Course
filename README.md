@@ -100,3 +100,44 @@ Real-world:
 Similar attacks exist in:
 - BGP hijacking
 - OSPF attacks
+
+### What to write on the auto summary ON/OFF section
+
+What SHOULD happen (in theory)
+
+If auto-summary interferes, you might see:  
+| Scenario               | Expected Effect                |
+| ---------------------- | ------------------------------ |
+| Attacker sends `/25`   | Gets summarized → becomes `/8` |
+| Router compares routes | Loses specificity advantage    |
+| Result                 | Attack may fail                |
+
+What YOU are seeing
+
+    “Nothing changed, attack worked the same”
+
+That means:
+- Your /25 route is NOT being summarized
+- Routers are still receiving and using it as /25
+
+**Why auto-summary has no effect here**
+
+This is the key insight for your report.
+
+Auto-summary only matters when:
+
+    Routes cross major network boundaries
+
+In your lab:
+- All relevant networks are already cleanly separated:
+- 10.0.0.0/24
+- 172.16.0.0/24
+- 192.168.x.x
+
+👉 There’s no ambiguous classful boundary being crossed
+
+**What you should conclude (VERY IMPORTANT for report)**
+
+Instead of forcing a difference, explain this:
+
+    “In our topology, enabling auto-summary did not affect the attack because the injected route did not cross a classful boundary where summarization would apply.”
