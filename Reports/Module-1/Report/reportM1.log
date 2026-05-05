@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.31)  29 APR 2026 17:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.31)  5 MAY 2026 17:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -494,7 +494,7 @@ Package hyperref Info: Link coloring ON on input line 61.
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 61.
-<../Images/IST_A.png, id=98, 709.6914pt x 394.1124pt>
+<../Images/IST_A.png, id=178, 709.6914pt x 394.1124pt>
 File: ../Images/IST_A.png Graphic file (type png)
 <use ../Images/IST_A.png>
 Package pdftex.def Info: ../Images/IST_A.png  used on input line 69.
@@ -510,75 +510,109 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 90.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [0
 
-{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <../Images/IST_A.png>] (./reportM1.toc)
+{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <../Images/IST_A.png>] (./reportM1.toc [1])
 \tf@toc=\write4
 \openout4 = `reportM1.toc'.
 
- [1] [2] [3{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-<../Images/wireshark1.jpeg, id=153, 1371.1225pt x 673.51625pt>
+ [2] [3] [4{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+<../Images/wireshark1.jpeg, id=258, 1371.1225pt x 673.51625pt>
 File: ../Images/wireshark1.jpeg Graphic file (type jpg)
 <use ../Images/wireshark1.jpeg>
 Package pdftex.def Info: ../Images/wireshark1.jpeg  used on input line 175.
 (pdftex.def)             Requested size: 483.69687pt x 237.59436pt.
- [4 <../Images/wireshark1.jpeg>]
-<../Images/wireshark2.png, id=164, 916.42375pt x 75.28125pt>
+ [5 <../Images/wireshark1.jpeg>]
+<../Images/wireshark2.png, id=268, 916.42375pt x 75.28125pt>
 File: ../Images/wireshark2.png Graphic file (type png)
 <use ../Images/wireshark2.png>
 Package pdftex.def Info: ../Images/wireshark2.png  used on input line 208.
 (pdftex.def)             Requested size: 483.69687pt x 39.73459pt.
-<../Images/wireshark3.png, id=166, 876.27374pt x 238.8925pt>
+<../Images/wireshark3.png, id=270, 876.27374pt x 238.8925pt>
 File: ../Images/wireshark3.png Graphic file (type png)
 <use ../Images/wireshark3.png>
 Package pdftex.def Info: ../Images/wireshark3.png  used on input line 217.
 (pdftex.def)             Requested size: 483.69687pt x 131.86879pt.
- [5 <../Images/wireshark2.png> <../Images/wireshark3.png>] [6]
-<../Images/topologiaARP.png, id=184, 555.07375pt x 317.185pt>
+ [6 <../Images/wireshark2.png> <../Images/wireshark3.png>]
+<../Images/topologiaARP.png, id=283, 555.07375pt x 317.185pt>
 File: ../Images/topologiaARP.png Graphic file (type png)
 <use ../Images/topologiaARP.png>
-Package pdftex.def Info: ../Images/topologiaARP.png  used on input line 250.
+Package pdftex.def Info: ../Images/topologiaARP.png  used on input line 248.
 (pdftex.def)             Requested size: 290.22107pt x 165.84218pt.
-<../Images/ARPoison.png, id=186, 1352.05125pt x 631.35875pt>
+ [7 <../Images/topologiaARP.png (PNG copy)>]
+<../Images/ARPoison.png, id=291, 1352.05125pt x 631.35875pt>
 File: ../Images/ARPoison.png Graphic file (type png)
 <use ../Images/ARPoison.png>
 Package pdftex.def Info: ../Images/ARPoison.png  used on input line 263.
 (pdftex.def)             Requested size: 435.32422pt x 203.28168pt.
-<../Images/blockedattacks.png, id=188, 808.01875pt x 225.84375pt>
+<../Images/blockedattacks.png, id=293, 808.01875pt x 225.84375pt>
 File: ../Images/blockedattacks.png Graphic file (type png)
 <use ../Images/blockedattacks.png>
 Package pdftex.def Info: ../Images/blockedattacks.png  used on input line 272.
 (pdftex.def)             Requested size: 435.32422pt x 121.67467pt.
- [7 <../Images/topologiaARP.png (PNG copy)> <../Images/ARPoison.png>]
-<../Images/logDAI.png, id=197, 887.315pt x 246.9225pt>
+<../Images/logDAI.png, id=295, 887.315pt x 246.9225pt>
 File: ../Images/logDAI.png Graphic file (type png)
 <use ../Images/logDAI.png>
 Package pdftex.def Info: ../Images/logDAI.png  used on input line 281.
 (pdftex.def)             Requested size: 435.32422pt x 121.14001pt.
-<../Images/defencestats.png, id=199, 527.9725pt x 195.73125pt>
+ [8 <../Images/ARPoison.png> <../Images/blockedattacks.png (PNG copy)>]
+<../Images/defencestats.png, id=305, 527.9725pt x 195.73125pt>
 File: ../Images/defencestats.png Graphic file (type png)
 <use ../Images/defencestats.png>
 Package pdftex.def Info: ../Images/defencestats.png  used on input line 291.
 (pdftex.def)             Requested size: 338.58632pt x 125.52142pt.
- [8 <../Images/blockedattacks.png (PNG copy)> <../Images/logDAI.png (PNG copy)> <../Images/defencestats.png (PNG copy)>] [9] [10] [11] (./reportM1.aux)
+ [9 <../Images/logDAI.png (PNG copy)> <../Images/defencestats.png (PNG copy)>]
+<../Images/topologyRIPoisoning.png, id=316, 949.5475pt x 337.26pt>
+File: ../Images/topologyRIPoisoning.png Graphic file (type png)
+<use ../Images/topologyRIPoisoning.png>
+Package pdftex.def Info: ../Images/topologyRIPoisoning.png  used on input line 334.
+(pdftex.def)             Requested size: 435.32422pt x 154.61656pt.
+<../Images/RIPoisoning1.png, id=318, 1000.73875pt x 814.04124pt>
+File: ../Images/RIPoisoning1.png Graphic file (type png)
+<use ../Images/RIPoisoning1.png>
+Package pdftex.def Info: ../Images/RIPoisoning1.png  used on input line 347.
+(pdftex.def)             Requested size: 435.32422pt x 354.10507pt.
+ [10 <../Images/topologyRIPoisoning.png>]
+<../Images/RIPoisoning3.png, id=327, 1129.21875pt x 413.545pt>
+File: ../Images/RIPoisoning3.png Graphic file (type png)
+<use ../Images/RIPoisoning3.png>
+Package pdftex.def Info: ../Images/RIPoisoning3.png  used on input line 358.
+(pdftex.def)             Requested size: 435.32422pt x 159.4267pt.
+ [11 <../Images/RIPoisoning1.png (PNG copy)> <../Images/RIPoisoning3.png>]
+<../Images/RIPoisoning2.png, id=335, 1471.4975pt x 514.92375pt>
+File: ../Images/RIPoisoning2.png Graphic file (type png)
+<use ../Images/RIPoisoning2.png>
+Package pdftex.def Info: ../Images/RIPoisoning2.png  used on input line 369.
+(pdftex.def)             Requested size: 435.32422pt x 152.33333pt.
+<../Images/RIPoisoning4.png, id=338, 1149.29375pt x 255.95625pt>
+File: ../Images/RIPoisoning4.png Graphic file (type png)
+<use ../Images/RIPoisoning4.png>
+Package pdftex.def Info: ../Images/RIPoisoning4.png  used on input line 388.
+(pdftex.def)             Requested size: 435.32422pt x 96.94803pt.
+<../Images/RIPoisoning5.png, id=339, 1134.2375pt x 577.15625pt>
+File: ../Images/RIPoisoning5.png Graphic file (type png)
+<use ../Images/RIPoisoning5.png>
+Package pdftex.def Info: ../Images/RIPoisoning5.png  used on input line 395.
+(pdftex.def)             Requested size: 435.32422pt x 221.51451pt.
+ [12 <../Images/RIPoisoning2.png (PNG copy)> <../Images/RIPoisoning4.png>] [13 <../Images/RIPoisoning5.png (PNG copy)>] [14] [15] [16] [17] [18] (./reportM1.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `reportM1.out' has not changed.
-(rerunfilecheck)             Checksum: C4E2B2D8535DB784E383417E42182601;3423.
+(rerunfilecheck)             Checksum: 4EEBBCE3D00C99D35F4AF3B594C03234;6812.
  ) 
 Here is how much of TeX's memory you used:
- 19087 strings out of 467525
- 373571 string characters out of 5418982
- 842556 words of memory out of 5000000
- 47705 multiletter control sequences out of 15000+600000
- 638381 words of font info for 81 fonts, out of 8000000 for 9000
+ 19211 strings out of 467525
+ 376144 string characters out of 5418982
+ 850070 words of memory out of 5000000
+ 47776 multiletter control sequences out of 15000+600000
+ 638728 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,13n,117p,542b,1076s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on reportM1.pdf (12 pages, 4386360 bytes).
+ 75i,12n,117p,575b,1168s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on reportM1.pdf (19 pages, 4930112 bytes).
 PDF statistics:
- 268 PDF objects out of 1000 (max. 8388607)
- 222 compressed objects within 3 object streams
- 45 named destinations out of 1000 (max. 500000)
- 240 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 458 PDF objects out of 1000 (max. 8388607)
+ 391 compressed objects within 4 object streams
+ 97 named destinations out of 1000 (max. 500000)
+ 430 words of extra memory for PDF output out of 10000 (max. 10000000)
 

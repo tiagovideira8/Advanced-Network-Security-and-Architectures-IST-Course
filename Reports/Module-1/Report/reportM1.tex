@@ -238,8 +238,6 @@ Link: \url{www.tp-link.com/en/home-networking/soho-switch/tl-sf1005d/}
 \subsubsection{Feasibility}  
 The attack is feasible in networks without DHCP snooping, especially when the attacker is closer to the victim than the legitimate DHCP server. However, due to the race condition, success is not guaranteed. When DHCP snooping is enabled, the attack becomes ineffective.
 
-\newpage
-
 \subsection{ARP poisoning (MitM)}
 
 \subsubsection{Network Topology}  
@@ -251,6 +249,8 @@ The ARP poisoning attack was performed in the network shown in Figure~\ref{fig:a
     \caption{Network topology for ARP poisoning attack}
     \label{fig:arp_topology}
 \end{figure}
+
+\newpage
 
 \subsubsection{Attack and Countermeasure}  
 
@@ -320,8 +320,94 @@ Therefore, although the attack is feasible in networks without protection, in th
 
 \subsection{DNS spoofing}
 
-\subsection{RIP poisoning}
 
+
+
+\subsection{RIP Poisoning}
+
+\subsubsection{Network Topology}
+
+The RIP poisoning attack was performed using the topology shown in Figure~\ref{fig:rip_topology}. The Web browser, the legitimate Web server and the fake Web server are located in different subnets, with the attacker collocated with the fake Web server.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{../Images/topologyRIPoisoning.png}
+    \caption{Network topology used for the RIP poisoning attack}
+    \label{fig:rip_topology}
+\end{figure}
+
+\subsubsection{Attack and Countermeasure}
+
+The attacker sent forged RIPv2 Response messages in order to poison the routing tables of the routers. These messages advertised a route to the legitimate Web server network through the attacker, causing traffic from the browser to be redirected to the fake Web server.
+
+As shown in Figure~\ref{fig:rip_packets}, Wireshark captured multiple RIPv2 Response packets sent to the multicast address \texttt{224.0.0.9}, which is used by RIPv2 routers. The captured packet advertises the network \texttt{10.0.0.0} with metric 5 and subnet mask \texttt{255.255.255.128}, showing that the attacker injected routing information into the network.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{../Images/RIPoisoning1.png}
+    \caption{Forged RIPv2 response advertising a route to the target network}
+    \label{fig:rip_packets}
+\end{figure}
+
+The effect of the attack was confirmed in the browser. As shown in Figure~\ref{fig:rip_fake_server}, the Web browser was redirected to the fake Web server, displaying the message \textit{``FAKE SERVER - ATTACK SUCCESS''}.
+
+\vspace{0.3cm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{../Images/RIPoisoning3.png}
+    \caption{Browser redirected to the fake Web server}
+    \label{fig:rip_fake_server}
+\end{figure}
+
+\newpage
+
+Additional Wireshark captures show TCP and HTTP communication between the browser and the fake server, confirming that the traffic was redirected after the routing tables were poisoned.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{../Images/RIPoisoning2.png}
+    \caption{TCP and HTTP traffic redirected to the fake Web server}
+    \label{fig:rip_tcp}
+\end{figure}
+
+As a countermeasure, RIPv2 authentication can be enabled on the routers. With authentication, routers only accept RIP updates from trusted devices, preventing forged routing updates from being installed in the routing table.
+
+\subsubsection{Effectiveness of the Attack}
+
+The success of the attack depends on the relative location of the browser, legitimate Web server and fake Web server. Since the attacker is placed near the fake Web server, it can advertise a route that makes the fake server appear as a better path to the target network.
+
+The prefix length advertised by the attacker is also important. A more specific prefix is preferred due to the longest prefix match rule. Therefore, if the attacker advertises a more specific route than the legitimate one, the routers may select the malicious route.
+
+RIP auto-summary can reduce the effectiveness of the attack because it summarizes routes at classful network boundaries. When auto-summary is disabled, more specific routes can be advertised, making the attack more effective.
+
+Figures~\ref{fig:rip_filtered} and \ref{fig:rip_multicast} show repeated RIPv2 Response messages, confirming that the attacker continuously injected routing updates into the network.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{../Images/RIPoisoning4.png}
+    \caption{Filtered RIPv2 packets sent to multicast address 224.0.0.9}
+    \label{fig:rip_filtered}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{../Images/RIPoisoning5.png}
+    \caption{Repeated RIPv2 responses observed during the attack}
+    \label{fig:rip_multicast}
+\end{figure}
+
+\subsubsection{AI Prediction vs Experimental Results}
+
+The AI predicted that the attacker would be more successful when advertising a more specific prefix, because routers prefer the longest prefix match. It also predicted that disabling RIP auto-summary would make the attack more effective, since the malicious route would not be summarized.
+
+This prediction matched the experimental behavior. The captured RIP packets show that the attacker advertised specific routing information, and the browser traffic was redirected to the fake Web server. Therefore, the observed results confirm that prefix length and auto-summary directly influence route selection.
+
+\subsubsection{Feasibility}
+
+This attack is feasible in networks using RIP without authentication. Since RIP accepts routing updates from neighboring devices, an attacker can inject forged routes and redirect traffic.
+
+However, in modern networks, RIP is less common and authentication can prevent this attack. Therefore, the attack is mainly feasible in poorly configured or legacy networks.
 
 
 %% DAQUI PARA BAIXO LAB 2 E 3
@@ -330,8 +416,111 @@ Therefore, although the attack is feasible in networks without protection, in th
 
 \section {Firewalls}
 
+\subsection{Classical firewalls versus Zone-Based Policy Firewalls}
+
+\subsubsection{Firewall Validation}
+
+The firewall must enforce the following rules:
+\begin{enumerate}
+    \item Block all traffic from INSIDE to OUTSIDE;
+    \item Allow only ICMP and HTTP traffic from OUTSIDE to the server;
+    \item Deny access to the firewall interfaces.
+\end{enumerate}
+
+\subsubsection{Classical Firewall (CBAC)}
+
+In the classical firewall, traffic filtering is based on ACLs combined with stateful inspection rules. As shown in the slides, inspection rules only track sessions and do not impose restrictions by themselves.
+
+Initially, the configuration allowed access to multiple server ports because the ACL was too permissive. This confirms that \textbf{inspect rules do not have an implicit deny}, meaning that unwanted traffic may still pass if not explicitly blocked.
+
+After correcting the ACLs, the observed behavior was:
+\begin{enumerate}
+    \item Only HTTP and ICMP traffic to the server was allowed;
+    \item All other ports were classified as filtered by NMAP;
+    \item No traffic from INSIDE to OUTSIDE was possible due to explicit deny rules.
+\end{enumerate}
+
+\subsubsection{ZBPF}
+
+In ZBPF, interfaces are assigned to zones and policies are applied between zones. By default, traffic between different zones is dropped unless a policy is defined.
+
+After configuration, the firewall behavior was:
+\begin{enumerate}
+    \item Only explicitly permitted traffic (HTTP and ICMP to the server) was allowed;
+    \item All other inter-zone traffic was blocked by default;
+    \item Access to firewall interfaces was denied (controlled via the self zone).
+\end{enumerate}
+
+Therefore, both firewalls satisfy the specification, but ZBPF enforces it more naturally due to its default deny model.
+
+\newpage
+
+\subsection{NMAP Operation}
+
+NMAP is used to discover hosts and scan ports by actively probing the network.
+
+\subsubsection{Host Discovery}
+
+When using \texttt{nmap -sn}, NMAP determines if hosts are active by sending:
+\begin{enumerate}
+    \item ICMP Echo requests;
+    \item TCP SYN packets to common ports (e.g., port 80);
+    \item ARP requests in local networks.
+\end{enumerate}
+
+A host is considered active if it replies to any of these probes.
+
+\subsubsection{Port Scanning}
+
+For port scanning, NMAP typically uses a TCP SYN scan:
+\begin{enumerate}
+    \item SYN-ACK response $\Rightarrow$ port is open;
+    \item RST response $\Rightarrow$ port is closed;
+    \item No response or ICMP error $\Rightarrow$ port is filtered.
+\end{enumerate}
+
+This method is efficient because it does not complete the TCP connection, allowing fast scanning of multiple ports.
+
+\subsection{CBAC vs ZBPF}
+
+The main differences between CBAC and ZBPF are:
+
+\begin{enumerate}
+    \item \textbf{Configuration model:}  
+    CBAC is interface-based and relies on ACLs plus inspection rules, while ZBPF is zone-based and uses zone-pairs, class-maps, and policy-maps.
+
+    \item \textbf{Default behavior:}  
+    In CBAC, traffic may be allowed unless explicitly denied by ACLs. In ZBPF, traffic between zones is denied by default unless a policy allows it.
+
+    \item \textbf{Stateful inspection:}  
+    Both support stateful inspection, but in CBAC it depends on inspect rules applied to interfaces, whereas in ZBPF it is integrated into policy actions (inspect, pass, drop).
+
+    \item \textbf{Security and control:}  
+    ZBPF provides stricter and more modular control, since all inter-zone traffic must be explicitly defined. CBAC is less structured and more prone to configuration errors.
+\end{enumerate}
+
+In conclusion, although both approaches can enforce the required policy, ZBPF offers a more robust, scalable, and secure solution.
+
+\subsection{Protecting a campus network using a ZBPF}
+
+\subsection{Defense against DoS attacks}
+
 \newpage
 
 \section {AAA}
+
+\subsection{AAA with TACACS+}
+
+\subsection{AAA with Radius}
+
+\subsection{802.1X Authentication}
+
+\newpage
+
+\section{Conclusion}
+
+\newpage
+
+\section{Appendix}
 
 \end{document}
