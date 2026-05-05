@@ -503,6 +503,93 @@ In conclusion, although both approaches can enforce the required policy, ZBPF of
 
 \subsection{Protecting a campus network using a ZBPF}
 
+\subsubsection{Network Topology}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{topo_firewalls2.png}
+    \caption{Campus network protected by a ZBPF firewall}
+\end{figure}
+
+The network is divided into four security zones: two private zones (PR1 and PR2), a DMZ, and an external zone (OUT) representing the Internet. The firewall is implemented on a Cisco 7200 router and is responsible for enforcing all security policies between zones.
+
+The DMZ contains three servers providing Web, Email, and DNS services. These servers must be accessible from other zones under controlled conditions, while the private zones must remain isolated from each other and protected from external access.
+
+\subsubsection{Initial Configuration and Connectivity}
+
+All devices were first configured with IP addresses according to their respective subnets. Default gateways were defined on all hosts, pointing to the firewall interfaces.
+
+The private zones PR1 and PR2 use addressing from the range 10.0.0.0/8, while the DMZ and OUT zones use distinct address spaces.
+
+The routers acting as servers (Web, Email, and DNS) were configured with IP routing disabled using the \texttt{no ip routing} command, ensuring they operate as end hosts rather than routers.
+
+Before implementing firewall policies, full connectivity between all devices was verified using \texttt{ping}. Additionally, all services (HTTP, HTTPS, DNS, and Email-related ports) were tested to confirm correct operation.
+
+\subsubsection{Firewall Configuration}
+
+\paragraph{Zone Definition}
+
+The firewall was configured using a Zone-Based Policy Firewall (ZBPF). Four zones were defined: PR1, PR2, DMZ, and OUT. Each interface of the firewall was assigned to one of these zones.
+
+This approach allows traffic control to be defined explicitly between zones. By default, all traffic between different zones is denied unless a policy is configured, which increases security by enforcing a default deny model.
+
+\paragraph{NAT Configuration}
+
+Network Address Translation (NAT) with overload was configured to allow hosts in the private zones to communicate with the OUT zone. This translates private IP addresses into a public address, enabling Internet access while hiding internal addressing.
+
+The NAT configuration was applied to both PR1 and PR2 zones.
+
+\paragraph{Policy Definition}
+
+Traffic policies were implemented using ACLs, class-maps, and policy-maps.
+
+ACLs were used to define which traffic is allowed to specific servers. Separate ACLs were created for the Web, Email, and DNS servers in the DMZ.
+
+Class-maps were used to associate these ACLs with traffic classes. A modular approach was adopted, where individual class-maps were combined into higher-level class-maps representing groups of services.
+
+Policy-maps were then defined to specify the action for each class. The \texttt{inspect} action was used to allow stateful communication, while all other traffic was dropped using the default class.
+
+Finally, zone-pairs were created to apply these policies between specific zones, such as PR1-to-OUT, PR1-to-DMZ, and OUT-to-DMZ.
+
+\paragraph{Example Configuration}
+
+The following example illustrates the policy applied from the OUT zone to the DMZ:
+
+\begin{verbatim}
+ip access-list extended OUT_TO_DMZ
+ permit tcp any host 172.16.0.10 eq 80
+ permit tcp any host 172.16.0.10 eq 443
+ permit tcp any host 172.16.0.20 eq 25
+ permit udp any host 172.16.0.30 eq 53
+ permit icmp any any
+
+class-map type inspect match-any OUT_DMZ_CLASS
+ match access-group name OUT_TO_DMZ
+
+policy-map type inspect OUT_DMZ_POLICY
+ class type inspect OUT_DMZ_CLASS
+  inspect
+ class class-default
+  drop
+
+zone-pair security OUT_TO_DMZ source OUT destination DMZ
+ service-policy type inspect OUT_DMZ_POLICY
+\end{verbatim}
+
+No zone-pairs were defined between PR1 and PR2, nor from OUT or DMZ towards the private zones. As a result, these communications are implicitly denied by the ZBPF default behavior.
+
+\subsubsection{Testing and Validation}
+
+The following tests were performed:
+
+\begin{enumerate}
+    \item Communication between PR1 and PR2 was tested and correctly blocked;
+    \item Access from the OUT zone to the private zones was denied;
+    \item Access from the OUT zone to the DMZ was allowed only for HTTP, HTTPS, SMTP, DNS, and ICMP;
+    \item Communication from the private zones to the OUT zone was limited to HTTP, HTTPS, DNS, and ICMP;
+    \item Communication from the private zones to the DMZ was allowed only for the specified services and servers.
+\end{enumerate}
+
 \subsection{Defense against DoS attacks}
 
 \newpage
