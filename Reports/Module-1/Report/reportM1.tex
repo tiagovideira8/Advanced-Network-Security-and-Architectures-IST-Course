@@ -582,15 +582,121 @@ No zone-pairs were defined between PR1 and PR2, nor from OUT or DMZ towards the 
 
 \subsubsection{Testing and Validation}
 
-The following tests were performed:
+The firewall configuration was validated using NMAP and Wireshark to verify that all specified policies were correctly enforced.
 
 \begin{enumerate}
-    \item Communication between PR1 and PR2 was tested and correctly blocked;
-    \item Access from the OUT zone to the private zones was denied;
-    \item Access from the OUT zone to the DMZ was allowed only for HTTP, HTTPS, SMTP, DNS, and ICMP;
-    \item Communication from the private zones to the OUT zone was limited to HTTP, HTTPS, DNS, and ICMP;
-    \item Communication from the private zones to the DMZ was allowed only for the specified services and servers.
+
+\item \textbf{Communication between PR1 and PR2}
+
+Communication between the private zones was tested using NMAP:
+
+\begin{verbatim}
+nmap 10.2.2.10
+\end{verbatim}
+
+The scan reported that the host was down, and no responses were received. When forcing the scan using \texttt{-Pn}, no ports were discovered.
+
+This behavior confirms that traffic between PR1 and PR2 is blocked by the firewall. Wireshark captures show outgoing probes with no replies, indicating that packets are dropped at the firewall.
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{../Images/Nmap_PR_to_PR(no replies).png}
+\end{center}
+
+\item \textbf{Communication from PR1 to the OUT zone (NAT validation)}
+
+The following scan was performed:
+
+\begin{verbatim}
+nmap -Pn 200.0.0.10
+\end{verbatim}
+
+The results show that only the allowed services (HTTP and HTTPS) are reachable, while all other ports are filtered:
+
+\begin{verbatim}
+80/tcp  closed
+443/tcp closed
+\end{verbatim}
+
+Wireshark captures confirm that packets are translated using NAT overload, with the source IP replaced by the firewall's public interface address. This validates correct NAT operation.
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{../Images/Nmap_PR_to_OUT(NAT proof).png}
+\end{center}
+
+\item \textbf{Communication from PR1 to the DMZ}
+
+The DMZ web server was tested using:
+
+\begin{verbatim}
+nmap 172.16.0.10
+\end{verbatim}
+
+The scan results show that only HTTP and HTTPS services are accessible:
+
+\begin{verbatim}
+80/tcp  open
+443/tcp open
+\end{verbatim}
+
+All other ports are filtered. This confirms that the firewall allows only the specified services to the appropriate DMZ server.
+
+Wireshark captures further confirm successful TCP handshakes for allowed services and no response for filtered traffic.
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{../Images/nmap_PR_to_DMZ(working proof).png}
+\end{center}
+
+\item \textbf{Access from the OUT zone to private zones}
+
+Attempts to reach hosts in the private zones from the OUT zone were unsuccessful:
+
+\begin{verbatim}
+nmap 10.1.1.10
+ping 10.1.1.10
+\end{verbatim}
+
+No responses were received, confirming that private zones are not accessible from external networks, as required.
+
+\item \textbf{Access from the OUT zone to the DMZ}
+
+The DMZ web server was scanned from the OUT zone:
+
+\begin{verbatim}
+nmap 172.16.0.10
+\end{verbatim}
+
+The results show that only HTTP and HTTPS services are accessible, while all other ports are filtered. This confirms that the firewall correctly enforces restricted public access to DMZ services.
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{../Images/nmap_OUT_to_DMZ.png}
+\end{center}
+
+\item \textbf{Access to the firewall (SSH policy)}
+
+Access to the firewall was tested using SSH from the private zone.
+
+Due to differences between modern SSH clients and the cryptographic algorithms supported by Cisco IOS, additional options were required:
+
+\begin{verbatim}
+ssh -oKexAlgorithms=+diffie-hellman-group14-sha1 \
+    -o HostKeyAlgorithms=+ssh-rsa \
+    -o Ciphers=+aes128-cbc \
+    admin@10.1.1.254
+\end{verbatim}
+
+After this adjustment, SSH access was successfully established, confirming that management access to the firewall is permitted.
+
+Attempts to access the firewall using Telnet were unsuccessful:
+
+\begin{verbatim}
+telnet 10.1.1.254 23
+\end{verbatim}
+
+This confirms that only SSH is allowed for firewall management, while other protocols are correctly blocked.
+
 \end{enumerate}
+
+Overall, the results demonstrate that the firewall enforces all specified policies, including inter-zone isolation, controlled service access, and NAT for private networks.
 
 \subsection{Defense against DoS attacks}
 

@@ -301,3 +301,98 @@ zone-pair security PR1_TO_DMZ source PR1 destination DMZ
 
 zone-pair security PR2_TO_DMZ source PR2 destination DMZ
  service-policy type inspect PR_DMZ_POLICY
+
+### Test results (second exercise of the firewalls lab)
+
+PR1->OUT and then PR1->DMZ:
+
+root@PR1:/# nmap 200.0.0.10
+Starting Nmap 7.80 ( https://nmap.org ) at 2026-05-06 11:19 UTC
+mass_dns: warning: Unable to determine any DNS servers. Reverse DNS is disabled. Try using --system-dns or specify valid servers with --dns-servers
+Nmap scan report for 200.0.0.10
+Host is up (0.020s latency).
+Not shown: 998 filtered ports
+PORT    STATE  SERVICE
+80/tcp  closed http
+443/tcp closed https
+
+Nmap done: 1 IP address (1 host up) scanned in 4.58 seconds
+root@PR1:/# nmap 172.16.0.10
+Starting Nmap 7.80 ( https://nmap.org ) at 2026-05-06 11:19 UTC
+mass_dns: warning: Unable to determine any DNS servers. Reverse DNS is disabled. Try using --system-dns or specify valid servers with --dns-servers
+Nmap scan report for 172.16.0.10
+Host is up (0.016s latency).
+Not shown: 998 filtered ports
+PORT    STATE SERVICE
+80/tcp  open  http
+443/tcp open  https
+
+Nmap done: 1 IP address (1 host up) scanned in 4.57 seconds
+
+wireshark capture screenshot:
+
+../Images/nmap_PR_to_DMZ(working proof).png
+
+PR->PR
+
+root@PR1:/# nmap 10.2.2.10
+Starting Nmap 7.80 ( https://nmap.org ) at 2026-05-06 11:21 UTC
+mass_dns: warning: Unable to determine any DNS servers. Reverse DNS is disabled. Try using --system-dns or specify valid servers with --dns-servers
+Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn
+Nmap done: 1 IP address (0 hosts up) scanned in 3.10 seconds
+root@PR1:/# nmap -Pn 10.2.2.10
+Starting Nmap 7.80 ( https://nmap.org ) at 2026-05-06 11:21 UTC
+mass_dns: warning: Unable to determine any DNS servers. Reverse DNS is disabled. Try using --system-dns or specify valid servers with --dns-servers
+
+root@PR1:/# 
+
+Wireshark capute screenshot:
+
+../Images/Nmap_PR_to_PR(no replies).png
+
+PR → OUT (NAT proof)
+
+root@PR1:/# nmap -Pn 200.0.0.10
+Starting Nmap 7.80 ( https://nmap.org ) at 2026-05-06 11:26 UTC
+mass_dns: warning: Unable to determine any DNS servers. Reverse DNS is disabled. Try using --system-dns or specify valid servers with --dns-servers
+Nmap scan report for 200.0.0.10
+Host is up (0.015s latency).
+Not shown: 998 filtered ports
+PORT    STATE  SERVICE
+80/tcp  closed http
+443/tcp closed https
+
+Nmap done: 1 IP address (1 host up) scanned in 6.43 seconds
+
+Wireshark capute screenshot:
+
+../Images/Nmap_PR_to_OUT(NAT proof).png
+
+Configuration ssh on firewall:
+
+line vty 0 4
+ transport input ssh
+ login local
+
+username admin secret cisco
+ip domain-name lab.local
+crypto key generate rsa
+
+
+
+Access to firewall via ssh on PR1:
+
+root@PR1:/# ssh -o KexAlgorithms=+diffie-hellman-group14-sha1 \
+>     -o HostKeyAlgorithms=+ssh-rsa \
+>     -o Ciphers=+aes128-cbc \
+>     admin@10.1.1.254
+The authenticity of host '10.1.1.254 (10.1.1.254)' can't be established.
+RSA key fingerprint is SHA256:6d604yy3K7nXktvI7R3hnSa7Sbk6n0O3hWh9gPm1ky8.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '10.1.1.254' (RSA) to the list of known hosts.
+Password: 
+
+Firewall>
+Firewall>exit
+Connection to 10.1.1.254 closed by remote host.
+Connection to 10.1.1.254 closed.
