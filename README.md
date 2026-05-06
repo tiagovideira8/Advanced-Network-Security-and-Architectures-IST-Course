@@ -141,3 +141,163 @@ In your lab:
 Instead of forcing a difference, explain this:
 
     “In our topology, enabling auto-summary did not affect the attack because the injected route did not cross a classful boundary where summarization would apply.”
+
+### Commands used and results for second firewall exercise
+
+**interface configuration**
+
+conf t
+
+interface f0/0
+ ip address 10.1.1.254 255.255.255.0
+ no shut
+
+interface f1/0
+ ip address 10.2.2.254 255.255.255.0
+ no shut
+
+interface f2/0
+ ip address 172.16.0.254 255.255.255.0
+ no shut
+
+interface f3/0
+ ip address 200.0.0.254 255.255.255.0
+ no shut
+
+end
+
+**define inside/outside**
+
+conf t
+
+interface f0/0
+ ip nat inside
+
+interface f1/0
+ ip nat inside
+
+interface f3/0
+ ip nat outside
+
+**ACL and NAT overload**
+
+ip access-list standard NAT_INSIDE
+ permit 10.0.0.0 0.255.255.255
+
+exit
+
+ip nat inside source list NAT_INSIDE interface f3/0 overload
+
+**Sanity check**
+
+From PR1:
+
+ping 200.0.0.10
+
+Then on firewall:
+
+show ip nat translations
+
+✔ You MUST see translation like:
+
+10.1.1.10 → 200.0.0.254
+
+**Define zones**
+
+conf t
+
+zone security PR1
+zone security PR2
+zone security DMZ
+zone security OUT
+
+**assign interfaces**
+
+interface f0/0
+ zone-member security PR1
+
+interface f1/0
+ zone-member security PR2
+
+interface f2/0
+ zone-member security DMZ
+
+interface f3/0
+ zone-member security OUT
+
+end
+
+**PR->OUT Policy**
+
+**ACL**
+
+conf t
+
+ip access-list extended PR_TO_OUT
+ permit tcp any any eq 80
+ permit tcp any any eq 443
+ permit udp any any eq 53
+ permit icmp any any
+
+**Class map**
+
+class-map type inspect match-any PR_OUT_CLASS
+ match access-group name PR_TO_OUT
+
+**Policy**
+
+policy-map type inspect PR_OUT_POLICY
+ class type inspect PR_OUT_CLASS
+  inspect
+ class class-default
+  drop
+
+**Apply**
+
+zone-pair security PR1_TO_OUT source PR1 destination OUT
+ service-policy type inspect PR_OUT_POLICY
+
+zone-pair security PR2_TO_OUT source PR2 destination OUT
+ service-policy type inspect PR_OUT_POLICY
+
+**PR-DMZ**
+
+**ACL**
+
+conf t
+
+ip access-list extended PR_TO_DMZ
+ permit icmp any host 172.16.0.10
+ permit icmp any host 172.16.0.20
+ permit icmp any host 172.16.0.30
+
+ permit tcp any host 172.16.0.10 eq 80
+ permit tcp any host 172.16.0.10 eq 443
+
+ permit tcp any host 172.16.0.20 eq 25
+ permit tcp any host 172.16.0.20 eq 110
+ permit tcp any host 172.16.0.20 eq 143
+
+ permit udp any host 172.16.0.30 eq 53
+ permit tcp any host 172.16.0.30 eq 53
+
+**Class-map**
+
+class-map type inspect match-any PR_DMZ_CLASS
+ match access-group name PR_TO_DMZ
+
+**Policy**
+
+policy-map type inspect PR_DMZ_POLICY
+ class type inspect PR_DMZ_CLASS
+  inspect
+ class class-default
+  drop
+
+**Apply**
+
+zone-pair security PR1_TO_DMZ source PR1 destination DMZ
+ service-policy type inspect PR_DMZ_POLICY
+
+zone-pair security PR2_TO_DMZ source PR2 destination DMZ
+ service-policy type inspect PR_DMZ_POLICY
