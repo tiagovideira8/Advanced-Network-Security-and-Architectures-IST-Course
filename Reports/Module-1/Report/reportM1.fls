@@ -344,6 +344,26 @@ INPUT ../Images/topo_firewalls2.png
 INPUT ../Images/topo_firewalls2.png
 INPUT ../Images/topo_firewalls2.png
 INPUT ../Images/topo_firewalls2.png
+INPUT ../Images/Nmap_PR_to_PR(no replies).png
+INPUT ../Images/Nmap_PR_to_PR(no replies).png
+INPUT ../Images/Nmap_PR_to_PR(no replies).png
+INPUT ../Images/Nmap_PR_to_PR(no replies).png
+INPUT ../Images/Nmap_PR_to_PR(no replies).png
+INPUT ../Images/Nmap_PR_to_OUT(NAT proof).png
+INPUT ../Images/Nmap_PR_to_OUT(NAT proof).png
+INPUT ../Images/Nmap_PR_to_OUT(NAT proof).png
+INPUT ../Images/Nmap_PR_to_OUT(NAT proof).png
+INPUT ../Images/Nmap_PR_to_OUT(NAT proof).png
+INPUT ../Images/nmap_PR_to_DMZ(working proof).png
+INPUT ../Images/nmap_PR_to_DMZ(working proof).png
+INPUT ../Images/nmap_PR_to_DMZ(working proof).png
+INPUT ../Images/nmap_PR_to_DMZ(working proof).png
+INPUT ../Images/nmap_PR_to_DMZ(working proof).png
+INPUT ../Images/nmap_OUT_to_DMZ.png
+INPUT ../Images/nmap_OUT_to_DMZ.png
+INPUT ../Images/nmap_OUT_to_DMZ.png
+INPUT ../Images/nmap_OUT_to_DMZ.png
+INPUT ../Images/nmap_OUT_to_DMZ.png
 INPUT reportM1.aux
 INPUT ./reportM1.out
 INPUT ./reportM1.out

@@ -1,7 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1778007011.84789 "/home/ataid_jo/SAAR/Advanced-Network-Security-and-Architectures-IST-Course/Reports/Module-1/Report/reportM1.tex" "reportM1.pdf" "reportM1" 1778007013.62158 0
+["pdflatex"] 1778172545.05757 "/home/ataid_jo/SAAR/Advanced-Network-Security-and-Architectures-IST-Course/Reports/Module-1/Report/reportM1.tex" "reportM1.pdf" "reportM1" 1778172547.52142 0
   "../Images/ARPoison.png" 1778006791.6623 3544168 5c3a235889620f1ed21e3367658d0ed8 ""
   "../Images/IST_A.png" 1778006791.6623 29407 1ad550cd4e61234069258d2834ec97ba ""
+  "../Images/Nmap_PR_to_OUT(NAT proof).png" 1778171994.63638 130797 342e86ec0aac06e2addf001a41882e23 ""
+  "../Images/Nmap_PR_to_PR(no replies).png" 1778171994.63638 278811 aeda6b2c7b506a9a4961c39837cd7a98 ""
   "../Images/RIPoisoning1.png" 1778006791.6623 154886 605c28e19ab1259c0296ad2d937589b4 ""
   "../Images/RIPoisoning2.png" 1778006791.6623 135546 b4269923de518d59436c140de37bcbbe ""
   "../Images/RIPoisoning3.png" 1778006791.6623 38462 8aa65ec38126d709a5cd516e504dc842 ""
@@ -10,6 +12,8 @@
   "../Images/blockedattacks.png" 1778006791.6623 27234 495201ebf15ef7b7d7e77339e929ebc8 ""
   "../Images/defencestats.png" 1778006791.6623 7654 d25c99aeb26ba1a924ef79e13467ccf6 ""
   "../Images/logDAI.png" 1778006791.6623 39886 091137cb5041567085ec906204c990fb ""
+  "../Images/nmap_OUT_to_DMZ.png" 1778171994.64027 192756 17714df9a141f81befb5172c3f3027dc ""
+  "../Images/nmap_PR_to_DMZ(working proof).png" 1778171994.64027 205267 52268270f4aca196e32683bb77425e99 ""
   "../Images/topo_firewalls2.png" 1778006791.6663 57148 f03d4536e6ac40d40ac1624cc661ac8e ""
   "../Images/topologiaARP.png" 1778006791.6663 21790 e801fba8948b1c0692c508595681941f ""
   "../Images/topologyRIPoisoning.png" 1778006791.6663 36846 a2e8755a7f36fc516243309730e21a7a ""
@@ -17,7 +21,7 @@
   "../Images/wireshark2.png" 1778006791.6663 422120 d5df91196c280c333133af7b8363ab2f ""
   "../Images/wireshark3.png" 1778006791.6703 770925 edf7a7f3799fbb86fded6aac4558c149 ""
   "/etc/texmf/web2c/texmf.cnf" 1777045507.75276 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/ataid_jo/SAAR/Advanced-Network-Security-and-Architectures-IST-Course/Reports/Module-1/Report/reportM1.tex" 1778007013.02409 28258 96ffef801de4f023f9177f78ec37fb6f ""
+  "/home/ataid_jo/SAAR/Advanced-Network-Security-and-Architectures-IST-Course/Reports/Module-1/Report/reportM1.tex" 1778172541.17271 31485 0db77f99be6560569f12d79137073cf9 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -150,10 +154,10 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1777045531.67963 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1777045637 8213238 f7f1ddc7879e0990d63469a7d38238bc ""
-  "reportM1.aux" 1778007013.55206 11095 84ff327516e9f7d317fa56fefa1d96a2 "pdflatex"
-  "reportM1.out" 1778007013.55606 7595 b8c5e8bb158c5c8aba46e7114fbc3b30 "pdflatex"
-  "reportM1.tex" 1778007013.02409 28258 96ffef801de4f023f9177f78ec37fb6f ""
-  "reportM1.toc" 1778007013.55606 4551 08218dd4d48efb91d08eccf92cfd17e4 "pdflatex"
+  "reportM1.aux" 1778172547.4338 11095 fe295a699ecc59452a291e405ef5b97f "pdflatex"
+  "reportM1.out" 1778172547.4338 7595 b8c5e8bb158c5c8aba46e7114fbc3b30 "pdflatex"
+  "reportM1.tex" 1778172541.17271 31485 0db77f99be6560569f12d79137073cf9 ""
+  "reportM1.toc" 1778172547.4338 4551 bc24a490587570bdb075915b72f433ab "pdflatex"
   (generated)
   "reportM1.aux"
   "reportM1.log"
