@@ -7,6 +7,50 @@
 \usepackage[utf8]{inputenc} % Codification
 \usepackage[english]{babel} % Writing idiom
 
+\usepackage{listings}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{float}
+
+\definecolor{codebg}{RGB}{245,245,245}
+\definecolor{codeframe}{RGB}{200,200,200}
+
+\lstdefinestyle{CiscoStyle}{
+    backgroundcolor=\color{codebg},
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    breaklines=true,
+    showstringspaces=false,
+    columns=fullflexible
+}
+
+\newtcblisting{configbox}{
+    listing only,
+    colback=codebg,
+    colframe=codeframe,
+    arc=3mm,
+    boxrule=0.5pt,
+    left=2mm,
+    right=2mm,
+    top=1mm,
+    bottom=1mm,
+    listing options={style=CiscoStyle}
+}
+
+\newtcblisting{largeconfigbox}{
+    listing only,
+    breakable,
+    colback=codebg,
+    colframe=codeframe,
+    arc=3mm,
+    boxrule=0.5pt,
+    listing options={
+        style=CiscoStyle,
+        basicstyle=\ttfamily\scriptsize
+    }
+}
+
 \usepackage{graphicx}
 \usepackage[export]{adjustbox} % Align images
 \usepackage{amsmath} % Extra commands for math mode
@@ -543,7 +587,7 @@ Communication between private zones was blocked. NMAP scans returned no response
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\linewidth]{../Images/Nmap_PR_to_PR(no replies).png}
+    \includegraphics[width=1\linewidth]{../Images/Nmap_PR_to_PR(no replies).png}
     \caption{NMAP scan from PR1 to PR2 showing no replies, confirming inter-zone isolation enforced by the firewall}
     \label{fig:pr1_pr2_block}
 \end{figure}
@@ -554,7 +598,7 @@ NAT operation was validated by scanning external hosts. Wireshark captures confi
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\linewidth]{../Images/Nmap_PR_to_OUT(NAT proof).png}
+    \includegraphics[width=1\linewidth]{../Images/Nmap_PR_to_OUT(NAT proof).png}
     \caption{Traffic from PR1 to the OUT zone showing NAT translation and access only to permitted services}
     \label{fig:nat_validation}
 \end{figure}
@@ -565,7 +609,7 @@ Only HTTP and HTTPS services were reachable on the DMZ Web server, while all oth
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\linewidth]{../Images/nmap_PR_to_DMZ(working proof).png}
+    \includegraphics[width=1\linewidth]{../Images/nmap_PR_to_DMZ(working proof).png}
     \caption{NMAP scan from PR1 to the DMZ showing only HTTP and HTTPS services accessible}
     \label{fig:pr1_dmz}
 \end{figure}
@@ -580,7 +624,7 @@ Only the permitted public services were accessible from the OUT zone.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\linewidth]{../Images/nmap_OUT_to_DMZ.png}
+    \includegraphics[width=1\linewidth]{../Images/nmap_OUT_to_DMZ.png}
     \caption{Access from the OUT zone to the DMZ restricted to publicly allowed services}
     \label{fig:out_dmz}
 \end{figure}
@@ -597,88 +641,88 @@ The experimental results confirm that the ZBPF firewall correctly enforces inter
 
 \newpage
 
-\section {AAA}
+\section{AAA}
 
 \subsection{AAA with TACACS+}
 
 \subsubsection{AAA Configuration}
 
-AAA was enabled on the router using the IOS \texttt{aaa new-model} command. A local administrative user was initially configured to guarantee fallback access in case the TACACS+ server became unavailable.
+AAA was enabled on the router using the IOS
+\texttt{aaa new-model} command.
+A local administrative user was initially configured
+to guarantee fallback access in case the TACACS+
+server became unavailable.
 
-\begin{verbatim}
+\begin{configbox}
 username admin privilege 15 password 0 admin
 enable password cisco
 aaa new-model
-\end{verbatim}
+\end{configbox}
 
 The TACACS+ server was then configured on the router:
 
-\begin{verbatim}
+\begin{configbox}
 tacacs server Server-T
-address ipv4 10.0.0.1
-key mysecret123
-\end{verbatim}
+ address ipv4 10.0.0.1
+ key mysecret123
+\end{configbox}
 
-Authentication, authorization, and accounting policies were configured as follows:
+Authentication, authorization, and accounting policies
+were configured as follows:
 
-\begin{verbatim}
+\begin{configbox}
 aaa authentication login default group tacacs+ local
 aaa authorization exec default group tacacs+ local
 aaa authorization commands 15 default group tacacs+ local
 aaa accounting exec default start-stop group tacacs+
-\end{verbatim}
+\end{configbox}
 
 Remote access through Telnet was enabled on the VTY lines:
 
-\begin{verbatim}
+\begin{configbox}
 line vty 0 4
-login authentication default
-transport input telnet
-\end{verbatim}
+ login authentication default
+ transport input telnet
+\end{configbox}
 
-On the TACACS+ server, users and permissions were configured in the file:
+On the TACACS+ server, users and permissions were configured
+in the file:
 
-\begin{verbatim}
+\begin{configbox}
 /etc/tacacs+/tac_plus.conf
-\end{verbatim}
+\end{configbox}
 
 The administrative user was configured with privilege level 15:
 
-\begin{verbatim}
+\begin{configbox}
 user = gns3 {
-login = des HASH
+    login = des HASH
 
-```
-service = exec {
-    priv-lvl = 15
-}
+    service = exec {
+        priv-lvl = 15
+    }
 
-cmd = .* {
-    permit .*
+    cmd = .* {
+        permit .*
+    }
 }
-```
-
-}
-\end{verbatim}
+\end{configbox}
 
 A restricted user was also configured with limited command authorization:
 
-\begin{verbatim}
+\begin{configbox}
 user = readonly {
-login = cleartext "gns3"
+    login = cleartext "gns3"
 
-```
-service = exec {
-    priv-lvl = 1
-}
+    service = exec {
+        priv-lvl = 1
+    }
 
-cmd = show {
-    permit .*
+    cmd = show {
+        permit .*
+    }
 }
-```
-
-}
-\end{verbatim}
+\end{configbox}
 
 \subsubsection{Authentication, Authorization and Accounting}
 
@@ -686,71 +730,71 @@ AAA separates administrative access control into three distinct functions.
 
 \paragraph{Authentication}
 
-Authentication was implemented using TACACS+ server-based login validation. When a Telnet session was initiated, R1 forwarded the supplied username and password to the TACACS+ server for verification.
+Authentication was implemented using TACACS+ server-based
+login validation. When a Telnet session was initiated,
+R1 forwarded the supplied username and password to the
+TACACS+ server for verification.
 
-Authentication was validated by successfully logging into the router using the centralized TACACS+ user accounts. (perguntar ao stor)
+Authentication was validated by successfully logging into
+the router using the centralized TACACS+ user accounts.
 
-\begin{verbatim}
+\begin{configbox}
 root@TelnetClient:~# telnet 222.10.10.254
 
 Username: gns3
 Password:
 
 R1#
-\end{verbatim}
+\end{configbox}
 
 \paragraph{Authorization}
 
-Authorization policies were configured on the TACACS+ server to provide different privilege levels to different users.
+Authorization policies were configured on the TACACS+
+server to provide different privilege levels to different users.
 
-The user \texttt{gns3} received privilege level 15 and full administrative access, while the \texttt{readonly} user was restricted to monitoring commands only.
+The user \texttt{gns3} received privilege level 15 and full
+administrative access, while the \texttt{readonly} user was
+restricted to monitoring commands only.
 
-Authorization was validated by attempting privileged configuration commands using the restricted account.
+Authorization was validated by attempting privileged
+configuration commands using the restricted account.
 
-\begin{verbatim}
+\begin{configbox}
 R1>enable
 Password:
 
 R1#configure terminal
 Command authorization failed
-\end{verbatim}
+\end{configbox}
 
 \paragraph{Accounting}
 
-Accounting was configured to log TACACS+ administrative activity on the AAA server.
+Accounting was configured to log TACACS+ administrative
+activity on the AAA server.
 
-Session information and executed administrative actions were recorded in:
+Session information and executed administrative actions
+were recorded in:
 
-\begin{verbatim}
+\begin{configbox}
 /var/log/tac_plus.acct
-\end{verbatim}
+\end{configbox}
 
-The generated logs include usernames, timestamps, session start and stop events, and command execution information.
+The generated logs include usernames, timestamps,
+session start and stop events, and command execution
+information.
 
-\begin{verbatim}
-# Created by Henry-Nicolas Tourneur(henry.nicolas@tourneur.be)
+\begin{largeconfigbox}
+# Created by Henry-Nicolas Tourneur
 # See man(5) tac_plus.conf for more details
-
-# Define where to log accounting data, this is the default.
 
 accounting file = /var/log/tac_plus.acct
 
-# This is the key that clients have to use to access Tacacs+
-
 key = mysecret123
 
-# Use /etc/passwd file to do authentication
-    
-#default authentication = file /etc/passwd
-
 user = DEFAULT {
-	login = PAM
-	service = ppp protocol = ip {}
+    login = PAM
+    service = ppp protocol = ip {}
 }
-
-# Much more features are availables, like ACL, more service compatibilities,
-# commands authorization, scripting authorization.
-# See the man page for those features.
 
 user = gns3 {
     login = des 0dmbjUvhfS0jk
@@ -777,91 +821,125 @@ user = readonly {
 }
 
 group = admin {
-	default service = permit
-	service = exec {
-		priv-lvl = 15
-		}
-	}
+    default service = permit
+
+    service = exec {
+        priv-lvl = 15
+    }
+}
 
 group = read-only {
-	service = exec {
-		priv-lvl = 15
-		}
-	cmd = show {
-		permit .*
-		}
-	cmd = write {
-		permit term
-		}
-	cmd = dir {
-		permit .*
-		}
-	cmd = admin {
-		permit .*
-		}
-	cmd = terminal {
-		permit .*
-		}
-	cmd = more {
-		permit .*
-		}
-	cmd = exit {
-		permit .*
-		}
-	cmd = logout {
-		permit .*
-		}
+    service = exec {
+        priv-lvl = 15
+    }
+
+    cmd = show {
+        permit .*
+    }
+
+    cmd = write {
+        permit term
+    }
+
+    cmd = dir {
+        permit .*
+    }
+
+    cmd = admin {
+        permit .*
+    }
+
+    cmd = terminal {
+        permit .*
+    }
+
+    cmd = more {
+        permit .*
+    }
+
+    cmd = exit {
+        permit .*
+    }
+
+    cmd = logout {
+        permit .*
+    }
 }
-\end{verbatim}
+\end{largeconfigbox}
 
 \subsubsection{Password Configuration}
 
 Two different types of passwords were configured during the exercise.
 
-The first was the TACACS+ shared secret, used to encrypt communication between the router and the TACACS+ server:
+The first was the TACACS+ shared secret, used to encrypt
+communication between the router and the TACACS+ server:
 
-\begin{verbatim}
+\begin{configbox}
 key = mysecret123
-\end{verbatim}
+\end{configbox}
 
 This same key was configured on both the router and the AAA server.
 
-The second type corresponds to user authentication passwords. Initially, cleartext passwords were used, but later DES-encrypted hashes were configured using the \texttt{tac_pwd} utility.
+The second type corresponds to user authentication passwords.
+Initially, cleartext passwords were used, but later DES-encrypted
+hashes were configured.
 
-\begin{verbatim}
+\begin{configbox}
 tac_pwd
-\end{verbatim}
+\end{configbox}
 
-The generated hash was then inserted into the TACACS+ configuration:
+The generated hash was then inserted into the TACACS+
+configuration:
 
-\begin{verbatim}
+\begin{configbox}
 login = des HASH
-\end{verbatim}
+\end{configbox}
 
-Authentication tests confirmed that users could still successfully log into the router using the original plaintext password, while the TACACS+ server stored only the DES hash.
+Authentication tests confirmed that users could still
+successfully log into the router using the original plaintext
+password, while the TACACS+ server stored only the DES hash.
 
 \subsubsection{Wireshark Analysis}
 
-Wireshark was used to capture and analyze TACACS+ traffic exchanged between the router and the AAA server.
+Wireshark was used to capture and analyze TACACS+ traffic
+exchanged between the router and the AAA server.
 
-TACACS+ communication uses TCP port 49. The packet captures show the establishment of TCP sessions followed by TACACS+ authentication, authorization, and accounting exchanges.
+TACACS+ communication uses TCP port 49.
+The packet captures show the establishment of TCP sessions
+followed by TACACS+ authentication, authorization,
+and accounting exchanges.
 
-\begin{center}
+\begin{figure}[H]
+\centering
 \includegraphics[width=0.9\textwidth]{../Images/TACACS+_avg_display.png}
-\end{center}
+\caption{Wireshark capture of TACACS+ authentication traffic}
+\label{fig:tacacs-wireshark}
+\end{figure}
 
-Authentication packets were generated when users attempted to log into the router. Authorization packets were exchanged when IOS requested permission for command execution and privilege assignment. Accounting packets were generated when user sessions started or ended.
+Authentication packets were generated when users attempted
+to log into the router. Authorization packets were exchanged
+when IOS requested permission for command execution and
+privilege assignment. Accounting packets were generated
+when user sessions started or ended.
 
-Because TACACS+ encrypts packet payloads, Wireshark decryption required the shared secret configured between the router and the TACACS+ server.
+Because TACACS+ encrypts packet payloads, Wireshark decryption
+required the shared secret configured between the router and
+the TACACS+ server.
 
 \subsubsection{Benefits of Server-Based AAA}
 
-Compared to local AAA, server-based AAA provides centralized management of user accounts and permissions across multiple devices.
+Compared to local AAA, server-based AAA provides centralized
+management of user accounts and permissions across multiple devices.
 
-This approach simplifies administration, improves scalability, and enables detailed auditing of administrative activity. TACACS+ also provides granular command authorization, allowing different users to receive different privilege levels and command permissions.
+This approach simplifies administration, improves scalability,
+and enables detailed auditing of administrative activity.
+TACACS+ also provides granular command authorization,
+allowing different users to receive different privilege levels
+and command permissions.
 
-Overall, centralized AAA provides significantly better security, control, and accountability than locally configured authentication alone.
-
+Overall, centralized AAA provides significantly better security,
+control, and accountability than locally configured
+authentication alone.
 
 \subsection{AAA with Radius}
 
