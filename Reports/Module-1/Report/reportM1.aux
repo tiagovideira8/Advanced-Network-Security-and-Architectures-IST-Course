@@ -1,5 +1,5 @@
 \relax 
-\providecommand\babel@aux[2]{}
+\providecommand \babel@aux [2]{\global \let \babel@toc \@gobbletwo }
 \@nameuse{bbl@beforestart}
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyField@AuxAddToFields[1]{}
@@ -70,21 +70,32 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Host Discovery}{15}{subsubsection.3.2.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Port Scanning}{15}{subsubsection.3.2.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}CBAC vs ZBPF}{15}{subsection.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Protecting a campus network using a ZBPF}{16}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Protecting a Campus Network using ZBPF}{16}{subsection.3.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.1}Network Topology}{16}{subsubsection.3.4.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Campus network protected by a ZBPF firewall}}{16}{figure.caption.16}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.2}Initial Configuration and Connectivity}{16}{subsubsection.3.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.3}Firewall Configuration}{17}{subsubsection.3.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Zone Definition}{17}{subsubsection.3.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{NAT Configuration}{17}{subsubsection.3.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Policy Definition}{17}{subsubsection.3.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Example Configuration}{17}{subsubsection.3.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.4}Testing and Validation}{18}{subsubsection.3.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Defense against DoS attacks}{21}{subsection.3.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}AAA}{22}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}AAA with TACACS+}{22}{subsection.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}AAA with Radius}{22}{subsection.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}802.1X Authentication}{22}{subsection.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{23}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Appendix}{24}{section.6}\protected@file@percent }
-\gdef \@abspage@last{25}
+\newlabel{fig:zbpf_topology}{{15}{16}{Campus network protected by a ZBPF firewall}{figure.caption.16}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.2}Firewall Configuration}{16}{subsubsection.3.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.3}Testing and Validation}{17}{subsubsection.3.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{PR1 to PR2}{17}{subsubsection.3.4.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces NMAP scan from PR1 to PR2 showing no replies, confirming inter-zone isolation enforced by the firewall}}{17}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:pr1_pr2_block}{{16}{17}{NMAP scan from PR1 to PR2 showing no replies, confirming inter-zone isolation enforced by the firewall}{figure.caption.17}{}}
+\@writefile{toc}{\contentsline {paragraph}{PR1 to OUT}{17}{figure.caption.17}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Traffic from PR1 to the OUT zone showing NAT translation and access only to permitted services}}{17}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:nat_validation}{{17}{17}{Traffic from PR1 to the OUT zone showing NAT translation and access only to permitted services}{figure.caption.18}{}}
+\@writefile{toc}{\contentsline {paragraph}{PR1 to DMZ}{18}{figure.caption.18}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces NMAP scan from PR1 to the DMZ showing only HTTP and HTTPS services accessible}}{18}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:pr1_dmz}{{18}{18}{NMAP scan from PR1 to the DMZ showing only HTTP and HTTPS services accessible}{figure.caption.19}{}}
+\@writefile{toc}{\contentsline {paragraph}{OUT to Private Zones}{18}{figure.caption.19}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{OUT to DMZ}{18}{figure.caption.19}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Access from the OUT zone to the DMZ restricted to publicly allowed services}}{18}{figure.caption.20}\protected@file@percent }
+\newlabel{fig:out_dmz}{{19}{18}{Access from the OUT zone to the DMZ restricted to publicly allowed services}{figure.caption.20}{}}
+\@writefile{toc}{\contentsline {paragraph}{Firewall Management}{18}{figure.caption.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.4}Conclusion}{19}{subsubsection.3.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Defense against DoS attacks}{19}{subsection.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}AAA}{20}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}AAA with TACACS+}{20}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}AAA with Radius}{20}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}802.1X Authentication}{20}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{21}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Appendix}{22}{section.6}\protected@file@percent }
+\gdef \@abspage@last{23}

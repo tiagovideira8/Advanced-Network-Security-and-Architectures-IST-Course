@@ -503,200 +503,95 @@ In conclusion, although both approaches can enforce the required policy, ZBPF of
 
 \newpage
 
-\subsection{Protecting a campus network using a ZBPF}
+\subsection{Protecting a Campus Network using ZBPF}
 
 \subsubsection{Network Topology}
 
-\begin{figure}[h]
+The network is divided into four security zones: PR1, PR2, DMZ, and OUT, as shown in Figure~\ref{fig:zbpf_topology}.  
+
+The firewall is implemented on a Cisco 7200 router using Zone-Based Policy Firewall (ZBPF). The DMZ contains Web, Email, and DNS servers, while PR1 and PR2 represent private networks.
+
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{../Images/topo_firewalls2.png}
     \caption{Campus network protected by a ZBPF firewall}
+    \label{fig:zbpf_topology}
 \end{figure}
-
-The network is divided into four security zones: two private zones (PR1 and PR2), a DMZ, and an external zone (OUT) representing the Internet. The firewall is implemented on a Cisco 7200 router and is responsible for enforcing all security policies between zones.
-
-The DMZ contains three servers providing Web, Email, and DNS services. These servers must be accessible from other zones under controlled conditions, while the private zones must remain isolated from each other and protected from external access.
-
-\subsubsection{Initial Configuration and Connectivity}
-
-All devices were first configured with IP addresses according to their respective subnets. Default gateways were defined on all hosts, pointing to the firewall interfaces.
-
-The private zones PR1 and PR2 use addressing from the range 10.0.0.0/8, while the DMZ and OUT zones use distinct address spaces.
-
-The routers acting as servers (Web, Email, and DNS) were configured with IP routing disabled using the \texttt{no ip routing} command, ensuring they operate as end hosts rather than routers.
-
-Before implementing firewall policies, full connectivity between all devices was verified using \texttt{ping}. Additionally, all services (HTTP, HTTPS, DNS, and Email-related ports) were tested to confirm correct operation.
 
 \subsubsection{Firewall Configuration}
 
-\paragraph{Zone Definition}
+Four security zones were created and associated with the firewall interfaces. By default, communication between zones is denied unless explicitly permitted.
 
-The firewall was configured using a Zone-Based Policy Firewall (ZBPF). Four zones were defined: PR1, PR2, DMZ, and OUT. Each interface of the firewall was assigned to one of these zones.
+NAT overload was configured to allow private hosts to access the OUT zone while hiding internal IP addresses.
 
-This approach allows traffic control to be defined explicitly between zones. By default, all traffic between different zones is denied unless a policy is configured, which increases security by enforcing a default deny model.
+Traffic policies were implemented using ACLs, class-maps, policy-maps, and zone-pairs. Only the required services were allowed:
+\begin{itemize}
+    \item HTTP/HTTPS to the Web server;
+    \item SMTP to the Email server;
+    \item DNS queries to the DNS server.
+\end{itemize}
 
-\paragraph{NAT Configuration}
-
-Network Address Translation (NAT) with overload was configured to allow hosts in the private zones to communicate with the OUT zone. This translates private IP addresses into a public address, enabling Internet access while hiding internal addressing.
-
-The NAT configuration was applied to both PR1 and PR2 zones.
-
-\paragraph{Policy Definition}
-
-Traffic policies were implemented using ACLs, class-maps, and policy-maps.
-
-ACLs were used to define which traffic is allowed to specific servers. Separate ACLs were created for the Web, Email, and DNS servers in the DMZ.
-
-Class-maps were used to associate these ACLs with traffic classes. A modular approach was adopted, where individual class-maps were combined into higher-level class-maps representing groups of services.
-
-Policy-maps were then defined to specify the action for each class. The \texttt{inspect} action was used to allow stateful communication, while all other traffic was dropped using the default class.
-
-Finally, zone-pairs were created to apply these policies between specific zones, such as PR1-to-OUT, PR1-to-DMZ, and OUT-to-DMZ.
-
-\paragraph{Example Configuration}
-
-The following example illustrates the policy applied from the OUT zone to the DMZ:
-
-\begin{verbatim}
-ip access-list extended OUT_TO_DMZ
- permit tcp any host 172.16.0.10 eq 80
- permit tcp any host 172.16.0.10 eq 443
- permit tcp any host 172.16.0.20 eq 25
- permit udp any host 172.16.0.30 eq 53
- permit icmp any any
-
-class-map type inspect match-any OUT_DMZ_CLASS
- match access-group name OUT_TO_DMZ
-
-policy-map type inspect OUT_DMZ_POLICY
- class type inspect OUT_DMZ_CLASS
-  inspect
- class class-default
-  drop
-
-zone-pair security OUT_TO_DMZ source OUT destination DMZ
- service-policy type inspect OUT_DMZ_POLICY
-\end{verbatim}
-
-No zone-pairs were defined between PR1 and PR2, nor from OUT or DMZ towards the private zones. As a result, these communications are implicitly denied by the ZBPF default behavior.
+No zone-pairs were configured between PR1 and PR2, nor from OUT towards the private zones, resulting in implicit traffic denial.
 
 \subsubsection{Testing and Validation}
 
-The firewall configuration was validated using NMAP and Wireshark to verify that all specified policies were correctly enforced.
+The firewall policies were validated using NMAP and Wireshark.
 
-\begin{enumerate}
+\paragraph{PR1 to PR2}
 
-\item \textbf{Communication between PR1 and PR2}
+Communication between private zones was blocked. NMAP scans returned no responses, confirming inter-zone isolation.
 
-Communication between the private zones was tested using NMAP:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{../Images/Nmap_PR_to_PR(no replies).png}
+    \caption{NMAP scan from PR1 to PR2 showing no replies, confirming inter-zone isolation enforced by the firewall}
+    \label{fig:pr1_pr2_block}
+\end{figure}
 
-\begin{verbatim}
-nmap 10.2.2.10
-\end{verbatim}
+\paragraph{PR1 to OUT}
 
-The scan reported that the host was down, and no responses were received. When forcing the scan using \texttt{-Pn}, no ports were discovered.
+NAT operation was validated by scanning external hosts. Wireshark captures confirmed source address translation using the firewall public IP.
 
-This behavior confirms that traffic between PR1 and PR2 is blocked by the firewall. Wireshark captures show outgoing probes with no replies, indicating that packets are dropped at the firewall.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{../Images/Nmap_PR_to_OUT(NAT proof).png}
+    \caption{Traffic from PR1 to the OUT zone showing NAT translation and access only to permitted services}
+    \label{fig:nat_validation}
+\end{figure}
 
-\begin{center}
-\includegraphics[width=0.8\textwidth]{../Images/Nmap_PR_to_PR(no replies).png}
-\end{center}
+\paragraph{PR1 to DMZ}
 
-\item \textbf{Communication from PR1 to the OUT zone (NAT validation)}
+Only HTTP and HTTPS services were reachable on the DMZ Web server, while all other ports were filtered.
 
-The following scan was performed:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{../Images/nmap_PR_to_DMZ(working proof).png}
+    \caption{NMAP scan from PR1 to the DMZ showing only HTTP and HTTPS services accessible}
+    \label{fig:pr1_dmz}
+\end{figure}
 
-\begin{verbatim}
-nmap -Pn 200.0.0.10
-\end{verbatim}
+\paragraph{OUT to Private Zones}
 
-The results show that only the allowed services (HTTP and HTTPS) are reachable, while all other ports are filtered:
+Connections from the OUT zone to PR1 and PR2 were unsuccessful, confirming that private networks are protected from external access.
 
-\begin{verbatim}
-80/tcp  closed
-443/tcp closed
-\end{verbatim}
+\paragraph{OUT to DMZ}
 
-Wireshark captures confirm that packets are translated using NAT overload, with the source IP replaced by the firewall's public interface address. This validates correct NAT operation.
+Only the permitted public services were accessible from the OUT zone.
 
-\begin{center}
-\includegraphics[width=0.8\textwidth]{../Images/Nmap_PR_to_OUT(NAT proof).png}
-\end{center}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{../Images/nmap_OUT_to_DMZ.png}
+    \caption{Access from the OUT zone to the DMZ restricted to publicly allowed services}
+    \label{fig:out_dmz}
+\end{figure}
 
-\item \textbf{Communication from PR1 to the DMZ}
+\paragraph{Firewall Management}
 
-The DMZ web server was tested using:
+SSH access to the firewall was successful after enabling compatibility options for legacy Cisco IOS cryptographic algorithms. Telnet access was blocked, confirming secure management access.
 
-\begin{verbatim}
-nmap 172.16.0.10
-\end{verbatim}
+\subsubsection{Conclusion}
 
-The scan results show that only HTTP and HTTPS services are accessible:
-
-\begin{verbatim}
-80/tcp  open
-443/tcp open
-\end{verbatim}
-
-All other ports are filtered. This confirms that the firewall allows only the specified services to the appropriate DMZ server.
-
-Wireshark captures further confirm successful TCP handshakes for allowed services and no response for filtered traffic.
-
-\begin{center}
-\includegraphics[width=0.8\textwidth]{../Images/nmap_PR_to_DMZ(working proof).png}
-\end{center}
-
-\item \textbf{Access from the OUT zone to private zones}
-
-Attempts to reach hosts in the private zones from the OUT zone were unsuccessful:
-
-\begin{verbatim}
-nmap 10.1.1.10
-ping 10.1.1.10
-\end{verbatim}
-
-No responses were received, confirming that private zones are not accessible from external networks, as required.
-
-\item \textbf{Access from the OUT zone to the DMZ}
-
-The DMZ web server was scanned from the OUT zone:
-
-\begin{verbatim}
-nmap 172.16.0.10
-\end{verbatim}
-
-The results show that only HTTP and HTTPS services are accessible, while all other ports are filtered. This confirms that the firewall correctly enforces restricted public access to DMZ services.
-
-\begin{center}
-\includegraphics[width=0.8\textwidth]{../Images/nmap_OUT_to_DMZ.png}
-\end{center}
-
-\item \textbf{Access to the firewall (SSH policy)}
-
-Access to the firewall was tested using SSH from the private zone.
-
-Due to differences between modern SSH clients and the cryptographic algorithms supported by Cisco IOS, additional options were required:
-
-\begin{verbatim}
-ssh -oKexAlgorithms=+diffie-hellman-group14-sha1 \
-    -o HostKeyAlgorithms=+ssh-rsa \
-    -o Ciphers=+aes128-cbc \
-    admin@10.1.1.254
-\end{verbatim}
-
-After this adjustment, SSH access was successfully established, confirming that management access to the firewall is permitted.
-
-Attempts to access the firewall using Telnet were unsuccessful:
-
-\begin{verbatim}
-telnet 10.1.1.254 23
-\end{verbatim}
-
-This confirms that only SSH is allowed for firewall management, while other protocols are correctly blocked.
-
-\end{enumerate}
-
-Overall, the results demonstrate that the firewall enforces all specified policies, including inter-zone isolation, controlled service access, and NAT for private networks.
+The experimental results confirm that the ZBPF firewall correctly enforces inter-zone isolation, controlled access to DMZ services, NAT operation, and secure firewall management.
 
 \subsection{Defense against DoS attacks}
 

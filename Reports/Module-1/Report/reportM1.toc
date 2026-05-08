@@ -34,19 +34,21 @@
 \contentsline {subsubsection}{\numberline {3.2.1}Host Discovery}{15}{subsubsection.3.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.2}Port Scanning}{15}{subsubsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.3}CBAC vs ZBPF}{15}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Protecting a campus network using a ZBPF}{16}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.4}Protecting a Campus Network using ZBPF}{16}{subsection.3.4}%
 \contentsline {subsubsection}{\numberline {3.4.1}Network Topology}{16}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Initial Configuration and Connectivity}{16}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}Firewall Configuration}{17}{subsubsection.3.4.3}%
-\contentsline {paragraph}{Zone Definition}{17}{subsubsection.3.4.3}%
-\contentsline {paragraph}{NAT Configuration}{17}{subsubsection.3.4.3}%
-\contentsline {paragraph}{Policy Definition}{17}{subsubsection.3.4.3}%
-\contentsline {paragraph}{Example Configuration}{17}{subsubsection.3.4.3}%
-\contentsline {subsubsection}{\numberline {3.4.4}Testing and Validation}{18}{subsubsection.3.4.4}%
-\contentsline {subsection}{\numberline {3.5}Defense against DoS attacks}{21}{subsection.3.5}%
-\contentsline {section}{\numberline {4}AAA}{22}{section.4}%
-\contentsline {subsection}{\numberline {4.1}AAA with TACACS+}{22}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}AAA with Radius}{22}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}802.1X Authentication}{22}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Conclusion}{23}{section.5}%
-\contentsline {section}{\numberline {6}Appendix}{24}{section.6}%
+\contentsline {subsubsection}{\numberline {3.4.2}Firewall Configuration}{16}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Testing and Validation}{17}{subsubsection.3.4.3}%
+\contentsline {paragraph}{PR1 to PR2}{17}{subsubsection.3.4.3}%
+\contentsline {paragraph}{PR1 to OUT}{17}{figure.caption.17}%
+\contentsline {paragraph}{PR1 to DMZ}{18}{figure.caption.18}%
+\contentsline {paragraph}{OUT to Private Zones}{18}{figure.caption.19}%
+\contentsline {paragraph}{OUT to DMZ}{18}{figure.caption.19}%
+\contentsline {paragraph}{Firewall Management}{18}{figure.caption.20}%
+\contentsline {subsubsection}{\numberline {3.4.4}Conclusion}{19}{subsubsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.5}Defense against DoS attacks}{19}{subsection.3.5}%
+\contentsline {section}{\numberline {4}AAA}{20}{section.4}%
+\contentsline {subsection}{\numberline {4.1}AAA with TACACS+}{20}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}AAA with Radius}{20}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}802.1X Authentication}{20}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Conclusion}{21}{section.5}%
+\contentsline {section}{\numberline {6}Appendix}{22}{section.6}%
