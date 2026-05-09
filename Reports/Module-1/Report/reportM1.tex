@@ -943,6 +943,132 @@ authentication alone.
 
 \subsection{AAA with Radius}
 
+\subsubsection{Network Topology}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{../Images/topo_radius.png}
+    \caption{AAA using Radius}
+\end{figure}
+
+The objective of this exercise was to configure centralized AAA (Authentication, Authorization, and Accounting) using the Radius protocol.
+
+The topology consists of a Cisco 7200 router (R1), a Radius server implemented using the GNS3 AAA appliance, and a Toolbox appliance acting as a Telnet client. The router operates as a Radius client and forwards authentication requests to the AAA server.
+
+Initially, IP connectivity between all devices was configured and verified using \texttt{ping}.
+
+\subsubsection{Radius Configuration}
+
+AAA was enabled on the router using the IOS \texttt{aaa new-model} command. A local administrative user was also configured to guarantee fallback access if the Radius server became unavailable.
+
+\begin{verbatim}
+username admin privilege 15 password 0 admin
+enable password cisco
+aaa new-model
+\end{verbatim}
+
+The Radius server was then configured on the router:
+
+\begin{verbatim}
+radius server Server-R
+ address ipv4 10.0.0.1 auth-port 1812 acct-port 1813
+ key myradiuskey
+\end{verbatim}
+
+Authentication, authorization, and accounting policies were configured as follows:
+
+\begin{verbatim}
+aaa authentication login default group radius local
+aaa authorization exec default group radius local
+aaa accounting exec default start-stop group radius
+\end{verbatim}
+
+Remote access through Telnet was enabled on the VTY lines:
+
+\begin{verbatim}
+line vty 0 4
+ login authentication default
+ transport input telnet
+\end{verbatim}
+
+On the Radius server, users were configured in the file:
+
+\begin{verbatim}
+/etc/freeradius/3.0/users
+\end{verbatim}
+
+The predefined users \texttt{bob} and \texttt{alice} were configured with password \texttt{gns3}.
+
+The shared secret used between the Radius client and server was configured in:
+
+\begin{verbatim}
+/etc/freeradius/3.0/clients.conf
+\end{verbatim}
+
+\subsubsection{Authentication, Authorization and Accounting}
+
+\paragraph{Authentication}
+
+Authentication was implemented using Radius server-based login validation. When a Telnet session was initiated, R1 forwarded the supplied credentials to the Radius server for verification.
+
+Authentication was validated by successfully logging into the router using the centralized Radius user accounts.
+
+\begin{center}
+\includegraphics[width=0.75\textwidth]{../Images/radius_login.png}
+\end{center}
+
+\paragraph{Authorization}
+
+Radius authorization was configured for EXEC access after successful authentication.
+
+Unlike TACACS+, Radius does not support per-command IOS authorization. As a result, it was not possible to restrict specific IOS commands for different users.
+
+\begin{center}
+\includegraphics[width=0.75\textwidth]{../Images/radius_exec.png}
+\end{center}
+
+\paragraph{Accounting}
+
+Accounting was configured to log administrative activity on the Radius server.
+
+Session information was stored in:
+
+\begin{verbatim}
+/var/log/freeradius/radacct/
+\end{verbatim}
+
+The generated logs contain information such as usernames, timestamps, session start and stop events, and NAS information.
+
+\begin{center}
+\includegraphics[width=0.75\textwidth]{../Images/radius_accounting.png}
+\end{center}
+
+\subsubsection{Wireshark Analysis}
+
+Wireshark was used to capture and analyze Radius traffic exchanged between the router and the AAA server.
+
+Radius communication uses UDP ports 1812 and 1813. Authentication traffic uses port 1812, while accounting traffic uses port 1813.
+
+\begin{center}
+\includegraphics[width=0.9\textwidth]{../Images/radius_wireshark.png}
+\end{center}
+
+The captures show Radius Access-Request and Access-Accept messages during user authentication, as well as Accounting-Request and Accounting-Response messages during session establishment and termination.
+
+Unlike TACACS+, Radius combines authentication and authorization functions and encrypts only the user password field instead of the full packet payload.
+
+\subsubsection{Comparison Between TACACS+ and Radius}
+
+Although both TACACS+ and Radius provide centralized AAA services, important differences exist between the two protocols.
+
+TACACS+ uses TCP port 49, while Radius uses UDP ports 1812 and 1813. TACACS+ encrypts the entire packet payload, whereas Radius encrypts only the password field.
+
+Another important difference is that TACACS+ separates authentication, authorization, and accounting into independent processes and supports per-command authorization for IOS devices. Radius combines authentication and authorization and does not support granular IOS command authorization.
+
+Radius is widely used for network access authentication, while TACACS+ is more commonly used for administrative access control in Cisco environments.
+
+Overall, TACACS+ provides more granular administrative control, while Radius offers broader interoperability and simpler deployment.
+
 \newpage
 
 \subsection{802.1X Authentication}
