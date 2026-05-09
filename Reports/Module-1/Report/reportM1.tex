@@ -364,7 +364,206 @@ Therefore, although the attack is feasible in networks without protection, in th
 
 \subsection{DNS spoofing}
 
+\subsubsection{Attack Description}
 
+The attack combined ARP poisoning with DNS spoofing
+to redirect the victim's traffic to a malicious host.
+
+Initially, the attacker poisoned the ARP caches
+of the victim and the gateway by repeatedly sending
+forged ARP replies claiming ownership of multiple IP addresses.
+
+As a result, the victim associated the attacker's MAC address
+with the IP addresses of legitimate hosts on the network,
+allowing the attacker to position itself as a man-in-the-middle.
+
+After intercepting the traffic, the attacker responded
+to DNS queries with forged DNS responses containing
+malicious IP addresses.
+
+The victim then attempted to establish TCP/TLS connections
+towards the attacker-controlled destination instead
+of the legitimate server.
+
+\subsubsection{Analysis of ARP, DNS and TCP Packets}
+
+The attack started with ARP poisoning packets used
+to manipulate the victim's ARP cache.
+
+Once positioned as a man-in-the-middle,
+the attacker intercepted DNS requests and generated
+forged DNS replies redirecting the victim to a malicious IP address.
+
+The victim then attempted to establish TCP/TLS connections
+towards the spoofed destination.
+
+The Wireshark captures show the full sequence of events:
+
+\begin{enumerate}
+\item Forged ARP replies poison the ARP cache
+\item DNS requests are intercepted
+\item Spoofed DNS replies redirect the victim
+\item TCP/TLS connections are attempted
+\item TLS communication fails due to certificate mismatch
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../Images/arp_poisoning.png}
+\caption{Wireshark capture showing repeated forged ARP replies}
+\label{fig:arp-poisoning}
+\end{figure}
+
+The ARP capture shows multiple unsolicited ARP replies
+claiming that several IP addresses correspond to
+the same MAC address.
+
+Messages such as:
+
+\begin{configbox}
+20.0.0.2 is at 02:42:37:cb:d6:00
+20.0.0.254 is at 02:42:37:cb:d6:00
+\end{configbox}
+
+indicate that the attacker continuously poisoned
+the ARP caches of the victim and gateway.
+
+Wireshark also detected duplicate IP usage warnings,
+which is a strong indication of ARP spoofing activity.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../Images/dns_spoofing2.png}
+\caption{Forged DNS responses observed in Wireshark}
+\label{fig:dns-spoofing}
+\end{figure}
+
+The DNS capture shows queries for the domain
+\texttt{www.linkedin.com} followed by forged DNS responses.
+
+Instead of returning the legitimate public IP address,
+the spoofed DNS responses mapped the domain name
+to the malicious local IP address:
+
+\begin{configbox}
+www.linkedin.com A 20.0.0.2
+\end{configbox}
+
+This demonstrates that the attacker successfully
+intercepted and manipulated DNS traffic.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../Images/tcp_tls_failure.png}
+\caption{TCP and TLS communication after DNS spoofing}
+\label{fig:tcp-tls}
+\end{figure}
+
+After the spoofed DNS resolution, the victim attempted
+to establish TCP and TLS sessions with the attacker-controlled host.
+
+However, the packet capture shows multiple TCP retransmissions,
+duplicate acknowledgements, and TCP reset packets.
+
+This behavior indicates that the TLS session could not
+be properly established.
+
+The failure likely occurred because the attacker did not possess
+a valid TLS certificate for the spoofed domain,
+causing the browser or TLS stack to reject the connection.
+
+\subsubsection{AI Explanation and Experimental Comparison}
+
+An AI-generated explanation suggested that DNS spoofing
+may fail even when ARP poisoning is successful because
+modern browsers and operating systems implement additional
+security mechanisms such as:
+
+\begin{itemize}
+\item DNS caching
+\item HTTPS and TLS certificate validation
+\item HSTS policies
+\item DNS-over-HTTPS (DoH)
+\item Browser security protections
+\end{itemize}
+
+The experimental observations largely matched this explanation.
+
+Although ARP poisoning was clearly successful,
+as demonstrated by the repeated forged ARP replies,
+the final TCP/TLS communication did not fully succeed.
+
+The Wireshark captures show TCP retransmissions,
+duplicate ACKs, and TCP reset packets after the spoofed DNS replies.
+
+This suggests that the victim attempted to establish
+a secure HTTPS connection but rejected the spoofed server
+because it could not provide a valid TLS certificate
+for the requested domain.
+
+Therefore, the experiment confirms that successful ARP poisoning
+alone does not guarantee successful DNS spoofing attacks
+against modern HTTPS-protected services.
+
+The roles of the entities involved in the authentication process
+were also correctly explained by the AI tool:
+
+\begin{itemize}
+\item The victim host acted as the DNS client
+\item The attacker acted as a man-in-the-middle
+through ARP poisoning
+\item The DNS server was impersonated through forged responses
+\end{itemize}
+
+These behaviors were directly observable in the packet captures.
+
+\subsubsection{Feasibility of the Attack}
+
+The experiment demonstrates that ARP poisoning
+and DNS spoofing attacks are technically feasible
+in local networks where hosts trust ARP replies
+without authentication.
+
+However, the practical effectiveness of the attack
+against modern websites is significantly reduced
+by HTTPS and TLS protections.
+
+Even though DNS manipulation succeeded,
+the browser and TLS mechanisms prevented
+the attacker from fully impersonating
+the legitimate website.
+
+The attack would be significantly more effective
+against:
+
+\begin{itemize}
+\item Unencrypted HTTP services
+\item Legacy devices
+\item Misconfigured networks
+\item Users ignoring TLS certificate warnings
+\end{itemize}
+
+\subsubsection{Countermeasures}
+
+Several mechanisms can mitigate ARP poisoning
+and DNS spoofing attacks:
+
+\begin{itemize}
+\item Static ARP entries
+\item Dynamic ARP Inspection (DAI)
+\item DHCP Snooping
+\item DNSSEC
+\item HTTPS and TLS certificate validation
+\item HSTS
+\item VPN usage
+\item Network segmentation
+\item Intrusion detection systems
+\end{itemize}
+
+Modern HTTPS deployments significantly reduce
+the effectiveness of DNS spoofing attacks,
+since attackers cannot easily present valid
+TLS certificates for legitimate domains.
 
 
 \subsection{RIP Poisoning}
@@ -943,20 +1142,6 @@ authentication alone.
 
 \subsection{AAA with Radius}
 
-\subsubsection{Network Topology}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.75\textwidth]{../Images/topo_radius.png}
-    \caption{AAA using Radius}
-\end{figure}
-
-The objective of this exercise was to configure centralized AAA (Authentication, Authorization, and Accounting) using the Radius protocol.
-
-The topology consists of a Cisco 7200 router (R1), a Radius server implemented using the GNS3 AAA appliance, and a Toolbox appliance acting as a Telnet client. The router operates as a Radius client and forwards authentication requests to the AAA server.
-
-Initially, IP connectivity between all devices was configured and verified using \texttt{ping}.
-
 \subsubsection{Radius Configuration}
 
 AAA was enabled on the router using the IOS \texttt{aaa new-model} command. A local administrative user was also configured to guarantee fallback access if the Radius server became unavailable.
@@ -1013,19 +1198,49 @@ Authentication was implemented using Radius server-based login validation. When 
 
 Authentication was validated by successfully logging into the router using the centralized Radius user accounts.
 
-\begin{center}
-\includegraphics[width=0.75\textwidth]{../Images/radius_login.png}
-\end{center}
+\begin{verbatim}
+root@TelnetClient:~# telnet 222.10.10.254
+Trying 222.10.10.254...
+Connected to 222.10.10.254.
+Escape character is '^]'.
+
+
+User Access Verification
+
+Username: bob
+Password: 
+Hello, bob 
+
+R1>exit
+Connection closed by foreign host.
+root@TelnetClient:~# telnet 222.10.10.254
+Trying 222.10.10.254...
+Connected to 222.10.10.254.
+Escape character is '^]'.
+
+User Access Verification
+
+Username: alice
+Password: 
+Hello, alice 
+
+R1>exit
+Connection closed by foreign host.
+root@TelnetClient:~#
+\end{verbatim}
 
 \paragraph{Authorization}
 
-Radius authorization was configured for EXEC access after successful authentication.
+Wireshark captures show that Radius exchanges mainly consist of authentication and accounting messages between R1 and the Radius server.
 
-Unlike TACACS+, Radius does not support per-command IOS authorization. As a result, it was not possible to restrict specific IOS commands for different users.
+During user login, the router sends an \texttt{Access-Request} message containing information such as the username, NAS IP address, and authentication parameters. The Radius server then replies with either an \texttt{Access-Accept} or \texttt{Access-Reject} message, depending on the validity of the supplied credentials.
 
+At the beginning and end of a successful administrative session, accounting messages are exchanged. The router sends \texttt{Accounting-Request} packets to report session start and stop events, while the server replies with \texttt{Accounting-Response} messages.
 \begin{center}
 \includegraphics[width=0.75\textwidth]{../Images/radius_exec.png}
 \end{center}
+
+Unlike TACACS+, Radius generates relatively few messages during the session itself. Most Radius traffic is observed only during login and logout operations. TACACS+, on the other hand, generates additional authorization exchanges throughout the session because IOS commands can be individually authorized by the TACACS+ server.
 
 \paragraph{Accounting}
 
@@ -1039,23 +1254,57 @@ Session information was stored in:
 
 The generated logs contain information such as usernames, timestamps, session start and stop events, and NAS information.
 
-\begin{center}
-\includegraphics[width=0.75\textwidth]{../Images/radius_accounting.png}
-\end{center}
+\begin{verbatim}
+Sat May  9 15:24:52 2026
+    Acct-Session-Id = "00000001"
+    User-Name = "bob"
+    Acct-Authentic = RADIUS
+    Acct-Status-Type = Start
+    NAS-Port = 2
+    NAS-Port-Id = "tty2"
+    NAS-Port-Type = Virtual
+    Service-Type = NAS-Prompt-User
+    NAS-IP-Address = 10.0.0.254
+    Acct-Delay-Time = 0
+    Event-Timestamp = "May  9 2026 15:24:52 UTC"
+    Tmp-String-9 = "ai:"
+    Acct-Unique-Session-Id = "5f17e8201ba1e8d959a54331f562dbd0"
+    Timestamp = 1778340292
 
-\subsubsection{Wireshark Analysis}
+Sat May  9 15:25:00 2026
+    Acct-Session-Id = "00000001"
+    User-Name = "bob"
+    Acct-Authentic = RADIUS
+    Acct-Terminate-Cause = User-Request
+    Acct-Session-Time = 8
+    Acct-Status-Type = Stop
+    NAS-Port = 2
+    NAS-Port-Id = "tty2"
+    NAS-Port-Type = Virtual
+    Service-Type = NAS-Prompt-User
+    NAS-IP-Address = 10.0.0.254
+    Acct-Delay-Time = 0
+    Event-Timestamp = "May  9 2026 15:25:00 UTC"
+    Tmp-String-9 = "ai:"
+    Acct-Unique-Session-Id = "5f17e8201ba1e8d959a54331f562dbd0"
+    Timestamp = 1778340300
 
-Wireshark was used to capture and analyze Radius traffic exchanged between the router and the AAA server.
-
-Radius communication uses UDP ports 1812 and 1813. Authentication traffic uses port 1812, while accounting traffic uses port 1813.
-
-\begin{center}
-\includegraphics[width=0.9\textwidth]{../Images/radius_wireshark.png}
-\end{center}
-
-The captures show Radius Access-Request and Access-Accept messages during user authentication, as well as Accounting-Request and Accounting-Response messages during session establishment and termination.
-
-Unlike TACACS+, Radius combines authentication and authorization functions and encrypts only the user password field instead of the full packet payload.
+Sat May  9 15:25:07 2026
+    Acct-Session-Id = "00000002"
+    User-Name = "alice"
+    Acct-Authentic = RADIUS
+    Acct-Status-Type = Start
+    NAS-Port = 2
+    NAS-Port-Id = "tty2"
+    NAS-Port-Type = Virtual
+    Service-Type = NAS-Prompt-User
+    NAS-IP-Address = 10.0.0.254
+    Acct-Delay-Time = 0
+    Event-Timestamp = "May  9 2026 15:25:07 UTC"
+    Tmp-String-9 = "ai:"
+    Acct-Unique-Session-Id = "683333e47c0de024a04e881f984026f2"
+    Timestamp = 1778340307
+\end{verbatim}
 
 \subsubsection{Comparison Between TACACS+ and Radius}
 

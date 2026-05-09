@@ -19,47 +19,58 @@
 \contentsline {subsubsection}{\numberline {2.4.5}Switch Comparison}{9}{subsubsection.2.4.5}%
 \contentsline {subsubsection}{\numberline {2.4.6}Feasibility}{10}{subsubsection.2.4.6}%
 \contentsline {subsection}{\numberline {2.5}DNS spoofing}{10}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}RIP Poisoning}{10}{subsection.2.6}%
-\contentsline {subsubsection}{\numberline {2.6.1}Network Topology}{10}{subsubsection.2.6.1}%
-\contentsline {subsubsection}{\numberline {2.6.2}Attack and Countermeasure}{10}{subsubsection.2.6.2}%
-\contentsline {subsubsection}{\numberline {2.6.3}Effectiveness of the Attack}{12}{subsubsection.2.6.3}%
-\contentsline {subsubsection}{\numberline {2.6.4}AI Prediction vs Experimental Results}{13}{subsubsection.2.6.4}%
-\contentsline {subsubsection}{\numberline {2.6.5}Feasibility}{13}{subsubsection.2.6.5}%
-\contentsline {section}{\numberline {3}Firewalls}{14}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Classical firewalls versus Zone-Based Policy Firewalls}{14}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Firewall Validation}{14}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Classical Firewall (CBAC)}{14}{subsubsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}ZBPF}{14}{subsubsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.2}NMAP Operation}{15}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Host Discovery}{15}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Port Scanning}{15}{subsubsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.3}CBAC vs ZBPF}{15}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Protecting a Campus Network using ZBPF}{16}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Network Topology}{16}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Firewall Configuration}{16}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}Testing and Validation}{17}{subsubsection.3.4.3}%
-\contentsline {paragraph}{PR1 to PR2}{17}{subsubsection.3.4.3}%
-\contentsline {paragraph}{PR1 to OUT}{17}{figure.caption.17}%
-\contentsline {paragraph}{PR1 to DMZ}{18}{figure.caption.18}%
-\contentsline {paragraph}{OUT to Private Zones}{18}{figure.caption.19}%
-\contentsline {paragraph}{OUT to DMZ}{18}{figure.caption.19}%
-\contentsline {paragraph}{Firewall Management}{19}{figure.caption.20}%
-\contentsline {subsubsection}{\numberline {3.4.4}Conclusion}{19}{subsubsection.3.4.4}%
-\contentsline {subsection}{\numberline {3.5}Defense against DoS attacks}{19}{subsection.3.5}%
-\contentsline {section}{\numberline {4}AAA}{20}{section.4}%
-\contentsline {subsection}{\numberline {4.1}AAA with TACACS+}{20}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}AAA Configuration}{20}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Authentication, Authorization and Accounting}{21}{subsubsection.4.1.2}%
-\contentsline {paragraph}{Authentication}{21}{subsubsection.4.1.2}%
-\contentsline {paragraph}{Authorization}{22}{lstnumber.-8.6}%
-\contentsline {paragraph}{Accounting}{22}{lstnumber.-9.5}%
-\contentsline {subsubsection}{\numberline {4.1.3}Password Configuration}{23}{subsubsection.4.1.3}%
-\contentsline {subsubsection}{\numberline {4.1.4}Wireshark Analysis}{24}{subsubsection.4.1.4}%
-\contentsline {subsubsection}{\numberline {4.1.5}Benefits of Server-Based AAA}{24}{subsubsection.4.1.5}%
-\contentsline {subsection}{\numberline {4.2}AAA with Radius}{25}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}802.1X Authentication}{26}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Wireshark Analysis of EAP-PEAP Authentication}{26}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Security Considerations}{28}{subsubsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {4.3.3}Comparison Between AI Explanation and Observed Traffic}{28}{subsubsection.4.3.3}%
-\contentsline {section}{\numberline {5}Conclusion}{30}{section.5}%
-\contentsline {section}{\numberline {6}Appendix}{31}{section.6}%
+\contentsline {subsubsection}{\numberline {2.5.1}Attack Description}{10}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Analysis of ARP, DNS and TCP Packets}{10}{subsubsection.2.5.2}%
+\contentsline {subsubsection}{\numberline {2.5.3}AI Explanation and Experimental Comparison}{12}{subsubsection.2.5.3}%
+\contentsline {subsubsection}{\numberline {2.5.4}Feasibility of the Attack}{13}{subsubsection.2.5.4}%
+\contentsline {subsubsection}{\numberline {2.5.5}Countermeasures}{14}{subsubsection.2.5.5}%
+\contentsline {subsection}{\numberline {2.6}RIP Poisoning}{14}{subsection.2.6}%
+\contentsline {subsubsection}{\numberline {2.6.1}Network Topology}{14}{subsubsection.2.6.1}%
+\contentsline {subsubsection}{\numberline {2.6.2}Attack and Countermeasure}{15}{subsubsection.2.6.2}%
+\contentsline {subsubsection}{\numberline {2.6.3}Effectiveness of the Attack}{17}{subsubsection.2.6.3}%
+\contentsline {subsubsection}{\numberline {2.6.4}AI Prediction vs Experimental Results}{18}{subsubsection.2.6.4}%
+\contentsline {subsubsection}{\numberline {2.6.5}Feasibility}{18}{subsubsection.2.6.5}%
+\contentsline {section}{\numberline {3}Firewalls}{19}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Classical firewalls versus Zone-Based Policy Firewalls}{19}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Firewall Validation}{19}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Classical Firewall (CBAC)}{19}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}ZBPF}{19}{subsubsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.2}NMAP Operation}{20}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Host Discovery}{20}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Port Scanning}{20}{subsubsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.3}CBAC vs ZBPF}{20}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Protecting a Campus Network using ZBPF}{21}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Network Topology}{21}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Firewall Configuration}{21}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Testing and Validation}{22}{subsubsection.3.4.3}%
+\contentsline {paragraph}{PR1 to PR2}{22}{subsubsection.3.4.3}%
+\contentsline {paragraph}{PR1 to OUT}{22}{figure.caption.20}%
+\contentsline {paragraph}{PR1 to DMZ}{23}{figure.caption.21}%
+\contentsline {paragraph}{OUT to Private Zones}{23}{figure.caption.22}%
+\contentsline {paragraph}{OUT to DMZ}{23}{figure.caption.22}%
+\contentsline {paragraph}{Firewall Management}{24}{figure.caption.23}%
+\contentsline {subsubsection}{\numberline {3.4.4}Conclusion}{24}{subsubsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.5}Defense against DoS attacks}{24}{subsection.3.5}%
+\contentsline {section}{\numberline {4}AAA}{25}{section.4}%
+\contentsline {subsection}{\numberline {4.1}AAA with TACACS+}{25}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}AAA Configuration}{25}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Authentication, Authorization and Accounting}{26}{subsubsection.4.1.2}%
+\contentsline {paragraph}{Authentication}{26}{subsubsection.4.1.2}%
+\contentsline {paragraph}{Authorization}{27}{lstnumber.-10.6}%
+\contentsline {paragraph}{Accounting}{27}{lstnumber.-11.5}%
+\contentsline {subsubsection}{\numberline {4.1.3}Password Configuration}{28}{subsubsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.4}Wireshark Analysis}{29}{subsubsection.4.1.4}%
+\contentsline {subsubsection}{\numberline {4.1.5}Benefits of Server-Based AAA}{29}{subsubsection.4.1.5}%
+\contentsline {subsection}{\numberline {4.2}AAA with Radius}{30}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Radius Configuration}{30}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Authentication, Authorization and Accounting}{31}{subsubsection.4.2.2}%
+\contentsline {paragraph}{Authentication}{31}{subsubsection.4.2.2}%
+\contentsline {paragraph}{Authorization}{31}{subsubsection.4.2.2}%
+\contentsline {paragraph}{Accounting}{32}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Comparison Between TACACS+ and Radius}{33}{subsubsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.3}802.1X Authentication}{34}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Wireshark Analysis of EAP-PEAP Authentication}{34}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Security Considerations}{36}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Comparison Between AI Explanation and Observed Traffic}{36}{subsubsection.4.3.3}%
+\contentsline {section}{\numberline {5}Conclusion}{38}{section.5}%
+\contentsline {section}{\numberline {6}Appendix}{39}{section.6}%
