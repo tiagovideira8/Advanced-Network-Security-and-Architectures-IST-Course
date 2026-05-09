@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.31)  8 MAY 2026 17:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.31)  9 MAY 2026 16:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/afonsomendes/Library/CloudStorage/OneDrive-UniversidadedeLisboa/(P4) SAAR/Advanced-Network-Security-and-Architectures-IST-Course/Reports/Module-1/Report/reportM1.tex"
-(/Users/afonsomendes/Library/CloudStorage/OneDrive-UniversidadedeLisboa/(P4) SAAR/Advanced-Network-Security-and-Architectures-IST-Course/Reports/Module-1/Report/reportM1.tex
+**/Users/tiagovideira/Library/CloudStorage/OneDrive-UniversidadedeLisboa/SAAR/Advanced-Network-Security-and-Architectures-IST-Course/Reports/Module-1/Report/reportM1.tex
+(/Users/tiagovideira/Library/CloudStorage/OneDrive-UniversidadedeLisboa/SAAR/Advanced-Network-Security-and-Architectures-IST-Course/Reports/Module-1/Report/reportM1.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
 (/usr/local/texlive/2026/texmf-dist/tex/latex/base/article.cls
@@ -802,7 +802,7 @@ Package hyperref Info: Link coloring ON on input line 105.
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 105.
-<../Images/IST_A.png, id=254, 709.6914pt x 394.1124pt>
+<../Images/IST_A.png, id=266, 709.6914pt x 394.1124pt>
 File: ../Images/IST_A.png Graphic file (type png)
 <use ../Images/IST_A.png>
 Package pdftex.def Info: ../Images/IST_A.png  used on input line 113.
@@ -823,107 +823,107 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout5 = `reportM1.toc'.
 
  [2] [3] [4{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-<../Images/wireshark1.jpeg, id=342, 1371.1225pt x 673.51625pt>
+<../Images/wireshark1.jpeg, id=358, 1371.1225pt x 673.51625pt>
 File: ../Images/wireshark1.jpeg Graphic file (type jpg)
 <use ../Images/wireshark1.jpeg>
 Package pdftex.def Info: ../Images/wireshark1.jpeg  used on input line 219.
 (pdftex.def)             Requested size: 483.69687pt x 237.59436pt.
  [5 <../Images/wireshark1.jpeg>]
-<../Images/wireshark2.png, id=353, 916.42375pt x 75.28125pt>
+<../Images/wireshark2.png, id=368, 916.42375pt x 75.28125pt>
 File: ../Images/wireshark2.png Graphic file (type png)
 <use ../Images/wireshark2.png>
 Package pdftex.def Info: ../Images/wireshark2.png  used on input line 252.
 (pdftex.def)             Requested size: 483.69687pt x 39.73459pt.
-<../Images/wireshark3.png, id=355, 876.27374pt x 238.8925pt>
+<../Images/wireshark3.png, id=370, 876.27374pt x 238.8925pt>
 File: ../Images/wireshark3.png Graphic file (type png)
 <use ../Images/wireshark3.png>
 Package pdftex.def Info: ../Images/wireshark3.png  used on input line 261.
 (pdftex.def)             Requested size: 483.69687pt x 131.86879pt.
  [6 <../Images/wireshark2.png> <../Images/wireshark3.png>]
-<../Images/topologiaARP.png, id=368, 555.07375pt x 317.185pt>
+<../Images/topologiaARP.png, id=383, 555.07375pt x 317.185pt>
 File: ../Images/topologiaARP.png Graphic file (type png)
 <use ../Images/topologiaARP.png>
 Package pdftex.def Info: ../Images/topologiaARP.png  used on input line 292.
 (pdftex.def)             Requested size: 290.22107pt x 165.84218pt.
  [7 <../Images/topologiaARP.png (PNG copy)>]
-<../Images/ARPoison.png, id=376, 1352.05125pt x 631.35875pt>
+<../Images/ARPoison.png, id=391, 1352.05125pt x 631.35875pt>
 File: ../Images/ARPoison.png Graphic file (type png)
 <use ../Images/ARPoison.png>
 Package pdftex.def Info: ../Images/ARPoison.png  used on input line 307.
 (pdftex.def)             Requested size: 435.32422pt x 203.28168pt.
-<../Images/blockedattacks.png, id=378, 808.01875pt x 225.84375pt>
+<../Images/blockedattacks.png, id=393, 808.01875pt x 225.84375pt>
 File: ../Images/blockedattacks.png Graphic file (type png)
 <use ../Images/blockedattacks.png>
 Package pdftex.def Info: ../Images/blockedattacks.png  used on input line 316.
 (pdftex.def)             Requested size: 435.32422pt x 121.67467pt.
-<../Images/logDAI.png, id=380, 887.315pt x 246.9225pt>
+<../Images/logDAI.png, id=395, 887.315pt x 246.9225pt>
 File: ../Images/logDAI.png Graphic file (type png)
 <use ../Images/logDAI.png>
 Package pdftex.def Info: ../Images/logDAI.png  used on input line 325.
 (pdftex.def)             Requested size: 435.32422pt x 121.14001pt.
  [8 <../Images/ARPoison.png> <../Images/blockedattacks.png (PNG copy)>]
-<../Images/defencestats.png, id=390, 527.9725pt x 195.73125pt>
+<../Images/defencestats.png, id=405, 527.9725pt x 195.73125pt>
 File: ../Images/defencestats.png Graphic file (type png)
 <use ../Images/defencestats.png>
 Package pdftex.def Info: ../Images/defencestats.png  used on input line 335.
 (pdftex.def)             Requested size: 338.58632pt x 125.52142pt.
  [9 <../Images/logDAI.png (PNG copy)> <../Images/defencestats.png (PNG copy)>]
-<../Images/topologyRIPoisoning.png, id=400, 949.5475pt x 337.26pt>
+<../Images/topologyRIPoisoning.png, id=415, 949.5475pt x 337.26pt>
 File: ../Images/topologyRIPoisoning.png Graphic file (type png)
 <use ../Images/topologyRIPoisoning.png>
 Package pdftex.def Info: ../Images/topologyRIPoisoning.png  used on input line 378.
 (pdftex.def)             Requested size: 435.32422pt x 154.61656pt.
-<../Images/RIPoisoning1.png, id=402, 1000.73875pt x 814.04124pt>
+<../Images/RIPoisoning1.png, id=417, 1000.73875pt x 814.04124pt>
 File: ../Images/RIPoisoning1.png Graphic file (type png)
 <use ../Images/RIPoisoning1.png>
 Package pdftex.def Info: ../Images/RIPoisoning1.png  used on input line 391.
 (pdftex.def)             Requested size: 435.32422pt x 354.10507pt.
  [10 <../Images/topologyRIPoisoning.png>]
-<../Images/RIPoisoning3.png, id=411, 1129.21875pt x 413.545pt>
+<../Images/RIPoisoning3.png, id=426, 1129.21875pt x 413.545pt>
 File: ../Images/RIPoisoning3.png Graphic file (type png)
 <use ../Images/RIPoisoning3.png>
 Package pdftex.def Info: ../Images/RIPoisoning3.png  used on input line 402.
 (pdftex.def)             Requested size: 435.32422pt x 159.4267pt.
  [11 <../Images/RIPoisoning1.png (PNG copy)> <../Images/RIPoisoning3.png>]
-<../Images/RIPoisoning2.png, id=419, 1471.4975pt x 514.92375pt>
+<../Images/RIPoisoning2.png, id=434, 1471.4975pt x 514.92375pt>
 File: ../Images/RIPoisoning2.png Graphic file (type png)
 <use ../Images/RIPoisoning2.png>
 Package pdftex.def Info: ../Images/RIPoisoning2.png  used on input line 413.
 (pdftex.def)             Requested size: 435.32422pt x 152.33333pt.
-<../Images/RIPoisoning4.png, id=422, 1149.29375pt x 255.95625pt>
+<../Images/RIPoisoning4.png, id=437, 1149.29375pt x 255.95625pt>
 File: ../Images/RIPoisoning4.png Graphic file (type png)
 <use ../Images/RIPoisoning4.png>
 Package pdftex.def Info: ../Images/RIPoisoning4.png  used on input line 432.
 (pdftex.def)             Requested size: 435.32422pt x 96.94803pt.
-<../Images/RIPoisoning5.png, id=423, 1134.2375pt x 577.15625pt>
+<../Images/RIPoisoning5.png, id=438, 1134.2375pt x 577.15625pt>
 File: ../Images/RIPoisoning5.png Graphic file (type png)
 <use ../Images/RIPoisoning5.png>
 Package pdftex.def Info: ../Images/RIPoisoning5.png  used on input line 439.
 (pdftex.def)             Requested size: 435.32422pt x 221.51451pt.
  [12 <../Images/RIPoisoning2.png (PNG copy)> <../Images/RIPoisoning4.png>] [13 <../Images/RIPoisoning5.png (PNG copy)>] [14] [15]
-<../Images/topo_firewalls2.png, id=467, 633.36626pt x 516.93124pt>
+<../Images/topo_firewalls2.png, id=482, 633.36626pt x 516.93124pt>
 File: ../Images/topo_firewalls2.png Graphic file (type png)
 <use ../Images/topo_firewalls2.png>
 Package pdftex.def Info: ../Images/topo_firewalls2.png  used on input line 560.
 (pdftex.def)             Requested size: 386.95897pt x 315.83241pt.
  [16 <../Images/topo_firewalls2.png>]
-<../Images/Nmap_PR_to_PR(no replies).png, id=474, 1850.915pt x 844.15375pt>
+<../Images/Nmap_PR_to_PR(no replies).png, id=489, 1850.915pt x 844.15375pt>
 File: ../Images/Nmap_PR_to_PR(no replies).png Graphic file (type png)
 <use ../Images/Nmap_PR_to_PR(no replies).png>
 Package pdftex.def Info: ../Images/Nmap_PR_to_PR(no replies).png  used on input line 590.
 (pdftex.def)             Requested size: 483.69687pt x 220.59541pt.
-<../Images/Nmap_PR_to_OUT(NAT proof).png, id=475, 1382.16376pt x 453.695pt>
+<../Images/Nmap_PR_to_OUT(NAT proof).png, id=490, 1382.16376pt x 453.695pt>
 File: ../Images/Nmap_PR_to_OUT(NAT proof).png Graphic file (type png)
 <use ../Images/Nmap_PR_to_OUT(NAT proof).png>
 Package pdftex.def Info: ../Images/Nmap_PR_to_OUT(NAT proof).png  used on input line 601.
 (pdftex.def)             Requested size: 483.69687pt x 158.76793pt.
  [17 <../Images/Nmap_PR_to_PR(no replies).png>]
-<../Images/nmap_PR_to_DMZ(working proof).png, id=482, 1444.39626pt x 609.27625pt>
+<../Images/nmap_PR_to_DMZ(working proof).png, id=497, 1444.39626pt x 609.27625pt>
 File: ../Images/nmap_PR_to_DMZ(working proof).png Graphic file (type png)
 <use ../Images/nmap_PR_to_DMZ(working proof).png>
 Package pdftex.def Info: ../Images/nmap_PR_to_DMZ(working proof).png  used on input line 612.
 (pdftex.def)             Requested size: 483.69687pt x 204.02745pt.
-<../Images/nmap_OUT_to_DMZ.png, id=483, 1444.39626pt x 609.27625pt>
+<../Images/nmap_OUT_to_DMZ.png, id=498, 1444.39626pt x 609.27625pt>
 File: ../Images/nmap_OUT_to_DMZ.png Graphic file (type png)
 <use ../Images/nmap_OUT_to_DMZ.png>
 Package pdftex.def Info: ../Images/nmap_OUT_to_DMZ.png  used on input line 627.
@@ -972,32 +972,58 @@ Package pdftex.def Info: ../Images/nmap_OUT_to_DMZ.png  used on input line 627.
 \openout6 = `reportM1.listing'.
 
  (./reportM1.listing)
-<../Images/TACACS+_avg_display.png, id=660, 1858.945pt x 916.42375pt>
+<../Images/TACACS+_avg_display.png, id=676, 1858.945pt x 916.42375pt>
 File: ../Images/TACACS+_avg_display.png Graphic file (type png)
 <use ../Images/TACACS+_avg_display.png>
 Package pdftex.def Info: ../Images/TACACS+_avg_display.png  used on input line 914.
 (pdftex.def)             Requested size: 435.32422pt x 214.6045pt.
- [24 <../Images/TACACS+_avg_display.png>] [25] [26] [27] (./reportM1.aux)
+ [24 <../Images/TACACS+_avg_display.png>] [25]
+\openout6 = `reportM1.listing'.
+
+ (./reportM1.listing)
+\openout6 = `reportM1.listing'.
+
+ (./reportM1.listing)
+\openout6 = `reportM1.listing'.
+
+ (./reportM1.listing)
+<../Images/show_authentication_sessions.png, id=692, 416.30531pt x 71.51718pt>
+File: ../Images/show_authentication_sessions.png Graphic file (type png)
+<use ../Images/show_authentication_sessions.png>
+Package pdftex.def Info: ../Images/show_authentication_sessions.png  used on input line 994.
+(pdftex.def)             Requested size: 411.14528pt x 70.63416pt.
+ [26 <../Images/show_authentication_sessions.png>]
+<../Images/eap_peap_capture.png, id=718, 1203.49625pt x 368.37625pt>
+File: ../Images/eap_peap_capture.png Graphic file (type png)
+<use ../Images/eap_peap_capture.png>
+Package pdftex.def Info: ../Images/eap_peap_capture.png  used on input line 1019.
+(pdftex.def)             Requested size: 483.69687pt x 148.05612pt.
+<../Images/response_identity_packet.png, id=719, 848.16875pt x 167.62625pt>
+File: ../Images/response_identity_packet.png Graphic file (type png)
+<use ../Images/response_identity_packet.png>
+Package pdftex.def Info: ../Images/response_identity_packet.png  used on input line 1035.
+(pdftex.def)             Requested size: 386.95897pt x 76.47467pt.
+ [27 <../Images/eap_peap_capture.png> <../Images/response_identity_packet.png>] [28] [29] [30] [31] (./reportM1.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `reportM1.out' has not changed.
-(rerunfilecheck)             Checksum: 24FFD2A34206AC069985FCDC8282F770;8445.
+(rerunfilecheck)             Checksum: 04B97A8E2AE82780FADD6DEB05DDDF41;9292.
  ) 
 Here is how much of TeX's memory you used:
- 36740 strings out of 467525
- 779241 string characters out of 5418982
- 1385763 words of memory out of 5000000
- 64802 multiletter control sequences out of 15000+600000
+ 36806 strings out of 467525
+ 780843 string characters out of 5418982
+ 1386045 words of memory out of 5000000
+ 64833 multiletter control sequences out of 15000+600000
  639064 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 116i,13n,121p,603b,1565s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 116i,13n,121p,596b,1565s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on reportM1.pdf (28 pages, 5897803 bytes).
+Output written on reportM1.pdf (32 pages, 6219038 bytes).
 PDF statistics:
- 792 PDF objects out of 1000 (max. 8388607)
- 673 compressed objects within 7 object streams
- 267 named destinations out of 1000 (max. 500000)
- 688 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 859 PDF objects out of 1000 (max. 8388607)
+ 729 compressed objects within 8 object streams
+ 296 named destinations out of 1000 (max. 500000)
+ 727 words of extra memory for PDF output out of 10000 (max. 10000000)
 

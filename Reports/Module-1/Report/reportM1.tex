@@ -943,8 +943,195 @@ authentication alone.
 
 \subsection{AAA with Radius}
 
+\newpage
+
 \subsection{802.1X Authentication}
 
+IEEE 802.1X authentication was implemented using
+a Cisco IOSvL2 switch as the authenticator,
+a Linux host running \texttt{wpa\_supplicant}
+as the supplicant, and a FreeRADIUS server
+as the authentication server.
+
+The switch ports were configured for 802.1X
+port-based authentication using RADIUS.
+
+\begin{configbox}
+aaa new-model
+aaa authentication dot1x default group radius
+
+radius server AAAServer
+ address ipv4 10.1.1.50 auth-port 1812 acct-port 1813
+ key gns3
+
+dot1x system-auth-control
+\end{configbox}
+
+The supplicant configuration used PEAP
+with MSCHAPv2 authentication:
+
+\begin{configbox}
+network={
+    key_mgmt=IEEE8021X
+    eap=PEAP
+    identity="bob"
+    password="gns3"
+    phase2="auth=MSCHAPV2"
+}
+\end{configbox}
+
+Authentication was initiated using:
+
+\begin{configbox}
+wpa_supplicant -Dwired -ieth0 -c/usr/wpa.conf
+\end{configbox}
+
+Successful authentication was confirmed on the
+Cisco switch through the authenticated session table.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{../Images/show_authentication_sessions.png}
+\caption{Authenticated 802.1X session on the Cisco switch}
+\label{fig:8021x-auth}
+\end{figure}
+
+\subsubsection{Wireshark Analysis of EAP-PEAP Authentication}
+
+Wireshark was used to capture and analyze the
+EAP-PEAP authentication exchange between the
+supplicant and the switch.
+
+The captures show the complete IEEE 802.1X
+authentication process, including:
+
+\begin{itemize}
+\item EAPOL-Start
+\item EAP Request Identity
+\item EAP Response Identity
+\item Protected EAP (PEAP)
+\item TLS handshake messages
+\item EAP Success
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../Images/eap_peap_capture.png}
+\caption{Wireshark capture of the EAP-PEAP authentication process}
+\label{fig:eap-peap-capture}
+\end{figure}
+
+The authentication process starts when the
+supplicant sends an EAPOL-Start frame after
+connecting to the switch port.
+
+The switch, acting as the authenticator,
+responds with an EAP Request Identity message.
+The supplicant then replies with an EAP Response
+Identity containing the username used for authentication.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{../Images/response_identity_packet.png}
+\caption{EAP Response Identity packet containing the username used during authentication}
+\label{fig:eap-identity}
+\end{figure}
+
+The EAP Response Identity packet contains the
+username provided by the supplicant during
+the authentication exchange.
+
+In this setup, the supplicant identified itself
+using the username \texttt{bob}, which was later
+validated by the FreeRADIUS server through
+PEAP/MSCHAPv2 authentication.
+
+The switch forwards the authentication information
+to the FreeRADIUS server using the RADIUS protocol.
+
+PEAP negotiation is then initiated in order to
+establish a TLS tunnel between the supplicant
+and the authentication server.
+The Wireshark captures show TLS handshake
+messages, including Client Hello and Change Cipher Spec.
+
+After the TLS tunnel is established,
+MSCHAPv2 authentication takes place inside
+the encrypted channel.
+
+Finally, the authentication process completes
+successfully with the EAP Success message,
+allowing the switch to authorize the port
+for normal network access.
+
+\subsubsection{Security Considerations}
+
+IEEE 802.1X authentication can mitigate several
+network attacks studied in Lab 1.1.
+
+By requiring authentication before granting
+access to switch ports, unauthorized devices
+cannot easily connect to the network.
+
+This mechanism helps mitigate:
+
+\begin{itemize}
+\item Unauthorized network access
+\item Rogue devices connected to switch ports
+\item Basic MAC spoofing attempts
+\item Passive credential sniffing attacks
+\end{itemize}
+
+The use of PEAP additionally protects
+authentication credentials by establishing
+an encrypted TLS tunnel between the supplicant
+and the authentication server.
+
+However, IEEE 802.1X does not directly mitigate
+Denial of Service attacks such as ICMP flood
+or TCP SYN flood attacks studied previously.
+
+\subsubsection{Comparison Between AI Explanation and Observed Traffic}
+
+An AI tool was used to explain the EAP-PEAP
+authentication process implemented in the lab setup.
+
+The AI explanation correctly identified the
+three main entities involved in IEEE 802.1X authentication:
+
+\begin{itemize}
+\item Supplicant
+\item Authenticator
+\item Authentication Server
+\end{itemize}
+
+The supplicant corresponds to the Linux host
+running \texttt{wpa\_supplicant}, which initiates
+the authentication process and provides user credentials.
+
+The authenticator corresponds to the Cisco switch,
+which controls access to the network port and forwards
+EAP messages between the supplicant and the RADIUS server.
+
+The authentication server corresponds to the
+FreeRADIUS server, which validates credentials
+and decides whether authentication succeeds or fails.
+
+The Wireshark captures confirmed the behavior
+described by the AI explanation.
+Observed traffic included EAPOL-Start,
+Identity exchange messages, PEAP negotiation,
+TLS handshake packets, and the final EAP Success message.
+
+One important observation is that the switch
+does not authenticate the user directly.
+Instead, the switch acts only as an intermediary
+between the supplicant and the FreeRADIUS server.
+The actual authentication decision is performed
+exclusively by the RADIUS server.
+
+Overall, the AI explanation was consistent
+with the observed protocol behavior and packet captures.
 \newpage
 
 \section{Conclusion}

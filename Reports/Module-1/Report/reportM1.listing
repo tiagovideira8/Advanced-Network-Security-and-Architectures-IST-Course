@@ -1,1 +1,1 @@
-login = des HASH
+wpa_supplicant -Dwired -ieth0 -c/usr/wpa.conf

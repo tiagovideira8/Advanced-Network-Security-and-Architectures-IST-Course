@@ -1,8 +1,8 @@
-PWD /Users/afonsomendes/Library/CloudStorage/OneDrive-UniversidadedeLisboa/(P4) SAAR/Advanced-Network-Security-and-Architectures-IST-Course/Reports/Module-1/Report
+PWD /Users/tiagovideira/Library/CloudStorage/OneDrive-UniversidadedeLisboa/SAAR/Advanced-Network-Security-and-Architectures-IST-Course/Reports/Module-1/Report
 INPUT /usr/local/texlive/2026/texmf.cnf
 INPUT /usr/local/texlive/2026/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/afonsomendes/Library/CloudStorage/OneDrive-UniversidadedeLisboa/(P4) SAAR/Advanced-Network-Security-and-Architectures-IST-Course/Reports/Module-1/Report/reportM1.tex
+INPUT /Users/tiagovideira/Library/CloudStorage/OneDrive-UniversidadedeLisboa/SAAR/Advanced-Network-Security-and-Architectures-IST-Course/Reports/Module-1/Report/reportM1.tex
 OUTPUT reportM1.log
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/base/article.cls
@@ -568,6 +568,33 @@ INPUT ../Images/TACACS+_avg_display.png
 INPUT ../Images/TACACS+_avg_display.png
 INPUT ../Images/TACACS+_avg_display.png
 INPUT ../Images/TACACS+_avg_display.png
+OUTPUT reportM1.listing
+INPUT ./reportM1.listing
+INPUT ./reportM1.listing
+INPUT reportM1.listing
+OUTPUT reportM1.listing
+INPUT ./reportM1.listing
+INPUT ./reportM1.listing
+INPUT reportM1.listing
+OUTPUT reportM1.listing
+INPUT ./reportM1.listing
+INPUT ./reportM1.listing
+INPUT reportM1.listing
+INPUT ../Images/show_authentication_sessions.png
+INPUT ../Images/show_authentication_sessions.png
+INPUT ../Images/show_authentication_sessions.png
+INPUT ../Images/show_authentication_sessions.png
+INPUT ../Images/show_authentication_sessions.png
+INPUT ../Images/eap_peap_capture.png
+INPUT ../Images/eap_peap_capture.png
+INPUT ../Images/eap_peap_capture.png
+INPUT ../Images/eap_peap_capture.png
+INPUT ../Images/eap_peap_capture.png
+INPUT ../Images/response_identity_packet.png
+INPUT ../Images/response_identity_packet.png
+INPUT ../Images/response_identity_packet.png
+INPUT ../Images/response_identity_packet.png
+INPUT ../Images/response_identity_packet.png
 INPUT reportM1.aux
 INPUT ./reportM1.out
 INPUT ./reportM1.out
