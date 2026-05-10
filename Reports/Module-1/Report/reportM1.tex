@@ -761,20 +761,104 @@ The firewall is implemented on a Cisco 7200 router using Zone-Based Policy Firew
     \label{fig:zbpf_topology}
 \end{figure}
 
+\subsubsection{DMZ Server Configuration}
+
+Three routers were configured to simulate the services hosted in the DMZ zone: a Web server, a DNS server, and an Email server.
+
+\paragraph{Web Server}
+
+The Web server was configured on the router with IP address \texttt{172.16.0.10}. HTTP and HTTPS services were enabled using the Cisco IOS embedded HTTP server functionality.
+
+\begin{verbatim}
+ip http server
+ip http secure-server
+username admin privilege 15 secret cisco
+ip http authentication local
+\end{verbatim}
+
+This configuration allowed the firewall policies for Web browsing (HTTP and HTTPS) to be validated using NMAP scans and TCP connection attempts.
+
+\paragraph{DNS Server}
+
+The DNS server was configured on the router with IP address \texttt{172.16.0.30}. The Cisco IOS DNS service was enabled and static host mappings were defined:
+
+\begin{verbatim}
+ip dns server
+ip host webserver 172.16.0.10
+ip host mailserver 172.16.0.20
+\end{verbatim}
+
+This configuration provided basic DNS resolution functionality within the DMZ network and allowed DNS-related firewall rules to be tested.
+
+\paragraph{Email Server}
+
+Cisco IOS routers do not provide a complete Email server implementation supporting SMTP, POP3, and IMAP services. Therefore, the Email server was simulated using a router configured to provide reachable TCP services for firewall validation purposes.
+
+\begin{verbatim}
+banner motd # EMAIL SERVER #
+ip http server
+\end{verbatim}
+
+Although this configuration does not implement a real mail server, it is sufficient for validating the firewall policies related to Email traffic. The objective of the experiment was to verify that the firewall correctly permits or blocks the required protocols and ports, rather than deploying a production-ready Email infrastructure.
+
 \subsubsection{Firewall Configuration}
 
-Four security zones were created and associated with the firewall interfaces. By default, communication between zones is denied unless explicitly permitted.
+The firewall was implemented using Cisco's Zone-Based Policy Firewall (ZBPF) model. In this approach, interfaces are assigned to security zones and traffic between zones is controlled through zone-pairs associated with policy-maps.
 
-NAT overload was configured to allow private hosts to access the OUT zone while hiding internal IP addresses.
+The topology was divided into four security zones:
 
-Traffic policies were implemented using ACLs, class-maps, policy-maps, and zone-pairs. Only the required services were allowed:
 \begin{itemize}
-    \item HTTP/HTTPS to the Web server;
-    \item SMTP to the Email server;
-    \item DNS queries to the DNS server.
+    \item \textbf{PR1} -- First private network;
+    \item \textbf{PR2} -- Second private network;
+    \item \textbf{DMZ} -- Demilitarized zone hosting public services;
+    \item \textbf{OUT} -- External network.
 \end{itemize}
 
-No zone-pairs were configured between PR1 and PR2, nor from OUT towards the private zones, resulting in implicit traffic denial.
+Each firewall interface was associated with the appropriate security zone. Since ZBPF denies inter-zone traffic by default, explicit policies had to be defined for all permitted communications.
+
+The firewall policies were implemented using a modular approach based on:
+
+\begin{enumerate}
+    \item ACLs identifying the destination servers;
+    \item Protocol-oriented class-maps identifying the allowed services;
+    \item Hierarchical class-maps combining destination and protocol matching;
+    \item Policy-maps defining the action applied to matching traffic.
+\end{enumerate}
+
+For example, access to the DMZ Web server was conceptually separated into two components:
+\begin{itemize}
+    \item an ACL identifying the Web server host;
+    \item a protocol class-map grouping HTTP, HTTPS, and ICMP.
+\end{itemize}
+
+These components were then combined into a higher-level class-map and applied through a zone-pair policy.
+
+This modular structure improves readability, scalability, and maintainability when compared with large monolithic ACLs containing both addressing and protocol logic simultaneously.
+
+The private zones used addresses belonging to the range \texttt{10.0.0.0/8}. To allow communication with the OUT zone, NAT overload (PAT) was configured on the firewall. Internal addresses were translated to the public address of the OUT interface, allowing multiple private hosts to share a single external address.
+
+The DMZ zone contained three simulated servers:
+\begin{itemize}
+    \item a Web server (\texttt{172.16.0.10});
+    \item an Email server (\texttt{172.16.0.20});
+    \item a DNS server (\texttt{172.16.0.30}).
+\end{itemize}
+
+The Web server was configured using Cisco IOS embedded HTTP and HTTPS services. The DNS server used the Cisco IOS DNS service with static host mappings. Since Cisco IOS routers do not provide a complete Email server implementation, the Email server was simulated to validate firewall policies related to SMTP, POP3, and IMAP traffic.
+
+The following zone-pairs were configured:
+\begin{itemize}
+    \item PR1 $\rightarrow$ OUT;
+    \item PR2 $\rightarrow$ OUT;
+    \item PR1 $\rightarrow$ DMZ;
+    \item PR2 $\rightarrow$ DMZ;
+    \item OUT $\rightarrow$ DMZ;
+    \item DMZ $\rightarrow$ OUT.
+\end{itemize}
+
+All traffic not explicitly permitted by the configured policies was denied by the firewall through the default ZBPF behavior.
+
+The complete Cisco IOS firewall configuration is included in Appendix~\ref{appendix:fwconfig}.
 
 \subsubsection{Testing and Validation}
 
@@ -828,15 +912,227 @@ Only the permitted public services were accessible from the OUT zone.
     \label{fig:out_dmz}
 \end{figure}
 
-\paragraph{Firewall Management}
+\subsubsection{AI-Based ZBPF Proposal and Comparison}
 
-SSH access to the firewall was successful after enabling compatibility options for legacy Cisco IOS cryptographic algorithms. Telnet access was blocked, confirming secure management access.
+An AI tool was initially used to propose a ZBPF configuration for the specified firewall policy. The proposed solution implemented most firewall rules correctly and produced the expected filtering behavior during testing. In particular, the AI-generated configuration correctly enforced:
 
+\begin{itemize}
+    \item isolation between PR1 and PR2;
+    \item restricted access from OUT to the private zones;
+    \item controlled access to DMZ services;
+    \item NAT overload for private networks;
+    \item stateful inspection between security zones.
+\end{itemize}
+
+However, the AI-generated configuration relied primarily on large ACLs containing both addressing information and protocol definitions simultaneously. For example, individual ACL entries directly specified:
+\begin{itemize}
+    \item source and destination addresses;
+    \item transport protocols;
+    \item destination service ports.
+\end{itemize}
+
+Although functionally correct, this approach results in configurations that are less modular and harder to maintain as the number of services and zones increases.
+
+During the experiment, it became evident that a more structured ZBPF design can be achieved by separating:
+\begin{enumerate}
+    \item host identification (ACLs);
+    \item protocol grouping (protocol class-maps);
+    \item policy logic (hierarchical class-maps and policy-maps).
+\end{enumerate}
+
+This methodology, presented during the lectures, leverages the full capabilities of ZBPF and produces cleaner and more scalable firewall policies. Instead of defining large ACLs with complete filtering logic, ACLs are used only to identify servers or networks, while protocol class-maps group related services such as HTTP, HTTPS, DNS, SMTP, POP3, and ICMP.
+
+The combined use of nested class-maps and policy-maps results in a configuration that is easier to understand, reuse, and extend.
+
+Despite these architectural differences, both implementations enforce the same effective firewall behavior. Experimental validation using NMAP and Wireshark confirmed that the implemented firewall correctly satisfied all required security policies.
 \subsubsection{Conclusion}
 
 The experimental results confirm that the ZBPF firewall correctly enforces inter-zone isolation, controlled access to DMZ services, NAT operation, and secure firewall management.
 
-\subsection{Defense against DoS attacks}
+\section{Defense against DoS Attacks}
+
+This laboratory exercise explored the use of Cisco Zone-Based Policy Firewall (ZBPF) mechanisms
+to mitigate two common Denial of Service (DoS) attacks:
+
+\begin{itemize}
+    \item ICMP Flood attack
+    \item TCP SYN Flood attack
+\end{itemize}
+
+The experiments were performed using the \texttt{hping3} tool to generate malicious traffic
+towards the protected server while Wireshark captures and IOS inspection commands were used
+to analyze the behavior of the firewall.
+
+\subsection{ZBPF Configuration}
+
+The firewall configuration was based on a Zone-Based Policy Firewall architecture.
+Separate class maps were created for ICMP and HTTP traffic and combined into a single policy map.
+
+\begin{configbox}
+ip access-list extended TO_IN_HOST
+ permit ip any host 222.10.10.1
+\end{configbox}
+
+\begin{configbox}
+class-map type inspect match-all ICMP_CLASSMAP
+ match access-group name TO_IN_HOST
+ match protocol icmp
+\end{configbox}
+
+\begin{configbox}
+class-map type inspect match-all WWW_CLASSMAP
+ match access-group name TO_IN_HOST
+ match protocol http
+\end{configbox}
+
+\begin{configbox}
+policy-map type inspect DOS_POLICYMAP
+
+ class type inspect WWW_CLASSMAP
+  inspect
+  police rate 128000 burst 8000
+
+ class type inspect ICMP_CLASSMAP
+  inspect
+  police rate 128000 burst 8000
+
+ class class-default
+  drop log
+\end{configbox}
+
+The policy was then applied to the zone pair connecting the outside network
+to the protected internal network.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{../Images/prove_of_DOS_POLICYMAP_active.png}
+\caption{DOS\_POLICYMAP applied to the OUT\_TO\_IN zone pair}
+\label{fig:zbpf-policy-active}
+\end{figure}
+
+\subsection{ICMP Flood Attack}
+
+The ICMP flood attack was generated using:
+
+\begin{configbox}
+hping3 -1 --flood 222.10.10.1
+\end{configbox}
+
+This attack continuously sends ICMP Echo Request packets towards the victim
+with the objective of exhausting processing resources or saturating the network link.
+
+Wireshark captures show a large number of ICMP Echo Request packets being transmitted
+towards the protected server.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../Images/ICMP_flood_attack.png}
+\caption{Wireshark capture of the ICMP flood attack}
+\label{fig:icmp-flood}
+\end{figure}
+
+The ZBPF firewall inspected the ICMP traffic and enforced the configured policing policy.
+IOS inspection statistics confirmed that the firewall was actively processing ICMP packets.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.55\textwidth]{../Images/firewall_recognize_ICMP_packets.png}
+\caption{ICMP traffic identified by the firewall class-map}
+\label{fig:icmp-classmap}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.65\textwidth]{../Images/icmp_flood_active_firewall_inspect.png}
+\caption{Firewall inspection statistics during the ICMP flood attack}
+\label{fig:icmp-inspect}
+\end{figure}
+
+The command:
+
+\begin{configbox}
+show policy-map type inspect zone-pair OUT_TO_IN
+\end{configbox}
+
+confirmed that the firewall was inspecting and policing the attack traffic.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{../Images/inspect_prove_firewall_working.png}
+\caption{ZBPF inspection counters during the attack}
+\label{fig:zbpf-counters}
+\end{figure}
+
+The \texttt{police rate} parameter controls the maximum permitted bandwidth,
+while the \texttt{burst} parameter defines how much traffic may temporarily exceed the configured rate.
+Smaller values increase protection but may also drop legitimate traffic,
+whereas larger values improve throughput but reduce the effectiveness of the mitigation.
+
+\subsection{TCP SYN Flood Attack}
+
+The TCP SYN flood attack was performed using:
+
+\begin{configbox}
+hping3 -S -p 80 --flood --rand-source 222.10.10.1
+\end{configbox}
+
+This attack generates a large number of TCP SYN packets with random spoofed source addresses.
+The victim server attempts to establish TCP sessions by replying with SYN-ACK packets,
+but the final ACK packet of the TCP three-way handshake never arrives.
+
+As a consequence, the server accumulates many half-open TCP sessions,
+which may eventually exhaust available resources.
+
+To mitigate this attack, a parameter map was configured:
+
+\begin{configbox}
+parameter-map type inspect PARMAP
+ tcp synwait-time 3
+\end{configbox}
+
+The parameter map reduces the TCP SYN wait timeout,
+allowing the firewall to remove half-open sessions more aggressively.
+
+Wireshark captures show repeated TCP SYN packets directed at the server,
+followed by retransmissions and connection resets generated during the mitigation process.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../Images/tcp_syn_flood.png}
+\caption{Wireshark capture of the TCP SYN flood attack}
+\label{fig:syn-flood}
+\end{figure}
+
+The captures demonstrate that the ZBPF firewall actively monitored the TCP state
+and helped protect the server by removing incomplete TCP sessions more rapidly.
+
+\subsection{Analysis of the Attacks and Mitigation}
+
+The ICMP flood attack attempts to overwhelm the victim using excessive ICMP traffic.
+The ZBPF firewall mitigated this attack by inspecting ICMP packets and enforcing
+rate limiting policies using the \texttt{police} command.
+
+The TCP SYN flood attack is more sophisticated because it abuses the TCP connection establishment mechanism.
+By using spoofed source addresses, the attacker prevents the completion of the TCP handshake,
+forcing the server to maintain many half-open sessions.
+
+The ZBPF firewall mitigated this attack using both traffic policing and TCP session inspection.
+The parameter map reduced the SYN timeout period, allowing the firewall to remove stale sessions more quickly.
+
+Overall, the experiments demonstrate that Zone-Based Policy Firewalls provide effective protection
+against several classes of DoS attacks by combining:
+
+\begin{itemize}
+    \item Stateful packet inspection
+    \item Traffic classification
+    \item Rate limiting
+    \item TCP session management
+\end{itemize}
+
+Although these protections significantly improve resilience,
+very large-scale distributed attacks may still overwhelm network resources before filtering occurs.
+Therefore, firewall-based mitigation should be combined with additional protections
+such as upstream filtering, anti-spoofing policies, and distributed DDoS mitigation services.
 
 \newpage
 
@@ -1513,6 +1809,233 @@ with the observed protocol behavior and packet captures.
 
 \newpage
 
-\section{Appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    columns=fullflexible
+}
+
+\appendix
+
+\section{Firewall Configuration}
+\label{appendix:fwconfig}
+
+This appendix contains the relevant Cisco IOS configuration commands used to implement the Zone-Based Policy Firewall (ZBPF) for the campus network topology.
+
+\subsection{Zone Definitions}
+
+\begin{lstlisting}
+conf t
+
+zone security PR1
+zone security PR2
+zone security DMZ
+zone security OUT
+\end{lstlisting}
+
+\subsection{Interface Configuration and Zone Assignment}
+
+\begin{lstlisting}
+interface FastEthernet0/0
+ ip address 10.1.1.254 255.255.255.0
+ ip nat inside
+ ip virtual-reassembly in
+ zone-member security PR1
+
+interface FastEthernet1/0
+ ip address 10.2.2.254 255.255.255.0
+ ip nat inside
+ ip virtual-reassembly in
+ zone-member security PR2
+
+interface FastEthernet2/0
+ ip address 172.16.0.254 255.255.255.0
+ zone-member security DMZ
+
+interface FastEthernet3/0
+ ip address 200.0.0.254 255.255.255.0
+ ip nat outside
+ ip virtual-reassembly in
+ zone-member security OUT
+\end{lstlisting}
+
+\subsection{NAT Configuration}
+
+\begin{lstlisting}
+ip access-list standard NAT_INSIDE
+ permit 10.0.0.0 0.255.255.255
+
+ip nat inside source list NAT_INSIDE interface FastEthernet3/0 overload
+\end{lstlisting}
+
+\subsection{Access Control Lists}
+
+\subsubsection{PR to OUT}
+
+\begin{lstlisting}
+ip access-list extended PR_TO_OUT
+ permit tcp any any eq www
+ permit tcp any any eq 443
+ permit udp any any eq domain
+ permit icmp any any
+\end{lstlisting}
+
+\subsubsection{PR to DMZ}
+
+\begin{lstlisting}
+ip access-list extended PR_TO_DMZ
+ permit icmp any host 172.16.0.10
+ permit icmp any host 172.16.0.20
+ permit icmp any host 172.16.0.30
+
+ permit tcp any host 172.16.0.10 eq www
+ permit tcp any host 172.16.0.10 eq 443
+
+ permit tcp any host 172.16.0.20 eq smtp
+ permit tcp any host 172.16.0.20 eq pop3
+ permit tcp any host 172.16.0.20 eq 143
+
+ permit udp any host 172.16.0.30 eq domain
+ permit tcp any host 172.16.0.30 eq domain
+\end{lstlisting}
+
+\subsubsection{OUT to DMZ}
+
+\begin{lstlisting}
+ip access-list extended OUT_TO_DMZ
+ permit icmp any host 172.16.0.10
+ permit icmp any host 172.16.0.20
+ permit icmp any host 172.16.0.30
+
+ permit tcp any host 172.16.0.10 eq www
+ permit tcp any host 172.16.0.10 eq 443
+
+ permit tcp any host 172.16.0.20 eq smtp
+
+ permit udp any host 172.16.0.30 eq domain
+ permit tcp any host 172.16.0.30 eq domain
+\end{lstlisting}
+
+\subsubsection{DMZ to OUT}
+
+\begin{lstlisting}
+ip access-list extended DMZ_TO_OUT
+ permit icmp any any
+ permit tcp any any eq smtp
+ permit udp any any eq domain
+ permit tcp any any eq domain
+\end{lstlisting}
+
+\subsection{Class-Maps}
+
+\begin{lstlisting}
+class-map type inspect match-any PR_OUT_CLASS
+ match access-group name PR_TO_OUT
+
+class-map type inspect match-any PR_DMZ_CLASS
+ match access-group name PR_TO_DMZ
+
+class-map type inspect match-any OUT_DMZ_CLASS
+ match access-group name OUT_TO_DMZ
+
+class-map type inspect match-any DMZ_OUT_CLASS
+ match access-group name DMZ_TO_OUT
+\end{lstlisting}
+
+\subsection{Policy-Maps}
+
+\begin{lstlisting}
+policy-map type inspect PR_OUT_POLICY
+ class type inspect PR_OUT_CLASS
+  inspect
+ class class-default
+  drop
+
+policy-map type inspect PR_DMZ_POLICY
+ class type inspect PR_DMZ_CLASS
+  inspect
+ class class-default
+  drop
+
+policy-map type inspect OUT_DMZ_POLICY
+ class type inspect OUT_DMZ_CLASS
+  inspect
+ class class-default
+  drop
+
+policy-map type inspect DMZ_OUT_POLICY
+ class type inspect DMZ_OUT_CLASS
+  inspect
+ class class-default
+  drop
+\end{lstlisting}
+
+\subsection{Zone-Pairs}
+
+\begin{lstlisting}
+zone-pair security PR1_TO_OUT source PR1 destination OUT
+ service-policy type inspect PR_OUT_POLICY
+
+zone-pair security PR2_TO_OUT source PR2 destination OUT
+ service-policy type inspect PR_OUT_POLICY
+
+zone-pair security PR1_TO_DMZ source PR1 destination DMZ
+ service-policy type inspect PR_DMZ_POLICY
+
+zone-pair security PR2_TO_DMZ source PR2 destination DMZ
+ service-policy type inspect PR_DMZ_POLICY
+
+zone-pair security OUT_TO_DMZ source OUT destination DMZ
+ service-policy type inspect OUT_DMZ_POLICY
+
+zone-pair security DMZ_TO_OUT source DMZ destination OUT
+ service-policy type inspect DMZ_OUT_POLICY
+\end{lstlisting}
+
+\subsection{SSH Management Access}
+
+\begin{lstlisting}
+username admin privilege 15 secret cisco
+
+ip domain-name lab.local
+
+crypto key generate rsa
+1024
+
+line vty 0 4
+ login local
+ transport input ssh
+\end{lstlisting}
+
+\subsection{Web Server Configuration}
+
+\begin{lstlisting}
+ip http server
+ip http secure-server
+
+username admin privilege 15 secret cisco
+ip http authentication local
+\end{lstlisting}
+
+\subsection{DNS Server Configuration}
+
+\begin{lstlisting}
+ip dns server
+
+ip host webserver 172.16.0.10
+ip host mailserver 172.16.0.20
+\end{lstlisting}
+
+\subsection{Email Server Simulation}
+
+\begin{lstlisting}
+banner motd # EMAIL SERVER #
+
+ip http server
+\end{lstlisting}
 
 \end{document}
