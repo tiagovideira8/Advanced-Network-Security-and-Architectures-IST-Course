@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.31)  10 MAY 2026 15:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.31)  10 MAY 2026 16:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1082,13 +1082,18 @@ File: ../Images/TACACS+_avg_display.png Graphic file (type png)
 <use ../Images/TACACS+_avg_display.png>
 Package pdftex.def Info: ../Images/TACACS+_avg_display.png  used on input line 1490.
 (pdftex.def)             Requested size: 435.32422pt x 214.6045pt.
- [38 <../Images/TACACS+_avg_display.png>] [39]
-<../Images/radius_exec.png, id=1008, 1113.15875pt x 275.0275pt>
+<../Images/SendPass.png, id=994, 977.6525pt x 655.44875pt>
+File: ../Images/SendPass.png Graphic file (type png)
+<use ../Images/SendPass.png>
+Package pdftex.def Info: ../Images/SendPass.png  used on input line 1507.
+(pdftex.def)             Requested size: 411.14528pt x 275.64664pt.
+ [38 <../Images/TACACS+_avg_display.png>] [39 <../Images/SendPass.png (PNG copy)>] [40]
+<../Images/radius_exec.png, id=1014, 1113.15875pt x 275.0275pt>
 File: ../Images/radius_exec.png Graphic file (type png)
 <use ../Images/radius_exec.png>
-Package pdftex.def Info: ../Images/radius_exec.png  used on input line 1617.
+Package pdftex.def Info: ../Images/radius_exec.png  used on input line 1645.
 (pdftex.def)             Requested size: 362.77264pt x 89.63046pt.
- [40] [41 <../Images/radius_exec.png (PNG copy)>] [42]
+ [41 <../Images/radius_exec.png (PNG copy)>] [42] [43]
 \openout6 = `reportM1.listing'.
 
  (./reportM1.listing)
@@ -1098,28 +1103,28 @@ Package pdftex.def Info: ../Images/radius_exec.png  used on input line 1617.
 \openout6 = `reportM1.listing'.
 
  (./reportM1.listing)
-<../Images/show_authentication_sessions.png, id=1022, 416.30531pt x 71.51718pt>
+<../Images/show_authentication_sessions.png, id=1028, 416.30531pt x 71.51718pt>
 File: ../Images/show_authentication_sessions.png Graphic file (type png)
 <use ../Images/show_authentication_sessions.png>
-Package pdftex.def Info: ../Images/show_authentication_sessions.png  used on input line 1746.
+Package pdftex.def Info: ../Images/show_authentication_sessions.png  used on input line 1774.
 (pdftex.def)             Requested size: 411.14528pt x 70.63416pt.
- [43 <../Images/show_authentication_sessions.png>]
-<../Images/eap_peap_capture.png, id=1048, 1203.49625pt x 368.37625pt>
+ [44 <../Images/show_authentication_sessions.png>]
+<../Images/eap_peap_capture.png, id=1054, 1203.49625pt x 368.37625pt>
 File: ../Images/eap_peap_capture.png Graphic file (type png)
 <use ../Images/eap_peap_capture.png>
-Package pdftex.def Info: ../Images/eap_peap_capture.png  used on input line 1771.
+Package pdftex.def Info: ../Images/eap_peap_capture.png  used on input line 1799.
 (pdftex.def)             Requested size: 483.69687pt x 148.05612pt.
-<../Images/response_identity_packet.png, id=1049, 848.16875pt x 167.62625pt>
+<../Images/response_identity_packet.png, id=1055, 848.16875pt x 167.62625pt>
 File: ../Images/response_identity_packet.png Graphic file (type png)
 <use ../Images/response_identity_packet.png>
-Package pdftex.def Info: ../Images/response_identity_packet.png  used on input line 1787.
+Package pdftex.def Info: ../Images/response_identity_packet.png  used on input line 1815.
 (pdftex.def)             Requested size: 386.95897pt x 76.47467pt.
- [44 <../Images/eap_peap_capture.png> <../Images/response_identity_packet.png>] [45] [46] [47] [48] [49] [50] [51] (/usr/local/texlive/2026/texmf-dist/tex/latex/listings/lstlang1.sty
+ [45 <../Images/eap_peap_capture.png> <../Images/response_identity_packet.png>] [46] [47] [48] [49] [50] [51] [52] (/usr/local/texlive/2026/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 2151.
- [52] [53] (./reportM1.aux)
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 2179.
+ [53] [54] (./reportM1.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1132,18 +1137,18 @@ Package rerunfilecheck Info: File `reportM1.out' has not changed.
 (rerunfilecheck)             Checksum: 601539A8047FEB398DAA3F84ED9E7FF8;15645.
  ) 
 Here is how much of TeX's memory you used:
- 37461 strings out of 467525
- 792189 string characters out of 5418982
- 1617802 words of memory out of 5000000
- 65145 multiletter control sequences out of 15000+600000
+ 37471 strings out of 467525
+ 792436 string characters out of 5418982
+ 1617964 words of memory out of 5000000
+ 65153 multiletter control sequences out of 15000+600000
  639532 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  116i,13n,121p,784b,2576s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on reportM1.pdf (54 pages, 8166909 bytes).
+Output written on reportM1.pdf (55 pages, 8292636 bytes).
 PDF statistics:
- 1470 PDF objects out of 1728 (max. 8388607)
- 1290 compressed objects within 13 object streams
- 611 named destinations out of 1000 (max. 500000)
- 1046 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1479 PDF objects out of 1728 (max. 8388607)
+ 1297 compressed objects within 13 object streams
+ 613 named destinations out of 1000 (max. 500000)
+ 1051 words of extra memory for PDF output out of 10000 (max. 10000000)
 

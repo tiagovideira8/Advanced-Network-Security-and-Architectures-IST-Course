@@ -183,7 +183,7 @@ Throughout the project, Wireshark packet captures, Cisco IOS inspection commands
 
 \newpage
 
-\section {Network attacks and countermeasures}
+\section{Network attacks and countermeasures}
 
 \subsection{Objective}
 
@@ -1501,6 +1501,34 @@ when user sessions started or ended.
 Because TACACS+ encrypts packet payloads, Wireshark decryption
 required the shared secret configured between the router and
 the TACACS+ server.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{../Images/SendPass.png}
+\caption{Detailed TACACS+ authentication packet showing password exchange metadata}
+\label{fig:tacacs-sendpass}
+\end{figure}
+
+Detailed inspection of TACACS+ packets shows
+the exchange of authentication messages between
+the router and the TACACS+ server.
+
+Wireshark identified TACACS+ packets associated
+with password transmission and login validation,
+including \texttt{Send Password} authentication exchanges.
+
+The packets also contain protocol metadata such as:
+
+\begin{itemize}
+\item TACACS+ version
+\item Packet type
+\item Sequence number
+\item Session identifier
+\end{itemize}
+
+Although the TACACS+ payload is encrypted,
+Wireshark still exposes important control information
+that allows the authentication process to be analyzed.
 
 \subsubsection{Benefits of Server-Based AAA}
 
