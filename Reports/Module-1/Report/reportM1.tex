@@ -12,6 +12,7 @@
 \usepackage[most]{tcolorbox}
 \usepackage{float}
 
+
 \definecolor{codebg}{RGB}{245,245,245}
 \definecolor{codeframe}{RGB}{200,200,200}
 
@@ -949,7 +950,7 @@ Despite these architectural differences, both implementations enforce the same e
 
 The experimental results confirm that the ZBPF firewall correctly enforces inter-zone isolation, controlled access to DMZ services, NAT operation, and secure firewall management.
 
-\section{Defense against DoS Attacks}
+\subsection{Defense against DoS Attacks}
 
 This laboratory exercise explored the use of Cisco Zone-Based Policy Firewall (ZBPF) mechanisms
 to mitigate two common Denial of Service (DoS) attacks:
@@ -963,7 +964,7 @@ The experiments were performed using the \texttt{hping3} tool to generate malici
 towards the protected server while Wireshark captures and IOS inspection commands were used
 to analyze the behavior of the firewall.
 
-\subsection{ZBPF Configuration}
+\subsubsection{ZBPF Configuration}
 
 The firewall configuration was based on a Zone-Based Policy Firewall architecture.
 Separate class maps were created for ICMP and HTTP traffic and combined into a single policy map.
@@ -1010,7 +1011,7 @@ to the protected internal network.
 \label{fig:zbpf-policy-active}
 \end{figure}
 
-\subsection{ICMP Flood Attack}
+\subsubsection{ICMP Flood Attack}
 
 The ICMP flood attack was generated using:
 
@@ -1068,7 +1069,7 @@ while the \texttt{burst} parameter defines how much traffic may temporarily exce
 Smaller values increase protection but may also drop legitimate traffic,
 whereas larger values improve throughput but reduce the effectiveness of the mitigation.
 
-\subsection{TCP SYN Flood Attack}
+\subsubsection{TCP SYN Flood Attack}
 
 The TCP SYN flood attack was performed using:
 
@@ -1106,7 +1107,7 @@ followed by retransmissions and connection resets generated during the mitigatio
 The captures demonstrate that the ZBPF firewall actively monitored the TCP state
 and helped protect the server by removing incomplete TCP sessions more rapidly.
 
-\subsection{Analysis of the Attacks and Mitigation}
+\subsubsection{Analysis of the Attacks and Mitigation}
 
 The ICMP flood attack attempts to overwhelm the victim using excessive ICMP traffic.
 The ZBPF firewall mitigated this attack by inspecting ICMP packets and enforcing
@@ -1512,7 +1513,7 @@ Connection closed by foreign host.
 root@TelnetClient:~# telnet 222.10.10.254
 Trying 222.10.10.254...
 Connected to 222.10.10.254.
-Escape character is '^]'.
+Escape character is '^'.
 
 User Access Verification
 
@@ -1808,9 +1809,6 @@ with the observed protocol behavior and packet captures.
 \section{Conclusion}
 
 \newpage
-
-\usepackage{listings}
-\usepackage{xcolor}
 
 \lstset{
     basicstyle=\ttfamily\small,

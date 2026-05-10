@@ -85,53 +85,89 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.1}Network Topology}{21}{subsubsection.3.4.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Campus network protected by a ZBPF firewall}}{21}{figure.caption.19}\protected@file@percent }
 \newlabel{fig:zbpf_topology}{{18}{21}{Campus network protected by a ZBPF firewall}{figure.caption.19}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.2}Firewall Configuration}{21}{subsubsection.3.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.3}Testing and Validation}{22}{subsubsection.3.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{PR1 to PR2}{22}{subsubsection.3.4.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces NMAP scan from PR1 to PR2 showing no replies, confirming inter-zone isolation enforced by the firewall}}{22}{figure.caption.20}\protected@file@percent }
-\newlabel{fig:pr1_pr2_block}{{19}{22}{NMAP scan from PR1 to PR2 showing no replies, confirming inter-zone isolation enforced by the firewall}{figure.caption.20}{}}
-\@writefile{toc}{\contentsline {paragraph}{PR1 to OUT}{22}{figure.caption.20}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces Traffic from PR1 to the OUT zone showing NAT translation and access only to permitted services}}{23}{figure.caption.21}\protected@file@percent }
-\newlabel{fig:nat_validation}{{20}{23}{Traffic from PR1 to the OUT zone showing NAT translation and access only to permitted services}{figure.caption.21}{}}
-\@writefile{toc}{\contentsline {paragraph}{PR1 to DMZ}{23}{figure.caption.21}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces NMAP scan from PR1 to the DMZ showing only HTTP and HTTPS services accessible}}{23}{figure.caption.22}\protected@file@percent }
-\newlabel{fig:pr1_dmz}{{21}{23}{NMAP scan from PR1 to the DMZ showing only HTTP and HTTPS services accessible}{figure.caption.22}{}}
-\@writefile{toc}{\contentsline {paragraph}{OUT to Private Zones}{23}{figure.caption.22}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{OUT to DMZ}{23}{figure.caption.22}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces Access from the OUT zone to the DMZ restricted to publicly allowed services}}{24}{figure.caption.23}\protected@file@percent }
-\newlabel{fig:out_dmz}{{22}{24}{Access from the OUT zone to the DMZ restricted to publicly allowed services}{figure.caption.23}{}}
-\@writefile{toc}{\contentsline {paragraph}{Firewall Management}{24}{figure.caption.23}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.4}Conclusion}{24}{subsubsection.3.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Defense against DoS attacks}{24}{subsection.3.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}AAA}{25}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}AAA with TACACS+}{25}{subsection.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}AAA Configuration}{25}{subsubsection.4.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Authentication, Authorization and Accounting}{26}{subsubsection.4.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Authentication}{26}{subsubsection.4.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Authorization}{27}{lstnumber.-10.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Accounting}{27}{lstnumber.-11.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}Password Configuration}{28}{subsubsection.4.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.4}Wireshark Analysis}{29}{subsubsection.4.1.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces Wireshark capture of TACACS+ authentication traffic}}{29}{figure.caption.24}\protected@file@percent }
-\newlabel{fig:tacacs-wireshark}{{23}{29}{Wireshark capture of TACACS+ authentication traffic}{figure.caption.24}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.5}Benefits of Server-Based AAA}{29}{subsubsection.4.1.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}AAA with Radius}{30}{subsection.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Radius Configuration}{30}{subsubsection.4.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Authentication, Authorization and Accounting}{31}{subsubsection.4.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Authentication}{31}{subsubsection.4.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Authorization}{31}{subsubsection.4.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Accounting}{32}{subsubsection.4.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Comparison Between TACACS+ and Radius}{33}{subsubsection.4.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}802.1X Authentication}{34}{subsection.4.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces Authenticated 802.1X session on the Cisco switch}}{34}{figure.caption.25}\protected@file@percent }
-\newlabel{fig:8021x-auth}{{24}{34}{Authenticated 802.1X session on the Cisco switch}{figure.caption.25}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Wireshark Analysis of EAP-PEAP Authentication}{34}{subsubsection.4.3.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {25}{\ignorespaces Wireshark capture of the EAP-PEAP authentication process}}{35}{figure.caption.26}\protected@file@percent }
-\newlabel{fig:eap-peap-capture}{{25}{35}{Wireshark capture of the EAP-PEAP authentication process}{figure.caption.26}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {26}{\ignorespaces EAP Response Identity packet containing the username used during authentication}}{35}{figure.caption.27}\protected@file@percent }
-\newlabel{fig:eap-identity}{{26}{35}{EAP Response Identity packet containing the username used during authentication}{figure.caption.27}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}Security Considerations}{36}{subsubsection.4.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}Comparison Between AI Explanation and Observed Traffic}{36}{subsubsection.4.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{38}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Appendix}{39}{section.6}\protected@file@percent }
-\gdef \@abspage@last{40}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.2}DMZ Server Configuration}{21}{subsubsection.3.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Web Server}{21}{subsubsection.3.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{DNS Server}{22}{subsubsection.3.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Email Server}{22}{subsubsection.3.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.3}Firewall Configuration}{22}{subsubsection.3.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.4}Testing and Validation}{23}{subsubsection.3.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{PR1 to PR2}{24}{subsubsection.3.4.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces NMAP scan from PR1 to PR2 showing no replies, confirming inter-zone isolation enforced by the firewall}}{24}{figure.caption.20}\protected@file@percent }
+\newlabel{fig:pr1_pr2_block}{{19}{24}{NMAP scan from PR1 to PR2 showing no replies, confirming inter-zone isolation enforced by the firewall}{figure.caption.20}{}}
+\@writefile{toc}{\contentsline {paragraph}{PR1 to OUT}{24}{figure.caption.20}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces Traffic from PR1 to the OUT zone showing NAT translation and access only to permitted services}}{24}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:nat_validation}{{20}{24}{Traffic from PR1 to the OUT zone showing NAT translation and access only to permitted services}{figure.caption.21}{}}
+\@writefile{toc}{\contentsline {paragraph}{PR1 to DMZ}{24}{figure.caption.21}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces NMAP scan from PR1 to the DMZ showing only HTTP and HTTPS services accessible}}{25}{figure.caption.22}\protected@file@percent }
+\newlabel{fig:pr1_dmz}{{21}{25}{NMAP scan from PR1 to the DMZ showing only HTTP and HTTPS services accessible}{figure.caption.22}{}}
+\@writefile{toc}{\contentsline {paragraph}{OUT to Private Zones}{25}{figure.caption.22}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{OUT to DMZ}{25}{figure.caption.22}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces Access from the OUT zone to the DMZ restricted to publicly allowed services}}{25}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:out_dmz}{{22}{25}{Access from the OUT zone to the DMZ restricted to publicly allowed services}{figure.caption.23}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.5}AI-Based ZBPF Proposal and Comparison}{25}{subsubsection.3.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.6}Conclusion}{26}{subsubsection.3.4.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Defense against DoS Attacks}{27}{subsection.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.1}ZBPF Configuration}{27}{subsubsection.3.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces DOS\_POLICYMAP applied to the OUT\_TO\_IN zone pair}}{28}{figure.caption.24}\protected@file@percent }
+\newlabel{fig:zbpf-policy-active}{{23}{28}{DOS\_POLICYMAP applied to the OUT\_TO\_IN zone pair}{figure.caption.24}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.2}ICMP Flood Attack}{28}{subsubsection.3.5.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces Wireshark capture of the ICMP flood attack}}{28}{figure.caption.25}\protected@file@percent }
+\newlabel{fig:icmp-flood}{{24}{28}{Wireshark capture of the ICMP flood attack}{figure.caption.25}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {25}{\ignorespaces ICMP traffic identified by the firewall class-map}}{28}{figure.caption.26}\protected@file@percent }
+\newlabel{fig:icmp-classmap}{{25}{28}{ICMP traffic identified by the firewall class-map}{figure.caption.26}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {26}{\ignorespaces Firewall inspection statistics during the ICMP flood attack}}{29}{figure.caption.27}\protected@file@percent }
+\newlabel{fig:icmp-inspect}{{26}{29}{Firewall inspection statistics during the ICMP flood attack}{figure.caption.27}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {27}{\ignorespaces ZBPF inspection counters during the attack}}{29}{figure.caption.28}\protected@file@percent }
+\newlabel{fig:zbpf-counters}{{27}{29}{ZBPF inspection counters during the attack}{figure.caption.28}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.3}TCP SYN Flood Attack}{29}{subsubsection.3.5.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {28}{\ignorespaces Wireshark capture of the TCP SYN flood attack}}{30}{figure.caption.29}\protected@file@percent }
+\newlabel{fig:syn-flood}{{28}{30}{Wireshark capture of the TCP SYN flood attack}{figure.caption.29}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.4}Analysis of the Attacks and Mitigation}{30}{subsubsection.3.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}AAA}{32}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}AAA with TACACS+}{32}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}AAA Configuration}{32}{subsubsection.4.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Authentication, Authorization and Accounting}{33}{subsubsection.4.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Authentication}{33}{subsubsection.4.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Authorization}{34}{lstnumber.-18.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Accounting}{34}{lstnumber.-19.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}Password Configuration}{35}{subsubsection.4.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.4}Wireshark Analysis}{36}{subsubsection.4.1.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {29}{\ignorespaces Wireshark capture of TACACS+ authentication traffic}}{36}{figure.caption.30}\protected@file@percent }
+\newlabel{fig:tacacs-wireshark}{{29}{36}{Wireshark capture of TACACS+ authentication traffic}{figure.caption.30}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.5}Benefits of Server-Based AAA}{36}{subsubsection.4.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}AAA with Radius}{37}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Radius Configuration}{37}{subsubsection.4.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Authentication, Authorization and Accounting}{38}{subsubsection.4.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Authentication}{38}{subsubsection.4.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Authorization}{38}{subsubsection.4.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Accounting}{39}{subsubsection.4.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Comparison Between TACACS+ and Radius}{40}{subsubsection.4.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}802.1X Authentication}{41}{subsection.4.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {30}{\ignorespaces Authenticated 802.1X session on the Cisco switch}}{41}{figure.caption.31}\protected@file@percent }
+\newlabel{fig:8021x-auth}{{30}{41}{Authenticated 802.1X session on the Cisco switch}{figure.caption.31}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Wireshark Analysis of EAP-PEAP Authentication}{41}{subsubsection.4.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {31}{\ignorespaces Wireshark capture of the EAP-PEAP authentication process}}{42}{figure.caption.32}\protected@file@percent }
+\newlabel{fig:eap-peap-capture}{{31}{42}{Wireshark capture of the EAP-PEAP authentication process}{figure.caption.32}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {32}{\ignorespaces EAP Response Identity packet containing the username used during authentication}}{42}{figure.caption.33}\protected@file@percent }
+\newlabel{fig:eap-identity}{{32}{42}{EAP Response Identity packet containing the username used during authentication}{figure.caption.33}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}Security Considerations}{43}{subsubsection.4.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}Comparison Between AI Explanation and Observed Traffic}{43}{subsubsection.4.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{45}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A}Firewall Configuration}{46}{appendix.A}\protected@file@percent }
+\newlabel{appendix:fwconfig}{{A}{46}{Firewall Configuration}{appendix.A}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Zone Definitions}{46}{subsection.A.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.2}Interface Configuration and Zone Assignment}{46}{subsection.A.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.3}NAT Configuration}{46}{subsection.A.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.4}Access Control Lists}{47}{subsection.A.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.4.1}PR to OUT}{47}{subsubsection.A.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.4.2}PR to DMZ}{47}{subsubsection.A.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.4.3}OUT to DMZ}{47}{subsubsection.A.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.4.4}DMZ to OUT}{47}{subsubsection.A.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.5}Class-Maps}{48}{subsection.A.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.6}Policy-Maps}{48}{subsection.A.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.7}Zone-Pairs}{49}{subsection.A.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.8}SSH Management Access}{49}{subsection.A.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.9}Web Server Configuration}{49}{subsection.A.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.10}DNS Server Configuration}{49}{subsection.A.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.11}Email Server Simulation}{50}{subsection.A.11}\protected@file@percent }
+\gdef \@abspage@last{51}

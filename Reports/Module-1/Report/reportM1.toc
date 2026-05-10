@@ -41,36 +41,59 @@
 \contentsline {subsection}{\numberline {3.3}CBAC vs ZBPF}{20}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Protecting a Campus Network using ZBPF}{21}{subsection.3.4}%
 \contentsline {subsubsection}{\numberline {3.4.1}Network Topology}{21}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Firewall Configuration}{21}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}Testing and Validation}{22}{subsubsection.3.4.3}%
-\contentsline {paragraph}{PR1 to PR2}{22}{subsubsection.3.4.3}%
-\contentsline {paragraph}{PR1 to OUT}{22}{figure.caption.20}%
-\contentsline {paragraph}{PR1 to DMZ}{23}{figure.caption.21}%
-\contentsline {paragraph}{OUT to Private Zones}{23}{figure.caption.22}%
-\contentsline {paragraph}{OUT to DMZ}{23}{figure.caption.22}%
-\contentsline {paragraph}{Firewall Management}{24}{figure.caption.23}%
-\contentsline {subsubsection}{\numberline {3.4.4}Conclusion}{24}{subsubsection.3.4.4}%
-\contentsline {subsection}{\numberline {3.5}Defense against DoS attacks}{24}{subsection.3.5}%
-\contentsline {section}{\numberline {4}AAA}{25}{section.4}%
-\contentsline {subsection}{\numberline {4.1}AAA with TACACS+}{25}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}AAA Configuration}{25}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Authentication, Authorization and Accounting}{26}{subsubsection.4.1.2}%
-\contentsline {paragraph}{Authentication}{26}{subsubsection.4.1.2}%
-\contentsline {paragraph}{Authorization}{27}{lstnumber.-10.6}%
-\contentsline {paragraph}{Accounting}{27}{lstnumber.-11.5}%
-\contentsline {subsubsection}{\numberline {4.1.3}Password Configuration}{28}{subsubsection.4.1.3}%
-\contentsline {subsubsection}{\numberline {4.1.4}Wireshark Analysis}{29}{subsubsection.4.1.4}%
-\contentsline {subsubsection}{\numberline {4.1.5}Benefits of Server-Based AAA}{29}{subsubsection.4.1.5}%
-\contentsline {subsection}{\numberline {4.2}AAA with Radius}{30}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Radius Configuration}{30}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Authentication, Authorization and Accounting}{31}{subsubsection.4.2.2}%
-\contentsline {paragraph}{Authentication}{31}{subsubsection.4.2.2}%
-\contentsline {paragraph}{Authorization}{31}{subsubsection.4.2.2}%
-\contentsline {paragraph}{Accounting}{32}{subsubsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.3}Comparison Between TACACS+ and Radius}{33}{subsubsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.3}802.1X Authentication}{34}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Wireshark Analysis of EAP-PEAP Authentication}{34}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Security Considerations}{36}{subsubsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {4.3.3}Comparison Between AI Explanation and Observed Traffic}{36}{subsubsection.4.3.3}%
-\contentsline {section}{\numberline {5}Conclusion}{38}{section.5}%
-\contentsline {section}{\numberline {6}Appendix}{39}{section.6}%
+\contentsline {subsubsection}{\numberline {3.4.2}DMZ Server Configuration}{21}{subsubsection.3.4.2}%
+\contentsline {paragraph}{Web Server}{21}{subsubsection.3.4.2}%
+\contentsline {paragraph}{DNS Server}{22}{subsubsection.3.4.2}%
+\contentsline {paragraph}{Email Server}{22}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Firewall Configuration}{22}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}Testing and Validation}{23}{subsubsection.3.4.4}%
+\contentsline {paragraph}{PR1 to PR2}{24}{subsubsection.3.4.4}%
+\contentsline {paragraph}{PR1 to OUT}{24}{figure.caption.20}%
+\contentsline {paragraph}{PR1 to DMZ}{24}{figure.caption.21}%
+\contentsline {paragraph}{OUT to Private Zones}{25}{figure.caption.22}%
+\contentsline {paragraph}{OUT to DMZ}{25}{figure.caption.22}%
+\contentsline {subsubsection}{\numberline {3.4.5}AI-Based ZBPF Proposal and Comparison}{25}{subsubsection.3.4.5}%
+\contentsline {subsubsection}{\numberline {3.4.6}Conclusion}{26}{subsubsection.3.4.6}%
+\contentsline {subsection}{\numberline {3.5}Defense against DoS Attacks}{27}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}ZBPF Configuration}{27}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}ICMP Flood Attack}{28}{subsubsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.3}TCP SYN Flood Attack}{29}{subsubsection.3.5.3}%
+\contentsline {subsubsection}{\numberline {3.5.4}Analysis of the Attacks and Mitigation}{30}{subsubsection.3.5.4}%
+\contentsline {section}{\numberline {4}AAA}{32}{section.4}%
+\contentsline {subsection}{\numberline {4.1}AAA with TACACS+}{32}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}AAA Configuration}{32}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Authentication, Authorization and Accounting}{33}{subsubsection.4.1.2}%
+\contentsline {paragraph}{Authentication}{33}{subsubsection.4.1.2}%
+\contentsline {paragraph}{Authorization}{34}{lstnumber.-18.6}%
+\contentsline {paragraph}{Accounting}{34}{lstnumber.-19.5}%
+\contentsline {subsubsection}{\numberline {4.1.3}Password Configuration}{35}{subsubsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.4}Wireshark Analysis}{36}{subsubsection.4.1.4}%
+\contentsline {subsubsection}{\numberline {4.1.5}Benefits of Server-Based AAA}{36}{subsubsection.4.1.5}%
+\contentsline {subsection}{\numberline {4.2}AAA with Radius}{37}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Radius Configuration}{37}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Authentication, Authorization and Accounting}{38}{subsubsection.4.2.2}%
+\contentsline {paragraph}{Authentication}{38}{subsubsection.4.2.2}%
+\contentsline {paragraph}{Authorization}{38}{subsubsection.4.2.2}%
+\contentsline {paragraph}{Accounting}{39}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Comparison Between TACACS+ and Radius}{40}{subsubsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.3}802.1X Authentication}{41}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Wireshark Analysis of EAP-PEAP Authentication}{41}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Security Considerations}{43}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Comparison Between AI Explanation and Observed Traffic}{43}{subsubsection.4.3.3}%
+\contentsline {section}{\numberline {5}Conclusion}{45}{section.5}%
+\contentsline {section}{\numberline {A}Firewall Configuration}{46}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Zone Definitions}{46}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Interface Configuration and Zone Assignment}{46}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}NAT Configuration}{46}{subsection.A.3}%
+\contentsline {subsection}{\numberline {A.4}Access Control Lists}{47}{subsection.A.4}%
+\contentsline {subsubsection}{\numberline {A.4.1}PR to OUT}{47}{subsubsection.A.4.1}%
+\contentsline {subsubsection}{\numberline {A.4.2}PR to DMZ}{47}{subsubsection.A.4.2}%
+\contentsline {subsubsection}{\numberline {A.4.3}OUT to DMZ}{47}{subsubsection.A.4.3}%
+\contentsline {subsubsection}{\numberline {A.4.4}DMZ to OUT}{47}{subsubsection.A.4.4}%
+\contentsline {subsection}{\numberline {A.5}Class-Maps}{48}{subsection.A.5}%
+\contentsline {subsection}{\numberline {A.6}Policy-Maps}{48}{subsection.A.6}%
+\contentsline {subsection}{\numberline {A.7}Zone-Pairs}{49}{subsection.A.7}%
+\contentsline {subsection}{\numberline {A.8}SSH Management Access}{49}{subsection.A.8}%
+\contentsline {subsection}{\numberline {A.9}Web Server Configuration}{49}{subsection.A.9}%
+\contentsline {subsection}{\numberline {A.10}DNS Server Configuration}{49}{subsection.A.10}%
+\contentsline {subsection}{\numberline {A.11}Email Server Simulation}{50}{subsection.A.11}%
