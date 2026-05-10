@@ -169,7 +169,17 @@
 
 \section{Introduction}
 
-FAZER APENAS NO FIM DOS 3 LABS
+Computer networks are constantly exposed to a wide variety of security threats that may compromise confidentiality, integrity, and availability of services. Understanding how these attacks operate and how they can be mitigated is fundamental for the design of secure network infrastructures.
+
+The objective of this project was to experimentally study several network security mechanisms and attacks using Cisco IOS devices, Linux hosts, GNS3, Wireshark, and different firewall and authentication technologies. The laboratory activities focused both on offensive techniques and defensive countermeasures, allowing a practical understanding of network security concepts.
+
+The first part of the project addressed common Layer 2 and Layer 3 attacks, including MAC table overflow, DHCP spoofing, ARP poisoning, DNS spoofing, and RIP poisoning. For each attack, packet captures and device-level information were analyzed in order to understand the attack behavior and evaluate corresponding mitigation mechanisms such as port security, DHCP snooping, Dynamic ARP Inspection, HTTPS/TLS protections, and routing authentication.
+
+The second part focused on firewall technologies and protection against Denial of Service attacks. Both Classical Firewalls (CBAC) and Zone-Based Policy Firewalls (ZBPF) were studied and configured using Cisco IOS. Stateful inspection, traffic classification, NAT, inter-zone security policies, and DoS mitigation mechanisms such as traffic policing and TCP session management were experimentally validated using Wireshark and NMAP.
+
+Finally, the third part explored Authentication, Authorization, and Accounting (AAA) technologies. Centralized authentication using TACACS+ and RADIUS servers was implemented and analyzed, followed by IEEE 802.1X port-based network access control using EAP-PEAP authentication with FreeRADIUS and Cisco switches.
+
+Throughout the project, Wireshark packet captures, Cisco IOS inspection commands, and practical experimentation were used to compare theoretical protocol behavior with real network observations. The performed experiments demonstrate both the feasibility of several common network attacks and the importance of properly configured security mechanisms in modern network infrastructures.
 
 \newpage
 
@@ -1807,6 +1817,20 @@ with the observed protocol behavior and packet captures.
 \newpage
 
 \section{Conclusion}
+
+The laboratory activities performed throughout this project provided practical experience with several important network security mechanisms, attacks, and defensive technologies commonly used in modern infrastructures.
+
+The first part of the project demonstrated that many traditional network attacks remain feasible in environments lacking proper security controls. MAC table overflow, DHCP spoofing, ARP poisoning, DNS spoofing, and RIP poisoning attacks were successfully reproduced and analyzed using Wireshark captures and Cisco IOS commands. The experiments also showed that modern countermeasures such as port security, DHCP snooping, Dynamic ARP Inspection, HTTPS/TLS protections, and routing authentication significantly reduce the effectiveness of these attacks.
+
+The firewall experiments demonstrated the differences between Classical Firewalls (CBAC) and Zone-Based Policy Firewalls (ZBPF). Although both approaches can enforce security policies, ZBPF provides a more modular, scalable, and secure architecture through the use of zones, class-maps, policy-maps, and stateful inspection. The firewall configurations successfully enforced network segmentation, controlled access to DMZ services, and NAT operation.
+
+The Denial of Service experiments showed how ICMP flood and TCP SYN flood attacks can affect network services and server resources. Wireshark captures confirmed the behavior of the attacks, including excessive ICMP traffic and the accumulation of half-open TCP sessions. The implemented ZBPF protections, based on traffic policing and TCP session management, effectively mitigated the attacks and reduced their impact on the protected server.
+
+The AAA exercises highlighted the advantages of centralized authentication and authorization using TACACS+ and RADIUS. The experiments demonstrated how centralized AAA improves administrative control, scalability, and accountability when compared with local authentication mechanisms. IEEE 802.1X authentication further extended these concepts by enforcing port-based access control and protecting network access using EAP-PEAP authentication through a secure TLS tunnel.
+
+Overall, the project demonstrated the importance of combining multiple layers of security protections in order to defend modern networks against both external and internal threats. Packet analysis using Wireshark and practical experimentation in GNS3 were essential to understand the behavior of protocols, attacks, and mitigation mechanisms at a detailed level.
+
+The performed experiments reinforce the idea that network security depends not only on the existence of protection mechanisms, but also on their correct configuration, integration, and continuous monitoring.
 
 \newpage
 

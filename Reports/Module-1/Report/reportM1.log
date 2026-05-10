@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.31)  10 MAY 2026 13:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.31)  10 MAY 2026 15:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -826,56 +826,56 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <../Images/wireshark1.jpeg, id=503, 1371.1225pt x 673.51625pt>
 File: ../Images/wireshark1.jpeg Graphic file (type jpg)
 <use ../Images/wireshark1.jpeg>
-Package pdftex.def Info: ../Images/wireshark1.jpeg  used on input line 220.
+Package pdftex.def Info: ../Images/wireshark1.jpeg  used on input line 230.
 (pdftex.def)             Requested size: 483.69687pt x 237.59436pt.
  [5 <../Images/wireshark1.jpeg>]
 <../Images/wireshark2.png, id=514, 916.42375pt x 75.28125pt>
 File: ../Images/wireshark2.png Graphic file (type png)
 <use ../Images/wireshark2.png>
-Package pdftex.def Info: ../Images/wireshark2.png  used on input line 253.
+Package pdftex.def Info: ../Images/wireshark2.png  used on input line 263.
 (pdftex.def)             Requested size: 483.69687pt x 39.73459pt.
 <../Images/wireshark3.png, id=516, 876.27374pt x 238.8925pt>
 File: ../Images/wireshark3.png Graphic file (type png)
 <use ../Images/wireshark3.png>
-Package pdftex.def Info: ../Images/wireshark3.png  used on input line 262.
+Package pdftex.def Info: ../Images/wireshark3.png  used on input line 272.
 (pdftex.def)             Requested size: 483.69687pt x 131.86879pt.
  [6 <../Images/wireshark2.png> <../Images/wireshark3.png>]
 <../Images/topologiaARP.png, id=529, 555.07375pt x 317.185pt>
 File: ../Images/topologiaARP.png Graphic file (type png)
 <use ../Images/topologiaARP.png>
-Package pdftex.def Info: ../Images/topologiaARP.png  used on input line 293.
+Package pdftex.def Info: ../Images/topologiaARP.png  used on input line 303.
 (pdftex.def)             Requested size: 290.22107pt x 165.84218pt.
  [7 <../Images/topologiaARP.png (PNG copy)>]
 <../Images/ARPoison.png, id=537, 1352.05125pt x 631.35875pt>
 File: ../Images/ARPoison.png Graphic file (type png)
 <use ../Images/ARPoison.png>
-Package pdftex.def Info: ../Images/ARPoison.png  used on input line 308.
+Package pdftex.def Info: ../Images/ARPoison.png  used on input line 318.
 (pdftex.def)             Requested size: 435.32422pt x 203.28168pt.
 <../Images/blockedattacks.png, id=539, 808.01875pt x 225.84375pt>
 File: ../Images/blockedattacks.png Graphic file (type png)
 <use ../Images/blockedattacks.png>
-Package pdftex.def Info: ../Images/blockedattacks.png  used on input line 317.
+Package pdftex.def Info: ../Images/blockedattacks.png  used on input line 327.
 (pdftex.def)             Requested size: 435.32422pt x 121.67467pt.
 <../Images/logDAI.png, id=541, 887.315pt x 246.9225pt>
 File: ../Images/logDAI.png Graphic file (type png)
 <use ../Images/logDAI.png>
-Package pdftex.def Info: ../Images/logDAI.png  used on input line 326.
+Package pdftex.def Info: ../Images/logDAI.png  used on input line 336.
 (pdftex.def)             Requested size: 435.32422pt x 121.14001pt.
  [8 <../Images/ARPoison.png> <../Images/blockedattacks.png (PNG copy)>]
 <../Images/defencestats.png, id=551, 527.9725pt x 195.73125pt>
 File: ../Images/defencestats.png Graphic file (type png)
 <use ../Images/defencestats.png>
-Package pdftex.def Info: ../Images/defencestats.png  used on input line 336.
+Package pdftex.def Info: ../Images/defencestats.png  used on input line 346.
 (pdftex.def)             Requested size: 338.58632pt x 125.52142pt.
  [9 <../Images/logDAI.png (PNG copy)> <../Images/defencestats.png (PNG copy)>]
-Overfull \hbox (8.09535pt too wide) in paragraph at lines 385--388
+Overfull \hbox (8.09535pt too wide) in paragraph at lines 395--398
 []\OT1/cmr/m/n/12 The vic-tim then at-tempted to es-tab-lish TCP/TLS con-nec-tions to-wards the attacker-controlled
  []
 
 <../Images/arp_poisoning.png, id=560, 1234.6125pt x 360.34625pt>
 File: ../Images/arp_poisoning.png Graphic file (type png)
 <use ../Images/arp_poisoning.png>
-Package pdftex.def Info: ../Images/arp_poisoning.png  used on input line 413.
+Package pdftex.def Info: ../Images/arp_poisoning.png  used on input line 423.
 (pdftex.def)             Requested size: 483.69687pt x 141.17778pt.
 [10]
 \g__tcobox_out_iow=\write6
@@ -885,7 +885,7 @@ Package pdftex.def Info: ../Images/arp_poisoning.png  used on input line 413.
 <../Images/dns_spoofing2.png, id=570, 1370.11874pt x 667.49374pt>
 File: ../Images/dns_spoofing2.png Graphic file (type png)
 <use ../Images/dns_spoofing2.png>
-Package pdftex.def Info: ../Images/dns_spoofing2.png  used on input line 437.
+Package pdftex.def Info: ../Images/dns_spoofing2.png  used on input line 447.
 (pdftex.def)             Requested size: 483.69687pt x 235.64296pt.
 \openout6 = `reportM1.listing'.
 
@@ -893,69 +893,69 @@ Package pdftex.def Info: ../Images/dns_spoofing2.png  used on input line 437.
 <../Images/tcp_tls_failure.png, id=583, 1305.87875pt x 668.4975pt>
 File: ../Images/tcp_tls_failure.png Graphic file (type png)
 <use ../Images/tcp_tls_failure.png>
-Package pdftex.def Info: ../Images/tcp_tls_failure.png  used on input line 458.
+Package pdftex.def Info: ../Images/tcp_tls_failure.png  used on input line 468.
 (pdftex.def)             Requested size: 483.69687pt x 247.60541pt.
  [12 <../Images/tcp_tls_failure.png>] [13]
 <../Images/topologyRIPoisoning.png, id=598, 949.5475pt x 337.26pt>
 File: ../Images/topologyRIPoisoning.png Graphic file (type png)
 <use ../Images/topologyRIPoisoning.png>
-Package pdftex.def Info: ../Images/topologyRIPoisoning.png  used on input line 578.
+Package pdftex.def Info: ../Images/topologyRIPoisoning.png  used on input line 588.
 (pdftex.def)             Requested size: 435.32422pt x 154.61656pt.
  [14 <../Images/topologyRIPoisoning.png>]
 <../Images/RIPoisoning1.png, id=606, 1000.73875pt x 814.04124pt>
 File: ../Images/RIPoisoning1.png Graphic file (type png)
 <use ../Images/RIPoisoning1.png>
-Package pdftex.def Info: ../Images/RIPoisoning1.png  used on input line 591.
+Package pdftex.def Info: ../Images/RIPoisoning1.png  used on input line 601.
 (pdftex.def)             Requested size: 435.32422pt x 354.10507pt.
 <../Images/RIPoisoning3.png, id=608, 1129.21875pt x 413.545pt>
 File: ../Images/RIPoisoning3.png Graphic file (type png)
 <use ../Images/RIPoisoning3.png>
-Package pdftex.def Info: ../Images/RIPoisoning3.png  used on input line 602.
+Package pdftex.def Info: ../Images/RIPoisoning3.png  used on input line 612.
 (pdftex.def)             Requested size: 435.32422pt x 159.4267pt.
  [15 <../Images/RIPoisoning1.png (PNG copy)>] [16 <../Images/RIPoisoning3.png>]
 <../Images/RIPoisoning2.png, id=621, 1471.4975pt x 514.92375pt>
 File: ../Images/RIPoisoning2.png Graphic file (type png)
 <use ../Images/RIPoisoning2.png>
-Package pdftex.def Info: ../Images/RIPoisoning2.png  used on input line 613.
+Package pdftex.def Info: ../Images/RIPoisoning2.png  used on input line 623.
 (pdftex.def)             Requested size: 435.32422pt x 152.33333pt.
 <../Images/RIPoisoning4.png, id=624, 1149.29375pt x 255.95625pt>
 File: ../Images/RIPoisoning4.png Graphic file (type png)
 <use ../Images/RIPoisoning4.png>
-Package pdftex.def Info: ../Images/RIPoisoning4.png  used on input line 632.
+Package pdftex.def Info: ../Images/RIPoisoning4.png  used on input line 642.
 (pdftex.def)             Requested size: 435.32422pt x 96.94803pt.
 <../Images/RIPoisoning5.png, id=625, 1134.2375pt x 577.15625pt>
 File: ../Images/RIPoisoning5.png Graphic file (type png)
 <use ../Images/RIPoisoning5.png>
-Package pdftex.def Info: ../Images/RIPoisoning5.png  used on input line 639.
+Package pdftex.def Info: ../Images/RIPoisoning5.png  used on input line 649.
 (pdftex.def)             Requested size: 435.32422pt x 221.51451pt.
  [17 <../Images/RIPoisoning2.png (PNG copy)> <../Images/RIPoisoning4.png>] [18 <../Images/RIPoisoning5.png (PNG copy)>] [19] [20]
 <../Images/topo_firewalls2.png, id=669, 633.36626pt x 516.93124pt>
 File: ../Images/topo_firewalls2.png Graphic file (type png)
 <use ../Images/topo_firewalls2.png>
-Package pdftex.def Info: ../Images/topo_firewalls2.png  used on input line 760.
+Package pdftex.def Info: ../Images/topo_firewalls2.png  used on input line 770.
 (pdftex.def)             Requested size: 386.95897pt x 315.83241pt.
  [21 <../Images/topo_firewalls2.png>] [22]
 <../Images/Nmap_PR_to_PR(no replies).png, id=684, 1850.915pt x 844.15375pt>
 File: ../Images/Nmap_PR_to_PR(no replies).png Graphic file (type png)
 <use ../Images/Nmap_PR_to_PR(no replies).png>
-Package pdftex.def Info: ../Images/Nmap_PR_to_PR(no replies).png  used on input line 874.
+Package pdftex.def Info: ../Images/Nmap_PR_to_PR(no replies).png  used on input line 884.
 (pdftex.def)             Requested size: 483.69687pt x 220.59541pt.
  [23]
 <../Images/Nmap_PR_to_OUT(NAT proof).png, id=690, 1382.16376pt x 453.695pt>
 File: ../Images/Nmap_PR_to_OUT(NAT proof).png Graphic file (type png)
 <use ../Images/Nmap_PR_to_OUT(NAT proof).png>
-Package pdftex.def Info: ../Images/Nmap_PR_to_OUT(NAT proof).png  used on input line 885.
+Package pdftex.def Info: ../Images/Nmap_PR_to_OUT(NAT proof).png  used on input line 895.
 (pdftex.def)             Requested size: 483.69687pt x 158.76793pt.
 <../Images/nmap_PR_to_DMZ(working proof).png, id=691, 1444.39626pt x 609.27625pt>
 File: ../Images/nmap_PR_to_DMZ(working proof).png Graphic file (type png)
 <use ../Images/nmap_PR_to_DMZ(working proof).png>
-Package pdftex.def Info: ../Images/nmap_PR_to_DMZ(working proof).png  used on input line 896.
+Package pdftex.def Info: ../Images/nmap_PR_to_DMZ(working proof).png  used on input line 906.
 (pdftex.def)             Requested size: 483.69687pt x 204.02745pt.
  [24 <../Images/Nmap_PR_to_PR(no replies).png> <../Images/Nmap_PR_to_OUT(NAT proof).png>]
 <../Images/nmap_OUT_to_DMZ.png, id=701, 1444.39626pt x 609.27625pt>
 File: ../Images/nmap_OUT_to_DMZ.png Graphic file (type png)
 <use ../Images/nmap_OUT_to_DMZ.png>
-Package pdftex.def Info: ../Images/nmap_OUT_to_DMZ.png  used on input line 911.
+Package pdftex.def Info: ../Images/nmap_OUT_to_DMZ.png  used on input line 921.
 (pdftex.def)             Requested size: 483.69687pt x 204.02745pt.
  [25 <../Images/nmap_PR_to_DMZ(working proof).png> <../Images/nmap_OUT_to_DMZ.png>] [26]
 \openout6 = `reportM1.listing'.
@@ -973,7 +973,7 @@ Package pdftex.def Info: ../Images/nmap_OUT_to_DMZ.png  used on input line 911.
 <../Images/prove_of_DOS_POLICYMAP_active.png, id=717, 229.60782pt x 51.19125pt>
 File: ../Images/prove_of_DOS_POLICYMAP_active.png Graphic file (type png)
 <use ../Images/prove_of_DOS_POLICYMAP_active.png>
-Package pdftex.def Info: ../Images/prove_of_DOS_POLICYMAP_active.png  used on input line 1009.
+Package pdftex.def Info: ../Images/prove_of_DOS_POLICYMAP_active.png  used on input line 1019.
 (pdftex.def)             Requested size: 362.77264pt x 80.88518pt.
  [27]
 \openout6 = `reportM1.listing'.
@@ -982,17 +982,17 @@ Package pdftex.def Info: ../Images/prove_of_DOS_POLICYMAP_active.png  used on in
 <../Images/ICMP_flood_attack.png, id=747, 835.62187pt x 387.69844pt>
 File: ../Images/ICMP_flood_attack.png Graphic file (type png)
 <use ../Images/ICMP_flood_attack.png>
-Package pdftex.def Info: ../Images/ICMP_flood_attack.png  used on input line 1030.
+Package pdftex.def Info: ../Images/ICMP_flood_attack.png  used on input line 1040.
 (pdftex.def)             Requested size: 483.69687pt x 224.42155pt.
 <../Images/firewall_recognize_ICMP_packets.png, id=748, 204.01219pt x 42.1575pt>
 File: ../Images/firewall_recognize_ICMP_packets.png Graphic file (type png)
 <use ../Images/firewall_recognize_ICMP_packets.png>
-Package pdftex.def Info: ../Images/firewall_recognize_ICMP_packets.png  used on input line 1040.
+Package pdftex.def Info: ../Images/firewall_recognize_ICMP_packets.png  used on input line 1050.
 (pdftex.def)             Requested size: 266.03474pt x 54.97647pt.
 <../Images/icmp_flood_active_firewall_inspect.png, id=749, 352.31625pt x 42.1575pt>
 File: ../Images/icmp_flood_active_firewall_inspect.png Graphic file (type png)
 <use ../Images/icmp_flood_active_firewall_inspect.png>
-Package pdftex.def Info: ../Images/icmp_flood_active_firewall_inspect.png  used on input line 1047.
+Package pdftex.def Info: ../Images/icmp_flood_active_firewall_inspect.png  used on input line 1057.
 (pdftex.def)             Requested size: 314.40001pt x 37.62039pt.
  [28 <../Images/prove_of_DOS_POLICYMAP_active.png> <../Images/ICMP_flood_attack.png> <../Images/firewall_recognize_ICMP_packets.png>]
 \openout6 = `reportM1.listing'.
@@ -1001,7 +1001,7 @@ Package pdftex.def Info: ../Images/icmp_flood_active_firewall_inspect.png  used 
 <../Images/inspect_prove_firewall_working.png, id=762, 351.56343pt x 190.46156pt>
 File: ../Images/inspect_prove_firewall_working.png Graphic file (type png)
 <use ../Images/inspect_prove_firewall_working.png>
-Package pdftex.def Info: ../Images/inspect_prove_firewall_working.png  used on input line 1062.
+Package pdftex.def Info: ../Images/inspect_prove_firewall_working.png  used on input line 1072.
 (pdftex.def)             Requested size: 362.77264pt x 196.53214pt.
 \openout6 = `reportM1.listing'.
 
@@ -1012,7 +1012,7 @@ Package pdftex.def Info: ../Images/inspect_prove_firewall_working.png  used on i
 <../Images/tcp_syn_flood.png, id=775, 1040.88875pt x 688.5725pt>
 File: ../Images/tcp_syn_flood.png Graphic file (type png)
 <use ../Images/tcp_syn_flood.png>
-Package pdftex.def Info: ../Images/tcp_syn_flood.png  used on input line 1102.
+Package pdftex.def Info: ../Images/tcp_syn_flood.png  used on input line 1112.
 (pdftex.def)             Requested size: 483.69687pt x 319.97276pt.
  [30 <../Images/tcp_syn_flood.png>] [31]
 \openout6 = `reportM1.listing'.
@@ -1060,13 +1060,13 @@ Package pdftex.def Info: ../Images/tcp_syn_flood.png  used on input line 1102.
 <../Images/TACACS+_avg_display.png, id=950, 1858.945pt x 916.42375pt>
 File: ../Images/TACACS+_avg_display.png Graphic file (type png)
 <use ../Images/TACACS+_avg_display.png>
-Package pdftex.def Info: ../Images/TACACS+_avg_display.png  used on input line 1410.
+Package pdftex.def Info: ../Images/TACACS+_avg_display.png  used on input line 1420.
 (pdftex.def)             Requested size: 435.32422pt x 214.6045pt.
  [36 <../Images/TACACS+_avg_display.png>] [37]
 <../Images/radius_exec.png, id=967, 1113.15875pt x 275.0275pt>
 File: ../Images/radius_exec.png Graphic file (type png)
 <use ../Images/radius_exec.png>
-Package pdftex.def Info: ../Images/radius_exec.png  used on input line 1537.
+Package pdftex.def Info: ../Images/radius_exec.png  used on input line 1547.
 (pdftex.def)             Requested size: 362.77264pt x 89.63046pt.
  [38] [39 <../Images/radius_exec.png (PNG copy)>] [40]
 \openout6 = `reportM1.listing'.
@@ -1081,18 +1081,18 @@ Package pdftex.def Info: ../Images/radius_exec.png  used on input line 1537.
 <../Images/show_authentication_sessions.png, id=980, 416.30531pt x 71.51718pt>
 File: ../Images/show_authentication_sessions.png Graphic file (type png)
 <use ../Images/show_authentication_sessions.png>
-Package pdftex.def Info: ../Images/show_authentication_sessions.png  used on input line 1666.
+Package pdftex.def Info: ../Images/show_authentication_sessions.png  used on input line 1676.
 (pdftex.def)             Requested size: 411.14528pt x 70.63416pt.
  [41 <../Images/show_authentication_sessions.png>]
 <../Images/eap_peap_capture.png, id=1006, 1203.49625pt x 368.37625pt>
 File: ../Images/eap_peap_capture.png Graphic file (type png)
 <use ../Images/eap_peap_capture.png>
-Package pdftex.def Info: ../Images/eap_peap_capture.png  used on input line 1691.
+Package pdftex.def Info: ../Images/eap_peap_capture.png  used on input line 1701.
 (pdftex.def)             Requested size: 483.69687pt x 148.05612pt.
 <../Images/response_identity_packet.png, id=1007, 848.16875pt x 167.62625pt>
 File: ../Images/response_identity_packet.png Graphic file (type png)
 <use ../Images/response_identity_packet.png>
-Package pdftex.def Info: ../Images/response_identity_packet.png  used on input line 1707.
+Package pdftex.def Info: ../Images/response_identity_packet.png  used on input line 1717.
 (pdftex.def)             Requested size: 386.95897pt x 76.47467pt.
  [42 <../Images/eap_peap_capture.png> <../Images/response_identity_packet.png>] [43] [44] [45] [46] [47] [48] [49] [50] (./reportM1.aux)
  ***********
@@ -1109,9 +1109,9 @@ Here is how much of TeX's memory you used:
  64961 multiletter control sequences out of 15000+600000
  639364 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 116i,13n,121p,596b,2576s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 116i,13n,121p,741b,2576s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on reportM1.pdf (51 pages, 8105854 bytes).
+Output written on reportM1.pdf (51 pages, 8109817 bytes).
 PDF statistics:
  1374 PDF objects out of 1440 (max. 8388607)
  1201 compressed objects within 13 object streams
