@@ -1,99 +1,103 @@
 \babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
-\contentsline {section}{\numberline {2}Network attacks and countermeasures}{4}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Objective}{4}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}MAC Table Overflow}{5}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Attack and Countermeasure}{5}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}Switch Comparison}{5}{subsubsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.3}Feasibility}{6}{subsubsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.3}DHCP spoofing}{6}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Attack and Countermeasure}{6}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}AI Prediction}{7}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Switch Comparison}{7}{subsubsection.2.3.3}%
-\contentsline {subsubsection}{\numberline {2.3.4}Feasibility}{7}{subsubsection.2.3.4}%
-\contentsline {subsection}{\numberline {2.4}ARP poisoning (MitM)}{7}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Network Topology}{7}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Attack and Countermeasure}{8}{subsubsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}Defense Statistics}{9}{subsubsection.2.4.3}%
-\contentsline {subsubsection}{\numberline {2.4.4}AI Configuration vs Experimental Setup}{9}{subsubsection.2.4.4}%
-\contentsline {subsubsection}{\numberline {2.4.5}Switch Comparison}{9}{subsubsection.2.4.5}%
-\contentsline {subsubsection}{\numberline {2.4.6}Feasibility}{10}{subsubsection.2.4.6}%
-\contentsline {subsection}{\numberline {2.5}DNS spoofing}{10}{subsection.2.5}%
-\contentsline {subsubsection}{\numberline {2.5.1}Attack Description}{10}{subsubsection.2.5.1}%
-\contentsline {subsubsection}{\numberline {2.5.2}Analysis of ARP, DNS and TCP Packets}{10}{subsubsection.2.5.2}%
-\contentsline {subsubsection}{\numberline {2.5.3}AI Explanation and Experimental Comparison}{12}{subsubsection.2.5.3}%
-\contentsline {subsubsection}{\numberline {2.5.4}Feasibility of the Attack}{13}{subsubsection.2.5.4}%
-\contentsline {subsubsection}{\numberline {2.5.5}Countermeasures}{14}{subsubsection.2.5.5}%
-\contentsline {subsection}{\numberline {2.6}RIP Poisoning}{14}{subsection.2.6}%
-\contentsline {subsubsection}{\numberline {2.6.1}Network Topology}{14}{subsubsection.2.6.1}%
-\contentsline {subsubsection}{\numberline {2.6.2}Attack and Countermeasure}{15}{subsubsection.2.6.2}%
-\contentsline {subsubsection}{\numberline {2.6.3}Effectiveness of the Attack}{17}{subsubsection.2.6.3}%
-\contentsline {subsubsection}{\numberline {2.6.4}AI Prediction vs Experimental Results}{18}{subsubsection.2.6.4}%
-\contentsline {subsubsection}{\numberline {2.6.5}Feasibility}{18}{subsubsection.2.6.5}%
-\contentsline {section}{\numberline {3}Firewalls}{19}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Classical firewalls versus Zone-Based Policy Firewalls}{19}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Firewall Validation}{19}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Classical Firewall (CBAC)}{19}{subsubsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}ZBPF}{19}{subsubsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.2}NMAP Operation}{20}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Host Discovery}{20}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Port Scanning}{20}{subsubsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.3}CBAC vs ZBPF}{20}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Protecting a Campus Network using ZBPF}{21}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Network Topology}{21}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}DMZ Server Configuration}{21}{subsubsection.3.4.2}%
-\contentsline {paragraph}{Web Server}{21}{subsubsection.3.4.2}%
-\contentsline {paragraph}{DNS Server}{22}{subsubsection.3.4.2}%
-\contentsline {paragraph}{Email Server}{22}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}Firewall Configuration}{22}{subsubsection.3.4.3}%
-\contentsline {subsubsection}{\numberline {3.4.4}Testing and Validation}{23}{subsubsection.3.4.4}%
-\contentsline {paragraph}{PR1 to PR2}{24}{subsubsection.3.4.4}%
-\contentsline {paragraph}{PR1 to OUT}{24}{figure.caption.20}%
-\contentsline {paragraph}{PR1 to DMZ}{24}{figure.caption.21}%
-\contentsline {paragraph}{OUT to Private Zones}{25}{figure.caption.22}%
-\contentsline {paragraph}{OUT to DMZ}{25}{figure.caption.22}%
-\contentsline {subsubsection}{\numberline {3.4.5}AI-Based ZBPF Proposal and Comparison}{25}{subsubsection.3.4.5}%
-\contentsline {subsubsection}{\numberline {3.4.6}Conclusion}{26}{subsubsection.3.4.6}%
-\contentsline {subsection}{\numberline {3.5}Defense against DoS Attacks}{27}{subsection.3.5}%
-\contentsline {subsubsection}{\numberline {3.5.1}ZBPF Configuration}{27}{subsubsection.3.5.1}%
-\contentsline {subsubsection}{\numberline {3.5.2}ICMP Flood Attack}{28}{subsubsection.3.5.2}%
-\contentsline {subsubsection}{\numberline {3.5.3}TCP SYN Flood Attack}{29}{subsubsection.3.5.3}%
-\contentsline {subsubsection}{\numberline {3.5.4}Analysis of the Attacks and Mitigation}{30}{subsubsection.3.5.4}%
-\contentsline {section}{\numberline {4}AAA}{32}{section.4}%
-\contentsline {subsection}{\numberline {4.1}AAA with TACACS+}{32}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}AAA Configuration}{32}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Authentication, Authorization and Accounting}{33}{subsubsection.4.1.2}%
-\contentsline {paragraph}{Authentication}{33}{subsubsection.4.1.2}%
-\contentsline {paragraph}{Authorization}{34}{lstnumber.-18.6}%
-\contentsline {paragraph}{Accounting}{34}{lstnumber.-19.5}%
-\contentsline {subsubsection}{\numberline {4.1.3}Password Configuration}{35}{subsubsection.4.1.3}%
-\contentsline {subsubsection}{\numberline {4.1.4}Wireshark Analysis}{36}{subsubsection.4.1.4}%
-\contentsline {subsubsection}{\numberline {4.1.5}Benefits of Server-Based AAA}{36}{subsubsection.4.1.5}%
-\contentsline {subsection}{\numberline {4.2}AAA with Radius}{37}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Radius Configuration}{37}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Authentication, Authorization and Accounting}{38}{subsubsection.4.2.2}%
-\contentsline {paragraph}{Authentication}{38}{subsubsection.4.2.2}%
-\contentsline {paragraph}{Authorization}{38}{subsubsection.4.2.2}%
-\contentsline {paragraph}{Accounting}{39}{subsubsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.3}Comparison Between TACACS+ and Radius}{40}{subsubsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.3}802.1X Authentication}{41}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Wireshark Analysis of EAP-PEAP Authentication}{41}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Security Considerations}{43}{subsubsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {4.3.3}Comparison Between AI Explanation and Observed Traffic}{43}{subsubsection.4.3.3}%
-\contentsline {section}{\numberline {5}Conclusion}{45}{section.5}%
-\contentsline {section}{\numberline {A}Firewall Configuration}{46}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Zone Definitions}{46}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Interface Configuration and Zone Assignment}{46}{subsection.A.2}%
-\contentsline {subsection}{\numberline {A.3}NAT Configuration}{46}{subsection.A.3}%
-\contentsline {subsection}{\numberline {A.4}Access Control Lists}{47}{subsection.A.4}%
-\contentsline {subsubsection}{\numberline {A.4.1}PR to OUT}{47}{subsubsection.A.4.1}%
-\contentsline {subsubsection}{\numberline {A.4.2}PR to DMZ}{47}{subsubsection.A.4.2}%
-\contentsline {subsubsection}{\numberline {A.4.3}OUT to DMZ}{47}{subsubsection.A.4.3}%
-\contentsline {subsubsection}{\numberline {A.4.4}DMZ to OUT}{47}{subsubsection.A.4.4}%
-\contentsline {subsection}{\numberline {A.5}Class-Maps}{48}{subsection.A.5}%
-\contentsline {subsection}{\numberline {A.6}Policy-Maps}{48}{subsection.A.6}%
-\contentsline {subsection}{\numberline {A.7}Zone-Pairs}{49}{subsection.A.7}%
-\contentsline {subsection}{\numberline {A.8}SSH Management Access}{49}{subsection.A.8}%
-\contentsline {subsection}{\numberline {A.9}Web Server Configuration}{49}{subsection.A.9}%
-\contentsline {subsection}{\numberline {A.10}DNS Server Configuration}{49}{subsection.A.10}%
-\contentsline {subsection}{\numberline {A.11}Email Server Simulation}{50}{subsection.A.11}%
+\contentsline {section}{\numberline {1}Introduction}{4}{section.1}%
+\contentsline {section}{\numberline {2}Network attacks and countermeasures}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Objective}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}MAC Table Overflow}{6}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Attack and Countermeasure}{6}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Switch Comparison}{6}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Feasibility}{7}{subsubsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.3}DHCP spoofing}{7}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Attack and Countermeasure}{7}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}AI Prediction}{8}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Switch Comparison}{8}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}Feasibility}{8}{subsubsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.4}ARP poisoning (MitM)}{8}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Network Topology}{8}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Attack and Countermeasure}{9}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Defense Statistics}{10}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}AI Configuration vs Experimental Setup}{10}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}Switch Comparison}{10}{subsubsection.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.6}Feasibility}{11}{subsubsection.2.4.6}%
+\contentsline {subsection}{\numberline {2.5}DNS spoofing}{11}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Attack Description}{11}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Analysis of ARP, DNS and TCP Packets}{11}{subsubsection.2.5.2}%
+\contentsline {subsubsection}{\numberline {2.5.3}AI Explanation and Experimental Comparison}{13}{subsubsection.2.5.3}%
+\contentsline {subsubsection}{\numberline {2.5.4}Feasibility of the Attack}{14}{subsubsection.2.5.4}%
+\contentsline {subsubsection}{\numberline {2.5.5}Countermeasures}{15}{subsubsection.2.5.5}%
+\contentsline {subsection}{\numberline {2.6}RIP Poisoning}{15}{subsection.2.6}%
+\contentsline {subsubsection}{\numberline {2.6.1}Network Topology}{15}{subsubsection.2.6.1}%
+\contentsline {subsubsection}{\numberline {2.6.2}Attack and Countermeasure}{16}{subsubsection.2.6.2}%
+\contentsline {subsubsection}{\numberline {2.6.3}Routing Table Analysis}{18}{subsubsection.2.6.3}%
+\contentsline {subsubsection}{\numberline {2.6.4}Effectiveness of the Attack}{19}{subsubsection.2.6.4}%
+\contentsline {subsubsection}{\numberline {2.6.5}AI Prediction vs Experimental Results}{20}{subsubsection.2.6.5}%
+\contentsline {subsubsection}{\numberline {2.6.6}Feasibility}{20}{subsubsection.2.6.6}%
+\contentsline {section}{\numberline {3}Firewalls}{21}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Classical firewalls versus Zone-Based Policy Firewalls}{21}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Firewall Validation}{21}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Classical Firewall (CBAC)}{21}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}ZBPF}{21}{subsubsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.2}NMAP Operation}{22}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Host Discovery}{22}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Port Scanning}{22}{subsubsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.3}CBAC vs ZBPF}{22}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Protecting a Campus Network using ZBPF}{23}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Network Topology}{23}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}DMZ Server Configuration}{23}{subsubsection.3.4.2}%
+\contentsline {paragraph}{Web Server}{23}{subsubsection.3.4.2}%
+\contentsline {paragraph}{DNS Server}{24}{subsubsection.3.4.2}%
+\contentsline {paragraph}{Email Server}{24}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Firewall Configuration}{24}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}Testing and Validation}{25}{subsubsection.3.4.4}%
+\contentsline {paragraph}{PR1 to PR2}{26}{subsubsection.3.4.4}%
+\contentsline {paragraph}{PR1 to OUT}{26}{figure.caption.21}%
+\contentsline {paragraph}{PR1 to DMZ}{26}{figure.caption.22}%
+\contentsline {paragraph}{OUT to Private Zones}{27}{figure.caption.23}%
+\contentsline {paragraph}{OUT to DMZ}{27}{figure.caption.23}%
+\contentsline {subsubsection}{\numberline {3.4.5}AI-Based ZBPF Proposal and Comparison}{27}{subsubsection.3.4.5}%
+\contentsline {subsubsection}{\numberline {3.4.6}Conclusion}{28}{subsubsection.3.4.6}%
+\contentsline {subsection}{\numberline {3.5}Defense against DoS Attacks}{29}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}ZBPF Configuration}{29}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}ICMP Flood Attack}{30}{subsubsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.3}TCP SYN Flood Attack}{31}{subsubsection.3.5.3}%
+\contentsline {subsubsection}{\numberline {3.5.4}Analysis of the Attacks and Mitigation}{32}{subsubsection.3.5.4}%
+\contentsline {section}{\numberline {4}AAA}{34}{section.4}%
+\contentsline {subsection}{\numberline {4.1}AAA with TACACS+}{34}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}AAA Configuration}{34}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Authentication, Authorization and Accounting}{35}{subsubsection.4.1.2}%
+\contentsline {paragraph}{Authentication}{35}{subsubsection.4.1.2}%
+\contentsline {paragraph}{Authorization}{36}{lstnumber.-20.6}%
+\contentsline {paragraph}{Accounting}{36}{lstnumber.-21.5}%
+\contentsline {subsubsection}{\numberline {4.1.3}Password Configuration}{37}{subsubsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.4}Wireshark Analysis}{38}{subsubsection.4.1.4}%
+\contentsline {subsubsection}{\numberline {4.1.5}Benefits of Server-Based AAA}{38}{subsubsection.4.1.5}%
+\contentsline {subsection}{\numberline {4.2}AAA with Radius}{39}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Radius Configuration}{39}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Authentication, Authorization and Accounting}{40}{subsubsection.4.2.2}%
+\contentsline {paragraph}{Authentication}{40}{subsubsection.4.2.2}%
+\contentsline {paragraph}{Authorization}{40}{subsubsection.4.2.2}%
+\contentsline {paragraph}{Accounting}{41}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Comparison Between TACACS+ and Radius}{42}{subsubsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.3}802.1X Authentication}{43}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Wireshark Analysis of EAP-PEAP Authentication}{43}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Security Considerations}{45}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Comparison Between AI Explanation and Observed Traffic}{45}{subsubsection.4.3.3}%
+\contentsline {section}{\numberline {5}Conclusion}{47}{section.5}%
+\contentsline {section}{\numberline {A}Firewall Configuration}{48}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Zone Definitions}{48}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Interface Configuration and Zone Assignment}{48}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}NAT Configuration}{48}{subsection.A.3}%
+\contentsline {subsection}{\numberline {A.4}Access Control Lists}{49}{subsection.A.4}%
+\contentsline {subsubsection}{\numberline {A.4.1}PR to OUT}{49}{subsubsection.A.4.1}%
+\contentsline {subsubsection}{\numberline {A.4.2}PR to DMZ}{49}{subsubsection.A.4.2}%
+\contentsline {subsubsection}{\numberline {A.4.3}OUT to DMZ}{49}{subsubsection.A.4.3}%
+\contentsline {subsubsection}{\numberline {A.4.4}DMZ to OUT}{49}{subsubsection.A.4.4}%
+\contentsline {subsection}{\numberline {A.5}Class-Maps}{50}{subsection.A.5}%
+\contentsline {subsection}{\numberline {A.6}Policy-Maps}{50}{subsection.A.6}%
+\contentsline {subsection}{\numberline {A.7}Zone-Pairs}{51}{subsection.A.7}%
+\contentsline {subsection}{\numberline {A.8}SSH Management Access}{51}{subsection.A.8}%
+\contentsline {subsection}{\numberline {A.9}Web Server Configuration}{51}{subsection.A.9}%
+\contentsline {subsection}{\numberline {A.10}DNS Server Configuration}{51}{subsection.A.10}%
+\contentsline {subsection}{\numberline {A.11}Email Server Simulation}{52}{subsection.A.11}%
+\contentsline {section}{\numberline {B}RIP Poisoning Attack Script}{52}{appendix.B}%
+\contentsline {subsection}{\numberline {B.1}First Attempt -- Equal-Cost Route Injection}{52}{subsection.B.1}%
+\contentsline {subsection}{\numberline {B.2}Second Attempt -- More Specific Prefix Injection}{53}{subsection.B.2}%
