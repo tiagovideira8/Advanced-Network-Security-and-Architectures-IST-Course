@@ -171,28 +171,144 @@
 
 \newpage
 
+\section{IKEv1 with Pre-Shared Keys}
+
+\newpage
+
 \section{IKEv1 with Digital Signatures}
 
 \subsection{Introduction}
 
-This report describes the configuration and analysis of IPSec VPN using IKEv1 with digital certificates (PKI-based authentication using SCEP). 
+This section describes the configuration and analysis of IPSec VPN using IKEv1 with digital certificates (PKI-based authentication using SCEP). 
 The objective is to replace pre-shared keys with RSA signatures issued by a Certification Authority (CA).
-
-\subsection{Network Setup}
-
-The topology consists of routers R1, R2 and RA (Certification Authority). RA also provides NTP synchronization and PKI services.
 
 \subsection{PKI Installation Verification}
 
-The following IOS commands confirm successful installation of CA and router certificates:
+The Certification Authority (CA) and router certificates were verified using IOS show commands.
 
+\subsubsection{CA Configuration and Certificate (RA)}
+
+The CA is configured on router RA and operates in automatic enrollment mode.
+
+\begin{verbatim}
+RA#show crypto pki server
+Certificate Server myCA:
+    Status: enabled
+    State: enabled
+    Server's configuration is locked  (enter "shut" to unlock it)
+    Issuer name: cn=saarCA
+    CA cert fingerprint: 46CB9C10 CC370311 8CFCB545 E4DD2F58 
+    Granting mode is: auto
+    Last certificate issued serial number (hex): 1
+    CA certificate expiration timer: 16:17:23 UTC May 14 2029
+    CRL NextUpdate timer: 22:17:23 UTC May 15 2026
+    Current primary storage dir: nvram:
+    Database Level: Minimum - no cert data written to storage
+\end{verbatim}
+
+The CA certificate installed on RA confirms that RA is acting as a trusted root authority:
+
+\begin{verbatim}
+RA#show crypto ca certificate
+CA Certificate
+  Status: Available
+  Certificate Serial Number (hex): 01
+  Certificate Usage: Signature
+  Issuer: 
+    cn=saarCA
+  Subject: 
+    cn=saarCA
+  Validity Date: 
+    start date: 16:17:23 UTC May 15 2026
+    end   date: 16:17:23 UTC May 14 2029
+  Associated Trustpoints: myCA 
+  Storage: nvram:saarCA#1CA.cer
+\end{verbatim}
+
+The detailed certificate view confirms RSA key usage and X.509 extensions:
+
+\begin{verbatim}
+RA#show crypto ca certificate verbose
+CA Certificate
+  Status: Available
+  Version: 3
+  Certificate Serial Number (hex): 01
+  Certificate Usage: Signature
+  Issuer: 
+    cn=saarCA
+  Subject: 
+    cn=saarCA
+  Validity Date: 
+    start date: 16:17:23 UTC May 15 2026
+    end   date: 16:17:23 UTC May 14 2029
+  Subject Key Info:
+    Public Key Algorithm: rsaEncryption
+    RSA Public Key: (1024 bit)
+  Signature Algorithm: MD5 with RSA Encryption
+  Fingerprint MD5: 46CB9C10 CC370311 8CFCB545 E4DD2F58 
+  Fingerprint SHA1: 0B6BF47E F0932FC1 54A33FA8 4C1F48D1 80083958 
+  X509v3 extensions:
+    X509v3 Key Usage: 86000000
+      Digital Signature
+      Key Cert Sign
+      CRL Signature
+    X509v3 Subject Key ID: 42BD5391 0D07D957 6CC26630 AABA09E4 A93162E2 
+    X509v3 Basic Constraints:
+        CA: TRUE
+    X509v3 Authority Key ID: 42BD5391 0D07D957 6CC26630 AABA09E4 A93162E2 
+    Authority Info Access:
+  Associated Trustpoints: myCA 
+  Storage: nvram:saarCA#1CA.cer
+\end{verbatim}
+
+\subsubsection{Router Certificates (R1)}
+
+R1 successfully enrolled with the CA and received both the CA certificate and its own identity certificate:
+
+\begin{verbatim}
+R1#show crypto pki certificates
+Certificate
+  Status: Available
+  Certificate Serial Number (hex): 03
+  Certificate Usage: General Purpose
+  Issuer: 
+    cn=saarCA
+  Subject:
+    Name: R1
+    Serial Number: 9SO8DYF8WAKSOLHEG3ZVL
+    hostname=R1+serialNumber=9SO8DYF8WAKSOLHEG3ZVL
+  Validity Date: 
+    start date: 16:33:16 UTC May 15 2026
+    end   date: 16:33:16 UTC May 15 2027
+  Associated Trustpoints: myTrustpoint 
+\end{verbatim}
+
+The CA certificate is also stored locally to validate the trust chain:
+
+\begin{verbatim}
+CA Certificate
+  Status: Available
+  Certificate Serial Number (hex): 01
+  Certificate Usage: Signature
+  Issuer: 
+    cn=saarCA
+  Subject: 
+    cn=saarCA
+  Validity Date: 
+    start date: 16:17:23 UTC May 15 2026
+    end   date: 16:17:23 UTC May 14 2029
+  Associated Trustpoints: myTrustpoint
+\end{verbatim}
+
+\subsubsection{Summary}
+
+The outputs confirm that:
 \begin{itemize}
-\item \texttt{show crypto pki certificates}
-\item \texttt{show crypto ca certificate}
-\item \texttt{show crypto key mypub rsa}
+\item RA is correctly configured as a trusted CA (myCA).
+\item R1 has successfully obtained a signed X.509 certificate from the CA.
+\item The certificate chain is self-signed at the CA level.
+\item RSA key pairs are associated with each identity for IKEv1 authentication.
 \end{itemize}
-
-Both R1 and R2 successfully enrolled with the CA and obtained signed X.509 certificates via SCEP. The corresponding RSA public keys were generated locally and included in the certificate exchange process.
 
 \subsection{SCEP Enrollment Analysis}
 
