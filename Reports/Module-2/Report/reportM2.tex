@@ -169,14 +169,20 @@
 
 \section{Introduction}
 
+\newpage
+
+\section{IKEv1 with Digital Signatures}
+
+\subsection{Introduction}
+
 This report describes the configuration and analysis of IPSec VPN using IKEv1 with digital certificates (PKI-based authentication using SCEP). 
 The objective is to replace pre-shared keys with RSA signatures issued by a Certification Authority (CA).
 
-\section{Network Setup}
+\subsection{Network Setup}
 
 The topology consists of routers R1, R2 and RA (Certification Authority). RA also provides NTP synchronization and PKI services.
 
-\section{PKI Installation Verification}
+\subsection{PKI Installation Verification}
 
 The following IOS commands confirm successful installation of CA and router certificates:
 
@@ -188,7 +194,7 @@ The following IOS commands confirm successful installation of CA and router cert
 
 Both R1 and R2 successfully enrolled with the CA and obtained signed X.509 certificates via SCEP. The corresponding RSA public keys were generated locally and included in the certificate exchange process.
 
-\section{SCEP Enrollment Analysis}
+\subsection{SCEP Enrollment Analysis}
 
 SCEP (Simple Certificate Enrollment Protocol) is used to automate certificate distribution between routers and the CA using HTTP.
 
