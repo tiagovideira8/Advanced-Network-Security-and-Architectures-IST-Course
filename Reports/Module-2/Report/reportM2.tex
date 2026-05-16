@@ -300,6 +300,76 @@ CA Certificate
   Associated Trustpoints: myTrustpoint
 \end{verbatim}
 
+\subsubsection{RSA Public Keys (R1 and R2)}
+
+The RSA public keys generated on R1 and R2 are extracted using the following IOS command:
+
+\begin{verbatim}
+show crypto key mypub rsa
+\end{verbatim}
+
+\textbf{R2 RSA Public Key:}
+
+\begin{verbatim}
+R2#show crypto key mypub rsa
+% Key pair was generated at: 16:32:05 UTC May 15 2026
+Key name: R2
+Key type: RSA KEYS
+ Storage Device: private-config
+ Usage: General Purpose Key
+ Key is not exportable.
+ Key Data:
+  30819F30 0D06092A 864886F7 0D010101 05000381 8D003081 89028181 00C337FE 
+  B0DAEE4D 444B0AF7 A19A73B3 2D2FCD5E 27E09095 3017E393 2F27F7AA 581894E6 
+  5E7F50B3 0454ACF2 FD1E8E24 F91125DD 6D611D93 611D70AD 36C59F6F EAEE003C 
+  7704B6DB 41D9A165 27252864 17170DA2 F38A68D4 46C91133 36DBCBC5 B09AD90E 
+  0F05531B F7ABB4A5 0B954C0F 389C2195 3DE377FF 7FE63FB3 B02DF189 35020301 
+  0001
+% Key pair was generated at: 16:57:46 UTC May 16 2026
+Key name: R2.server
+Key type: RSA KEYS
+Temporary key
+ Usage: Encryption Key
+ Key is not exportable.
+ Key Data:
+  307C300D 06092A86 4886F70D 01010105 00036B00 30680261 00A38B5F B33F29E4 
+  E5E30AFB 512084C9 0A89E015 BCA1569A C10C686B B79BD8EC C3C25CAD 6EE74C8F 
+  C891E5FF 1B042503 710EC940 65712523 377F2776 77CDC4C0 D7D61754 57C88063 
+  19BF191B F48130CC 327EF733 1F877D95 5CB74450 AEEF7E99 45020301 0001
+\end{verbatim}
+
+\textbf{R1 RSA Public Key:}
+
+\begin{verbatim}
+R1#show crypto key mypub rsa
+% Key pair was generated at: 16:31:43 UTC May 15 2026
+Key name: R1
+Key type: RSA KEYS
+ Storage Device: private-config
+ Usage: General Purpose Key
+ Key is not exportable.
+ Key Data:
+  30819F30 0D06092A 864886F7 0D010101 05000381 8D003081 89028181 00DF87BB 
+  11BD33EE C4E9DF4A C2FF2CCB 2ECCEFF9 713AAA45 633ADE4A C188109E 88680D67 
+  FB0A2F20 67257007 79DB3616 75D5459A 4898DE69 E74E80BA 77C993E8 A4B70D41 
+  00D1D2FB E37BF0E3 89C8BEEE 9830712E 8A4C13DC E30C5C72 D72FEDF2 A221F6DB 
+  9A1A1B8F 9A69BC61 3700CA1B B66DB044 72F24609 E0C1FE8D 24D1B3DA DD020301 
+  0001
+% Key pair was generated at: 16:57:42 UTC May 16 2026
+Key name: R1.server
+Key type: RSA KEYS
+Temporary key
+ Usage: Encryption Key
+ Key is not exportable.
+ Key Data:
+  307C300D 06092A86 4886F70D 01010105 00036B00 30680261 0095CC14 73EE9BA8 
+  1B0A40A6 E3EE90C1 BC2FAADF 2D532270 160D9039 C19C40CA 6A4E54B5 BAB8892C 
+  D266AE9A 53210F58 876755F6 381C44B6 5D71F57F 35705BC5 3E8D9746 61833A6A 
+  DB5E740B 8A22A486 83EE7AFA ACAB3798 27D03FC2 7C6EA875 FD020301 0001
+\end{verbatim}
+
+Both routers generate 1024-bit RSA key pairs used for digital signature authentication during IKEv1 Phase 1.
+
 \subsubsection{Summary}
 
 The outputs confirm that:
@@ -307,7 +377,8 @@ The outputs confirm that:
 \item RA is correctly configured as a trusted CA (myCA).
 \item R1 has successfully obtained a signed X.509 certificate from the CA.
 \item The certificate chain is self-signed at the CA level.
-\item RSA key pairs are associated with each identity for IKEv1 authentication.
+\item RSA key pairs are generated locally on each router and are bound to X.509 certificates issued by the CA for IKEv1 authentication using digital signatures.
+\item Both R1 and R2 possess locally generated RSA key pairs used for authentication and certificate binding in IKEv1.
 \end{itemize}
 
 \subsection{SCEP Enrollment Analysis}
