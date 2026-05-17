@@ -182,6 +182,11 @@
 This section describes the configuration and analysis of IPSec VPN using IKEv1 with digital certificates (PKI-based authentication using SCEP). 
 The objective is to replace pre-shared keys with RSA signatures issued by a Certification Authority (CA).
 
+\subsection{Topology Overview}
+
+RA operates as the Certification Authority (CA) and NTP server. 
+R1 and R2 establish an IPSec tunnel authenticated using RSA signatures and certificates obtained through SCEP enrollment.
+
 \subsection{PKI Installation Verification}
 
 The Certification Authority (CA) and router certificates were verified using IOS show commands.
@@ -393,6 +398,32 @@ The enrollment process consists of:
 \item \texttt{Router certificate request}
 \item \texttt{Router certificate issuance}
 \end{itemize}
+
+\subsubsection{CA Certificate Retrieval}
+
+Initially, R1 requests the CA certificate using the SCEP \texttt{GetCACert} operation over HTTP.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{../Images/R1-RA_cerificate_exchange.png}
+\caption{SCEP GetCACert request and CA certificate response}
+\label{fig:getcacert}
+\end{figure}
+
+The CA replies with an HTTP \texttt{200 OK} message containing an X.509 CA certificate with media type \texttt{application/x-x509-ca-cert}. This certificate allows R1 to establish trust with the Certification Authority before certificate enrollment.
+
+\subsubsection{Certificate Enrollment Request}
+
+After establishing trust with the CA, R1 performs certificate enrollment using the SCEP \texttt{PKIOperation} request.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{../Images/R1-RA_PKIOperation.png}
+\caption{SCEP PKIOperation certificate enrollment request}
+\label{fig:pkioperation}
+\end{figure}
+
+The HTTP request contains a PKCS\#10 certificate signing request (CSR) encoded in the message field. The CSR includes the router identity and its RSA public key, allowing the CA to generate a signed X.509 certificate for R1.
 
 The captured HTTP messages show certificate exchange between R1 and the CA. The content-type field indicates certificate payload transfer (.crt).
 

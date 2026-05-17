@@ -1314,6 +1314,16 @@ INPUT reportM2.toc
 INPUT reportM2.toc
 OUTPUT reportM2.toc
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm
+INPUT ../Images/R1-RA_cerificate_exchange.png
+INPUT ../Images/R1-RA_cerificate_exchange.png
+INPUT ../Images/R1-RA_cerificate_exchange.png
+INPUT ../Images/R1-RA_cerificate_exchange.png
+INPUT ../Images/R1-RA_cerificate_exchange.png
+INPUT ../Images/R1-RA_PKIOperation.png
+INPUT ../Images/R1-RA_PKIOperation.png
+INPUT ../Images/R1-RA_PKIOperation.png
+INPUT ../Images/R1-RA_PKIOperation.png
+INPUT ../Images/R1-RA_PKIOperation.png
 INPUT reportM2.aux
 INPUT ./reportM2.out
 INPUT ./reportM2.out
