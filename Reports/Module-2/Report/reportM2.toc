@@ -12,3 +12,5 @@
 \contentsline {subsection}{\numberline {3.4}SCEP Enrollment Analysis}{8}{subsection.3.4}%
 \contentsline {subsubsection}{\numberline {3.4.1}CA Certificate Retrieval}{8}{subsubsection.3.4.1}%
 \contentsline {subsubsection}{\numberline {3.4.2}Certificate Enrollment Request}{9}{subsubsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.5}Encrypted ICMP Traffic Analysis}{10}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}ISAKMP and SA Re-establishment Analysis}{12}{subsection.3.6}%
