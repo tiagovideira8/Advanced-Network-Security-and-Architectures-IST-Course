@@ -1062,13 +1062,20 @@ The IKE\_SA\_INIT exchange is responsible for:
     \item establishment of the initial IKE Security Association.
 \end{itemize}
 
-Figure~\ref{fig:ike_sa_init} presents the captured IKEv2 exchange messages.
+Figure~\ref{fig:ike_auth_content} presents the captured IKEv2 exchange messages.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{../Images/isakmp messages IKEv2.png}
-    \caption{IKEv2 exchange messages captured in Wireshark}
-    \label{fig:ike_sa_init}
+    \includegraphics[width=\textwidth]{../Images/Content of AUTH IKEv2.png}
+    \caption{Contents of the IKE\_SA\_INIT exchange}
+    \label{fig:ike_auth_content}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../Images/IKEv2 INIT payload expanded.png}
+    \caption{Content of the payload: Proposal in the IKE\_SA\_INIT packet}
+    \label{fig:ike_auth_content}
 \end{figure}
 
 The capture shows the Security Parameter Indexes (SPIs), Security Association proposals, Diffie-Hellman key exchange payloads, and nonce payloads exchanged between both peers.
@@ -1076,23 +1083,12 @@ The capture shows the Security Parameter Indexes (SPIs), Security Association pr
 The negotiated proposal includes:
 \begin{itemize}
     \item AES-CBC-256 encryption;
-    \item SHA512 integrity protection;
-    \item SHA512 pseudo-random function;
+    \item SHA2-512 integrity protection;
+    \item SHA2-512 pseudo-random function (PRF);
     \item Diffie-Hellman Group 16.
 \end{itemize}
 
 The nonce payloads contribute entropy to the key generation process and ensure freshness of the exchange, protecting against replay attacks.
-
-Figure~\ref{fig:ike_auth_content} presents the contents of the encrypted IKE\_AUTH exchange.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{../Images/Content of AUTH IKEv2.png}
-    \caption{Contents of the IKE\_AUTH exchange}
-    \label{fig:ike_auth_content}
-\end{figure}
-
-Unlike the IKE\_SA\_INIT exchange, the IKE\_AUTH payloads are encrypted and authenticated using keys derived during the initial exchange. This stage performs peer authentication using the configured pre-shared key and establishes the first CHILD\_SA used for IPSec protection.
 
 \subsection{SA Deletion and Re-establishment}
 

@@ -1455,16 +1455,16 @@ INPUT ../Images/ping IKEv2 pc to pc.png
 INPUT ../Images/ping IKEv2 pc to pc.png
 INPUT ../Images/ping IKEv2 pc to pc.png
 INPUT ../Images/ping IKEv2 pc to pc.png
-INPUT ../Images/isakmp messages IKEv2.png
-INPUT ../Images/isakmp messages IKEv2.png
-INPUT ../Images/isakmp messages IKEv2.png
-INPUT ../Images/isakmp messages IKEv2.png
-INPUT ../Images/isakmp messages IKEv2.png
 INPUT ../Images/Content of AUTH IKEv2.png
 INPUT ../Images/Content of AUTH IKEv2.png
 INPUT ../Images/Content of AUTH IKEv2.png
 INPUT ../Images/Content of AUTH IKEv2.png
 INPUT ../Images/Content of AUTH IKEv2.png
+INPUT ../Images/IKEv2 INIT payload expanded.png
+INPUT ../Images/IKEv2 INIT payload expanded.png
+INPUT ../Images/IKEv2 INIT payload expanded.png
+INPUT ../Images/IKEv2 INIT payload expanded.png
+INPUT ../Images/IKEv2 INIT payload expanded.png
 INPUT reportM2.aux
 INPUT ./reportM2.out
 INPUT ./reportM2.out
