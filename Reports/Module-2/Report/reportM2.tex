@@ -924,27 +924,17 @@ The IKEv2 and IPSec configuration was verified on both R1 and R2 using IOS show 
 The following elements were validated:
 
 \begin{itemize}
-    \item IKEv2 proposal defining encryption (AES-256), integrity (SHA512), PRF (SHA512), and Diffie-Hellman Group 16;
-    \item IKEv2 policy referencing the defined proposal;
-    \item IPSec transform set and profile associating IKEv2 with IPSec protection;
-    \item IPSec Security Associations confirming correct encapsulation parameters.
+    \item IKEv2 proposal defining AES-CBC-256 encryption, SHA512 integrity, SHA512 PRF, and Diffie-Hellman Group 16;
+    \item IKEv2 policy referencing the configured proposal;
+    \item IPSec transform sets and profiles associated with IKEv2 tunnel protection;
+    \item active IPSec Security Associations and encapsulation parameters.
 \end{itemize}
 
-Figures~\ref{fig:ikev2_prop_r1} and~\ref{fig:ikev2_prop_r2} show the IKEv2 proposal configuration on both routers.
+Figures~\ref{fig:ikev2_proposal}, \ref{fig:ikev2_policy}, \ref{fig:ipsec_profile}, and \ref{fig:ipsec_sa} present the verification outputs collected from R1 and R2.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{../Images/show crypto ikev2 prop R1.png}
-    \caption{IKEv2 and IPSec configuration verification on R1}
-    \label{fig:proposal_r1}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{../Images/sh crypto ipsec sa R1.png}
-    \caption{IKEv2 and IPSec configuration verification on R2}
-    \label{fig:ipsec_sa_r2}
-\end{figure}
+%------------------------------------------------
+% IKEv2 Proposal
+%------------------------------------------------
 
 \begin{figure}[H]
     \centering
@@ -952,16 +942,89 @@ Figures~\ref{fig:ikev2_prop_r1} and~\ref{fig:ikev2_prop_r2} show the IKEv2 propo
     \begin{minipage}{0.49\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../Images/show crypto ikev2 prop R1.png}
-        \caption{IKEv2 proposal verification on R1}
-        \label{fig:ikev2_prop_r1}
+        \caption*{R1}
     \end{minipage}
     \hfill
     \begin{minipage}{0.49\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../Images/show crypto ikev2 prop R2.png}
-        \caption{IKEv2 proposal verification on R2}
-        \label{fig:ikev2_prop_r2}
+        \caption*{R2}
     \end{minipage}
+
+    \caption{IKEv2 proposal verification}
+    \label{fig:ikev2_proposal}
+
+\end{figure}
+
+%------------------------------------------------
+% IKEv2 Policy
+%------------------------------------------------
+
+\begin{figure}[H]
+    \centering
+
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Images/sh crypto policy R1.png}
+        \caption*{R1}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Images/sh crypto policy R2.png}
+        \caption*{R2}
+    \end{minipage}
+
+    \caption{IKEv2 policy verification}
+    \label{fig:ikev2_policy}
+
+\end{figure}
+
+%------------------------------------------------
+% IPSec Profile
+%------------------------------------------------
+
+\begin{figure}[H]
+    \centering
+
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Images/sh crypto ipsec profile R1.png}
+        \caption*{R1}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Images/sh crypto ipsec profile R2.png}
+        \caption*{R2}
+    \end{minipage}
+
+    \caption{IPSec profile verification}
+    \label{fig:ipsec_profile}
+
+\end{figure}
+
+%------------------------------------------------
+% IPSec SA
+%------------------------------------------------
+
+\begin{figure}[H]
+    \centering
+
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Images/sh crypto ipsec sa R1.png}
+        \caption*{R1}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Images/sh crypto ipsec sa R2.png}
+        \caption*{R2}
+    \end{minipage}
+
+    \caption{Active IPSec Security Associations}
+    \label{fig:ipsec_sa}
 
 \end{figure}
 
@@ -980,7 +1043,7 @@ Figure~\ref{fig:ping_test} shows successful ICMP communication between the end h
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{../Images}
+    \includegraphics[width=0.7\textwidth]{../Images/ping IKEv2 pc to pc.png}
     \caption{Successful ICMP connectivity between PC1 and PC2 through IPSec tunnel}
     \label{fig:ping_test}
 \end{figure}
@@ -1002,7 +1065,7 @@ Figure~\ref{fig:ike_sa_init} presents the captured IKE\_SA\_INIT packets.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{../Images/}
+    \includegraphics[width=\textwidth]{../Images/isakmp messages IKEv2.png}
     \caption{IKE\_SA\_INIT exchange captured in Wireshark}
     \label{fig:ike_sa_init}
 \end{figure}
@@ -1019,41 +1082,18 @@ The negotiated proposal includes:
 
 The nonce payloads contribute entropy to the key generation process and ensure freshness of the exchange, protecting against replay attacks.
 
-\subsection{Analysis of IKE\_AUTH Exchange}
-
-After the IKE\_SA\_INIT exchange, the peers performed mutual authentication using the configured pre-shared key during the IKE\_AUTH exchange.
-
-Figure~\ref{fig:ike_auth} presents the captured IKE\_AUTH packets.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{ike_auth.png}
-    \caption{IKE\_AUTH exchange captured in Wireshark}
-    \label{fig:ike_auth}
-\end{figure}
-
-Unlike the IKE\_SA\_INIT packets, the IKE\_AUTH payloads are encrypted and authenticated. 
-Wireshark identifies these payloads as encrypted, demonstrating that cryptographic keys derived during the previous exchange are already being used to protect the communication.
-
-The IKE\_AUTH exchange is responsible for:
-\begin{itemize}
-    \item peer authentication;
-    \item identity exchange;
-    \item creation of the first CHILD\_SA used for IPSec protection.
-\end{itemize}
-
 \subsection{SA Deletion and Re-establishment}
 
 The command \texttt{clear crypto session} was executed to remove the active Security Associations and force a new negotiation process.
 
 Wireshark captures show the deletion of the existing SAs followed by the establishment of new IKEv2 and IPSec Security Associations.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{sa_reestablishment.png}
-    \caption{Deletion and re-establishment of Security Associations}
-    \label{fig:sa_reestablishment}
-\end{figure}
+%\begin{figure}[H]
+%    \centering
+%    \includegraphics[width=\textwidth]{sa_reestablishment.png}
+%    \caption{Deletion and re-establishment of Security Associations}
+%    \label{fig:sa_reestablishment}
+%\end{figure}
 
 After the previous SAs were removed, new IKE\_SA\_INIT and IKE\_AUTH exchanges were observed, resulting in the creation of new SPIs and new IPSec Security Associations.
 
