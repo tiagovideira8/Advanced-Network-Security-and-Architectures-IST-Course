@@ -914,23 +914,22 @@ The experiment demonstrates the importance of certificate revocation in PKI-base
 
 \subsection{Introduction}
 
-This section describes the configuration and analysis of an IPSec VPN using IKEv2 authentication with pre-shared keys. 
-The objective is to establish a protected tunnel between routers R1 and R2 through the intermediate router RA and analyze the establishment and management of IKEv2 and IPSec Security Associations (SAs).
+This section describes the configuration and analysis of an IPSec VPN using IKEv2 authentication with pre-shared keys. The objective is to establish a protected tunnel between routers R1 and R2 through the intermediate router RA and analyze the establishment and operation of IKEv2 and IPSec Security Associations (SAs).
 
 \subsection{IKEv2 and IPSec Configuration Verification}
 
-The IKEv2 and IPSec configuration was verified on both R1 and R2 using IOS show commands.
+The IKEv2 and IPSec configuration was verified on both R1 and R2 using IOS verification commands.
 
 The following elements were validated:
 
 \begin{itemize}
-    \item IKEv2 proposal defining AES-CBC-256 encryption, SHA512 integrity, SHA512 PRF, and Diffie-Hellman Group 16;
-    \item IKEv2 policy referencing the configured proposal;
-    \item IPSec transform sets and profiles associated with IKEv2 tunnel protection;
+    \item IKEv2 proposals defining AES-CBC-256 encryption, SHA512 integrity, SHA512 PRF, and Diffie-Hellman Group 16;
+    \item IKEv2 policies associated with the configured proposals;
+    \item IPSec transform sets and profiles used for tunnel protection;
     \item active IPSec Security Associations and encapsulation parameters.
 \end{itemize}
 
-Figures~\ref{fig:ikev2_proposal}, \ref{fig:ikev2_policy}, \ref{fig:ipsec_profile}, and \ref{fig:ipsec_sa} present the verification outputs collected from R1 and R2.
+Figures~\ref{fig:ikev2_proposal}, \ref{fig:ikev2_policy}, \ref{fig:ipsec_profile}, and \ref{fig:ipsec_sa} present the verification outputs collected from both routers.
 
 %------------------------------------------------
 % IKEv2 Proposal
@@ -1028,23 +1027,25 @@ Figures~\ref{fig:ikev2_proposal}, \ref{fig:ikev2_policy}, \ref{fig:ipsec_profile
 
 \end{figure}
 
+The verification outputs confirm that the tunnel was successfully established and that encrypted traffic was being encapsulated and decapsulated through ESP Security Associations.
+
 \subsection{Tunnel Establishment and Connectivity Test}
 
 After configuration, end-to-end connectivity between PC1 and PC2 was verified using ICMP echo requests.
 
-A successful ping confirmed that:
+Successful communication confirmed that:
 \begin{itemize}
     \item the IPSec tunnel was operational;
-    \item encrypted traffic was successfully forwarded between endpoints;
+    \item encrypted traffic was correctly forwarded between endpoints;
     \item routing across the protected tunnel was functional.
 \end{itemize}
 
-Figure~\ref{fig:ping_test} shows successful ICMP communication between the end hosts.
+Figure~\ref{fig:ping_test} shows successful ICMP communication between the end hosts through the IPSec tunnel.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{../Images/ping IKEv2 pc to pc.png}
-    \caption{Successful ICMP connectivity between PC1 and PC2 through IPSec tunnel}
+    \caption{Successful ICMP connectivity between PC1 and PC2}
     \label{fig:ping_test}
 \end{figure}
 
@@ -1052,21 +1053,21 @@ Figure~\ref{fig:ping_test} shows successful ICMP communication between the end h
 
 Traffic captures were obtained on interface G0/0 of R1 during tunnel establishment.
 
-The IKE\_SA\_INIT exchange was responsible for:
+The IKE\_SA\_INIT exchange is responsible for:
 \begin{itemize}
     \item negotiation of cryptographic algorithms;
     \item exchange of Diffie-Hellman public values;
     \item generation of shared secret material;
     \item exchange of nonces;
-    \item creation of the initial IKE Security Association.
+    \item establishment of the initial IKE Security Association.
 \end{itemize}
 
-Figure~\ref{fig:ike_sa_init} presents the captured IKE\_SA\_INIT packets.
+Figure~\ref{fig:ike_sa_init} presents the captured IKEv2 exchange messages.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{../Images/isakmp messages IKEv2.png}
-    \caption{IKE\_SA\_INIT exchange captured in Wireshark}
+    \caption{IKEv2 exchange messages captured in Wireshark}
     \label{fig:ike_sa_init}
 \end{figure}
 
@@ -1081,6 +1082,17 @@ The negotiated proposal includes:
 \end{itemize}
 
 The nonce payloads contribute entropy to the key generation process and ensure freshness of the exchange, protecting against replay attacks.
+
+Figure~\ref{fig:ike_auth_content} presents the contents of the encrypted IKE\_AUTH exchange.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../Images/Content of AUTH IKEv2.png}
+    \caption{Contents of the IKE\_AUTH exchange}
+    \label{fig:ike_auth_content}
+\end{figure}
+
+Unlike the IKE\_SA\_INIT exchange, the IKE\_AUTH payloads are encrypted and authenticated using keys derived during the initial exchange. This stage performs peer authentication using the configured pre-shared key and establishes the first CHILD\_SA used for IPSec protection.
 
 \subsection{SA Deletion and Re-establishment}
 
