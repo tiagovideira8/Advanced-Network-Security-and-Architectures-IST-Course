@@ -173,6 +173,8 @@
 
 \section{IKEv1 with Pre-Shared Keys}
 
+\subsection{Introduction}
+
 In this experiment, IPSec tunnels using IKEv1 with Pre-Shared Keys (PSK) were analyzed. Both AH and ESP protocols were tested in order to observe the establishment of IPSec Security Associations (SAs), OSPF traffic protection, and the exchanged ISAKMP messages during tunnel negotiation.
 
 \subsection{AH Tunnel Operation}
@@ -907,5 +909,147 @@ As a result:
 \end{itemize}
 
 The experiment demonstrates the importance of certificate revocation in PKI-based IPSec infrastructures, ensuring that compromised or invalid certificates cannot be used to establish trusted VPN connections.
+
+\section{IPSec with IKEv2}
+
+\subsection{Introduction}
+
+This section describes the configuration and analysis of an IPSec VPN using IKEv2 authentication with pre-shared keys. 
+The objective is to establish a protected tunnel between routers R1 and R2 through the intermediate router RA and analyze the establishment and management of IKEv2 and IPSec Security Associations (SAs).
+
+\subsection{IKEv2 and IPSec Configuration}
+
+Both routers were configured with:
+\begin{itemize}
+    \item an IKEv2 proposal using AES-CBC-256 encryption;
+    \item SHA512 integrity and pseudo-random functions;
+    \item Diffie-Hellman Group 16;
+    \item an IPSec transform set using ESP-AES and ESP-SHA-HMAC;
+    \item an IPSec profile applied to Tunnel0.
+\end{itemize}
+
+Figures~\ref{fig:r1_ikev2_config} and~\ref{fig:r2_ikev2_config} present the relevant configuration and verification commands executed on R1 and R2.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../Images/show crypto ikev2 prop R1.png}
+    \caption{IKEv2 and IPSec configuration verification on R1}
+    \label{fig:r1_ikev2_config}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../Images/show crypto ikev2 prop R2.png}
+    \caption{IKEv2 and IPSec configuration verification on R2}
+    \label{fig:r2_ikev2_config}
+\end{figure}
+
+\subsection{Tunnel Establishment Verification}
+
+After configuration, successful connectivity between PC1 and PC2 was verified through the IPSec tunnel.
+
+The outputs of the IOS verification commands confirmed:
+\begin{itemize}
+    \item successful establishment of inbound and outbound IPSec Security Associations;
+    \item packet encapsulation and decapsulation through ESP;
+    \item operational Tunnel0 interfaces;
+    \item successful OSPF adjacency establishment through the protected tunnel.
+\end{itemize}
+
+Figure~\ref{fig:ipsec_sa} shows the active IPSec Security Associations and packet counters.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../Images/sh crypto ipsec sa R1.png}
+    \caption{Active IPSec Security Associations}
+    \label{fig:ipsec_sa}
+\end{figure}
+
+The IPSec Security Associations use different inbound and outbound SPIs, reflecting the unidirectional nature of IPSec SAs.
+
+\subsection{Analysis of IKE\_SA\_INIT Exchange}
+
+Traffic captures were obtained on interface G0/0 of R1 during tunnel establishment.
+
+The IKE\_SA\_INIT exchange was responsible for:
+\begin{itemize}
+    \item negotiation of cryptographic algorithms;
+    \item exchange of Diffie-Hellman public values;
+    \item generation of shared secret material;
+    \item exchange of nonces;
+    \item creation of the initial IKE Security Association.
+\end{itemize}
+
+Figure~\ref{fig:ike_sa_init} presents the captured IKE\_SA\_INIT packets.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../Images/}
+    \caption{IKE\_SA\_INIT exchange captured in Wireshark}
+    \label{fig:ike_sa_init}
+\end{figure}
+
+The capture shows the Security Parameter Indexes (SPIs), Security Association proposals, Diffie-Hellman key exchange payloads, and nonce payloads exchanged between both peers.
+
+The negotiated proposal includes:
+\begin{itemize}
+    \item AES-CBC-256 encryption;
+    \item SHA512 integrity protection;
+    \item SHA512 pseudo-random function;
+    \item Diffie-Hellman Group 16.
+\end{itemize}
+
+The nonce payloads contribute entropy to the key generation process and ensure freshness of the exchange, protecting against replay attacks.
+
+\subsection{Analysis of IKE\_AUTH Exchange}
+
+After the IKE\_SA\_INIT exchange, the peers performed mutual authentication using the configured pre-shared key during the IKE\_AUTH exchange.
+
+Figure~\ref{fig:ike_auth} presents the captured IKE\_AUTH packets.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{ike_auth.png}
+    \caption{IKE\_AUTH exchange captured in Wireshark}
+    \label{fig:ike_auth}
+\end{figure}
+
+Unlike the IKE\_SA\_INIT packets, the IKE\_AUTH payloads are encrypted and authenticated. 
+Wireshark identifies these payloads as encrypted, demonstrating that cryptographic keys derived during the previous exchange are already being used to protect the communication.
+
+The IKE\_AUTH exchange is responsible for:
+\begin{itemize}
+    \item peer authentication;
+    \item identity exchange;
+    \item creation of the first CHILD\_SA used for IPSec protection.
+\end{itemize}
+
+\subsection{SA Deletion and Re-establishment}
+
+The command \texttt{clear crypto session} was executed to remove the active Security Associations and force a new negotiation process.
+
+Wireshark captures show the deletion of the existing SAs followed by the establishment of new IKEv2 and IPSec Security Associations.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{sa_reestablishment.png}
+    \caption{Deletion and re-establishment of Security Associations}
+    \label{fig:sa_reestablishment}
+\end{figure}
+
+After the previous SAs were removed, new IKE\_SA\_INIT and IKE\_AUTH exchanges were observed, resulting in the creation of new SPIs and new IPSec Security Associations.
+
+The results confirm that IPSec tunnel establishment using IKEv2 was successfully achieved between R1 and R2.
+
+The analysis of Wireshark captures demonstrated:
+\begin{itemize}
+    \item negotiation of cryptographic algorithms during IKE\_SA\_INIT;
+    \item exchange of Diffie-Hellman values and nonces;
+    \item encrypted peer authentication during IKE\_AUTH;
+    \item successful creation of IPSec Security Associations;
+    \item successful deletion and recreation of SAs after clearing the crypto session.
+\end{itemize}
+
+Cisco IOS verification commands further confirmed the operational state of the tunnel, the establishment of OSPF adjacency through Tunnel0, and the correct operation of encrypted ESP traffic.
 
 \end{document}
