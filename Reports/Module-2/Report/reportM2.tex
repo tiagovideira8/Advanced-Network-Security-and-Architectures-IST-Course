@@ -917,55 +917,73 @@ The experiment demonstrates the importance of certificate revocation in PKI-base
 This section describes the configuration and analysis of an IPSec VPN using IKEv2 authentication with pre-shared keys. 
 The objective is to establish a protected tunnel between routers R1 and R2 through the intermediate router RA and analyze the establishment and management of IKEv2 and IPSec Security Associations (SAs).
 
-\subsection{IKEv2 and IPSec Configuration}
+\subsection{IKEv2 and IPSec Configuration Verification}
 
-Both routers were configured with:
+The IKEv2 and IPSec configuration was verified on both R1 and R2 using IOS show commands.
+
+The following elements were validated:
+
 \begin{itemize}
-    \item an IKEv2 proposal using AES-CBC-256 encryption;
-    \item SHA512 integrity and pseudo-random functions;
-    \item Diffie-Hellman Group 16;
-    \item an IPSec transform set using ESP-AES and ESP-SHA-HMAC;
-    \item an IPSec profile applied to Tunnel0.
+    \item IKEv2 proposal defining encryption (AES-256), integrity (SHA512), PRF (SHA512), and Diffie-Hellman Group 16;
+    \item IKEv2 policy referencing the defined proposal;
+    \item IPSec transform set and profile associating IKEv2 with IPSec protection;
+    \item IPSec Security Associations confirming correct encapsulation parameters.
 \end{itemize}
 
-Figures~\ref{fig:r1_ikev2_config} and~\ref{fig:r2_ikev2_config} present the relevant configuration and verification commands executed on R1 and R2.
+Figures~\ref{fig:ikev2_prop_r1} and~\ref{fig:ikev2_prop_r2} show the IKEv2 proposal configuration on both routers.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{../Images/show crypto ikev2 prop R1.png}
     \caption{IKEv2 and IPSec configuration verification on R1}
-    \label{fig:r1_ikev2_config}
+    \label{fig:proposal_r1}
 \end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{../Images/show crypto ikev2 prop R2.png}
-    \caption{IKEv2 and IPSec configuration verification on R2}
-    \label{fig:r2_ikev2_config}
-\end{figure}
-
-\subsection{Tunnel Establishment Verification}
-
-After configuration, successful connectivity between PC1 and PC2 was verified through the IPSec tunnel.
-
-The outputs of the IOS verification commands confirmed:
-\begin{itemize}
-    \item successful establishment of inbound and outbound IPSec Security Associations;
-    \item packet encapsulation and decapsulation through ESP;
-    \item operational Tunnel0 interfaces;
-    \item successful OSPF adjacency establishment through the protected tunnel.
-\end{itemize}
-
-Figure~\ref{fig:ipsec_sa} shows the active IPSec Security Associations and packet counters.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{../Images/sh crypto ipsec sa R1.png}
-    \caption{Active IPSec Security Associations}
-    \label{fig:ipsec_sa}
+    \caption{IKEv2 and IPSec configuration verification on R2}
+    \label{fig:ipsec_sa_r2}
 \end{figure}
 
-The IPSec Security Associations use different inbound and outbound SPIs, reflecting the unidirectional nature of IPSec SAs.
+\begin{figure}[H]
+    \centering
+
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Images/show crypto ikev2 prop R1.png}
+        \caption{IKEv2 proposal verification on R1}
+        \label{fig:ikev2_prop_r1}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Images/show crypto ikev2 prop R2.png}
+        \caption{IKEv2 proposal verification on R2}
+        \label{fig:ikev2_prop_r2}
+    \end{minipage}
+
+\end{figure}
+
+\subsection{Tunnel Establishment and Connectivity Test}
+
+After configuration, end-to-end connectivity between PC1 and PC2 was verified using ICMP echo requests.
+
+A successful ping confirmed that:
+\begin{itemize}
+    \item the IPSec tunnel was operational;
+    \item encrypted traffic was successfully forwarded between endpoints;
+    \item routing across the protected tunnel was functional.
+\end{itemize}
+
+Figure~\ref{fig:ping_test} shows successful ICMP communication between the end hosts.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../Images}
+    \caption{Successful ICMP connectivity between PC1 and PC2 through IPSec tunnel}
+    \label{fig:ping_test}
+\end{figure}
 
 \subsection{Analysis of IKE\_SA\_INIT Exchange}
 
