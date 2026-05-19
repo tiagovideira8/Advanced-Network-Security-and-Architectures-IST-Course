@@ -586,4 +586,139 @@ This mechanism ensures that routers do not use invalid, expired, or revoked cert
 
 The SCEP communication therefore plays an essential role in maintaining the integrity and trustworthiness of the PKI infrastructure used for IPSec VPN authentication.
 
+\subsection{Certificate Revocation and Authentication Failure}
+
+The certificates issued to R1 and R2 were revoked at the Certification Authority using:
+
+\begin{verbatim}
+RA#crypto pki server myCA revoke 02
+RA#crypto pki server myCA revoke 03
+\end{verbatim}
+
+After revocation, all routers were restarted and Wireshark captures were collected on the links between the routers and the CA.
+
+When attempting communication between PC1 and PC2, the ping operation failed and the IPSec tunnel could not be established.
+
+\subsubsection{SCEP and Certificate Validation Traffic}
+
+After reboot, HTTP/SCEP-related messages were observed between the routers and the CA.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{../Images/revoked-scep-traffic.png}
+\caption{SCEP-related traffic observed after certificate revocation}
+\label{fig:revoked_scep}
+\end{figure}
+
+These messages are associated with certificate validation and trust verification operations performed before IPSec authentication.
+
+The routers contact the CA to verify the validity of certificates and retrieve updated revocation information.
+
+\subsubsection{Failed ISAKMP Negotiation}
+
+While the routers attempted to establish the IPSec tunnel, repeated ISAKMP exchanges were observed.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{../Images/revoked-isakmp.png}
+\caption{Repeated ISAKMP negotiation attempts after certificate revocation}
+\label{fig:revoked_isakmp}
+\end{figure}
+
+The repeated ISAKMP packets indicate that the routers continuously attempt to establish an IKEv1 Security Association but fail during the authentication phase.
+
+This behavior was confirmed using IOS verification commands.
+
+\begin{verbatim}
+R1#sh crypto isakmp sa 
+IPv4 Crypto ISAKMP SA 
+dst src state conn-id status 
+1.1.1.1 2.2.2.2 MM_KEY_EXCH 1040 ACTIVE 
+1.1.1.1 2.2.2.2 MM_KEY_EXCH 1038 ACTIVE 
+1.1.1.1 2.2.2.2 MM_NO_STATE 1036 ACTIVE (deleted) 
+1.1.1.1 2.2.2.2 MM_NO_STATE 1034 ACTIVE (deleted) 
+2.2.2.2 1.1.1.1 MM_KEY_EXCH 1041 ACTIVE 
+2.2.2.2 1.1.1.1 MM_NO_STATE 1039 ACTIVE (deleted) 
+2.2.2.2 1.1.1.1 MM_NO_STATE 1037 ACTIVE (deleted) 
+
+IPv6 Crypto ISAKMP SA
+\end{verbatim}
+
+The ISAKMP state remains in \texttt{MM\_KEY\_EXCH}, indicating that Main Mode negotiation does not complete successfully.
+
+A successfully established tunnel would normally reach the \texttt{QM\_IDLE} state.
+
+\subsubsection{Absence of IPSec Security Associations}
+
+The IPSec SA database confirms that no operational IPSec tunnel was created.
+
+\begin{verbatim}
+R1#sh crypto ipsec sa 
+
+interface: Tunnel0 
+  Crypto map tag: Tunnel0-head-0, local addr 1.1.1.1 
+  
+  protected vrf: (none) 
+  local ident (addr/mask/prot/port): (0.0.0.0/0.0.0.0/0/0) 
+  remote ident (addr/mask/prot/port): (0.0.0.0/0.0.0.0/0/0) 
+  current_peer 2.2.2.2 port 500 
+   PERMIT, flags={origin_is_acl,} #pkts encaps: 0, 
+  #pkts encrypt: 0, #pkts digest: 0 #pkts decaps: 0, 
+  #pkts decrypt: 0, #pkts verify: 0 #pkts compressed: 0, 
+  #pkts decompressed: 0 #pkts not compressed: 0, 
+  #pkts compr. failed: 0 #pkts not decompressed: 0, 
+  #pkts decompress failed: 0 
+  #send errors 0, #recv errors 0 
+  
+  local crypto endpt.: 1.1.1.1, remote crypto endpt.: 2.2.2.2 
+  plaintext mtu 1500, path mtu 1500, ip mtu 1500, ip mtu idb 
+GigabitEthernet0/0 
+  current outbound spi: 0x0(0) 
+  PFS (Y/N): N, DH group: none 
+  
+  inbound esp sas: 
+  
+  inbound ah sas: 
+  
+  inbound pcp sas: 
+  
+  outbound esp sas: 
+  
+  outbound ah sas: 
+  
+  outbound pcp sas: 
+  
+R1#
+\end{verbatim}
+
+The counters remain at zero because IPSec encryption was never activated.
+
+Additionally, no ESP Security Associations were present:
+
+\begin{verbatim}
+inbound esp sas:
+outbound esp sas:
+\end{verbatim}
+
+This confirms that Phase 2 IPSec negotiation could not be completed.
+
+\subsubsection{Explanation of Communication Failure}
+
+Communication fails because the certificates used by R1 and R2 were revoked by the Certification Authority.
+
+After reboot, the routers verify certificate validity during IKEv1 authentication. The CA indicates that the peer certificates are no longer trusted because they are listed in the Certificate Revocation List (CRL).
+
+As a result:
+
+\begin{itemize}
+\item RSA signature authentication fails
+\item IKEv1 Main Mode negotiation cannot complete
+\item ISAKMP Security Associations are not successfully established
+\item IPSec Security Associations are never created
+\item ESP encrypted traffic cannot be generated
+\item ICMP communication between PC1 and PC2 fails
+\end{itemize}
+
+The experiment demonstrates the importance of certificate revocation in PKI-based IPSec infrastructures, ensuring that compromised or invalid certificates cannot be used to establish trusted VPN connections.
+
 \end{document}

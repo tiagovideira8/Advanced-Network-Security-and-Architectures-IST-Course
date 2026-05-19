@@ -1345,6 +1345,16 @@ INPUT ../Images/Restarted nodes screenshot.png
 INPUT ../Images/Restarted nodes screenshot.png
 INPUT ../Images/Restarted nodes screenshot.png
 INPUT ../Images/Restarted nodes screenshot.png
+INPUT ../Images/revoked-scep-traffic.png
+INPUT ../Images/revoked-scep-traffic.png
+INPUT ../Images/revoked-scep-traffic.png
+INPUT ../Images/revoked-scep-traffic.png
+INPUT ../Images/revoked-scep-traffic.png
+INPUT ../Images/revoked-isakmp.png
+INPUT ../Images/revoked-isakmp.png
+INPUT ../Images/revoked-isakmp.png
+INPUT ../Images/revoked-isakmp.png
+INPUT ../Images/revoked-isakmp.png
 INPUT reportM2.aux
 INPUT ./reportM2.out
 INPUT ./reportM2.out
