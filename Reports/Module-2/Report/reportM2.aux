@@ -1,62 +1,79 @@
 \relax 
-\providecommand\hyper@newdestlabel[2]{}
-\providecommand\babel@aux[2]{}
+\providecommand \babel@aux [2]{\global \let \babel@toc \@gobbletwo }
 \@nameuse{bbl@beforestart}
-\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
-\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
-\global\let\oldcontentsline\contentsline
-\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
-\global\let\oldnewlabel\newlabel
-\gdef\newlabel#1#2{\newlabelxx{#1}#2}
-\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
-\AtEndDocument{\ifx\hyper@anchor\@undefined
-\let\contentsline\oldcontentsline
-\let\newlabel\oldnewlabel
-\fi}
-\fi}
-\global\let\hyper@last\relax 
-\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
 \providecommand \oddpage@label [2]{}
 \babel@aux{english}{}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{2}{section.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2}IKEv1 with Pre-Shared Keys}{3}{section.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3}IKEv1 with Digital Signatures}{4}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Introduction}{4}{subsection.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Topology Overview}{4}{subsection.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}PKI Installation Verification}{4}{subsection.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}CA Configuration and Certificate (RA)}{4}{subsubsection.3.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Router Certificates (R1)}{5}{subsubsection.3.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3}RSA Public Keys (R1 and R2)}{6}{subsubsection.3.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.4}Summary}{8}{subsubsection.3.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}SCEP Enrollment Analysis}{8}{subsection.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.1}CA Certificate Retrieval}{8}{subsubsection.3.4.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces SCEP GetCACert request and CA certificate response\relax }}{9}{figure.caption.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}AH Tunnel Operation}{3}{subsection.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces AH protecting ICMP traffic between PC1 and PC2}}{3}{figure.caption.2}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:getcacert}{{1}{9}{SCEP GetCACert request and CA certificate response\relax }{figure.caption.2}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.2}Certificate Enrollment Request}{9}{subsubsection.3.4.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces SCEP PKIOperation certificate enrollment request\relax }}{9}{figure.caption.3}\protected@file@percent }
-\newlabel{fig:pkioperation}{{2}{9}{SCEP PKIOperation certificate enrollment request\relax }{figure.caption.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces HTTP packet carrying the issued X.509 certificate (.crt file export in Wireshark)\relax }}{10}{figure.caption.4}\protected@file@percent }
-\newlabel{fig:crtpacket}{{3}{10}{HTTP packet carrying the issued X.509 certificate (.crt file export in Wireshark)\relax }{figure.caption.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Encrypted ICMP Traffic Analysis}{10}{subsection.3.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Encrypted IPSec traffic observed between R1 and R2\relax }}{11}{figure.caption.5}\protected@file@percent }
-\newlabel{fig:encryptedicmp}{{4}{11}{Encrypted IPSec traffic observed between R1 and R2\relax }{figure.caption.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}ISAKMP and SA Re-establishment Analysis}{12}{subsection.3.6}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces ISAKMP exchanges after clearing crypto sessions\relax }}{12}{figure.caption.6}\protected@file@percent }
-\newlabel{fig:isakmp}{{5}{12}{ISAKMP exchanges after clearing crypto sessions\relax }{figure.caption.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.7}Peer Public Key Storage Verification}{13}{subsection.3.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.8}SCEP Messages Observed After Router Restart}{14}{subsection.3.8}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces SCEP-related HTTP traffic observed after router restart\relax }}{14}{figure.caption.7}\protected@file@percent }
-\newlabel{fig:scep_reboot}{{6}{14}{SCEP-related HTTP traffic observed after router restart\relax }{figure.caption.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.9}Certificate Revocation and Authentication Failure}{15}{subsection.3.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.1}SCEP and Certificate Validation Traffic}{15}{subsubsection.3.9.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces SCEP-related traffic observed after certificate revocation\relax }}{15}{figure.caption.8}\protected@file@percent }
-\newlabel{fig:revoked_scep}{{7}{15}{SCEP-related traffic observed after certificate revocation\relax }{figure.caption.8}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.2}Failed ISAKMP Negotiation}{16}{subsubsection.3.9.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Repeated ISAKMP negotiation attempts after certificate revocation\relax }}{16}{figure.caption.9}\protected@file@percent }
-\newlabel{fig:revoked_isakmp}{{8}{16}{Repeated ISAKMP negotiation attempts after certificate revocation\relax }{figure.caption.9}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.3}Absence of IPSec Security Associations}{17}{subsubsection.3.9.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.4}Explanation of Communication Failure}{18}{subsubsection.3.9.4}\protected@file@percent }
-\gdef \@abspage@last{19}
+\newlabel{fig:ah_icmp}{{1}{3}{AH protecting ICMP traffic between PC1 and PC2}{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}OSPF Traffic Analysis}{3}{subsection.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces OSPF Hello packet without IPSec protection}}{4}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:ospf_plain}{{2}{4}{OSPF Hello packet without IPSec protection}{figure.caption.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces OSPF Hello packet protected with AH}}{5}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:ospf_ah}{{3}{5}{OSPF Hello packet protected with AH}{figure.caption.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}IKEv1 and ISAKMP Negotiation}{5}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1}ISAKMP Informational Messages}{5}{subsubsection.2.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces ISAKMP Informational message}}{6}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:isakmp_info}{{4}{6}{ISAKMP Informational message}{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2}IKE Phase 1 -- Main Mode}{6}{subsubsection.2.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces IKEv1 Main Mode Security Association negotiation}}{6}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:mainmode_sa}{{5}{6}{IKEv1 Main Mode Security Association negotiation}{figure.caption.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Diffie-Hellman Key Exchange during IKE Phase 1}}{7}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:dh_exchange}{{6}{7}{Diffie-Hellman Key Exchange during IKE Phase 1}{figure.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Identity protection during IKE Phase 1}}{7}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:identity}{{7}{7}{Identity protection during IKE Phase 1}{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3}IKE Phase 2 -- Quick Mode}{7}{subsubsection.2.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces IKE Phase 2 Quick Mode negotiation}}{8}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:quickmode}{{8}{8}{IKE Phase 2 Quick Mode negotiation}{figure.caption.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Negotiation Failure Analysis}{8}{subsection.2.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Failed IPSec negotiation due to parameter mismatch}}{9}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:negotiation_failure}{{9}{9}{Failed IPSec negotiation due to parameter mismatch}{figure.caption.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}ESP Tunnel Operation}{9}{subsection.2.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces ESP protected packet}}{9}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:esp_packet}{{10}{9}{ESP protected packet}{figure.caption.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces ESP traffic and OSPF exchanges}}{10}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:esp_ospf}{{11}{10}{ESP traffic and OSPF exchanges}{figure.caption.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Firewall Requirements for IPSec}{10}{subsection.2.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}IKEv1 with Digital Signatures}{11}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Introduction}{11}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Topology Overview}{11}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}PKI Installation Verification}{11}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}CA Configuration and Certificate (RA)}{11}{subsubsection.3.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Router Certificates (R1)}{12}{subsubsection.3.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3}RSA Public Keys (R1 and R2)}{13}{subsubsection.3.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.4}Summary}{15}{subsubsection.3.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}SCEP Enrollment Analysis}{15}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.1}CA Certificate Retrieval}{15}{subsubsection.3.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces SCEP GetCACert request and CA certificate response}}{16}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:getcacert}{{12}{16}{SCEP GetCACert request and CA certificate response}{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.2}Certificate Enrollment Request}{16}{subsubsection.3.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces SCEP PKIOperation certificate enrollment request}}{16}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:pkioperation}{{13}{16}{SCEP PKIOperation certificate enrollment request}{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces HTTP packet carrying the issued X.509 certificate (.crt file export in Wireshark)}}{17}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:crtpacket}{{14}{17}{HTTP packet carrying the issued X.509 certificate (.crt file export in Wireshark)}{figure.caption.15}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Encrypted ICMP Traffic Analysis}{17}{subsection.3.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Encrypted IPSec traffic observed between R1 and R2}}{18}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:encryptedicmp}{{15}{18}{Encrypted IPSec traffic observed between R1 and R2}{figure.caption.16}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}ISAKMP and SA Re-establishment Analysis}{19}{subsection.3.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces ISAKMP exchanges after clearing crypto sessions}}{19}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:isakmp}{{16}{19}{ISAKMP exchanges after clearing crypto sessions}{figure.caption.17}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7}Peer Public Key Storage Verification}{20}{subsection.3.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.8}SCEP Messages Observed After Router Restart}{21}{subsection.3.8}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces SCEP-related HTTP traffic observed after router restart}}{21}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:scep_reboot}{{17}{21}{SCEP-related HTTP traffic observed after router restart}{figure.caption.18}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.9}Certificate Revocation and Authentication Failure}{22}{subsection.3.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.1}SCEP and Certificate Validation Traffic}{22}{subsubsection.3.9.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces SCEP-related traffic observed after certificate revocation}}{22}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:revoked_scep}{{18}{22}{SCEP-related traffic observed after certificate revocation}{figure.caption.19}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.2}Failed ISAKMP Negotiation}{23}{subsubsection.3.9.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Repeated ISAKMP negotiation attempts after certificate revocation}}{23}{figure.caption.20}\protected@file@percent }
+\newlabel{fig:revoked_isakmp}{{19}{23}{Repeated ISAKMP negotiation attempts after certificate revocation}{figure.caption.20}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.3}Absence of IPSec Security Associations}{24}{subsubsection.3.9.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.4}Explanation of Communication Failure}{25}{subsubsection.3.9.4}\protected@file@percent }
+\gdef \@abspage@last{26}

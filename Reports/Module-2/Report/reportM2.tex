@@ -173,6 +173,193 @@
 
 \section{IKEv1 with Pre-Shared Keys}
 
+In this experiment, IPSec tunnels using IKEv1 with Pre-Shared Keys (PSK) were analyzed. Both AH and ESP protocols were tested in order to observe the establishment of IPSec Security Associations (SAs), OSPF traffic protection, and the exchanged ISAKMP messages during tunnel negotiation.
+
+\subsection{AH Tunnel Operation}
+
+Initially, the IPSec tunnel was configured using the Authentication Header (AH) protocol. ICMP traffic exchanged between PC1 and PC2 was captured using Wireshark.
+
+Figure~\ref{fig:ah_icmp} shows an AH-protected ICMP packet. The AH header includes fields such as the Security Parameters Index (SPI), Sequence Number, and Integrity Check Value (ICV). The SPI identifies the Security Association being used, the sequence number prevents replay attacks, and the ICV guarantees packet integrity and authentication.
+
+Unlike ESP, AH does not encrypt the payload. Therefore, the original ICMP packet remains visible after the AH header.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\linewidth]{../Images/1.png}
+    \caption{AH protecting ICMP traffic between PC1 and PC2}
+    \label{fig:ah_icmp}
+\end{figure}
+
+\subsection{OSPF Traffic Analysis}
+
+OSPF traffic exchanged through the tunnel was also analyzed.
+
+Figure~\ref{fig:ospf_plain} shows a normal OSPF Hello packet before IPSec protection. The packet includes the Router ID, Area ID, Hello Interval, Dead Interval, and neighbor information required for adjacency establishment.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\linewidth]{../Images/2.png}
+    \caption{OSPF Hello packet without IPSec protection}
+    \label{fig:ospf_plain}
+\end{figure}
+
+Figure~\ref{fig:ospf_ah} shows the same OSPF traffic protected using AH. The Authentication Header appears before the OSPF packet, proving that the packet integrity and authentication are protected. However, the OSPF payload itself remains visible because AH does not provide confidentiality.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\linewidth]{../Images/3.png}
+    \caption{OSPF Hello packet protected with AH}
+    \label{fig:ospf_ah}
+\end{figure}
+
+\subsection{IKEv1 and ISAKMP Negotiation}
+
+The IPSec Security Associations were cleared using the command:
+
+\begin{verbatim}
+clear crypto session
+\end{verbatim}
+
+This operation forced the routers to delete the existing IPSec tunnel and establish a new one. During this process, Wireshark captured the exchanged ISAKMP packets.
+
+\subsubsection{ISAKMP Informational Messages}
+
+Before re-establishing the tunnel, ISAKMP Informational messages were exchanged between peers. These messages are used to maintain or delete Security Associations.
+
+Figure~\ref{fig:isakmp_info} shows an Informational exchange containing encrypted data.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\linewidth]{../Images/4.png}
+    \caption{ISAKMP Informational message}
+    \label{fig:isakmp_info}
+\end{figure}
+
+\subsubsection{IKE Phase 1 -- Main Mode}
+
+IKE Phase 1 establishes the ISAKMP Security Association used to securely negotiate IPSec parameters.
+
+Figure~\ref{fig:mainmode_sa} shows the initial Main Mode exchange. The Security Association payload contains the proposed cryptographic algorithms and authentication methods supported by the initiator.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\linewidth]{../Images/5.png}
+    \caption{IKEv1 Main Mode Security Association negotiation}
+    \label{fig:mainmode_sa}
+\end{figure}
+
+Figure~\ref{fig:dh_exchange} shows the Diffie-Hellman exchange phase. The Key Exchange payload carries the public Diffie-Hellman values required to generate the shared secret key between both peers. The Nonce payload adds randomness to the generated keys, increasing security.
+
+The Key Exchange payload is therefore responsible for securely generating a common secret without transmitting the secret itself over the network.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\linewidth]{../Images/6.png}
+    \caption{Diffie-Hellman Key Exchange during IKE Phase 1}
+    \label{fig:dh_exchange}
+\end{figure}
+
+Figure~\ref{fig:identity} shows the final Main Mode exchanges where identity information and authentication data are transmitted in encrypted form. At this stage, the ISAKMP SA has already been established.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\linewidth]{../Images/7.png}
+    \caption{Identity protection during IKE Phase 1}
+    \label{fig:identity}
+\end{figure}
+
+\subsubsection{IKE Phase 2 -- Quick Mode}
+
+IKE Phase 2 negotiates the IPSec Security Associations used to protect data traffic.
+
+Figure~\ref{fig:quickmode} shows the Quick Mode exchange responsible for negotiating IPSec parameters such as AH/ESP protocols, encryption algorithms, integrity algorithms, and Security Associations.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\linewidth]{../Images/8.png}
+    \caption{IKE Phase 2 Quick Mode negotiation}
+    \label{fig:quickmode}
+\end{figure}
+
+The router outputs confirmed the successful establishment of the tunnel. The ISAKMP state reached \texttt{QM\_IDLE}, indicating that Phase 1 and Phase 2 negotiations completed successfully.
+
+\begin{verbatim}
+Router#show crypto isakmp sa
+
+dst             src             state          conn-id status
+1.1.1.1         2.2.2.2         QM_IDLE           1002 ACTIVE
+2.2.2.2         1.1.1.1         QM_IDLE           1003 ACTIVE
+\end{verbatim}
+
+The IPSec Security Associations were also verified using:
+
+\begin{verbatim}
+show crypto ipsec sa
+\end{verbatim}
+
+The output confirmed active inbound and outbound AH Security Associations.
+
+\subsection{Negotiation Failure Analysis}
+
+Different cryptographic parameters were intentionally configured between peers in order to analyze negotiation failures.
+
+Figure~\ref{fig:negotiation_failure} shows repeated Main Mode and Quick Mode negotiations. Since the peers could not agree on compatible IPSec parameters, the Security Associations were not successfully established.
+
+As a result, ICMP communication failed and no encrypted traffic was exchanged through the tunnel.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\linewidth]{../Images/10.png}
+    \caption{Failed IPSec negotiation due to parameter mismatch}
+    \label{fig:negotiation_failure}
+\end{figure}
+
+\subsection{ESP Tunnel Operation}
+
+The transform set was later changed to ESP using the command:
+
+\begin{verbatim}
+crypto ipsec transform-set myTSet esp-aes esp-sha-hmac
+\end{verbatim}
+
+ESP provides confidentiality in addition to authentication and integrity.
+
+Figure~\ref{fig:esp_packet} shows an ESP-protected packet. Unlike AH, only the ESP header remains visible, while the original payload is encrypted and cannot be inspected in Wireshark.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\linewidth]{../Images/11.png}
+    \caption{ESP protected packet}
+    \label{fig:esp_packet}
+\end{figure}
+
+Figure~\ref{fig:esp_ospf} shows ESP packets exchanged together with OSPF Hello packets during tunnel operation.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\linewidth]{../Images/9.png}
+    \caption{ESP traffic and OSPF exchanges}
+    \label{fig:esp_ospf}
+\end{figure}
+
+Compared to AH, ESP provides confidentiality by encrypting the payload, while AH only guarantees integrity and authentication. In AH mode, the original payload remains visible in Wireshark, whereas in ESP mode only the ESP header can be inspected and the payload contents remain encrypted.
+\subsection{Firewall Requirements for IPSec}
+
+In order for an IPSec tunnel to be successfully established through a firewall, the firewall must allow the protocols and ports used by IKE and IPSec.
+
+The following traffic must be permitted:
+
+\begin{itemize}
+    \item UDP port 500 (ISAKMP/IKE)
+    \item ESP protocol (IP protocol 50)
+    \item AH protocol (IP protocol 51), when AH is used
+\end{itemize}
+
+If NAT traversal is used, UDP port 4500 must also be allowed.
+
+Blocking any of these protocols prevents successful establishment of the IPSec tunnel.
+
+
 \newpage
 
 \section{IKEv1 with Digital Signatures}
