@@ -1066,7 +1066,7 @@ Figure~\ref{fig:ike_auth_content} presents the captured IKEv2 exchange messages.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{../Images/Content of AUTH IKEv2.png}
+    \includegraphics[width=\textwidth]{../Images/Content of INIT IKEv2.png}
     \caption{Contents of the IKE\_SA\_INIT exchange}
     \label{fig:ike_auth_content}
 \end{figure}
@@ -1117,5 +1117,42 @@ The analysis of Wireshark captures demonstrated:
 \end{itemize}
 
 Cisco IOS verification commands further confirmed the operational state of the tunnel, the establishment of OSPF adjacency through Tunnel0, and the correct operation of encrypted ESP traffic.
+
+\subsection{IKEv2 Security Association Rekeying}
+
+To analyze the IKEv2 rekeying process, the lifetime of the IKEv2 Security Association was reduced to 180 seconds on R2 using the following configuration:
+
+\begin{verbatim}
+crypto ikev2 profile myIKEv2Profile
+ lifetime 180
+\end{verbatim}
+
+After applying the configuration, the existing Security Associations were cleared using the \texttt{clear crypto session} command, allowing a new IKEv2 SA to be established with the updated lifetime.
+
+Wireshark captures were obtained during the rekeying process. Figure~\ref{fig:ikev2_rekey_messages} presents the exchanged messages associated with IKEv2 rekeying.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../Images/IKEv2 rekeying CHILD SA msg.png}
+    \caption{IKEv2 rekeying messages captured in Wireshark}
+    \label{fig:ikev2_rekey_messages}
+\end{figure}
+
+The captures show that the rekeying procedure does not restart the tunnel establishment from scratch. No new IKE\_SA\_INIT exchange was observed during rekeying. Instead, the process occurs through protected exchanges within the existing secure channel.
+
+The CREATE\_CHILD\_SA exchange is responsible for generating fresh key material and establishing a new Security Association while the previous one is still active. This allows rekeying to occur without interrupting tunnel connectivity.
+
+The evolution of the IKEv2 Security Association was verified using the \texttt{show crypto ikev2 sa detailed} command. Figure~\ref{fig:ikev2_sa_rekey} shows the Security Association state before and after rekeying.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../Images/sh crypto detailed evolution.png}
+    \caption{Evolution of the IKEv2 Security Association during rekeying}
+    \label{fig:ikev2_sa_rekey}
+\end{figure}
+
+The outputs show that rekeying generated new local and remote SPIs while preserving the negotiated cryptographic algorithms and parameters. Additionally, the SA lifetime was refreshed after rekeying, confirming the successful establishment of a new IKEv2 Security Association.
+
+The change in Tunnel-id, from 1 to 6, and SPI values demonstrates that the previous Security Association was replaced by a newly negotiated association.
 
 \end{document}

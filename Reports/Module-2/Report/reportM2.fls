@@ -1455,16 +1455,26 @@ INPUT ../Images/ping IKEv2 pc to pc.png
 INPUT ../Images/ping IKEv2 pc to pc.png
 INPUT ../Images/ping IKEv2 pc to pc.png
 INPUT ../Images/ping IKEv2 pc to pc.png
-INPUT ../Images/Content of AUTH IKEv2.png
-INPUT ../Images/Content of AUTH IKEv2.png
-INPUT ../Images/Content of AUTH IKEv2.png
-INPUT ../Images/Content of AUTH IKEv2.png
-INPUT ../Images/Content of AUTH IKEv2.png
+INPUT ../Images/Content of INIT IKEv2.png
+INPUT ../Images/Content of INIT IKEv2.png
+INPUT ../Images/Content of INIT IKEv2.png
+INPUT ../Images/Content of INIT IKEv2.png
+INPUT ../Images/Content of INIT IKEv2.png
 INPUT ../Images/IKEv2 INIT payload expanded.png
 INPUT ../Images/IKEv2 INIT payload expanded.png
 INPUT ../Images/IKEv2 INIT payload expanded.png
 INPUT ../Images/IKEv2 INIT payload expanded.png
 INPUT ../Images/IKEv2 INIT payload expanded.png
+INPUT ../Images/IKEv2 rekeying CHILD SA msg.png
+INPUT ../Images/IKEv2 rekeying CHILD SA msg.png
+INPUT ../Images/IKEv2 rekeying CHILD SA msg.png
+INPUT ../Images/IKEv2 rekeying CHILD SA msg.png
+INPUT ../Images/IKEv2 rekeying CHILD SA msg.png
+INPUT ../Images/sh crypto detailed evolution.png
+INPUT ../Images/sh crypto detailed evolution.png
+INPUT ../Images/sh crypto detailed evolution.png
+INPUT ../Images/sh crypto detailed evolution.png
+INPUT ../Images/sh crypto detailed evolution.png
 INPUT reportM2.aux
 INPUT ./reportM2.out
 INPUT ./reportM2.out
