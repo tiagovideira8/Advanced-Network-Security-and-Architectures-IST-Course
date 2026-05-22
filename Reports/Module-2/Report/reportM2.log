@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.5.16)  21 MAY 2026 13:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.5.16)  22 MAY 2026 17:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -782,7 +782,7 @@ LaTeX Info: Redefining \nameref on input line 106.
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 106.
-<../Images/IST_A.png, id=201, 709.6914pt x 394.1124pt>
+<../Images/IST_A.png, id=205, 709.6914pt x 394.1124pt>
 File: ../Images/IST_A.png Graphic file (type png)
 <use ../Images/IST_A.png>
 Package pdftex.def Info: ../Images/IST_A.png  used on input line 114.
@@ -803,205 +803,221 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout5 = `reportM2.toc'.
 
  [1] [2]
-<../Images/1.png, id=268, 1152.305pt x 476.78125pt>
+<../Images/1.png, id=273, 1152.305pt x 476.78125pt>
 File: ../Images/1.png Graphic file (type png)
 <use ../Images/1.png>
 Package pdftex.def Info: ../Images/1.png  used on input line 190.
 (pdftex.def)             Requested size: 459.51054pt x 190.1271pt.
-<../Images/2.png, id=270, 1573.88pt x 1080.035pt>
+<../Images/2.png, id=275, 1573.88pt x 1080.035pt>
 File: ../Images/2.png Graphic file (type png)
 <use ../Images/2.png>
 Package pdftex.def Info: ../Images/2.png  used on input line 203.
 (pdftex.def)             Requested size: 459.51054pt x 315.31157pt.
  [3 <../Images/1.png>]
-<../Images/3.png, id=279, 1632.0975pt x 1306.8825pt>
+<../Images/3.png, id=284, 1632.0975pt x 1306.8825pt>
 File: ../Images/3.png Graphic file (type png)
 <use ../Images/3.png>
 Package pdftex.def Info: ../Images/3.png  used on input line 212.
 (pdftex.def)             Requested size: 459.51054pt x 367.93869pt.
  [4 <../Images/2.png>]
-<../Images/4.png, id=287, 1601.985pt x 706.64pt>
+<../Images/4.png, id=292, 1601.985pt x 706.64pt>
 File: ../Images/4.png Graphic file (type png)
 <use ../Images/4.png>
 Package pdftex.def Info: ../Images/4.png  used on input line 235.
 (pdftex.def)             Requested size: 459.51054pt x 202.68839pt.
  [5 <../Images/3.png>]
-<../Images/5.png, id=295, 1678.27pt x 780.9175pt>
+<../Images/5.png, id=300, 1678.27pt x 780.9175pt>
 File: ../Images/5.png Graphic file (type png)
 <use ../Images/5.png>
 Package pdftex.def Info: ../Images/5.png  used on input line 248.
 (pdftex.def)             Requested size: 459.51054pt x 213.80566pt.
-<../Images/6.png, id=297, 1696.3375pt x 881.2925pt>
+<../Images/6.png, id=302, 1696.3375pt x 881.2925pt>
 File: ../Images/6.png Graphic file (type png)
 <use ../Images/6.png>
 Package pdftex.def Info: ../Images/6.png  used on input line 259.
 (pdftex.def)             Requested size: 459.51054pt x 238.71866pt.
  [6 <../Images/4.png> <../Images/5.png>]
-<../Images/7.png, id=308, 1688.3075pt x 690.58pt>
+<../Images/7.png, id=313, 1688.3075pt x 690.58pt>
 File: ../Images/7.png Graphic file (type png)
 <use ../Images/7.png>
 Package pdftex.def Info: ../Images/7.png  used on input line 268.
 (pdftex.def)             Requested size: 459.51054pt x 187.9554pt.
-<../Images/8.png, id=310, 1624.0675pt x 620.3175pt>
+<../Images/8.png, id=315, 1624.0675pt x 620.3175pt>
 File: ../Images/8.png Graphic file (type png)
 <use ../Images/8.png>
 Package pdftex.def Info: ../Images/8.png  used on input line 281.
 (pdftex.def)             Requested size: 459.51054pt x 175.50505pt.
  [7 <../Images/6.png> <../Images/7.png>]
-<../Images/10.png, id=320, 813.0375pt x 488.82625pt>
+<../Images/10.png, id=325, 813.0375pt x 488.82625pt>
 File: ../Images/10.png Graphic file (type png)
 <use ../Images/10.png>
 Package pdftex.def Info: ../Images/10.png  used on input line 314.
 (pdftex.def)             Requested size: 459.51054pt x 276.26938pt.
  [8 <../Images/8.png>]
-<../Images/11.png, id=328, 801.99625pt x 154.5775pt>
+<../Images/11.png, id=333, 801.99625pt x 154.5775pt>
 File: ../Images/11.png Graphic file (type png)
 <use ../Images/11.png>
 Package pdftex.def Info: ../Images/11.png  used on input line 333.
 (pdftex.def)             Requested size: 459.51054pt x 88.56766pt.
-<../Images/9.png, id=330, 2055.68pt x 849.1725pt>
+<../Images/9.png, id=335, 2055.68pt x 849.1725pt>
 File: ../Images/9.png Graphic file (type png)
 <use ../Images/9.png>
 Package pdftex.def Info: ../Images/9.png  used on input line 342.
 (pdftex.def)             Requested size: 459.51054pt x 189.81166pt.
  [9 <../Images/10.png> <../Images/11.png>] [10 <../Images/9.png>] [11] [12] [13] [14]
-<../Images/R1-RA_cerificate_exchange.png, id=363, 1681.28125pt x 760.8425pt>
+<../Images/R1-RA_cerificate_exchange.png, id=368, 1681.28125pt x 760.8425pt>
 File: ../Images/R1-RA_cerificate_exchange.png Graphic file (type png)
 <use ../Images/R1-RA_cerificate_exchange.png>
 Package pdftex.def Info: ../Images/R1-RA_cerificate_exchange.png  used on input line 597.
 (pdftex.def)             Requested size: 483.69687pt x 218.88564pt.
  [15]
-<../Images/R1-RA_PKIOperation.png, id=368, 1559.8275pt x 763.85374pt>
+<../Images/R1-RA_PKIOperation.png, id=373, 1559.8275pt x 763.85374pt>
 File: ../Images/R1-RA_PKIOperation.png Graphic file (type png)
 <use ../Images/R1-RA_PKIOperation.png>
 Package pdftex.def Info: ../Images/R1-RA_PKIOperation.png  used on input line 610.
 (pdftex.def)             Requested size: 483.69687pt x 236.86214pt.
  [16 <../Images/R1-RA_cerificate_exchange.png> <../Images/R1-RA_PKIOperation.png>]
-<../Images/R1-RA-certificate-packet.png, id=377, 1559.8275pt x 1015.795pt>
+<../Images/R1-RA-certificate-packet.png, id=382, 1559.8275pt x 1015.795pt>
 File: ../Images/R1-RA-certificate-packet.png Graphic file (type png)
 <use ../Images/R1-RA-certificate-packet.png>
 Package pdftex.def Info: ../Images/R1-RA-certificate-packet.png  used on input line 623.
 (pdftex.def)             Requested size: 483.69687pt x 314.98619pt.
-<../Images/Ping_PCs_ESP.png, id=378, 1003.75pt x 846.16125pt>
+<../Images/Ping_PCs_ESP.png, id=383, 1003.75pt x 846.16125pt>
 File: ../Images/Ping_PCs_ESP.png Graphic file (type png)
 <use ../Images/Ping_PCs_ESP.png>
 Package pdftex.def Info: ../Images/Ping_PCs_ESP.png  used on input line 638.
 (pdftex.def)             Requested size: 483.69687pt x 407.76671pt.
  [17 <../Images/R1-RA-certificate-packet.png>] [18 <../Images/Ping_PCs_ESP.png>]
-<../Images/clear session msgs.png, id=393, 1172.38pt x 839.135pt>
+<../Images/clear session msgs.png, id=398, 1172.38pt x 839.135pt>
 File: ../Images/clear session msgs.png Graphic file (type png)
 <use ../Images/clear session msgs.png>
 Package pdftex.def Info: ../Images/clear session msgs.png  used on input line 674.
 (pdftex.def)             Requested size: 483.69687pt x 346.19867pt.
  [19 <../Images/clear session msgs.png>] [20]
-<../Images/Restarted nodes screenshot.png, id=404, 1808.7575pt x 860.21375pt>
+<../Images/Restarted nodes screenshot.png, id=409, 1808.7575pt x 860.21375pt>
 File: ../Images/Restarted nodes screenshot.png Graphic file (type png)
 <use ../Images/Restarted nodes screenshot.png>
 Package pdftex.def Info: ../Images/Restarted nodes screenshot.png  used on input line 756.
 (pdftex.def)             Requested size: 483.69687pt x 230.02942pt.
  [21 <../Images/Restarted nodes screenshot.png>]
-<../Images/revoked-scep-traffic.png, id=411, 1879.02pt x 788.9475pt>
+<../Images/revoked-scep-traffic.png, id=416, 1879.02pt x 788.9475pt>
 File: ../Images/revoked-scep-traffic.png Graphic file (type png)
 <use ../Images/revoked-scep-traffic.png>
 Package pdftex.def Info: ../Images/revoked-scep-traffic.png  used on input line 797.
 (pdftex.def)             Requested size: 483.69687pt x 203.08702pt.
  [22 <../Images/revoked-scep-traffic.png>]
-<../Images/revoked-isakmp.png, id=418, 1510.64375pt x 886.31125pt>
+<../Images/revoked-isakmp.png, id=423, 1510.64375pt x 886.31125pt>
 File: ../Images/revoked-isakmp.png Graphic file (type png)
 <use ../Images/revoked-isakmp.png>
 Package pdftex.def Info: ../Images/revoked-isakmp.png  used on input line 812.
 (pdftex.def)             Requested size: 483.69687pt x 283.78767pt.
  [23 <../Images/revoked-isakmp.png>] [24] [25]
-<../Images/show crypto ikev2 prop R1.png, id=438, 671.50874pt x 220.825pt>
+<../Images/show crypto ikev2 prop R1.png, id=443, 671.50874pt x 220.825pt>
 File: ../Images/show crypto ikev2 prop R1.png Graphic file (type png)
 <use ../Images/show crypto ikev2 prop R1.png>
 Package pdftex.def Info: ../Images/show crypto ikev2 prop R1.png  used on input line 943.
 (pdftex.def)             Requested size: 237.01411pt x 77.94022pt.
-<../Images/show crypto ikev2 prop R2.png, id=439, 671.50874pt x 220.825pt>
+<../Images/show crypto ikev2 prop R2.png, id=444, 671.50874pt x 220.825pt>
 File: ../Images/show crypto ikev2 prop R2.png Graphic file (type png)
 <use ../Images/show crypto ikev2 prop R2.png>
 Package pdftex.def Info: ../Images/show crypto ikev2 prop R2.png  used on input line 949.
 (pdftex.def)             Requested size: 237.01411pt x 77.94022pt.
-<../Images/sh crypto policy R1.png, id=440, 339.2675pt x 220.825pt>
+<../Images/sh crypto policy R1.png, id=445, 339.2675pt x 220.825pt>
 File: ../Images/sh crypto policy R1.png Graphic file (type png)
 <use ../Images/sh crypto policy R1.png>
 Package pdftex.def Info: ../Images/sh crypto policy R1.png  used on input line 967.
 (pdftex.def)             Requested size: 237.01411pt x 154.2698pt.
-<../Images/sh crypto policy R2.png, id=441, 339.2675pt x 220.825pt>
+<../Images/sh crypto policy R2.png, id=446, 339.2675pt x 220.825pt>
 File: ../Images/sh crypto policy R2.png Graphic file (type png)
 <use ../Images/sh crypto policy R2.png>
 Package pdftex.def Info: ../Images/sh crypto policy R2.png  used on input line 973.
 (pdftex.def)             Requested size: 237.01411pt x 154.2698pt.
-<../Images/sh crypto ipsec profile R1.png, id=442, 642.4pt x 386.44376pt>
+<../Images/sh crypto ipsec profile R1.png, id=447, 642.4pt x 386.44376pt>
 File: ../Images/sh crypto ipsec profile R1.png Graphic file (type png)
 <use ../Images/sh crypto ipsec profile R1.png>
 Package pdftex.def Info: ../Images/sh crypto ipsec profile R1.png  used on input line 991.
 (pdftex.def)             Requested size: 237.01411pt x 142.57507pt.
-<../Images/sh crypto ipsec profile R2.png, id=443, 642.4pt x 386.44376pt>
+<../Images/sh crypto ipsec profile R2.png, id=448, 642.4pt x 386.44376pt>
 File: ../Images/sh crypto ipsec profile R2.png Graphic file (type png)
 <use ../Images/sh crypto ipsec profile R2.png>
 Package pdftex.def Info: ../Images/sh crypto ipsec profile R2.png  used on input line 997.
 (pdftex.def)             Requested size: 237.01411pt x 142.57507pt.
-<../Images/sh crypto ipsec sa R1.png, id=444, 804.00375pt x 906.38625pt>
+<../Images/sh crypto ipsec sa R1.png, id=449, 804.00375pt x 906.38625pt>
 File: ../Images/sh crypto ipsec sa R1.png Graphic file (type png)
 <use ../Images/sh crypto ipsec sa R1.png>
 Package pdftex.def Info: ../Images/sh crypto ipsec sa R1.png  used on input line 1015.
 (pdftex.def)             Requested size: 237.01411pt x 267.188pt.
-<../Images/sh crypto ipsec sa R2.png, id=445, 804.00375pt x 906.38625pt>
+<../Images/sh crypto ipsec sa R2.png, id=450, 804.00375pt x 906.38625pt>
 File: ../Images/sh crypto ipsec sa R2.png Graphic file (type png)
 <use ../Images/sh crypto ipsec sa R2.png>
 Package pdftex.def Info: ../Images/sh crypto ipsec sa R2.png  used on input line 1021.
 (pdftex.def)             Requested size: 237.01411pt x 267.188pt.
  [26 <../Images/show crypto ikev2 prop R1.png> <../Images/show crypto ikev2 prop R2.png> <../Images/sh crypto policy R1.png> <../Images/sh crypto policy R2.png> <../Images/sh crypto ipsec profile R1.png> <../Images/sh crypto ipsec profile R2.png>]
-<../Images/ping IKEv2 pc to pc.png, id=461, 955.57pt x 570.13pt>
+<../Images/ping IKEv2 pc to pc.png, id=466, 955.57pt x 570.13pt>
 File: ../Images/ping IKEv2 pc to pc.png Graphic file (type png)
 <use ../Images/ping IKEv2 pc to pc.png>
 Package pdftex.def Info: ../Images/ping IKEv2 pc to pc.png  used on input line 1047.
 (pdftex.def)             Requested size: 338.58632pt x 202.01044pt.
  [27 <../Images/sh crypto ipsec sa R1.png> <../Images/sh crypto ipsec sa R2.png>]
-<../Images/Content of INIT IKEv2.png, id=470, 951.555pt x 849.1725pt>
+<../Images/Content of INIT IKEv2.png, id=475, 951.555pt x 849.1725pt>
 File: ../Images/Content of INIT IKEv2.png Graphic file (type png)
 <use ../Images/Content of INIT IKEv2.png>
 Package pdftex.def Info: ../Images/Content of INIT IKEv2.png  used on input line 1069.
 (pdftex.def)             Requested size: 483.69687pt x 431.6599pt.
  [28 <../Images/ping IKEv2 pc to pc.png>]
-<../Images/IKEv2 INIT payload expanded.png, id=478, 720.6925pt x 695.59875pt>
+<../Images/IKEv2 INIT payload expanded.png, id=483, 720.6925pt x 695.59875pt>
 File: ../Images/IKEv2 INIT payload expanded.png Graphic file (type png)
 <use ../Images/IKEv2 INIT payload expanded.png>
 Package pdftex.def Info: ../Images/IKEv2 INIT payload expanded.png  used on input line 1076.
 (pdftex.def)             Requested size: 483.69687pt x 466.85541pt.
  [29 <../Images/Content of INIT IKEv2.png>] [30 <../Images/IKEv2 INIT payload expanded.png>]
-<../Images/IKEv2 rekeying CHILD SA msg.png, id=492, 1119.18124pt x 560.0925pt>
+<../Images/IKEv2 rekeying CHILD SA msg.png, id=497, 1119.18124pt x 560.0925pt>
 File: ../Images/IKEv2 rekeying CHILD SA msg.png Graphic file (type png)
 <use ../Images/IKEv2 rekeying CHILD SA msg.png>
 Package pdftex.def Info: ../Images/IKEv2 rekeying CHILD SA msg.png  used on input line 1136.
 (pdftex.def)             Requested size: 483.69687pt x 242.06575pt.
  [31]
-<../Images/sh crypto detailed evolution.png, id=499, 869.2475pt x 958.58125pt>
+<../Images/sh crypto detailed evolution.png, id=504, 869.2475pt x 958.58125pt>
 File: ../Images/sh crypto detailed evolution.png Graphic file (type png)
 <use ../Images/sh crypto detailed evolution.png>
 Package pdftex.def Info: ../Images/sh crypto detailed evolution.png  used on input line 1149.
 (pdftex.def)             Requested size: 483.69687pt x 533.42307pt.
- [32 <../Images/IKEv2 rekeying CHILD SA msg.png>] [33 <../Images/sh crypto detailed evolution.png>] (./reportM2.aux)
+ [32 <../Images/IKEv2 rekeying CHILD SA msg.png>] [33 <../Images/sh crypto detailed evolution.png>]
+<../Images/IKEv2 CHILD_SA msg ipsec.png, id=517, 1137.24875pt x 743.77875pt>
+File: ../Images/IKEv2 CHILD_SA msg ipsec.png Graphic file (type png)
+<use ../Images/IKEv2 CHILD_SA msg ipsec.png>
+Package pdftex.def Info: ../Images/IKEv2 CHILD_SA msg ipsec.png  used on input line 1173.
+(pdftex.def)             Requested size: 483.69687pt x 316.3458pt.
+<../Images/IKEv2 ipsec before rekeying.png, id=519, 798.985pt x 894.34125pt>
+File: ../Images/IKEv2 ipsec before rekeying.png Graphic file (type png)
+<use ../Images/IKEv2 ipsec before rekeying.png>
+Package pdftex.def Info: ../Images/IKEv2 ipsec before rekeying.png  used on input line 1187.
+(pdftex.def)             Requested size: 237.01411pt x 265.3022pt.
+<../Images/IKEv2 ipsec after rekeying.png, id=520, 801.99625pt x 906.38625pt>
+File: ../Images/IKEv2 ipsec after rekeying.png Graphic file (type png)
+<use ../Images/IKEv2 ipsec after rekeying.png>
+Package pdftex.def Info: ../Images/IKEv2 ipsec after rekeying.png  used on input line 1193.
+(pdftex.def)             Requested size: 237.01411pt x 267.86568pt.
+ [34 <../Images/IKEv2 CHILD_SA msg ipsec.png>] [35 <../Images/IKEv2 ipsec before rekeying.png> <../Images/IKEv2 ipsec after rekeying.png>] (./reportM2.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `reportM2.out' has not changed.
-(rerunfilecheck)             Checksum: DB68741049CA3ABCEA7385444DB30539;8069.
+(rerunfilecheck)             Checksum: 32D3E1D909007942608FC3CFB8FE41BF;8311.
  ) 
 Here is how much of TeX's memory you used:
- 35082 strings out of 480247
- 737267 string characters out of 5896151
- 1098771 words of memory out of 5000000
- 52329 multiletter control sequences out of 15000+600000
+ 35111 strings out of 480247
+ 738293 string characters out of 5896151
+ 1098956 words of memory out of 5000000
+ 52350 multiletter control sequences out of 15000+600000
  480266 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  99i,12n,117p,607b,920s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on reportM2.pdf (34 pages, 4293441 bytes).
+Output written on reportM2.pdf (36 pages, 4622618 bytes).
 PDF statistics:
- 572 PDF objects out of 1000 (max. 8388607)
- 423 compressed objects within 5 object streams
- 103 named destinations out of 1000 (max. 500000)
- 644 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 595 PDF objects out of 1000 (max. 8388607)
+ 438 compressed objects within 5 object streams
+ 108 named destinations out of 1000 (max. 500000)
+ 667 words of extra memory for PDF output out of 10000 (max. 10000000)
 

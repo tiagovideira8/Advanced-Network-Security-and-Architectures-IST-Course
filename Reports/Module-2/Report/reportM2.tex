@@ -1155,4 +1155,54 @@ The outputs show that rekeying generated new local and remote SPIs while preserv
 
 The change in Tunnel-id, from 1 to 6, and SPI values demonstrates that the previous Security Association was replaced by a newly negotiated association.
 
+\subsection{IPSec Security Association Rekeying}
+
+To analyze the IPSec Security Association rekeying process, the IPSec SA lifetime was reduced to 120 seconds on R1 using the following configuration:
+
+\begin{verbatim}
+crypto ipsec profile myIPSecProfile
+ set security-association lifetime seconds 120
+\end{verbatim}
+
+After saving the configuration, router R1 was restarted to ensure that the updated lifetime was applied to newly established IPSec Security Associations.
+
+Wireshark captures were obtained during the rekeying process. Figure~\ref{fig:ipsec_rekey_messages} presents the exchanged messages associated with IPSec SA rekeying.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../Images/IKEv2 CHILD_SA msg ipsec.png}
+    \caption{IPSec Security Association rekeying captured in Wireshark}
+    \label{fig:ipsec_rekey_messages}
+\end{figure}
+
+Although both IKEv2 SA rekeying and IPSec SA rekeying use CREATE\_CHILD\_SA exchanges, the affected Security Associations differ. During IKEv2 SA rekeying, the IKE Security Association itself is replaced and new IKE SPIs are generated. During IPSec SA rekeying, only the ESP CHILD\_SA is replaced while the IKEv2 Security Association remains active.
+
+The evolution of the IPSec Security Associations was verified using the \texttt{show crypto ipsec sa} command. Figure~\ref{fig:ipsec_sa_rekey} presents the Security Association state before and after rekeying.
+
+\begin{figure}[H]
+    \centering
+
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Images/IKEv2 ipsec before rekeying.png}
+        \caption*{Before rekeying}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Images/IKEv2 ipsec after rekeying.png}
+        \caption*{After rekeying}
+    \end{minipage}
+
+    \caption{Evolution of the IPSec Security Associations during rekeying}
+    \label{fig:ipsec_sa_rekey}
+
+\end{figure}
+
+The outputs show that the inbound and outbound ESP SPIs changed after rekeying, confirming that new IPSec Security Associations were created. Additionally, the Security Association lifetime was refreshed after rekeying while the negotiated cryptographic parameters remained unchanged.
+
+The packet counters continued increasing throughout the process, demonstrating that encrypted traffic continued uninterrupted during the IPSec SA rekeying operation.
+
+Unlike IKEv2 Security Association rekeying, which replaces the IKE SA itself, IPSec rekeying only replaces the CHILD\_SA used for ESP traffic protection while preserving the already established IKEv2 Security Association.
+
 \end{document}
