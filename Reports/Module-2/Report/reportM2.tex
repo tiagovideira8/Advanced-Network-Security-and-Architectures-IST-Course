@@ -1205,4 +1205,158 @@ The packet counters continued increasing throughout the process, demonstrating t
 
 Unlike IKEv2 Security Association rekeying, which replaces the IKE SA itself, IPSec rekeying only replaces the CHILD\_SA used for ESP traffic protection while preserving the already established IKEv2 Security Association.
 
+\section{VRFs and BGP-MPLS L3VPNs}
+
+\subsection{Introduction}
+
+This laboratory exercise explored the implementation of a BGP/MPLS Layer 3 VPN using GNS3 and Cisco IOS routers. Two customer organizations (Blue and Red), each with two geographically separated sites, were interconnected through a provider MPLS backbone composed of PE and P routers. Virtual Routing and Forwarding (VRF) instances were used to isolate customer routing information, while MP-BGP distributed VPN routes and MPLS labels between PE routers. The objective of the exercise was to analyze how MPLS labels, VRFs, and MP-BGP cooperate to provide scalable and isolated Layer 3 VPN connectivity across a shared provider infrastructure.
+
+\subsection{Ping Between Sites and Loopback Sourcing}
+
+Connectivity between the sites of each organization was verified by executing sourced pings between the CE routers. Figure~\ref{fig:blue_ping} presents the successful ping from Blue1 to Blue2, and Figure~\ref{fig:red_ping} presents the successful ping from Red1 to Red2.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../Images/Ping Blue client vpn.png}
+    \caption{Successful ping from Blue1 to Blue2}
+    \label{fig:blue_ping}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../Images/Ping Red client vpn.png}
+    \caption{successful ping from Red1 to Red2}
+    \label{fig:red_ping}
+\end{figure}
+
+The pings are sourced from the loopback interfaces because these are the prefixes advertised into the VPN through the static routes redistributed into MP-BGP. The physical CE interface addresses (e.g. \texttt{10.10.1.100}) are local to the PE--CE segment and are never injected into the VRF routing table of the remote PE. A ping sourced from the physical interface would reach the destination but the reply would be dropped at the remote PE for lack of a return route. Sourcing from the loopback tests the actual end-to-end VPN path across the advertised prefixes.
+
+\subsection{PE1 Routing Tables}
+
+The routing architecture of PE1 was analyzed by inspecting the global routing table and the per-VRF routing tables. Figure~\ref{fig:pe1_global} presents the global table, and Figures~\ref{fig:pe1_vrf_blue} and~\ref{fig:pe1_vrf_red} present the VRF tables for the blue and red organizations respectively.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../Images/PE1 routing table.png}
+    \caption{}
+    \label{fig:pe1_global}
+\end{figure}
+
+The global routing table contains exclusively provider infrastructure routes: the directly connected provider links (\texttt{222.222.x.x}), the PE and P loopbacks learned via OSPF, and no customer prefixes whatsoever. This reflects the fundamental VRF isolation principle, customer routes exist only within their respective VRF instances and are completely invisible to the global forwarding plane.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../Images/Blue vrf routing table PE1.png}
+    \caption{}
+    \label{fig:pe1_vrf_blue}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../Images/Red vrf routing table PE1.png}
+    \caption{}
+    \label{fig:pe1_vrf_red}
+\end{figure}
+
+The blue VRF routing table contains three categories of entries. The directly connected entry for \texttt{10.10.1.0/24} corresponds to the PE1--Blue1 segment. The static route for \texttt{192.168.101.0/24} via \texttt{10.10.1.100} was manually configured to reach Blue1's loopback and is redistributed into MP-BGP. The BGP route for \texttt{192.168.102.0/24} via \texttt{2.2.2.2} was learned from PE2 through the MP-BGP session, with PE2's loopback serving as the next hop resolved through the MPLS core. The red VRF table is symmetric, containing the equivalent entries for the red organization's address space.
+
+The two organizations are isolated from each other because each VRF constitutes an independent routing and forwarding instance. Interfaces are explicitly bound to a single VRF, so incoming packets are looked up exclusively within that VRF's FIB. Furthermore, route import and export is governed by the Route Target extended community: the blue VRF is configured with \texttt{route-target both 1:1} and the red VRF with \texttt{route-target both 2:2}, meaning a route advertised by one organization is never imported into the other's VRF regardless of address overlap.
+
+\subsection{MPLS Labels During Ping Analysis}
+
+To analyze the MPLS label stack used within the provider network, Wireshark captures 
+were obtained on both the PE1--P and P--PE2 links while executing 
+\texttt{ping 192.168.102.1 source l0} from Blue1. Figures~\ref{fig:mpls_2_labels} 
+and~\ref{fig:mpls_1_label} present the captured packets on each segment respectively.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../Images/MPLS 2 labels ping Blue.png}
+    \caption{}
+    \label{fig:mpls_2_labels}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../Images/MPLS 1 label ping Blue.png}
+    \caption{}
+    \label{fig:mpls_1_label}
+\end{figure}
+
+On the PE1--P segment, each ICMP packet carries a two-label MPLS stack. The outer 
+label (value 17) is the transport label, distributed by LDP, and is used exclusively 
+to switch the packet across the provider core toward PE2's loopback \texttt{2.2.2.2}. 
+Its Bottom of Stack (S) bit is set to 0, indicating that additional labels follow 
+beneath it in the stack. The inner label (value 19) is the VPN label, distributed by 
+MP-BGP, and identifies the destination VRF at the egress PE. Its S bit is set to 1, 
+marking it as the last label in the stack, after which the original IP packet begins.
+
+It is important to note that the VPN label value 19 was not assigned by PE1, the 
+ingress router, but rather by PE2, the egress router. In MPLS VPN, each PE assigns 
+labels for the prefixes it advertises and communicates them to the remote PE via 
+MP-BGP Update messages. PE2 assigned label 19 for prefix \texttt{192.168.102.0/24} 
+and advertised it to PE1, which then imposes that label on all traffic destined for 
+that prefix. This is confirmed by \texttt{show bgp vpnv4 unicast vrf blue 
+192.168.102.0} on PE1 shown in Figure~\ref{fig:bgp_vpnv4}, where the outgoing label 
+field shows the value received from PE2. The ingress PE is therefore always 
+responsible for imposing a label that was assigned and advertised by the egress PE.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../Images/BGP vpnv4 vrf blue 192.168.102.0.png}
+    \caption{}
+    \label{fig:bgp_vpnv4}
+\end{figure}
+
+
+These label values are directly correlated with the MPLS forwarding table of PE1, 
+shown in Figure~\ref{fig:mpls_pe1}. The entry for \texttt{2.2.2.2/32} shows outgoing 
+label 17 via \texttt{FastEthernet0/0}, confirming that PE1 imposes the LDP transport 
+label 17 to reach PE2's loopback through the P router. The VPN entry for 
+\texttt{192.168.102.0/24[V]} confirms that traffic destined for the blue VRF prefix 
+is forwarded with the label stack observed in the capture.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../Images/MPLS PE1 forwarding table.png}
+    \caption{}
+    \label{fig:mpls_pe1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../Images/MPLS PE2 forwarding table.png}
+    \caption{}
+    \label{fig:mpls_pe2}
+\end{figure}
+
+On the P--PE2 segment, the packet carries only a single label (value 19), as shown in 
+Figure~\ref{fig:mpls_1_label}. This is a consequence of Penultimate Hop Popping 
+(PHP): the P router, acting as the penultimate LSR before PE2, pops the outer 
+transport label rather than swapping it, forwarding the packet to PE2 with only the 
+inner VPN label exposed. PHP is enabled by default in Cisco IOS and is signaled 
+through LDP by advertising the implicit-null label for directly connected prefixes, 
+which instructs the upstream neighbor to pop rather than swap. This behavior is 
+confirmed by PE2's LDP bindings, where the local binding for \texttt{2.2.2.2/32} 
+shows \texttt{imp-null}, meaning PE2 told the P router to pop the transport label 
+before delivery. As a result, PE2 receives packets with only the VPN label, avoiding 
+a redundant label lookup.
+
+PE2 uses this VPN label to determine the destination VRF and forward the packet to 
+the correct CE. This is correlated with PE2's MPLS forwarding table shown in 
+Figure~\ref{fig:mpls_pe2}, where label 19 maps to prefix 
+\texttt{192.168.102.0/24[V]}, the \texttt{[V]} annotation indicating a VRF route. 
+The outgoing label is \texttt{No Label}, confirming that PE2 disposes of the VPN 
+label and delivers the packet natively into the blue VRF toward \texttt{10.10.2.100}. 
+By the same logic as above, the transport label value 17 observed on the PE1--P link 
+was assigned by the P router and advertised via LDP to PE1, not generated by PE1 
+itself.
+
+The VPN label is the mechanism that ensures the two organizations remain isolated even 
+when using overlapping IP address spaces. Because the forwarding decision at PE2 is 
+based on the MPLS label rather than the destination IP address, two packets carrying 
+different VPN labels are delivered to different VRFs without ambiguity, regardless of 
+whether their IP destinations overlap. The outer transport label changes at every LSR 
+hop across the provider core through standard label swapping, while the inner VPN 
+label remains unchanged from ingress PE to egress PE, where it is finally disposed.
+
 \end{document}

@@ -1490,6 +1490,56 @@ INPUT ../Images/IKEv2 ipsec after rekeying.png
 INPUT ../Images/IKEv2 ipsec after rekeying.png
 INPUT ../Images/IKEv2 ipsec after rekeying.png
 INPUT ../Images/IKEv2 ipsec after rekeying.png
+INPUT ../Images/Ping Blue client vpn.png
+INPUT ../Images/Ping Blue client vpn.png
+INPUT ../Images/Ping Blue client vpn.png
+INPUT ../Images/Ping Blue client vpn.png
+INPUT ../Images/Ping Blue client vpn.png
+INPUT ../Images/Ping Red client vpn.png
+INPUT ../Images/Ping Red client vpn.png
+INPUT ../Images/Ping Red client vpn.png
+INPUT ../Images/Ping Red client vpn.png
+INPUT ../Images/Ping Red client vpn.png
+INPUT ../Images/PE1 routing table.png
+INPUT ../Images/PE1 routing table.png
+INPUT ../Images/PE1 routing table.png
+INPUT ../Images/PE1 routing table.png
+INPUT ../Images/PE1 routing table.png
+INPUT ../Images/Blue vrf routing table PE1.png
+INPUT ../Images/Blue vrf routing table PE1.png
+INPUT ../Images/Blue vrf routing table PE1.png
+INPUT ../Images/Blue vrf routing table PE1.png
+INPUT ../Images/Blue vrf routing table PE1.png
+INPUT ../Images/Red vrf routing table PE1.png
+INPUT ../Images/Red vrf routing table PE1.png
+INPUT ../Images/Red vrf routing table PE1.png
+INPUT ../Images/Red vrf routing table PE1.png
+INPUT ../Images/Red vrf routing table PE1.png
+INPUT ../Images/MPLS 2 labels ping Blue.png
+INPUT ../Images/MPLS 2 labels ping Blue.png
+INPUT ../Images/MPLS 2 labels ping Blue.png
+INPUT ../Images/MPLS 2 labels ping Blue.png
+INPUT ../Images/MPLS 2 labels ping Blue.png
+INPUT ../Images/MPLS 1 label ping Blue.png
+INPUT ../Images/MPLS 1 label ping Blue.png
+INPUT ../Images/MPLS 1 label ping Blue.png
+INPUT ../Images/MPLS 1 label ping Blue.png
+INPUT ../Images/MPLS 1 label ping Blue.png
+INPUT ../Images/BGP vpnv4 vrf blue 192.168.102.0.png
+INPUT ../Images/BGP vpnv4 vrf blue 192.168.102.0.png
+INPUT ../Images/BGP vpnv4 vrf blue 192.168.102.0.png
+INPUT ../Images/BGP vpnv4 vrf blue 192.168.102.0.png
+INPUT ../Images/BGP vpnv4 vrf blue 192.168.102.0.png
+INPUT ../Images/MPLS PE1 forwarding table.png
+INPUT ../Images/MPLS PE1 forwarding table.png
+INPUT ../Images/MPLS PE1 forwarding table.png
+INPUT ../Images/MPLS PE1 forwarding table.png
+INPUT ../Images/MPLS PE1 forwarding table.png
+INPUT ../Images/MPLS PE2 forwarding table.png
+INPUT ../Images/MPLS PE2 forwarding table.png
+INPUT ../Images/MPLS PE2 forwarding table.png
+INPUT ../Images/MPLS PE2 forwarding table.png
+INPUT ../Images/MPLS PE2 forwarding table.png
 INPUT reportM2.aux
 INPUT ./reportM2.out
 INPUT ./reportM2.out
