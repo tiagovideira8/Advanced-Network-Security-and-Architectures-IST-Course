@@ -38,9 +38,20 @@
 \contentsline {subsection}{\numberline {4.5}SA Deletion and Re-establishment}{32}{subsection.4.5}%
 \contentsline {subsection}{\numberline {4.6}IKEv2 Security Association Rekeying}{32}{subsection.4.6}%
 \contentsline {subsection}{\numberline {4.7}IPSec Security Association Rekeying}{35}{subsection.4.7}%
-\contentsline {section}{\numberline {5}VRFs and BGP-MPLS L3VPNs}{36}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Introduction}{36}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Ping Between Sites and Loopback Sourcing}{37}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}PE1 Routing Tables}{37}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}MPLS Labels During Ping Analysis}{39}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}BGP Session Establishment and VPNv4 Route Advertisement}{42}{subsection.5.5}%
+\contentsline {section}{\numberline {5}DMVPN Phase 3}{37}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Topology}{37}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}DMVPN Phase 3 Configuration}{37}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Role of \texttt {ip summary-address rip}}{37}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}NHRP Redirects and Shortcuts}{38}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Traffic Analysis}{39}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Wireshark Analysis}{39}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}Role of RIP Split Horizon}{39}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5.8}Comparison Between DMVPN Phases}{39}{subsection.5.8}%
+\contentsline {subsection}{\numberline {5.9}Experimental Validation}{40}{subsection.5.9}%
+\contentsline {subsection}{\numberline {5.10}Comparison Between AI Explanation and Experimental Results}{40}{subsection.5.10}%
+\contentsline {section}{\numberline {6}VRFs and BGP-MPLS L3VPNs}{40}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Introduction}{40}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Ping Between Sites and Loopback Sourcing}{41}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}PE1 Routing Tables}{41}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}MPLS Labels During Ping Analysis}{43}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}BGP Session Establishment and VPNv4 Route Advertisement}{46}{subsection.6.5}%
