@@ -1508,4 +1508,210 @@ The \texttt{EXTENDED\_COMMUNITIES} attribute (type 16) carries Route Target \tex
 
 A VPNv4 route is an IPv4 prefix extended with a 64-bit Route Distinguisher, producing a globally unique 96-bit BGP prefix. The RD ensures overlapping customer address spaces remain distinguishable --- \texttt{1:1:192.168.102.0/24} and \texttt{2:2:192.168.102.0/24} are distinct BGP entries despite identical IPv4 portions. Crucially, the RD carries no policy semantics; routing policy is determined solely by the Route Target. Standard BGP cannot support this VPN solution because it simultaneously lacks the 64-bit RD prefix format, MPLS label encoding within the NLRI, and Extended Communities support for Route Target signaling.
 
+\section{Connecting network namespaces with IPIP tunnel}
+
+\subsection{Introduction}
+
+The objective of this exercise was to establish communication between two Linux network namespaces located on different nodes using an IPIP tunnel. Two Ubuntu nodes were used: \texttt{ub1} and \texttt{ub2}. Each node contained one network namespace connected to the host through a bridge interface and a virtual Ethernet pair (veth). Communication between the namespaces was achieved by creating an IPIP tunnel between the two hosts and configuring appropriate routing rules.
+
+\subsection{Configuration of the Namespaces and Tunnel}
+
+Two network namespaces were created, one on each node. Namespace \texttt{blue} was created on \texttt{ub1}, while namespace \texttt{red} was created on \texttt{ub2}.
+
+\subsubsection{Namespace Configuration}
+
+On \texttt{ub1}, the following commands were used:
+
+\begin{verbatim}
+ip netns add blue
+
+ip link add br2 type bridge
+ip link set br2 up
+
+ip link add iblue type veth peer name ibluebr
+
+ip link set iblue netns blue
+ip link set ibluebr master br2
+ip link set ibluebr up
+
+ip -n blue addr add 10.0.2.2/24 dev iblue
+ip -n blue link set iblue up
+ip -n blue link set lo up
+
+ip addr add 10.0.2.1/24 dev br2
+
+ip netns exec blue ip route add default via 10.0.2.1
+\end{verbatim}
+
+On \texttt{ub2}, the following commands were executed:
+
+\begin{verbatim}
+ip netns add red
+
+ip link add br1 type bridge
+ip link set br1 up
+
+ip link add ired type veth peer name iredbr
+
+ip link set ired netns red
+ip link set iredbr master br1
+ip link set iredbr up
+
+ip -n red addr add 10.0.1.2/24 dev ired
+ip -n red link set ired up
+ip -n red link set lo up
+
+ip addr add 10.0.1.1/24 dev br1
+
+ip netns exec red ip route add default via 10.0.1.1
+\end{verbatim}
+
+The bridge interfaces acted as gateways between the namespaces and the host operating systems.
+
+\subsubsection{Physical Interface Configuration}
+
+The physical interfaces connecting the two Ubuntu nodes were configured with IPv4 addresses:
+
+\begin{itemize}
+    \item \texttt{ub1}: \texttt{192.168.50.1/24}
+    \item \texttt{ub2}: \texttt{192.168.50.2/24}
+\end{itemize}
+
+The following commands were used:
+
+\begin{verbatim}
+ip addr add 192.168.50.1/24 dev ens3
+\end{verbatim}
+
+on \texttt{ub1}, and
+
+\begin{verbatim}
+ip addr add 192.168.50.2/24 dev ens3
+\end{verbatim}
+
+on \texttt{ub2}.
+
+\subsubsection{IPIP Tunnel Configuration}
+
+An IPIP tunnel was created between the two hosts.
+
+On \texttt{ub1}:
+
+\begin{verbatim}
+ip tunnel add tun0 mode ipip \
+local 192.168.50.1 remote 192.168.50.2
+
+ip addr add 192.168.100.1/30 dev tun0
+ip link set tun0 up
+\end{verbatim}
+
+On \texttt{ub2}:
+
+\begin{verbatim}
+ip tunnel add tun0 mode ipip \
+local 192.168.50.2 remote 192.168.50.1
+
+ip addr add 192.168.100.2/30 dev tun0
+ip link set tun0 up
+\end{verbatim}
+
+The tunnel endpoints used the physical IP addresses of the hosts, while the tunnel interfaces themselves used the network \texttt{192.168.100.0/30}.
+
+\subsubsection{Routing and IP Forwarding}
+
+IP forwarding was enabled on both hosts using:
+
+\begin{verbatim}
+sysctl -w net.ipv4.ip_forward=1
+\end{verbatim}
+
+Static routes were then added so that traffic destined for the remote namespace network would be forwarded through the tunnel.
+
+On \texttt{ub1}:
+
+\begin{verbatim}
+ip route add 10.0.1.0/24 via 192.168.100.2 dev tun0
+\end{verbatim}
+
+On \texttt{ub2}:
+
+\begin{verbatim}
+ip route add 10.0.2.0/24 via 192.168.100.1 dev tun0
+\end{verbatim}
+
+With these configurations, communication between the two namespaces was successfully established through the IPIP tunnel.
+
+\subsection{Verification of Connectivity}
+
+After configuring the namespaces, bridge interfaces, tunnel interfaces and routing tables, connectivity between the two namespaces was tested using ICMP echo requests.
+
+The following command was executed from the namespace located on \texttt{ub1}:
+
+\begin{verbatim}
+ip netns exec blue ping 10.0.1.2
+\end{verbatim}
+
+The ping was successful, confirming that packets were correctly routed through the IPIP tunnel between the two hosts.
+
+Figure~\ref{fig:ping} shows the successful communication between the namespaces.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{../Images/ping from ub1 to ub2.png}
+    \caption{Successful ping between namespaces}
+    \label{fig:ping}
+\end{figure}
+
+The routing tables were also verified to ensure that traffic destined for the remote namespace network was forwarded through the tunnel interface \texttt{tun0}.
+
+Figure~\ref{fig:routes} shows the routing table and network interfaces configured on \texttt{ub2}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{../Images/ip route & ip link ub2.png}
+    \caption{Routing table and interfaces on ub2}
+    \label{fig:routes}
+\end{figure}
+
+\subsection{Verification of IPIP Encapsulation}
+
+To verify that the communication between namespaces was effectively using IPIP tunneling, packets were captured on the physical interface connecting the two hosts using Wireshark.
+
+The capture revealed that the packets contained two IP headers:
+
+\begin{itemize}
+    \item an outer IP header containing the physical addresses of the hosts (\texttt{192.168.50.1} and \texttt{192.168.50.2});
+    \item an inner IP header containing the original namespace communication addresses (\texttt{10.0.2.2} and \texttt{10.0.1.2}).
+\end{itemize}
+
+This confirms that the original packets were encapsulated inside another IP packet before being transmitted through the physical network.
+
+Figure~\ref{fig:wireshark} shows the Wireshark capture illustrating the double IP header generated by the IPIP tunnel.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\linewidth]{../Images/IPIP tunnel ping.png}
+    \caption{Wireshark capture showing IPIP encapsulation}
+    \label{fig:wireshark}
+\end{figure}
+
+\subsection{Tunnel Verification}
+
+The tunnel configuration was verified using the command:
+
+\begin{verbatim}
+ip tunnel show
+\end{verbatim}
+
+The output confirmed that the tunnel interface \texttt{tun0} was active and correctly configured with the local and remote endpoints.
+
+Figure~\ref{fig:tunnel} shows the tunnel configuration on \texttt{ub2}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{../Images/tunnel show in ub2.png}
+    \caption{IPIP tunnel configuration}
+    \label{fig:tunnel}
+\end{figure}
+
 \end{document}
