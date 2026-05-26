@@ -773,4 +773,90 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 LaTeX Info: Redefining \ref on input line 106.
 LaTeX Info: Redefining \pageref on input line 106.
-LaTeX Info: Redefining \nameref on inpu
+LaTeX Info: Redefining \nameref on input line 106.
+ (./reportM2.out) (./reportM2.out)
+\@outlinefile=\write4
+\openout4 = `reportM2.out'.
+
+ (/usr/share/texlive/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
+File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
+)
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 106.
+<../Images/IST_A.png, id=310, 709.6914pt x 394.1124pt>
+File: ../Images/IST_A.png Graphic file (type png)
+<use ../Images/IST_A.png>
+Package pdftex.def Info: ../Images/IST_A.png  used on input line 114.
+(pdftex.def)             Requested size: 177.42241pt x 98.52785pt.
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 120.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 135.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 135.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [0
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../Images/IST_A.png>] (./reportM2.toc [1])
+\tf@toc=\write5
+\openout5 = `reportM2.toc'.
+
+ [2] [3]
+<../Images/1.png, id=408, 1152.305pt x 476.78125pt>
+File: ../Images/1.png Graphic file (type png)
+<use ../Images/1.png>
+Package pdftex.def Info: ../Images/1.png  used on input line 190.
+(pdftex.def)             Requested size: 459.51054pt x 190.1271pt.
+<../Images/2.png, id=410, 1573.88pt x 1080.035pt>
+File: ../Images/2.png Graphic file (type png)
+<use ../Images/2.png>
+Package pdftex.def Info: ../Images/2.png  used on input line 203.
+(pdftex.def)             Requested size: 459.51054pt x 315.31157pt.
+ [4 <../Images/1.png>]
+<../Images/3.png, id=419, 1632.0975pt x 1306.8825pt>
+File: ../Images/3.png Graphic file (type png)
+<use ../Images/3.png>
+Package pdftex.def Info: ../Images/3.png  used on input line 212.
+(pdftex.def)             Requested size: 459.51054pt x 367.93869pt.
+ [5 <../Images/2.png>]
+<../Images/4.png, id=427, 1601.985pt x 706.64pt>
+File: ../Images/4.png Graphic file (type png)
+<use ../Images/4.png>
+Package pdftex.def Info: ../Images/4.png  used on input line 235.
+(pdftex.def)             Requested size: 459.51054pt x 202.68839pt.
+ [6 <../Images/3.png>]
+<../Images/5.png, id=436, 1678.27pt x 780.9175pt>
+File: ../Images/5.png Graphic file (type png)
+<use ../Images/5.png>
+Package pdftex.def Info: ../Images/5.png  used on input line 248.
+(pdftex.def)             Requested size: 459.51054pt x 213.80566pt.
+<../Images/6.png, id=438, 1696.3375pt x 881.2925pt>
+File: ../Images/6.png Graphic file (type png)
+<use ../Images/6.png>
+Package pdftex.def Info: ../Images/6.png  used on input line 259.
+(pdftex.def)             Requested size: 459.51054pt x 238.71866pt.
+ [7 <../Images/4.png> <../Images/5.png>]
+<../Images/7.png, id=448, 1688.3075pt x 690.58pt>
+File: ../Images/7.png Graphic file (type png)
+<use ../Images/7.png>
+Package pdftex.def Info: ../Images/7.png  used on input line 268.
+(pdftex.def)             Requested size: 459.51054pt x 187.9554pt.
+<../Images/8.png, id=450, 1624.0675pt x 620.3175pt>
+File: ../Images/8.png Graphic file (type png)
+<use ../Images/8.png>
+Package pdftex.def Info: ../Images/8.png  used on input line 281.
+(pdftex.def)             Requested size: 459.51054pt x 175.50505pt.
+ [8 <../Images/6.png> <../Images/7.png>]
+<../Images/10.png, id=460, 813.0375pt x 488.82625pt>
+File: ../Images/10.png Graphic file (type png)
+<use ../Images/10.png>
+Package pdftex.def Info: ../Images/10.png  used on input line 314.
+(pdftex.def)             Requested size: 459.51054pt x 276.26938pt.
+ [9 <../Images/8.png>]
+<../Images/11.png, id=468, 801.99625pt x 154.5775pt>
+File: ../Images/11.png Graphic file (type png)
+<use ../Images/11.png>
+Package pdftex.def Info: ../Images/11.png  used on input line 333.
+(pdftex.def)             Requested size: 459.51054pt x 88.56766pt.
+<../Images/9.png
