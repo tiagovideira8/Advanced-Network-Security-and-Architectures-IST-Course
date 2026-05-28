@@ -1610,6 +1610,26 @@ INPUT ../Images/tunnel show in ub2.png
 INPUT ../Images/tunnel show in ub2.png
 INPUT ../Images/tunnel show in ub2.png
 INPUT ../Images/tunnel show in ub2.png
+INPUT ../Images/ip a ub1.png
+INPUT ../Images/ip a ub1.png
+INPUT ../Images/ip a ub1.png
+INPUT ../Images/ip a ub1.png
+INPUT ../Images/ip a ub1.png
+INPUT ../Images/docker net ls ub1.png
+INPUT ../Images/docker net ls ub1.png
+INPUT ../Images/docker net ls ub1.png
+INPUT ../Images/docker net ls ub1.png
+INPUT ../Images/docker net ls ub1.png
+INPUT ../Images/ping container.png
+INPUT ../Images/ping container.png
+INPUT ../Images/ping container.png
+INPUT ../Images/ping container.png
+INPUT ../Images/ping container.png
+INPUT ../Images/router soli id 10.png
+INPUT ../Images/router soli id 10.png
+INPUT ../Images/router soli id 10.png
+INPUT ../Images/router soli id 10.png
+INPUT ../Images/router soli id 10.png
 INPUT reportM2.aux
 INPUT ./reportM2.out
 INPUT ./reportM2.out

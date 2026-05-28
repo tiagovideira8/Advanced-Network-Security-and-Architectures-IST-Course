@@ -1714,4 +1714,169 @@ Figure~\ref{fig:tunnel} shows the tunnel configuration on \texttt{ub2}.
     \label{fig:tunnel}
 \end{figure}
 
+\section{Macvlan Networks with VLAN Isolation}
+
+\subsection{Introduction}
+
+The objective of this exercise was to configure isolated Docker macvlan networks using IEEE 802.1Q VLAN tagging. Two Ubuntu nodes, \texttt{ub1} and \texttt{ub2}, were connected through a Layer 2 Ethernet switch and configured with VLAN subinterfaces. Docker macvlan networks were then attached to these VLAN interfaces, allowing containers connected to the same VLAN to communicate while isolating traffic between different VLANs.
+
+Two VLANs were configured:
+
+\begin{itemize}
+\item VLAN 10 using subnet \texttt{20.10.0.0/24};
+\item VLAN 20 using subnet \texttt{20.20.0.0/24}.
+\end{itemize}
+
+The experiment demonstrates how macvlan networks can be combined with VLAN tagging to provide Layer 2 isolation between groups of containers distributed across different nodes.
+
+\subsection{VLAN Interface Configuration}
+
+IEEE 802.1Q support was enabled on both Ubuntu nodes using the Linux \texttt{8021q} kernel module.
+
+The following commands were executed on both \texttt{ub1} and \texttt{ub2}:
+
+\begin{verbatim}
+modprobe 8021q
+
+ip link add link ens3 name ens3.10 type vlan id 10
+ip link add link ens3 name ens3.20 type vlan id 20
+
+ip link set ens3.10 up
+ip link set ens3.20 up
+\end{verbatim}
+
+These commands created two VLAN subinterfaces associated with the physical interface \texttt{ens3}. Interface \texttt{ens3.10} was associated with VLAN ID 10, while interface \texttt{ens3.20} was associated with VLAN ID 20.
+
+Figure~\ref{fig:vlaninterfaces} shows the VLAN interfaces configured on \texttt{ub1}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{../Images/ip a ub1.png}
+\caption{VLAN interfaces configured on ub1}
+\label{fig:vlaninterfaces}
+\end{figure}
+
+\subsection{Macvlan Network Configuration}
+
+Two Docker macvlan networks were created on each node.
+
+The following commands were executed:
+
+\begin{verbatim}
+docker network create -d macvlan 
+--subnet=20.10.0.0/24 
+-o parent=ens3.10 mynet10
+
+docker network create -d macvlan 
+--subnet=20.20.0.0/24 
+-o parent=ens3.20 mynet20
+\end{verbatim}
+
+The network \texttt{mynet10} was attached to VLAN interface \texttt{ens3.10}, while network \texttt{mynet20} was attached to VLAN interface \texttt{ens3.20}.
+
+Figure~\ref{fig:dockerNetworks} shows the configured Docker networks.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\linewidth]{../Images/docker net ls ub1.png}
+\caption{Docker macvlan networks}
+\label{fig:dockerNetworks}
+\end{figure}
+
+\subsection{Container Deployment}
+
+Containers were then attached to the corresponding VLAN networks.
+
+On \texttt{ub1}, two containers were connected to VLAN 10:
+
+\begin{verbatim}
+docker run --privileged --net=mynet10 
+--ip=20.10.0.10 --name=cont0 -itd alpine /bin/sh
+
+docker run --privileged --net=mynet10 
+--ip=20.10.0.11 --name=cont1 -itd alpine /bin/sh
+\end{verbatim}
+
+On \texttt{ub2}, two containers were connected to VLAN 20:
+
+\begin{verbatim}
+docker run --privileged --net=mynet20 
+--ip=20.20.0.10 --name=cont2 -itd alpine /bin/sh
+
+docker run --privileged --net=mynet20 
+--ip=20.20.0.11 --name=cont3 -itd alpine /bin/sh
+\end{verbatim}
+
+\subsection{Verification of Connectivity and Isolation}
+
+Connectivity tests were performed using ICMP echo requests between containers attached to the same VLAN.
+
+The following command was executed on \texttt{ub1}:
+
+\begin{verbatim}
+docker exec cont0 ping 20.10.0.11
+\end{verbatim}
+
+The ping was successful, confirming communication between containers connected to VLAN 10.
+
+Similarly, communication between containers connected to VLAN 20 was verified on \texttt{ub2} using:
+
+\begin{verbatim}
+docker exec cont2 ping 20.20.0.11
+\end{verbatim}
+
+Containers connected to different VLANs were unable to communicate, confirming that VLAN isolation was correctly enforced.
+
+Figure~\ref{fig:successfulPing} shows successful communication between containers belonging to the same VLAN, and also shows the failed communication attempt between containers connected to different VLANs.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{../Images/ping container.png}
+\caption{Communication between containers in the same and different VLAN from ub1}
+\label{fig:successfulPing}
+\end{figure}
+
+\subsection{Traffic Analysis}
+
+Packet captures were performed on the VLAN interfaces using \texttt{tcpdump}.
+
+The following command was used:
+
+\begin{verbatim}
+tcpdump -i ens3.20 -nn -e icmp
+\end{verbatim}
+
+The capture revealed ICMP echo requests and replies exchanged between containers attached to VLAN 20. Ethernet source and destination MAC addresses were also visible in the captured frames.
+
+Figure~\ref{fig:tcpdump} shows the captured ICMP traffic.
+
+%\begin{figure}[H]
+%\centering
+%\includegraphics[width=0.95\linewidth]{../Images/tcpdump vlan.png}
+%\caption{ICMP traffic captured on VLAN interface}
+%\label{fig:tcpdump}
+%\end{figure}
+
+Additional Wireshark captures performed on the GNS3 links revealed packets containing IEEE 802.1Q headers with VLAN identifiers 10 and 20, confirming that VLAN tagging was correctly applied to the transmitted traffic.
+
+Figure~\ref{fig:vlanTag} shows a captured frame containing an 802.1Q VLAN header.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{../Images/router soli id 10.png}
+\caption{Wireshark capture showing IEEE 802.1Q VLAN tagging (identifier 10)}
+\label{fig:vlanTag}
+\end{figure}
+
+\subsection{Discussion and Limitations}
+
+The experiment demonstrated that Docker macvlan networks can be combined with IEEE 802.1Q VLAN tagging to provide Layer 2 isolation between containers distributed across multiple hosts.
+
+Containers attached to the same VLAN were able to communicate directly through the Ethernet switch, while communication between different VLANs was blocked.
+
+One limitation of macvlan networks is that the host system cannot directly communicate with containers attached to the macvlan interface unless additional routing or bridge configurations are introduced. Furthermore, packet visibility through the GNS3 switch capture mechanism was limited due to the interaction between Linux macvlan interfaces and the internal Linux networking stack. For this reason, packet analysis was primarily performed using \texttt{tcpdump} directly on the VLAN interfaces.
+
+The physical interfaces of the Ubuntu nodes acted as the transport medium for the VLAN-tagged Ethernet frames exchanged between containers located on different hosts.
+
+
 \end{document}
