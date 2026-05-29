@@ -942,4 +942,144 @@ Package pdftex.def Info: ../Images/revoked-isakmp.png  used on input line 801.
 (pdftex.def)             Requested size: 483.69687pt x 283.78767pt.
  [23 <../Images/revoked-isakmp.png>] [24] [25]
 
-LaTeX 
+LaTeX Warning: Reference `fig:ikev2_proposal' on page 26 undefined on input line 921.
+
+
+LaTeX Warning: Reference `fig:ikev2_policy' on page 26 undefined on input line 921.
+
+
+LaTeX Warning: Reference `fig:ipsec_profile' on page 26 undefined on input line 921.
+
+
+LaTeX Warning: Reference `fig:ipsec_sa' on page 26 undefined on input line 921.
+
+<../Images/show crypto ikev2 prop R1.png, id=261, 671.50874pt x 220.825pt>
+File: ../Images/show crypto ikev2 prop R1.png Graphic file (type png)
+<use ../Images/show crypto ikev2 prop R1.png>
+Package pdftex.def Info: ../Images/show crypto ikev2 prop R1.png  used on input line 932.
+(pdftex.def)             Requested size: 237.01411pt x 77.94022pt.
+<../Images/show crypto ikev2 prop R2.png, id=262, 671.50874pt x 220.825pt>
+File: ../Images/show crypto ikev2 prop R2.png Graphic file (type png)
+<use ../Images/show crypto ikev2 prop R2.png>
+Package pdftex.def Info: ../Images/show crypto ikev2 prop R2.png  used on input line 938.
+(pdftex.def)             Requested size: 237.01411pt x 77.94022pt.
+<../Images/sh crypto policy R1.png, id=263, 339.2675pt x 220.825pt>
+File: ../Images/sh crypto policy R1.png Graphic file (type png)
+<use ../Images/sh crypto policy R1.png>
+Package pdftex.def Info: ../Images/sh crypto policy R1.png  used on input line 956.
+(pdftex.def)             Requested size: 237.01411pt x 154.2698pt.
+<../Images/sh crypto policy R2.png, id=264, 339.2675pt x 220.825pt>
+File: ../Images/sh crypto policy R2.png Graphic file (type png)
+<use ../Images/sh crypto policy R2.png>
+Package pdftex.def Info: ../Images/sh crypto policy R2.png  used on input line 962.
+(pdftex.def)             Requested size: 237.01411pt x 154.2698pt.
+<../Images/sh crypto ipsec profile R1.png, id=265, 642.4pt x 386.44376pt>
+File: ../Images/sh crypto ipsec profile R1.png Graphic file (type png)
+<use ../Images/sh crypto ipsec profile R1.png>
+Package pdftex.def Info: ../Images/sh crypto ipsec profile R1.png  used on input line 980.
+(pdftex.def)             Requested size: 237.01411pt x 142.57507pt.
+<../Images/sh crypto ipsec profile R2.png, id=266, 642.4pt x 386.44376pt>
+File: ../Images/sh crypto ipsec profile R2.png Graphic file (type png)
+<use ../Images/sh crypto ipsec profile R2.png>
+Package pdftex.def Info: ../Images/sh crypto ipsec profile R2.png  used on input line 986.
+(pdftex.def)             Requested size: 237.01411pt x 142.57507pt.
+<../Images/sh crypto ipsec sa R1.png, id=267, 804.00375pt x 906.38625pt>
+File: ../Images/sh crypto ipsec sa R1.png Graphic file (type png)
+<use ../Images/sh crypto ipsec sa R1.png>
+Package pdftex.def Info: ../Images/sh crypto ipsec sa R1.png  used on input line 1004.
+(pdftex.def)             Requested size: 237.01411pt x 267.188pt.
+<../Images/sh crypto ipsec sa R2.png, id=268, 804.00375pt x 906.38625pt>
+File: ../Images/sh crypto ipsec sa R2.png Graphic file (type png)
+<use ../Images/sh crypto ipsec sa R2.png>
+Package pdftex.def Info: ../Images/sh crypto ipsec sa R2.png  used on input line 1010.
+(pdftex.def)             Requested size: 237.01411pt x 267.188pt.
+[26 <../Images/show crypto ikev2 prop R1.png> <../Images/show crypto ikev2 prop R2.png> <../Images/sh crypto policy R1.png> <../Images/sh crypto policy R2.png> <../Images/sh crypto ipsec profile R1.png> <../Images/sh crypto ipsec profile R2.png>]
+
+LaTeX Warning: Reference `fig:ping_test' on page 27 undefined on input line 1032.
+
+<../Images/ping IKEv2 pc to pc.png, id=282, 955.57pt x 570.13pt>
+File: ../Images/ping IKEv2 pc to pc.png Graphic file (type png)
+<use ../Images/ping IKEv2 pc to pc.png>
+Package pdftex.def Info: ../Images/ping IKEv2 pc to pc.png  used on input line 1036.
+(pdftex.def)             Requested size: 338.58632pt x 202.01044pt.
+[27 <../Images/sh crypto ipsec sa R1.png> <../Images/sh crypto ipsec sa R2.png>]
+
+LaTeX Warning: Reference `fig:ike_auth_content' on page 28 undefined on input line 1054.
+
+<../Images/Content of INIT IKEv2.png, id=291, 951.555pt x 849.1725pt>
+File: ../Images/Content of INIT IKEv2.png Graphic file (type png)
+<use ../Images/Content of INIT IKEv2.png>
+Package pdftex.def Info: ../Images/Content of INIT IKEv2.png  used on input line 1058.
+(pdftex.def)             Requested size: 483.69687pt x 431.6599pt.
+[28 <../Images/ping IKEv2 pc to pc.png>]
+<../Images/IKEv2 INIT payload expanded.png, id=299, 720.6925pt x 695.59875pt>
+File: ../Images/IKEv2 INIT payload expanded.png Graphic file (type png)
+<use ../Images/IKEv2 INIT payload expanded.png>
+Package pdftex.def Info: ../Images/IKEv2 INIT payload expanded.png  used on input line 1065.
+(pdftex.def)             Requested size: 483.69687pt x 466.85541pt.
+ [29 <../Images/Content of INIT IKEv2.png>] [30 <../Images/IKEv2 INIT payload expanded.png>]
+
+LaTeX Warning: Reference `fig:ikev2_rekey_messages' on page 31 undefined on input line 1121.
+
+<../Images/IKEv2 rekeying CHILD SA msg.png, id=314, 1119.18124pt x 560.0925pt>
+File: ../Images/IKEv2 rekeying CHILD SA msg.png Graphic file (type png)
+<use ../Images/IKEv2 rekeying CHILD SA msg.png>
+Package pdftex.def Info: ../Images/IKEv2 rekeying CHILD SA msg.png  used on input line 1125.
+(pdftex.def)             Requested size: 483.69687pt x 242.06575pt.
+[31]
+
+LaTeX Warning: Reference `fig:ikev2_sa_rekey' on page 32 undefined on input line 1134.
+
+<../Images/sh crypto detailed evolution.png, id=320, 869.2475pt x 958.58125pt>
+File: ../Images/sh crypto detailed evolution.png Graphic file (type png)
+<use ../Images/sh crypto detailed evolution.png>
+Package pdftex.def Info: ../Images/sh crypto detailed evolution.png  used on input line 1138.
+(pdftex.def)             Requested size: 483.69687pt x 533.42307pt.
+[32 <../Images/IKEv2 rekeying CHILD SA msg.png>] [33 <../Images/sh crypto detailed evolution.png>]
+
+LaTeX Warning: Reference `fig:ipsec_rekey_messages' on page 34 undefined on input line 1158.
+
+<../Images/IKEv2 CHILD_SA msg ipsec.png, id=334, 1137.24875pt x 743.77875pt>
+File: ../Images/IKEv2 CHILD_SA msg ipsec.png Graphic file (type png)
+<use ../Images/IKEv2 CHILD_SA msg ipsec.png>
+Package pdftex.def Info: ../Images/IKEv2 CHILD_SA msg ipsec.png  used on input line 1162.
+(pdftex.def)             Requested size: 483.69687pt x 316.3458pt.
+
+LaTeX Warning: Reference `fig:ipsec_sa_rekey' on page 34 undefined on input line 1169.
+
+<../Images/IKEv2 ipsec before rekeying.png, id=335, 798.985pt x 894.34125pt>
+File: ../Images/IKEv2 ipsec before rekeying.png Graphic file (type png)
+<use ../Images/IKEv2 ipsec before rekeying.png>
+Package pdftex.def Info: ../Images/IKEv2 ipsec before rekeying.png  used on input line 1176.
+(pdftex.def)             Requested size: 237.01411pt x 265.3022pt.
+<../Images/IKEv2 ipsec after rekeying.png, id=336, 801.99625pt x 906.38625pt>
+File: ../Images/IKEv2 ipsec after rekeying.png Graphic file (type png)
+<use ../Images/IKEv2 ipsec after rekeying.png>
+Package pdftex.def Info: ../Images/IKEv2 ipsec after rekeying.png  used on input line 1182.
+(pdftex.def)             Requested size: 237.01411pt x 267.86568pt.
+[34 <../Images/IKEv2 CHILD_SA msg ipsec.png>] [35 <../Images/IKEv2 ipsec before rekeying.png> <../Images/IKEv2 ipsec after rekeying.png>]
+
+LaTeX Warning: Reference `fig:topology' on page 36 undefined on input line 1205.
+
+<../Images/topoly_DMVPN.png, id=350, 764.8575pt x 570.13pt>
+File: ../Images/topoly_DMVPN.png Graphic file (type png)
+<use ../Images/topoly_DMVPN.png>
+Package pdftex.def Info: ../Images/topoly_DMVPN.png  used on input line 1209.
+(pdftex.def)             Requested size: 290.22107pt x 216.32977pt.
+
+LaTeX Warning: Reference `fig:riproute' on page 36 undefined on input line 1228.
+
+<../Images/iprouterip_R2.png, id=351, 874.26625pt x 425.59pt>
+File: ../Images/iprouterip_R2.png Graphic file (type png)
+<use ../Images/iprouterip_R2.png>
+Package pdftex.def Info: ../Images/iprouterip_R2.png  used on input line 1232.
+(pdftex.def)             Requested size: 411.14528pt x 200.14421pt.
+[36 <../Images/topoly_DMVPN.png>]
+
+LaTeX Warning: Reference `fig:dmvpn' on page 37 undefined on input line 1243.
+
+<../Images/sh_dmvpnR2.png, id=364, 852.18375pt x 417.56pt>
+File: ../Images/sh_dmvpnR2.png Graphic file (type png)
+<use ../Images/sh_dmvpnR2.png>
+Package pdftex.def Info: ../Images/sh_dmvpnR2.png  used on input line 1247.
+(p

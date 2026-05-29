@@ -1434,3 +1434,98 @@ INPUT ../Images/sh crypto ipsec sa R2.png
 INPUT ../Images/sh crypto ipsec sa R2.png
 INPUT ../Images/sh crypto ipsec sa R2.png
 INPUT ../Images/sh crypto ipsec sa R2.png
+INPUT ../Images/ping IKEv2 pc to pc.png
+INPUT ../Images/ping IKEv2 pc to pc.png
+INPUT ../Images/ping IKEv2 pc to pc.png
+INPUT ../Images/ping IKEv2 pc to pc.png
+INPUT ../Images/ping IKEv2 pc to pc.png
+INPUT ../Images/Content of INIT IKEv2.png
+INPUT ../Images/Content of INIT IKEv2.png
+INPUT ../Images/Content of INIT IKEv2.png
+INPUT ../Images/Content of INIT IKEv2.png
+INPUT ../Images/Content of INIT IKEv2.png
+INPUT ../Images/IKEv2 INIT payload expanded.png
+INPUT ../Images/IKEv2 INIT payload expanded.png
+INPUT ../Images/IKEv2 INIT payload expanded.png
+INPUT ../Images/IKEv2 INIT payload expanded.png
+INPUT ../Images/IKEv2 INIT payload expanded.png
+INPUT ../Images/IKEv2 rekeying CHILD SA msg.png
+INPUT ../Images/IKEv2 rekeying CHILD SA msg.png
+INPUT ../Images/IKEv2 rekeying CHILD SA msg.png
+INPUT ../Images/IKEv2 rekeying CHILD SA msg.png
+INPUT ../Images/IKEv2 rekeying CHILD SA msg.png
+INPUT ../Images/sh crypto detailed evolution.png
+INPUT ../Images/sh crypto detailed evolution.png
+INPUT ../Images/sh crypto detailed evolution.png
+INPUT ../Images/sh crypto detailed evolution.png
+INPUT ../Images/sh crypto detailed evolution.png
+INPUT ../Images/IKEv2 CHILD_SA msg ipsec.png
+INPUT ../Images/IKEv2 CHILD_SA msg ipsec.png
+INPUT ../Images/IKEv2 CHILD_SA msg ipsec.png
+INPUT ../Images/IKEv2 CHILD_SA msg ipsec.png
+INPUT ../Images/IKEv2 CHILD_SA msg ipsec.png
+INPUT ../Images/IKEv2 ipsec before rekeying.png
+INPUT ../Images/IKEv2 ipsec before rekeying.png
+INPUT ../Images/IKEv2 ipsec before rekeying.png
+INPUT ../Images/IKEv2 ipsec before rekeying.png
+INPUT ../Images/IKEv2 ipsec before rekeying.png
+INPUT ../Images/IKEv2 ipsec after rekeying.png
+INPUT ../Images/IKEv2 ipsec after rekeying.png
+INPUT ../Images/IKEv2 ipsec after rekeying.png
+INPUT ../Images/IKEv2 ipsec after rekeying.png
+INPUT ../Images/IKEv2 ipsec after rekeying.png
+INPUT ../Images/topoly_DMVPN.png
+INPUT ../Images/topoly_DMVPN.png
+INPUT ../Images/topoly_DMVPN.png
+INPUT ../Images/topoly_DMVPN.png
+INPUT ../Images/topoly_DMVPN.png
+INPUT ../Images/iprouterip_R2.png
+INPUT ../Images/iprouterip_R2.png
+INPUT ../Images/iprouterip_R2.png
+INPUT ../Images/iprouterip_R2.png
+INPUT ../Images/iprouterip_R2.png
+INPUT ../Images/sh_dmvpnR2.png
+INPUT ../Images/sh_dmvpnR2.png
+INPUT ../Images/sh_dmvpnR2.png
+INPUT ../Images/sh_dmvpnR2.png
+INPUT ../Images/sh_dmvpnR2.png
+INPUT ../Images/tracePC2_PC3.png
+INPUT ../Images/tracePC2_PC3.png
+INPUT ../Images/tracePC2_PC3.png
+INPUT ../Images/tracePC2_PC3.png
+INPUT ../Images/tracePC2_PC3.png
+INPUT ../Images/trafficindic_wire.png
+INPUT ../Images/trafficindic_wire.png
+INPUT ../Images/trafficindic_wire.png
+INPUT ../Images/trafficindic_wire.png
+INPUT ../Images/trafficindic_wire.png
+INPUT ../Images/wire2.png
+INPUT ../Images/wire2.png
+INPUT ../Images/wire2.png
+INPUT ../Images/wire2.png
+INPUT ../Images/wire2.png
+INPUT ../Images/Ping Blue client vpn.png
+INPUT ../Images/Ping Blue client vpn.png
+INPUT ../Images/Ping Blue client vpn.png
+INPUT ../Images/Ping Blue client vpn.png
+INPUT ../Images/Ping Blue client vpn.png
+INPUT ../Images/Ping Red client vpn.png
+INPUT ../Images/Ping Red client vpn.png
+INPUT ../Images/Ping Red client vpn.png
+INPUT ../Images/Ping Red client vpn.png
+INPUT ../Images/Ping Red client vpn.png
+INPUT ../Images/PE1 routing table.png
+INPUT ../Images/PE1 routing table.png
+INPUT ../Images/PE1 routing table.png
+INPUT ../Images/PE1 routing table.png
+INPUT ../Images/PE1 routing table.png
+INPUT ../Images/Blue vrf routing table PE1.png
+INPUT ../Images/Blue vrf routing table PE1.png
+INPUT ../Images/Blue vrf routing table PE1.png
+INPUT ../Images/Blue vrf routing table PE1.png
+INPUT ../Images/Blue vrf routing table PE1.png
+INPUT ../Images/Red vrf routing table PE1.png
+INPUT ../Images/Red vrf routing table PE1.png
+INPUT ../Images/Red vrf routing table PE1.png
+INPUT ../Images/Red vrf routing table PE1.png
+INPUT ../Images/Red vrf routing table PE1.png
