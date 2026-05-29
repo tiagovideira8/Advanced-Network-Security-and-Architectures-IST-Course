@@ -198,47 +198,53 @@
 \@writefile{toc}{\contentsline {section}{\numberline {8}Macvlan Networks with VLAN Isolation}{56}{section.8}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Introduction}{56}{subsection.8.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {8.2}VLAN Interface Configuration}{56}{subsection.8.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {55}{\ignorespaces VLAN interfaces configured on ub1\relax }}{57}{figure.caption.56}\protected@file@percent }
-\newlabel{fig:vlaninterfaces}{{55}{57}{VLAN interfaces configured on ub1\relax }{figure.caption.56}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {55}{\ignorespaces Physical and VLAN interfaces configured on ub1\relax }}{57}{figure.caption.56}\protected@file@percent }
+\newlabel{fig:vlaninterfaces}{{55}{57}{Physical and VLAN interfaces configured on ub1\relax }{figure.caption.56}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Macvlan Network Configuration}{57}{subsection.8.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {56}{\ignorespaces Docker macvlan networks\relax }}{58}{figure.caption.57}\protected@file@percent }
-\newlabel{fig:dockerNetworks}{{56}{58}{Docker macvlan networks\relax }{figure.caption.57}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {56}{\ignorespaces Docker macvlan networks configured on ub1\relax }}{57}{figure.caption.57}\protected@file@percent }
+\newlabel{fig:dockerNetworks}{{56}{57}{Docker macvlan networks configured on ub1\relax }{figure.caption.57}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {57}{\ignorespaces Inspection of Docker macvlan network mynet10\relax }}{58}{figure.caption.58}\protected@file@percent }
+\newlabel{fig:inspectNetwork}{{57}{58}{Inspection of Docker macvlan network mynet10\relax }{figure.caption.58}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {8.4}Container Deployment}{58}{subsection.8.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.5}Verification of Connectivity and Isolation}{58}{subsection.8.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {57}{\ignorespaces Communication between containers in the same and different VLAN from ub1\relax }}{59}{figure.caption.58}\protected@file@percent }
-\newlabel{fig:successfulPing}{{57}{59}{Communication between containers in the same and different VLAN from ub1\relax }{figure.caption.58}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.6}Traffic Analysis}{59}{subsection.8.6}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {58}{\ignorespaces Wireshark capture showing IEEE 802.1Q VLAN tagging (identifier 10)\relax }}{60}{figure.caption.59}\protected@file@percent }
-\newlabel{fig:vlanTag}{{58}{60}{Wireshark capture showing IEEE 802.1Q VLAN tagging (identifier 10)\relax }{figure.caption.59}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.7}Discussion and Limitations}{60}{subsection.8.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {9}Linux VXLAN with Multicast Routing}{60}{section.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.1}Introduction}{60}{subsection.9.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Distribution of containers per node and network\relax }}{61}{table.caption.60}\protected@file@percent }
-\newlabel{tab:containers}{{1}{61}{Distribution of containers per node and network\relax }{table.caption.60}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.2}VXLAN Interface Configuration}{61}{subsection.9.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {59}{\ignorespaces VXLAN interfaces configured on ub1\relax }}{61}{figure.caption.61}\protected@file@percent }
-\newlabel{fig:vxlan_interfaces}{{59}{61}{VXLAN interfaces configured on ub1\relax }{figure.caption.61}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.3}Docker Network and Container Deployment}{62}{subsection.9.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {60}{\ignorespaces Docker macvlan networks on ub1\relax }}{62}{figure.caption.62}\protected@file@percent }
-\newlabel{fig:docker_networks}{{60}{62}{Docker macvlan networks on ub1\relax }{figure.caption.62}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {61}{\ignorespaces Running containers on ub1\relax }}{62}{figure.caption.63}\protected@file@percent }
-\newlabel{fig:docker_containers}{{61}{62}{Running containers on ub1\relax }{figure.caption.63}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.4}Multicast Routing Configuration}{62}{subsection.9.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.5}Connectivity Verification}{63}{subsection.9.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {62}{\ignorespaces Successful ping tests between containers across nodes\relax }}{64}{figure.caption.64}\protected@file@percent }
-\newlabel{fig:ping_results}{{62}{64}{Successful ping tests between containers across nodes\relax }{figure.caption.64}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.6}IGMP Analysis}{64}{subsection.9.6}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {63}{\ignorespaces IGMP group membership table at R1\relax }}{65}{figure.caption.65}\protected@file@percent }
-\newlabel{fig:igmp_groups}{{63}{65}{IGMP group membership table at R1\relax }{figure.caption.65}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {64}{\ignorespaces IGMP Membership Report captured on ub3\relax }}{65}{figure.caption.66}\protected@file@percent }
-\newlabel{fig:igmp_capture}{{64}{65}{IGMP Membership Report captured on ub3\relax }{figure.caption.66}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.7}ARP and ICMP Encapsulation Analysis}{65}{subsection.9.7}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {65}{\ignorespaces VXLAN encapsulation of an ICMP echo request between b2 and b6, captured on the R1–ub3 link (outer IP TTL decremented to 4 by R1)\relax }}{66}{figure.caption.67}\protected@file@percent }
-\newlabel{fig:icmp_encap}{{65}{66}{VXLAN encapsulation of an ICMP echo request between b2 and b6, captured on the R1–ub3 link (outer IP TTL decremented to 4 by R1)\relax }{figure.caption.67}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {66}{\ignorespaces ARP Request encapsulated in VXLAN with multicast outer destination\relax }}{67}{figure.caption.68}\protected@file@percent }
-\newlabel{fig:arp_request}{{66}{67}{ARP Request encapsulated in VXLAN with multicast outer destination\relax }{figure.caption.68}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {67}{\ignorespaces ARP Reply encapsulated in VXLAN with unicast outer destination\relax }}{68}{figure.caption.69}\protected@file@percent }
-\newlabel{fig:arp_reply}{{67}{68}{ARP Reply encapsulated in VXLAN with unicast outer destination\relax }{figure.caption.69}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {68}{\ignorespaces ARP cache of container b1 after pinging b6\relax }}{68}{figure.caption.70}\protected@file@percent }
-\newlabel{fig:arp_cache}{{68}{68}{ARP cache of container b1 after pinging b6\relax }{figure.caption.70}{}}
-\gdef \@abspage@last{70}
+\@writefile{lof}{\contentsline {figure}{\numberline {58}{\ignorespaces Running containers on ub1\relax }}{59}{figure.caption.59}\protected@file@percent }
+\newlabel{fig:dockerps}{{58}{59}{Running containers on ub1\relax }{figure.caption.59}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.5}Verification of Connectivity and Isolation}{59}{subsection.8.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {59}{\ignorespaces Connectivity tests between containers in the same and different VLANs\relax }}{60}{figure.caption.60}\protected@file@percent }
+\newlabel{fig:successfulPing}{{59}{60}{Connectivity tests between containers in the same and different VLANs\relax }{figure.caption.60}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.6}Traffic Analysis}{60}{subsection.8.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {60}{\ignorespaces Wireshark capture showing IEEE 802.1Q VLAN tagging with VLAN ID 10\relax }}{61}{figure.caption.61}\protected@file@percent }
+\newlabel{fig:vlan10}{{60}{61}{Wireshark capture showing IEEE 802.1Q VLAN tagging with VLAN ID 10\relax }{figure.caption.61}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {61}{\ignorespaces Wireshark capture showing IEEE 802.1Q VLAN tagging with VLAN ID 20\relax }}{62}{figure.caption.62}\protected@file@percent }
+\newlabel{fig:vlan20}{{61}{62}{Wireshark capture showing IEEE 802.1Q VLAN tagging with VLAN ID 20\relax }{figure.caption.62}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.7}Discussion and Limitations}{62}{subsection.8.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Linux VXLAN with Multicast Routing}{63}{section.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.1}Introduction}{63}{subsection.9.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Distribution of containers per node and network\relax }}{63}{table.caption.63}\protected@file@percent }
+\newlabel{tab:containers}{{1}{63}{Distribution of containers per node and network\relax }{table.caption.63}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.2}VXLAN Interface Configuration}{63}{subsection.9.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {62}{\ignorespaces VXLAN interfaces configured on ub1\relax }}{64}{figure.caption.64}\protected@file@percent }
+\newlabel{fig:vxlan_interfaces}{{62}{64}{VXLAN interfaces configured on ub1\relax }{figure.caption.64}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.3}Docker Network and Container Deployment}{64}{subsection.9.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {63}{\ignorespaces Docker macvlan networks on ub1\relax }}{65}{figure.caption.65}\protected@file@percent }
+\newlabel{fig:docker_networks}{{63}{65}{Docker macvlan networks on ub1\relax }{figure.caption.65}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {64}{\ignorespaces Running containers on ub1\relax }}{65}{figure.caption.66}\protected@file@percent }
+\newlabel{fig:docker_containers}{{64}{65}{Running containers on ub1\relax }{figure.caption.66}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.4}Multicast Routing Configuration}{65}{subsection.9.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.5}Connectivity Verification}{65}{subsection.9.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {65}{\ignorespaces Successful ping tests between containers across nodes\relax }}{66}{figure.caption.67}\protected@file@percent }
+\newlabel{fig:ping_results}{{65}{66}{Successful ping tests between containers across nodes\relax }{figure.caption.67}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.6}IGMP Analysis}{66}{subsection.9.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {66}{\ignorespaces IGMP group membership table at R1\relax }}{67}{figure.caption.68}\protected@file@percent }
+\newlabel{fig:igmp_groups}{{66}{67}{IGMP group membership table at R1\relax }{figure.caption.68}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {67}{\ignorespaces IGMP Membership Report captured on ub3\relax }}{67}{figure.caption.69}\protected@file@percent }
+\newlabel{fig:igmp_capture}{{67}{67}{IGMP Membership Report captured on ub3\relax }{figure.caption.69}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.7}ARP and ICMP Encapsulation Analysis}{67}{subsection.9.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {68}{\ignorespaces VXLAN encapsulation of an ICMP echo request between b2 and b6, captured on the R1–ub3 link (outer IP TTL decremented to 4 by R1)\relax }}{68}{figure.caption.70}\protected@file@percent }
+\newlabel{fig:icmp_encap}{{68}{68}{VXLAN encapsulation of an ICMP echo request between b2 and b6, captured on the R1–ub3 link (outer IP TTL decremented to 4 by R1)\relax }{figure.caption.70}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {69}{\ignorespaces ARP Request encapsulated in VXLAN with multicast outer destination\relax }}{69}{figure.caption.71}\protected@file@percent }
+\newlabel{fig:arp_request}{{69}{69}{ARP Request encapsulated in VXLAN with multicast outer destination\relax }{figure.caption.71}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {70}{\ignorespaces ARP Reply encapsulated in VXLAN with unicast outer destination\relax }}{70}{figure.caption.72}\protected@file@percent }
+\newlabel{fig:arp_reply}{{70}{70}{ARP Reply encapsulated in VXLAN with unicast outer destination\relax }{figure.caption.72}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {71}{\ignorespaces ARP cache of container b1 after pinging b6\relax }}{70}{figure.caption.73}\protected@file@percent }
+\newlabel{fig:arp_cache}{{71}{70}{ARP cache of container b1 after pinging b6\relax }{figure.caption.73}{}}
+\gdef \@abspage@last{72}
