@@ -1878,5 +1878,249 @@ One limitation of macvlan networks is that the host system cannot directly commu
 
 The physical interfaces of the Ubuntu nodes acted as the transport medium for the VLAN-tagged Ethernet frames exchanged between containers located on different hosts.
 
+\section{Linux VXLAN with Multicast Routing}
+ 
+\subsection{Introduction}
+ 
+The objective of this exercise was to create two overlay networks using VXLAN technology combined with IP multicast routing. All three Ubuntu nodes from the network scenario were used: \texttt{ub1} and \texttt{ub2}, connected to router \texttt{R1} via \texttt{Switch1} on the \texttt{20.0.0.0/24} subnet, and \texttt{ub3}, connected directly to \texttt{R1} on the \texttt{21.0.0.0/24} subnet.
+ 
+Two overlay networks were configured:
+ 
+\begin{itemize}
+    \item \texttt{bluenet}, using subnet \texttt{10.0.0.0/24} and VXLAN Network Identifier (VNI) 33, associated with multicast group \texttt{239.1.1.3};
+    \item \texttt{rednet}, using subnet \texttt{11.0.0.0/24} and VNI 66, associated with multicast group \texttt{239.1.1.6}.
+\end{itemize}
+ 
+A total of ten containers were deployed across the three nodes. The distribution of containers per node and network is shown in Table~\ref{tab:containers}.
+ 
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+ & \textbf{bluenet} & \textbf{rednet} \\
+\hline
+\texttt{ub1} & b1: 10.0.0.1, b2: 10.0.0.2 & r1: 11.0.0.1, r2: 11.0.0.2 \\
+\hline
+\texttt{ub2} & b3: 10.0.0.3, b4: 10.0.0.4 & r3: 11.0.0.3, r4: 11.0.0.4 \\
+\hline
+\texttt{ub3} & b5: 10.0.0.5, b6: 10.0.0.6 & --- \\
+\hline
+\end{tabular}
+\caption{Distribution of containers per node and network}
+\label{tab:containers}
+\end{table}
+ 
+Node \texttt{ub3} was only connected to \texttt{bluenet}, as it does not participate in \texttt{rednet}.
+ 
+\subsection{VXLAN Interface Configuration}
+ 
+The configuration procedure at each node consisted of five steps: creating the VXLAN interfaces, activating them, assigning IP addresses, creating Docker macvlan networks, and deploying containers.
+ 
+On \texttt{ub1}, two VXLAN interfaces were created and configured as follows:
+ 
+\begin{verbatim}
+ip link add blue type vxlan id 33 group 239.1.1.3 ttl 5 dev ens3 dstport 4789
+ip link add red  type vxlan id 66 group 239.1.1.6 ttl 5 dev ens3 dstport 4789
+ 
+ip link set blue up
+ip link set red  up
+ 
+ip addr add 10.0.0.101/24 dev blue
+ip addr add 11.0.0.101/24 dev red
+\end{verbatim}
+ 
+Each VXLAN interface was bound to the physical interface \texttt{ens3} and configured to use UDP destination port 4789, the IANA-assigned port for VXLAN. The \texttt{group} parameter associates each interface with a distinct IP multicast group, so that broadcast and unknown unicast traffic within each overlay network is distributed via multicast rather than flooding all endpoints. The TTL was set to 5 to limit multicast propagation scope.
+ 
+The IP addresses assigned to the VXLAN interfaces serve as the gateway addresses for the Docker macvlan networks created on that node. Each node was assigned a distinct gateway: \texttt{.101} on \texttt{ub1}, \texttt{.102} on \texttt{ub2}, and \texttt{.103} on \texttt{ub3}.
+ 
+The same procedure was repeated on \texttt{ub2} and \texttt{ub3}, with the respective addresses and, in the case of \texttt{ub3}, only the \texttt{blue} interface being created.
+ 
+Figure~\ref{fig:vxlan_interfaces} shows the VXLAN interfaces configured on \texttt{ub1}.
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{../Images/vxlan interfaces ub1.png}
+\caption{VXLAN interfaces configured on ub1}
+\label{fig:vxlan_interfaces}
+\end{figure}
+ 
+\subsection{Docker Network and Container Deployment}
+ 
+Two Docker macvlan networks were created on \texttt{ub1}, each attached to the corresponding VXLAN interface:
+ 
+\begin{verbatim}
+docker network create -d macvlan \
+  --subnet=10.0.0.0/24 --gateway=10.0.0.101 \
+  -o parent=blue bluenet
+ 
+docker network create -d macvlan \
+  --subnet=11.0.0.0/24 --gateway=11.0.0.101 \
+  -o parent=red rednet
+\end{verbatim}
+ 
+Containers were then created and attached to the appropriate networks:
+ 
+\begin{verbatim}
+docker run --privileged --net=bluenet --name=b1 --ip=10.0.0.1 -itd alpine /bin/sh
+docker run --privileged --net=bluenet --name=b2 --ip=10.0.0.2 -itd alpine /bin/sh
+docker run --privileged --net=rednet  --name=r1 --ip=11.0.0.1 -itd alpine /bin/sh
+docker run --privileged --net=rednet  --name=r2 --ip=11.0.0.2 -itd alpine /bin/sh
+\end{verbatim}
+ 
+The same procedure was followed on \texttt{ub2} and \texttt{ub3}, adjusting container names, IP addresses, and gateway addresses accordingly. On \texttt{ub3}, only the \texttt{bluenet} network and containers \texttt{b5} and \texttt{b6} were created.
+ 
+Figure~\ref{fig:docker_networks} shows the Docker networks created on \texttt{ub1}, and Figure~\ref{fig:docker_containers} shows all running containers.
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\linewidth]{../Images/docker network ls ub1.png}
+\caption{Docker macvlan networks on ub1}
+\label{fig:docker_networks}
+\end{figure}
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\linewidth]{../Images/docker container ls ub1.png}
+\caption{Running containers on ub1}
+\label{fig:docker_containers}
+\end{figure}
+ 
+\subsection{Multicast Routing Configuration}
+ 
+Protocol Independent Multicast in Dense Mode (PIM-DM) was enabled on router \texttt{R1} to support the distribution of multicast traffic between the two network segments. The following configuration was applied:
+ 
+\begin{verbatim}
+ip multicast-routing
+ 
+interface f0/0
+ ip pim dense-mode
+ 
+interface f0/1
+ ip pim dense-mode
+\end{verbatim}
+ 
+PIM Dense Mode was chosen as it floods multicast traffic on all interfaces and subsequently prunes branches where no listeners are present. Both interfaces were configured since \texttt{f0/0} connects to the segment containing \texttt{ub1} and \texttt{ub2}, while \texttt{f0/1} connects to the segment containing \texttt{ub3}.
+ 
+\subsection{Connectivity Verification}
+ 
+After completing the configuration on all nodes, connectivity between containers of the same overlay network was verified using ICMP echo requests.
+ 
+The following tests were performed from \texttt{ub1}:
+ 
+\begin{verbatim}
+docker exec b1 ping -c 4 10.0.0.2   # b1 -> b2, same node
+docker exec b1 ping -c 4 10.0.0.3   # b1 -> b3, ub1 -> ub2
+docker exec b2 ping -c 4 10.0.0.6   # b2 -> b6, ub1 -> ub3
+docker exec r1 ping -c 4 11.0.0.3   # r1 -> r3, rednet ub1 -> ub2
+\end{verbatim}
+ 
+All pings were successful, confirming that the overlay networks were correctly established across all three nodes and that multicast routing at \texttt{R1} was forwarding traffic between the two physical segments.
+ 
+Figure~\ref{fig:ping_results} shows the results of the connectivity tests.
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{../Images/ping results ub1 VXLAN.png}
+\caption{Successful ping tests between containers across nodes}
+\label{fig:ping_results}
+\end{figure}
+ 
+\subsection{IGMP Analysis}
+ 
+Wireshark captures performed on the \texttt{ens3} interfaces of each node revealed IGMP Membership Report messages being transmitted when the VXLAN interfaces were brought up. These messages inform \texttt{R1} that a node wishes to receive traffic destined for a given multicast group.
+ 
+Nodes \texttt{ub1} and \texttt{ub2} transmitted membership reports for both multicast groups \texttt{239.1.1.3} and \texttt{239.1.1.6}, corresponding to \texttt{bluenet} and \texttt{rednet} respectively. Node \texttt{ub3}, having only a \texttt{blue} interface, transmitted a membership report only for group \texttt{239.1.1.3}.
+ 
+This was confirmed at \texttt{R1} using the command \texttt{show ip igmp groups}, the output of which is shown in Figure~\ref{fig:igmp_groups}.
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\linewidth]{../Images/igmp groups r1.png}
+\caption{IGMP group membership table at R1}
+\label{fig:igmp_groups}
+\end{figure}
+ 
+Group \texttt{239.1.1.3} appeared on both \texttt{FastEthernet0/0} and \texttt{FastEthernet0/1}, reflecting that all three nodes joined \texttt{bluenet}. Group \texttt{239.1.1.6} appeared only on \texttt{FastEthernet0/0}, confirming that \texttt{ub3} did not join \texttt{rednet}.
+ 
+Figure~\ref{fig:igmp_capture} shows a Wireshark capture of an IGMP Membership Report transmitted by \texttt{ub3}.
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{../Images/membership report multicast R1-ub3.png}
+\caption{IGMP Membership Report captured on ub3}
+\label{fig:igmp_capture}
+\end{figure}
+ 
+\subsection{ARP and ICMP Encapsulation Analysis}
+ 
+To trigger ARP traffic for analysis, the ARP cache of container \texttt{b1} was cleared before initiating a ping to \texttt{b6} on \texttt{ub3}:
+ 
+\begin{verbatim}
+docker exec b1 /bin/sh -c "arp -d 10.0.0.6; ping -c 4 10.0.0.6"
+\end{verbatim}
+ 
+Wireshark captures were performed on the \texttt{ens3} interface of \texttt{ub1} to observe the full encapsulation of the resulting packets.
+ 
+\subsubsection*{Packet Encapsulation}
+ 
+All traffic between containers located on different nodes was encapsulated using the VXLAN protocol. Each packet consisted of two layers of IP addressing: an \textit{inner} IP header carrying the original container-to-container traffic, and an \textit{outer} IP header used for routing across the physical underlay network.
+ 
+The inner IP header contained the container source and destination addresses (e.g. \texttt{10.0.0.1} $\rightarrow$ \texttt{10.0.0.6}), while the outer IP header contained the physical node addresses (e.g. \texttt{20.0.0.1} $\rightarrow$ \texttt{21.0.0.1}). The inner frame was encapsulated in a UDP datagram with destination port 4789, preceded by an 8-byte VXLAN header containing the VNI field.
+ 
+Figure~\ref{fig:icmp_encap} shows the full encapsulation of a captured ICMP echo request.
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{../Images/icmp encapsulation VXLAN.png}
+\caption{VXLAN encapsulation of an ICMP echo request between b2 and b6, captured on the R1–ub3 link (outer IP TTL decremented to 4 by R1)}
+\label{fig:icmp_encap}
+\end{figure}
+ 
+\subsubsection*{ARP Request and Reply}
+ 
+ARP Request packets were sent with a multicast outer IP destination address corresponding to the VXLAN group of the overlay network (\texttt{239.1.1.3} for \texttt{bluenet}). This ensures that all nodes participating in the overlay receive the broadcast ARP Request, since VXLAN has no mechanism to natively broadcast at the underlay level. ARP Replies, being unicast, were encapsulated with the specific physical IP of the responding node as the outer destination.
+ 
+The multicast destination address used in ARP Requests differs between networks: \texttt{bluenet} uses \texttt{239.1.1.3} while \texttt{rednet} uses \texttt{239.1.1.6}, as each overlay is associated with a distinct multicast group.
+ 
+Figure~\ref{fig:arp_request} shows a captured ARP Request and Figure~\ref{fig:arp_reply} shows the corresponding ARP Reply.
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{../Images/PLACEHOLDER_arp_request.png}
+\caption{ARP Request encapsulated in VXLAN with multicast outer destination}
+\label{fig:arp_request}
+\end{figure}
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{../Images/PLACEHOLDER_arp_reply.png}
+\caption{ARP Reply encapsulated in VXLAN with unicast outer destination}
+\label{fig:arp_reply}
+\end{figure}
+ 
+\subsubsection*{ARP Cache}
+ 
+After the ping completed, the ARP cache of container \texttt{b1} was inspected using \texttt{arp -n}. The cache contained an entry mapping \texttt{10.0.0.6} to the MAC address of container \texttt{b6}'s network interface, matching exactly the inner Ethernet source address observed in the ARP Reply capture. This confirms that the ARP mechanism operates entirely at the overlay level, with containers unaware of the underlying VXLAN encapsulation.
+ 
+Figure~\ref{fig:arp_cache} shows the ARP cache of container \texttt{b1} after the ping.
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\linewidth]{../Images/PLACEHOLDER_arp_cache.png}
+\caption{ARP cache of container b1 after pinging b6}
+\label{fig:arp_cache}
+\end{figure}
+ 
+\subsubsection*{VNI Field}
+ 
+The VXLAN header carries a 24-bit VNI field that identifies the overlay network to which the encapsulated frame belongs. In this exercise, VNI 33 was used for \texttt{bluenet} and VNI 66 for \texttt{rednet}. Upon receiving a VXLAN packet, the destination node uses the VNI to demultiplex the inner frame into the correct overlay network, in the same way that a VLAN tag identifies a broadcast domain on a trunk link. This allows multiple isolated overlay networks to coexist on the same physical infrastructure and share the same UDP port without frames leaking between networks.
+ 
+\subsection{Discussion}
+ 
+This exercise demonstrated that VXLAN overlays combined with IP multicast routing provide a flexible mechanism for creating isolated Layer 2 networks across physically separated hosts. Containers within the same overlay network communicated transparently regardless of their physical location, while remaining isolated from containers in other overlay networks by virtue of the distinct VNI values and multicast groups.
+ 
+The use of multicast for ARP and broadcast traffic is a key advantage of this approach: rather than requiring a centralised control plane to manage MAC-to-VTEP mappings, each node simply joins the relevant multicast group and receives broadcast frames natively. The trade-off is that this relies on multicast routing being correctly configured in the underlay, as evidenced by the need to enable PIM Dense Mode on both interfaces of \texttt{R1}.
+ 
+One notable aspect of the macvlan approach is that containers interact directly with the VXLAN interface at Layer 2, remaining entirely unaware of the encapsulation taking place beneath them.
 
 \end{document}

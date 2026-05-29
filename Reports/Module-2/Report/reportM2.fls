@@ -1179,9 +1179,6 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/duckuments/example-image-duck.pdf
 INPUT /usr/share/texlive/texmf-dist/tex/latex/duckuments/example-image-duck-portrait.pdf
 INPUT /usr/share/texlive/texmf-dist/tex/latex/duckuments/example-image-duck.pdf
 INPUT /usr/share/texlive/texmf-dist/tex/latex/duckuments/example-image-duck-portrait.pdf
-INPUT ./reportM2.aux
-INPUT reportM2.aux
-INPUT reportM2.aux
 OUTPUT reportM2.aux
 INPUT /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -1240,16 +1237,6 @@ INPUT /usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.st
 INPUT /usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-INPUT ./reportM2.out
-INPUT reportM2.out
-INPUT ./reportM2.out
-INPUT reportM2.out
-INPUT ./reportM2.out
-INPUT reportM2.out
-INPUT ./reportM2.out
-INPUT reportM2.out
-INPUT ./reportM2.out
-INPUT ./reportM2.out
 OUTPUT reportM2.out
 INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
@@ -1309,9 +1296,6 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT ./reportM2.toc
-INPUT reportM2.toc
-INPUT reportM2.toc
 OUTPUT reportM2.toc
 INPUT ../Images/1.png
 INPUT ../Images/1.png
@@ -1450,195 +1434,3 @@ INPUT ../Images/sh crypto ipsec sa R2.png
 INPUT ../Images/sh crypto ipsec sa R2.png
 INPUT ../Images/sh crypto ipsec sa R2.png
 INPUT ../Images/sh crypto ipsec sa R2.png
-INPUT ../Images/ping IKEv2 pc to pc.png
-INPUT ../Images/ping IKEv2 pc to pc.png
-INPUT ../Images/ping IKEv2 pc to pc.png
-INPUT ../Images/ping IKEv2 pc to pc.png
-INPUT ../Images/ping IKEv2 pc to pc.png
-INPUT ../Images/Content of INIT IKEv2.png
-INPUT ../Images/Content of INIT IKEv2.png
-INPUT ../Images/Content of INIT IKEv2.png
-INPUT ../Images/Content of INIT IKEv2.png
-INPUT ../Images/Content of INIT IKEv2.png
-INPUT ../Images/IKEv2 INIT payload expanded.png
-INPUT ../Images/IKEv2 INIT payload expanded.png
-INPUT ../Images/IKEv2 INIT payload expanded.png
-INPUT ../Images/IKEv2 INIT payload expanded.png
-INPUT ../Images/IKEv2 INIT payload expanded.png
-INPUT ../Images/IKEv2 rekeying CHILD SA msg.png
-INPUT ../Images/IKEv2 rekeying CHILD SA msg.png
-INPUT ../Images/IKEv2 rekeying CHILD SA msg.png
-INPUT ../Images/IKEv2 rekeying CHILD SA msg.png
-INPUT ../Images/IKEv2 rekeying CHILD SA msg.png
-INPUT ../Images/sh crypto detailed evolution.png
-INPUT ../Images/sh crypto detailed evolution.png
-INPUT ../Images/sh crypto detailed evolution.png
-INPUT ../Images/sh crypto detailed evolution.png
-INPUT ../Images/sh crypto detailed evolution.png
-INPUT ../Images/IKEv2 CHILD_SA msg ipsec.png
-INPUT ../Images/IKEv2 CHILD_SA msg ipsec.png
-INPUT ../Images/IKEv2 CHILD_SA msg ipsec.png
-INPUT ../Images/IKEv2 CHILD_SA msg ipsec.png
-INPUT ../Images/IKEv2 CHILD_SA msg ipsec.png
-INPUT ../Images/IKEv2 ipsec before rekeying.png
-INPUT ../Images/IKEv2 ipsec before rekeying.png
-INPUT ../Images/IKEv2 ipsec before rekeying.png
-INPUT ../Images/IKEv2 ipsec before rekeying.png
-INPUT ../Images/IKEv2 ipsec before rekeying.png
-INPUT ../Images/IKEv2 ipsec after rekeying.png
-INPUT ../Images/IKEv2 ipsec after rekeying.png
-INPUT ../Images/IKEv2 ipsec after rekeying.png
-INPUT ../Images/IKEv2 ipsec after rekeying.png
-INPUT ../Images/IKEv2 ipsec after rekeying.png
-INPUT ../Images/topoly_DMVPN.png
-INPUT ../Images/topoly_DMVPN.png
-INPUT ../Images/topoly_DMVPN.png
-INPUT ../Images/topoly_DMVPN.png
-INPUT ../Images/topoly_DMVPN.png
-INPUT ../Images/iprouterip_R2.png
-INPUT ../Images/iprouterip_R2.png
-INPUT ../Images/iprouterip_R2.png
-INPUT ../Images/iprouterip_R2.png
-INPUT ../Images/iprouterip_R2.png
-INPUT ../Images/sh_dmvpnR2.png
-INPUT ../Images/sh_dmvpnR2.png
-INPUT ../Images/sh_dmvpnR2.png
-INPUT ../Images/sh_dmvpnR2.png
-INPUT ../Images/sh_dmvpnR2.png
-INPUT ../Images/tracePC2_PC3.png
-INPUT ../Images/tracePC2_PC3.png
-INPUT ../Images/tracePC2_PC3.png
-INPUT ../Images/tracePC2_PC3.png
-INPUT ../Images/tracePC2_PC3.png
-INPUT ../Images/trafficindic_wire.png
-INPUT ../Images/trafficindic_wire.png
-INPUT ../Images/trafficindic_wire.png
-INPUT ../Images/trafficindic_wire.png
-INPUT ../Images/trafficindic_wire.png
-INPUT ../Images/wire2.png
-INPUT ../Images/wire2.png
-INPUT ../Images/wire2.png
-INPUT ../Images/wire2.png
-INPUT ../Images/wire2.png
-INPUT ../Images/Ping Blue client vpn.png
-INPUT ../Images/Ping Blue client vpn.png
-INPUT ../Images/Ping Blue client vpn.png
-INPUT ../Images/Ping Blue client vpn.png
-INPUT ../Images/Ping Blue client vpn.png
-INPUT ../Images/Ping Red client vpn.png
-INPUT ../Images/Ping Red client vpn.png
-INPUT ../Images/Ping Red client vpn.png
-INPUT ../Images/Ping Red client vpn.png
-INPUT ../Images/Ping Red client vpn.png
-INPUT ../Images/PE1 routing table.png
-INPUT ../Images/PE1 routing table.png
-INPUT ../Images/PE1 routing table.png
-INPUT ../Images/PE1 routing table.png
-INPUT ../Images/PE1 routing table.png
-INPUT ../Images/Blue vrf routing table PE1.png
-INPUT ../Images/Blue vrf routing table PE1.png
-INPUT ../Images/Blue vrf routing table PE1.png
-INPUT ../Images/Blue vrf routing table PE1.png
-INPUT ../Images/Blue vrf routing table PE1.png
-INPUT ../Images/Red vrf routing table PE1.png
-INPUT ../Images/Red vrf routing table PE1.png
-INPUT ../Images/Red vrf routing table PE1.png
-INPUT ../Images/Red vrf routing table PE1.png
-INPUT ../Images/Red vrf routing table PE1.png
-INPUT ../Images/MPLS 2 labels ping Blue.png
-INPUT ../Images/MPLS 2 labels ping Blue.png
-INPUT ../Images/MPLS 2 labels ping Blue.png
-INPUT ../Images/MPLS 2 labels ping Blue.png
-INPUT ../Images/MPLS 2 labels ping Blue.png
-INPUT ../Images/MPLS 1 label ping Blue.png
-INPUT ../Images/MPLS 1 label ping Blue.png
-INPUT ../Images/MPLS 1 label ping Blue.png
-INPUT ../Images/MPLS 1 label ping Blue.png
-INPUT ../Images/MPLS 1 label ping Blue.png
-INPUT ../Images/BGP vpnv4 vrf blue 192.168.102.0.png
-INPUT ../Images/BGP vpnv4 vrf blue 192.168.102.0.png
-INPUT ../Images/BGP vpnv4 vrf blue 192.168.102.0.png
-INPUT ../Images/BGP vpnv4 vrf blue 192.168.102.0.png
-INPUT ../Images/BGP vpnv4 vrf blue 192.168.102.0.png
-INPUT ../Images/MPLS PE1 forwarding table.png
-INPUT ../Images/MPLS PE1 forwarding table.png
-INPUT ../Images/MPLS PE1 forwarding table.png
-INPUT ../Images/MPLS PE1 forwarding table.png
-INPUT ../Images/MPLS PE1 forwarding table.png
-INPUT ../Images/MPLS PE2 forwarding table.png
-INPUT ../Images/MPLS PE2 forwarding table.png
-INPUT ../Images/MPLS PE2 forwarding table.png
-INPUT ../Images/MPLS PE2 forwarding table.png
-INPUT ../Images/MPLS PE2 forwarding table.png
-INPUT ../Images/BGP open msgs.png
-INPUT ../Images/BGP open msgs.png
-INPUT ../Images/BGP open msgs.png
-INPUT ../Images/BGP open msgs.png
-INPUT ../Images/BGP open msgs.png
-INPUT ../Images/Contents BGP open msg.png
-INPUT ../Images/Contents BGP open msg.png
-INPUT ../Images/Contents BGP open msg.png
-INPUT ../Images/Contents BGP open msg.png
-INPUT ../Images/Contents BGP open msg.png
-INPUT ../Images/BGP update msgs.png
-INPUT ../Images/BGP update msgs.png
-INPUT ../Images/BGP update msgs.png
-INPUT ../Images/BGP update msgs.png
-INPUT ../Images/BGP update msgs.png
-INPUT ../Images/Content BGP update msg.png
-INPUT ../Images/Content BGP update msg.png
-INPUT ../Images/Content BGP update msg.png
-INPUT ../Images/Content BGP update msg.png
-INPUT ../Images/Content BGP update msg.png
-INPUT ../Images/ping from ub1 to ub2.png
-INPUT ../Images/ping from ub1 to ub2.png
-INPUT ../Images/ping from ub1 to ub2.png
-INPUT ../Images/ping from ub1 to ub2.png
-INPUT ../Images/ping from ub1 to ub2.png
-INPUT ../Images/ip route & ip link ub2.png
-INPUT ../Images/ip route & ip link ub2.png
-INPUT ../Images/ip route & ip link ub2.png
-INPUT ../Images/ip route & ip link ub2.png
-INPUT ../Images/ip route & ip link ub2.png
-INPUT ../Images/IPIP tunnel ping.png
-INPUT ../Images/IPIP tunnel ping.png
-INPUT ../Images/IPIP tunnel ping.png
-INPUT ../Images/IPIP tunnel ping.png
-INPUT ../Images/IPIP tunnel ping.png
-INPUT ../Images/tunnel show in ub2.png
-INPUT ../Images/tunnel show in ub2.png
-INPUT ../Images/tunnel show in ub2.png
-INPUT ../Images/tunnel show in ub2.png
-INPUT ../Images/tunnel show in ub2.png
-INPUT ../Images/ip a ub1.png
-INPUT ../Images/ip a ub1.png
-INPUT ../Images/ip a ub1.png
-INPUT ../Images/ip a ub1.png
-INPUT ../Images/ip a ub1.png
-INPUT ../Images/docker net ls ub1.png
-INPUT ../Images/docker net ls ub1.png
-INPUT ../Images/docker net ls ub1.png
-INPUT ../Images/docker net ls ub1.png
-INPUT ../Images/docker net ls ub1.png
-INPUT ../Images/ping container.png
-INPUT ../Images/ping container.png
-INPUT ../Images/ping container.png
-INPUT ../Images/ping container.png
-INPUT ../Images/ping container.png
-INPUT ../Images/router soli id 10.png
-INPUT ../Images/router soli id 10.png
-INPUT ../Images/router soli id 10.png
-INPUT ../Images/router soli id 10.png
-INPUT ../Images/router soli id 10.png
-INPUT reportM2.aux
-INPUT ./reportM2.out
-INPUT ./reportM2.out
-INPUT /usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc
-INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
-INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
-INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
-INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
-INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb
-INPUT /usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb
