@@ -1179,6 +1179,9 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/duckuments/example-image-duck.pdf
 INPUT /usr/share/texlive/texmf-dist/tex/latex/duckuments/example-image-duck-portrait.pdf
 INPUT /usr/share/texlive/texmf-dist/tex/latex/duckuments/example-image-duck.pdf
 INPUT /usr/share/texlive/texmf-dist/tex/latex/duckuments/example-image-duck-portrait.pdf
+INPUT ./reportM2.aux
+INPUT reportM2.aux
+INPUT reportM2.aux
 OUTPUT reportM2.aux
 INPUT /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -1237,6 +1240,16 @@ INPUT /usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.st
 INPUT /usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+INPUT ./reportM2.out
+INPUT reportM2.out
+INPUT ./reportM2.out
+INPUT reportM2.out
+INPUT ./reportM2.out
+INPUT reportM2.out
+INPUT ./reportM2.out
+INPUT reportM2.out
+INPUT ./reportM2.out
+INPUT ./reportM2.out
 OUTPUT reportM2.out
 INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
@@ -1296,6 +1309,9 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT ./reportM2.toc
+INPUT reportM2.toc
+INPUT reportM2.toc
 OUTPUT reportM2.toc
 INPUT ../Images/1.png
 INPUT ../Images/1.png
@@ -1649,6 +1665,21 @@ INPUT ../Images/icmp encapsulation VXLAN.png
 INPUT ../Images/icmp encapsulation VXLAN.png
 INPUT ../Images/icmp encapsulation VXLAN.png
 INPUT ../Images/icmp encapsulation VXLAN.png
+INPUT ../Images/arp request VXLAN.png
+INPUT ../Images/arp request VXLAN.png
+INPUT ../Images/arp request VXLAN.png
+INPUT ../Images/arp request VXLAN.png
+INPUT ../Images/arp request VXLAN.png
+INPUT ../Images/arp reply VXLAN.png
+INPUT ../Images/arp reply VXLAN.png
+INPUT ../Images/arp reply VXLAN.png
+INPUT ../Images/arp reply VXLAN.png
+INPUT ../Images/arp reply VXLAN.png
+INPUT ../Images/arp cache in ub1 b1.png
+INPUT ../Images/arp cache in ub1 b1.png
+INPUT ../Images/arp cache in ub1 b1.png
+INPUT ../Images/arp cache in ub1 b1.png
+INPUT ../Images/arp cache in ub1 b1.png
 INPUT reportM2.aux
 INPUT ./reportM2.out
 INPUT ./reportM2.out

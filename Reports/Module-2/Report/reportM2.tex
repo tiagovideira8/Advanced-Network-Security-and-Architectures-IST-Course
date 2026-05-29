@@ -2086,14 +2086,14 @@ Figure~\ref{fig:arp_request} shows a captured ARP Request and Figure~\ref{fig:ar
  
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.95\linewidth]{../Images/PLACEHOLDER_arp_request.png}
+\includegraphics[width=0.95\linewidth]{../Images/arp request VXLAN.png}
 \caption{ARP Request encapsulated in VXLAN with multicast outer destination}
 \label{fig:arp_request}
 \end{figure}
  
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.95\linewidth]{../Images/PLACEHOLDER_arp_reply.png}
+\includegraphics[width=0.95\linewidth]{../Images/arp reply VXLAN.png}
 \caption{ARP Reply encapsulated in VXLAN with unicast outer destination}
 \label{fig:arp_reply}
 \end{figure}
@@ -2106,7 +2106,7 @@ Figure~\ref{fig:arp_cache} shows the ARP cache of container \texttt{b1} after th
  
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.75\linewidth]{../Images/PLACEHOLDER_arp_cache.png}
+\includegraphics[width=0.75\linewidth]{../Images/arp cache in ub1 b1.png}
 \caption{ARP cache of container b1 after pinging b6}
 \label{fig:arp_cache}
 \end{figure}
@@ -2114,13 +2114,5 @@ Figure~\ref{fig:arp_cache} shows the ARP cache of container \texttt{b1} after th
 \subsubsection*{VNI Field}
  
 The VXLAN header carries a 24-bit VNI field that identifies the overlay network to which the encapsulated frame belongs. In this exercise, VNI 33 was used for \texttt{bluenet} and VNI 66 for \texttt{rednet}. Upon receiving a VXLAN packet, the destination node uses the VNI to demultiplex the inner frame into the correct overlay network, in the same way that a VLAN tag identifies a broadcast domain on a trunk link. This allows multiple isolated overlay networks to coexist on the same physical infrastructure and share the same UDP port without frames leaking between networks.
- 
-\subsection{Discussion}
- 
-This exercise demonstrated that VXLAN overlays combined with IP multicast routing provide a flexible mechanism for creating isolated Layer 2 networks across physically separated hosts. Containers within the same overlay network communicated transparently regardless of their physical location, while remaining isolated from containers in other overlay networks by virtue of the distinct VNI values and multicast groups.
- 
-The use of multicast for ARP and broadcast traffic is a key advantage of this approach: rather than requiring a centralised control plane to manage MAC-to-VTEP mappings, each node simply joins the relevant multicast group and receives broadcast frames natively. The trade-off is that this relies on multicast routing being correctly configured in the underlay, as evidenced by the need to enable PIM Dense Mode on both interfaces of \texttt{R1}.
- 
-One notable aspect of the macvlan approach is that containers interact directly with the VXLAN interface at Layer 2, remaining entirely unaware of the encapsulation taking place beneath them.
 
 \end{document}
