@@ -247,4 +247,22 @@
 \newlabel{fig:arp_reply}{{70}{70}{ARP Reply encapsulated in VXLAN with unicast outer destination\relax }{figure.caption.72}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {71}{\ignorespaces ARP cache of container b1 after pinging b6\relax }}{70}{figure.caption.73}\protected@file@percent }
 \newlabel{fig:arp_cache}{{71}{70}{ARP cache of container b1 after pinging b6\relax }{figure.caption.73}{}}
-\gdef \@abspage@last{72}
+\@writefile{toc}{\contentsline {section}{\numberline {10}Docker Swarm Services}{71}{section.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.1}Introduction}{71}{subsection.10.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.2}Service Creation}{71}{subsection.10.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {72}{\ignorespaces Initial replica distribution of bluesvc across the three nodes\relax }}{71}{figure.caption.74}\protected@file@percent }
+\newlabel{fig:bluesvc_initial}{{72}{71}{Initial replica distribution of bluesvc across the three nodes\relax }{figure.caption.74}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.3}Self-Healing: Single Container Failure}{71}{subsection.10.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {73}{\ignorespaces Swarm scheduling a replacement for the stopped container on ub2\relax }}{72}{figure.caption.75}\protected@file@percent }
+\newlabel{fig:bluesvc_selfheal_a}{{73}{72}{Swarm scheduling a replacement for the stopped container on ub2\relax }{figure.caption.75}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {74}{\ignorespaces Replacement container scheduled on a different node (ub2) after stopping a replica on ub3\relax }}{72}{figure.caption.76}\protected@file@percent }
+\newlabel{fig:bluesvc_selfheal_c}{{74}{72}{Replacement container scheduled on a different node (ub2) after stopping a replica on ub3\relax }{figure.caption.76}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.4}Self-Healing: Node Failure}{72}{subsection.10.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {75}{\ignorespaces Node ub3 shown as Down after leaving the Swarm, with its replicas rescheduled to ub1 and ub2\relax }}{73}{figure.caption.77}\protected@file@percent }
+\newlabel{fig:bluesvc_node_failure}{{75}{73}{Node ub3 shown as Down after leaving the Swarm, with its replicas rescheduled to ub1 and ub2\relax }{figure.caption.77}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.5}Node Recovery and Rebalancing}{73}{subsection.10.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {76}{\ignorespaces ub3 rejoined as a new node, with no automatic redistribution of replicas\relax }}{73}{figure.caption.78}\protected@file@percent }
+\newlabel{fig:bluesvc_rejoin}{{76}{73}{ub3 rejoined as a new node, with no automatic redistribution of replicas\relax }{figure.caption.78}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {77}{\ignorespaces Forced update redistributing replicas across all three nodes including the recovered ub3\relax }}{74}{figure.caption.79}\protected@file@percent }
+\newlabel{fig:bluesvc_rebalance}{{77}{74}{Forced update redistributing replicas across all three nodes including the recovered ub3\relax }{figure.caption.79}{}}
+\gdef \@abspage@last{75}

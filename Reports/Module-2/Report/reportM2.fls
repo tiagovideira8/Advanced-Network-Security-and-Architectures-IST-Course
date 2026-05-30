@@ -1695,6 +1695,36 @@ INPUT ../Images/arp cache in ub1 b1.png
 INPUT ../Images/arp cache in ub1 b1.png
 INPUT ../Images/arp cache in ub1 b1.png
 INPUT ../Images/arp cache in ub1 b1.png
+INPUT ../Images/docker node ls ub1 dswarm.png
+INPUT ../Images/docker node ls ub1 dswarm.png
+INPUT ../Images/docker node ls ub1 dswarm.png
+INPUT ../Images/docker node ls ub1 dswarm.png
+INPUT ../Images/docker node ls ub1 dswarm.png
+INPUT ../Images/docker service ps bluesvc after shut ub1.png
+INPUT ../Images/docker service ps bluesvc after shut ub1.png
+INPUT ../Images/docker service ps bluesvc after shut ub1.png
+INPUT ../Images/docker service ps bluesvc after shut ub1.png
+INPUT ../Images/docker service ps bluesvc after shut ub1.png
+INPUT ../Images/docker service ps bluesvc after restart still shut.png
+INPUT ../Images/docker service ps bluesvc after restart still shut.png
+INPUT ../Images/docker service ps bluesvc after restart still shut.png
+INPUT ../Images/docker service ps bluesvc after restart still shut.png
+INPUT ../Images/docker service ps bluesvc after restart still shut.png
+INPUT ../Images/node ls after ub3 left swarm.png
+INPUT ../Images/node ls after ub3 left swarm.png
+INPUT ../Images/node ls after ub3 left swarm.png
+INPUT ../Images/node ls after ub3 left swarm.png
+INPUT ../Images/node ls after ub3 left swarm.png
+INPUT ../Images/node ls after ub3 rejoined swarm.png
+INPUT ../Images/node ls after ub3 rejoined swarm.png
+INPUT ../Images/node ls after ub3 rejoined swarm.png
+INPUT ../Images/node ls after ub3 rejoined swarm.png
+INPUT ../Images/node ls after ub3 rejoined swarm.png
+INPUT ../Images/1780147043317_image.png
+INPUT ../Images/1780147043317_image.png
+INPUT ../Images/1780147043317_image.png
+INPUT ../Images/1780147043317_image.png
+INPUT ../Images/1780147043317_image.png
 INPUT reportM2.aux
 INPUT ./reportM2.out
 INPUT ./reportM2.out

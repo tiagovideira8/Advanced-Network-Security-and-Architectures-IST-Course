@@ -81,3 +81,9 @@
 \contentsline {subsection}{\numberline {9.5}Connectivity Verification}{65}{subsection.9.5}%
 \contentsline {subsection}{\numberline {9.6}IGMP Analysis}{66}{subsection.9.6}%
 \contentsline {subsection}{\numberline {9.7}ARP and ICMP Encapsulation Analysis}{67}{subsection.9.7}%
+\contentsline {section}{\numberline {10}Docker Swarm Services}{71}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Introduction}{71}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Service Creation}{71}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Self-Healing: Single Container Failure}{71}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Self-Healing: Node Failure}{72}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}Node Recovery and Rebalancing}{73}{subsection.10.5}%
