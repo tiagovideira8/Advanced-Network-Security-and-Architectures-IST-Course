@@ -265,4 +265,42 @@
 \newlabel{fig:bluesvc_rejoin}{{76}{73}{ub3 rejoined as a new node, with no automatic redistribution of replicas\relax }{figure.caption.78}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {77}{\ignorespaces Forced update redistributing replicas across all three nodes including the recovered ub3\relax }}{74}{figure.caption.79}\protected@file@percent }
 \newlabel{fig:bluesvc_rebalance}{{77}{74}{Forced update redistributing replicas across all three nodes including the recovered ub3\relax }{figure.caption.79}{}}
-\gdef \@abspage@last{75}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.6}Load Balancing}{74}{subsection.10.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {78}{\ignorespaces Round-robin load balancing observed across 10 HTTP requests to bluesvc\relax }}{75}{figure.caption.80}\protected@file@percent }
+\newlabel{fig:bluesvc_loadbalance}{{78}{75}{Round-robin load balancing observed across 10 HTTP requests to bluesvc\relax }{figure.caption.80}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {79}{\ignorespaces HTTP GET request from saar-tools to bluesvc on port 3000\relax }}{76}{figure.caption.81}\protected@file@percent }
+\newlabel{fig:bluesvc_http_get}{{79}{76}{HTTP GET request from saar-tools to bluesvc on port 3000\relax }{figure.caption.81}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {80}{\ignorespaces HTTP 200 OK response from bluesvc to saar-tools\relax }}{77}{figure.caption.82}\protected@file@percent }
+\newlabel{fig:bluesvc_http_200}{{80}{77}{HTTP 200 OK response from bluesvc to saar-tools\relax }{figure.caption.82}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {81}{\ignorespaces Wireshark capture on the saar-tools link showing repeated TCP connection cycles\relax }}{77}{figure.caption.83}\protected@file@percent }
+\newlabel{fig:bluesvc_ws_overview}{{81}{77}{Wireshark capture on the saar-tools link showing repeated TCP connection cycles\relax }{figure.caption.83}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.7}Service Rescaling}{78}{subsection.10.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {82}{\ignorespaces bluesvc rescaled from five to three replicas, one per node\relax }}{78}{figure.caption.84}\protected@file@percent }
+\newlabel{fig:bluesvc_scale}{{82}{78}{bluesvc rescaled from five to three replicas, one per node\relax }{figure.caption.84}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.8}Container Network Interfaces}{78}{subsection.10.8}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {83}{\ignorespaces Network interfaces of the bluesvc container on ub1\relax }}{78}{figure.caption.85}\protected@file@percent }
+\newlabel{fig:ipaddr_ub1}{{83}{78}{Network interfaces of the bluesvc container on ub1\relax }{figure.caption.85}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {84}{\ignorespaces Network interfaces of the bluesvc container on ub2\relax }}{79}{figure.caption.86}\protected@file@percent }
+\newlabel{fig:ipaddr_ub2}{{84}{79}{Network interfaces of the bluesvc container on ub2\relax }{figure.caption.86}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {85}{\ignorespaces Network interfaces of the bluesvc container on ub3\relax }}{79}{figure.caption.87}\protected@file@percent }
+\newlabel{fig:ipaddr_ub3}{{85}{79}{Network interfaces of the bluesvc container on ub3\relax }{figure.caption.87}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Network interfaces of bluesvc service containers\relax }}{79}{table.caption.88}\protected@file@percent }
+\newlabel{tab:container_interfaces}{{2}{79}{Network interfaces of bluesvc service containers\relax }{table.caption.88}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.9}HTTP Request Path and VXLAN Encapsulation}{80}{subsection.10.9}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {86}{\ignorespaces HTTP traffic captured on ub1's ens3 interface during three client requests\relax }}{80}{figure.caption.89}\protected@file@percent }
+\newlabel{fig:bluesvc_http_overview}{{86}{80}{HTTP traffic captured on ub1's ens3 interface during three client requests\relax }{figure.caption.89}{}}
+\@writefile{toc}{\contentsline {paragraph}{Container on ub1 (local).}{80}{figure.caption.89}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {87}{\ignorespaces Direct HTTP exchange when the selected container is on the contacted node (ub1)\relax }}{80}{figure.caption.90}\protected@file@percent }
+\newlabel{fig:bluesvc_http_direct}{{87}{80}{Direct HTTP exchange when the selected container is on the contacted node (ub1)\relax }{figure.caption.90}{}}
+\@writefile{toc}{\contentsline {paragraph}{Container on a remote node (ub2 or ub3).}{81}{figure.caption.90}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {88}{\ignorespaces VXLAN encapsulation of an HTTP request forwarded from ub1 to ub3\relax }}{81}{figure.caption.91}\protected@file@percent }
+\newlabel{fig:bluesvc_vxlan_detail}{{88}{81}{VXLAN encapsulation of an HTTP request forwarded from ub1 to ub3\relax }{figure.caption.91}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {89}{\ignorespaces VXLAN-filtered capture showing tunnelled HTTP exchanges to remote nodes\relax }}{82}{figure.caption.92}\protected@file@percent }
+\newlabel{fig:bluesvc_vxlan_filter}{{89}{82}{VXLAN-filtered capture showing tunnelled HTTP exchanges to remote nodes\relax }{figure.caption.92}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.10}Comparison with a Second Service: redsvc}{82}{subsection.10.10}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {90}{\ignorespaces Replica distribution of redsvc across the three nodes\relax }}{82}{figure.caption.93}\protected@file@percent }
+\newlabel{fig:redsvc_ps}{{90}{82}{Replica distribution of redsvc across the three nodes\relax }{figure.caption.93}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {91}{\ignorespaces VXLAN encapsulation of an HTTP request for redsvc, showing VNI 4096\relax }}{83}{figure.caption.94}\protected@file@percent }
+\newlabel{fig:redsvc_vxlan}{{91}{83}{VXLAN encapsulation of an HTTP request for redsvc, showing VNI 4096\relax }{figure.caption.94}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.11}Comparison with AI Tool Explanation}{83}{subsection.10.11}\protected@file@percent }
+\gdef \@abspage@last{84}

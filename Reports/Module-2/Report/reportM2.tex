@@ -2253,4 +2253,194 @@ This command triggers a rolling restart of all service tasks, replacing each one
 \label{fig:bluesvc_rebalance}
 \end{figure}
 
+\subsection{Load Balancing}
+ 
+To test the load balancing behaviour of the service, a Python client was deployed on the \texttt{saar-tools} appliance, connected to \texttt{Switch1} on the \texttt{20.0.0.0/24} subnet. The client sends a configurable number of sequential HTTP requests to the service, with a one-second interval between each, and prints the hostname returned by the server. Ten requests were directed to \texttt{ub1} on port 3000:
+ 
+\begin{verbatim}
+python3 /tmp/client.py 20.0.0.1 3000 10
+\end{verbatim}
+ 
+As shown in Figure~\ref{fig:bluesvc_loadbalance}, the five container hostnames appeared in a repeating cycle of the same fixed order across all ten responses, confirming that Docker Swarm uses a \textbf{round-robin} load balancing algorithm. Each of the five replicas was contacted exactly twice, with no deviation from the sequence.
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\linewidth]{../Images/script run saartools ubdswarm1.png}
+\caption{Round-robin load balancing observed across 10 HTTP requests to bluesvc}
+\label{fig:bluesvc_loadbalance}
+\end{figure}
+ 
+The test was repeated directing requests to \texttt{ub2} (20.0.0.2) and \texttt{ub3} (21.0.0.1) on the same port. In all cases the service responded correctly, confirming that Docker Swarm's \textbf{routing mesh} allows the service to be reached at any node's IP address, regardless of whether that node is running a replica of the service. Incoming connections are intercepted by the ingress network and forwarded to an available container transparently.
+ 
+A Wireshark capture was performed on the link between \texttt{saar-tools} and \texttt{Switch1} to inspect the individual HTTP messages. Figure~\ref{fig:bluesvc_http_get} shows the HTTP GET request sent by the client to \texttt{20.0.0.1} on port 3000, and Figure~\ref{fig:bluesvc_http_200} shows the corresponding HTTP 200 OK response.
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{../Images/7.3.3 http get.png}
+\caption{HTTP GET request from saar-tools to bluesvc on port 3000}
+\label{fig:bluesvc_http_get}
+\end{figure}
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{../Images/7.3.3 http 200.png}
+\caption{HTTP 200 OK response from bluesvc to saar-tools}
+\label{fig:bluesvc_http_200}
+\end{figure}
+ 
+The capture shown in Figure~\ref{fig:bluesvc_ws_overview} confirmed that a new TCP connection was established for every HTTP request. Each request followed a complete SYN, SYN-ACK, ACK, GET, PSH/ACK, HTTP 200 OK, FIN sequence, with successive connections opening approximately one second apart.
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{../Images/7.3.3 wireshark overview.png}
+\caption{Wireshark capture on the saar-tools link showing repeated TCP connection cycles}
+\label{fig:bluesvc_ws_overview}
+\end{figure}
+ 
+\subsection{Service Rescaling}
+ 
+The service was rescaled from five to three replicas using:
+ 
+\begin{verbatim}
+docker service scale bluesvc=3
+\end{verbatim}
+ 
+As shown in Figure~\ref{fig:bluesvc_scale}, Swarm immediately shut down two of the excess replicas and converged to the new desired state of three running tasks, one per node. The output \texttt{verify: Service bluesvc converged} confirmed successful rescaling.
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{../Images/7.3.4 scale down.png}
+\caption{bluesvc rescaled from five to three replicas, one per node}
+\label{fig:bluesvc_scale}
+\end{figure}
+ 
+Docker Swarm does not support automatic scaling based on workload natively. Achieving autoscaling would require an external solution, such as a monitoring script that periodically measures resource utilisation and issues \texttt{docker service scale} commands accordingly, or a third-party orchestration platform. Kubernetes addresses this natively through its Horizontal Pod Autoscaler (HPA), which scales deployments automatically based on observed CPU or memory metrics.
+ 
+\subsection{Container Network Interfaces}
+ 
+With three replicas running, one per node, the network interfaces of each container were inspected using \texttt{docker exec <CONTAINER\_ID> ip addr}. As shown in Figures~\ref{fig:ipaddr_ub1}, \ref{fig:ipaddr_ub2}, and \ref{fig:ipaddr_ub3}, each container presented three non-loopback interfaces, one more than the standalone containers of Section~7.1.
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{../Images/7.3.5 ip addr ub1.png}
+\caption{Network interfaces of the bluesvc container on ub1}
+\label{fig:ipaddr_ub1}
+\end{figure}
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{../Images/7.3.5 ip addr ub2.png}
+\caption{Network interfaces of the bluesvc container on ub2}
+\label{fig:ipaddr_ub2}
+\end{figure}
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{../Images/7.3.5 ip addr ub3.png}
+\caption{Network interfaces of the bluesvc container on ub3}
+\label{fig:ipaddr_ub3}
+\end{figure}
+ 
+The three interfaces and their corresponding networks are summarised in Table~\ref{tab:container_interfaces}.
+ 
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Interface} & \textbf{Network} & \textbf{VNI} & \textbf{Subnet} & \textbf{Purpose} \\
+\hline
+eth0 & blue & 4097 & 10.0.1.0/24 & Service overlay network \\
+\hline
+eth1 & docker\_gwbridge & --- & 172.18.0.0/16 & Gateway to host \\
+\hline
+eth2 & ingress & 4096 & 10.0.0.0/24 & Swarm routing mesh \\
+\hline
+\end{tabular}
+\caption{Network interfaces of bluesvc service containers}
+\label{tab:container_interfaces}
+\end{table}
+ 
+The \texttt{eth0} interface connects the container to the \texttt{blue} overlay network (VNI 4097), used for direct container-to-container communication within the service. The \texttt{eth1} interface connects to the \texttt{docker\_gwbridge} local bridge (172.18.0.0/16), which provides the container with a gateway to the host for outbound traffic. The \texttt{eth2} interface connects to the \texttt{ingress} overlay network (VNI 4096), which implements the Swarm routing mesh and handles externally published traffic arriving on port 3000.
+ 
+This additional interface, absent in the standalone containers of Section~7.1, is the key structural difference between service containers and standalone containers in Docker Swarm: service containers are always attached to the shared ingress network to participate in the routing mesh.
+ 
+\subsection{HTTP Request Path and VXLAN Encapsulation}
+ 
+To trace the path followed by HTTP requests through the Swarm infrastructure, a Wireshark capture was started on the \texttt{ens3} interface of \texttt{ub1} and three HTTP requests were sent from \texttt{saar-tools} to \texttt{ub1} on port 3000. The capture, filtered by HTTP, is shown in Figure~\ref{fig:bluesvc_http_overview}.
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{../Images/7.3.6 wireshark overview.png}
+\caption{HTTP traffic captured on ub1's ens3 interface during three client requests}
+\label{fig:bluesvc_http_overview}
+\end{figure}
+ 
+Two distinct forwarding paths were observed depending on whether the selected container was local or remote.
+ 
+\paragraph{Container on ub1 (local).} When the routing mesh selected the local replica, the HTTP GET arrived directly from \texttt{saar-tools} (20.0.0.100) to \texttt{ub1} (20.0.0.1) at the physical layer, as shown in Figure~\ref{fig:bluesvc_http_direct}. The response was returned directly from \texttt{ub1} to \texttt{saar-tools} without any tunnelling. No VXLAN packets were generated.
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{../Images/7.3.6 http direct.png}
+\caption{Direct HTTP exchange when the selected container is on the contacted node (ub1)}
+\label{fig:bluesvc_http_direct}
+\end{figure}
+ 
+\paragraph{Container on a remote node (ub2 or ub3).} When the routing mesh selected a replica on a different node, \texttt{ub1} encapsulated the request in a VXLAN tunnel and forwarded it to the appropriate remote node. The packet detail for a request forwarded to \texttt{ub3} is shown in Figure~\ref{fig:bluesvc_vxlan_detail}.
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{../Images/7.3.6 vxlan tunnelled.png}
+\caption{VXLAN encapsulation of an HTTP request forwarded from ub1 to ub3}
+\label{fig:bluesvc_vxlan_detail}
+\end{figure}
+ 
+The encapsulation structure was as follows. The outer IP header carried the physical node addresses (\texttt{20.0.0.1} $\rightarrow$ \texttt{21.0.0.1}), routing the packet across the underlay network via \texttt{R1}. The UDP destination port was 4789 (the standard VXLAN port). The VXLAN header identified the tunnel with \textbf{VNI 4096}, corresponding to the ingress network. The inner Ethernet frame carried the ingress network MAC addresses (\texttt{02:42:0a:00:00:02} $\rightarrow$ \texttt{02:42:0a:00:00:09}), and the inner IP header carried the ingress network addresses (\texttt{10.0.0.2} $\rightarrow$ \texttt{10.0.0.9}). The inner TCP segment was addressed to port 3000.
+ 
+The response from the remote container followed the reverse path: the remote node encapsulated the HTTP 200 OK in a VXLAN packet back to \texttt{ub1}, which decapsulated it and forwarded the response to \texttt{saar-tools}. From the client's perspective, the entire exchange appeared as a direct conversation with \texttt{ub1}.
+ 
+The VXLAN filter view in Figure~\ref{fig:bluesvc_vxlan_filter} shows the full sequence of tunnelled exchanges, confirming that two of the three requests required inter-node tunnelling (to \texttt{ub3} and \texttt{ub2} respectively), while the third was served locally.
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{../Images/7.3.6 vxlan filter.png}
+\caption{VXLAN-filtered capture showing tunnelled HTTP exchanges to remote nodes}
+\label{fig:bluesvc_vxlan_filter}
+\end{figure}
+ 
+\subsection{Comparison with a Second Service: redsvc}
+ 
+A second service, \texttt{redsvc}, was created on the \texttt{red} overlay network with three replicas and external access on port 3001:
+ 
+\begin{verbatim}
+docker service create --network red --name redsvc \
+    --replicas 3 --publish 3001:80 ruivaladas/ws-simple-2
+\end{verbatim}
+ 
+As shown in Figure~\ref{fig:redsvc_ps}, Swarm distributed one replica per node, mirroring the \texttt{bluesvc} distribution.
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{../Images/7.3.7 redsvc ps.png}
+\caption{Replica distribution of redsvc across the three nodes}
+\label{fig:redsvc_ps}
+\end{figure}
+ 
+A new Wireshark capture was performed while sending three HTTP requests to \texttt{ub1} on port 3001. The packet detail of a tunnelled request, shown in Figure~\ref{fig:redsvc_vxlan}, revealed that the VXLAN VNI used was again \textbf{4096} — identical to \texttt{bluesvc}.
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{../Images/7.3.7 vxlan redsvc.png}
+\caption{VXLAN encapsulation of an HTTP request for redsvc, showing VNI 4096}
+\label{fig:redsvc_vxlan}
+\end{figure}
+ 
+This confirms that the ingress network is \textbf{shared across all Swarm services}, regardless of which user-defined overlay network (blue or red) the service is attached to. The VNI 4096 tunnel is used for all externally published traffic in the Swarm, and the destination port in the inner TCP header (3000 or 3001) is what distinguishes traffic belonging to different services within the shared ingress tunnel. The \texttt{blue} and \texttt{red} overlay networks (VNI 4097 and 4098 respectively) are used exclusively for direct container-to-container communication within each service, and are not involved in handling external client requests.
+
+\subsection{Comparison with AI Tool Explanation}
+ 
+The behaviour observed experimentally is consistent with the explanation provided by the AI tool consulted during the preparation of this exercise. The AI correctly described Docker Swarm services as a declarative abstraction over replicated containers, identified the ingress network and routing mesh as the mechanism behind load balancing and external accessibility, and explained that self-healing operates by reconciling actual state with desired state without node affinity.
+ 
+Two points of nuance emerged from the experiments that the AI description addressed only partially. First, the AI noted that Swarm does not rebalance automatically after node recovery, which was confirmed: after \texttt{ub3} rejoined the cluster, no replicas were redistributed until a forced update was issued with \texttt{docker service update --force}. Second, the AI correctly identified round-robin as the load balancing algorithm, which the Wireshark and client output confirmed precisely. The experimental captures added concrete detail to the AI explanation by showing the actual VNI values, inner and outer IP and MAC address pairs, and the exact packet structure of the VXLAN tunnels used by the ingress network.
+
 \end{document}

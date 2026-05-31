@@ -87,3 +87,11 @@
 \contentsline {subsection}{\numberline {10.3}Self-Healing: Single Container Failure}{71}{subsection.10.3}%
 \contentsline {subsection}{\numberline {10.4}Self-Healing: Node Failure}{72}{subsection.10.4}%
 \contentsline {subsection}{\numberline {10.5}Node Recovery and Rebalancing}{73}{subsection.10.5}%
+\contentsline {subsection}{\numberline {10.6}Load Balancing}{74}{subsection.10.6}%
+\contentsline {subsection}{\numberline {10.7}Service Rescaling}{78}{subsection.10.7}%
+\contentsline {subsection}{\numberline {10.8}Container Network Interfaces}{78}{subsection.10.8}%
+\contentsline {subsection}{\numberline {10.9}HTTP Request Path and VXLAN Encapsulation}{80}{subsection.10.9}%
+\contentsline {paragraph}{Container on ub1 (local).}{80}{figure.caption.89}%
+\contentsline {paragraph}{Container on a remote node (ub2 or ub3).}{81}{figure.caption.90}%
+\contentsline {subsection}{\numberline {10.10}Comparison with a Second Service: redsvc}{82}{subsection.10.10}%
+\contentsline {subsection}{\numberline {10.11}Comparison with AI Tool Explanation}{83}{subsection.10.11}%
