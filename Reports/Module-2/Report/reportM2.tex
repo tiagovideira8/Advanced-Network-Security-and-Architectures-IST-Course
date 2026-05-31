@@ -169,6 +169,32 @@
 
 \section{Introduction}
 
+This report presents the experimental work carried out during Module 2 of the 
+Advanced Network Security and Architectures (SAAR) course, covering the design, 
+configuration, and analysis of secure network communications and network 
+virtualization technologies.
+
+The module is organized into three laboratory sessions. Lab~2.1 addresses IPSec 
+and DMVPN, covering GRE tunneling, IPSec with IKEv1 (pre-shared keys and digital 
+signatures), IPSec with IKEv2, and DMVPN Phase~3. Lab~2.2 focuses on VRFs and 
+BGP-MPLS Layer~3 VPNs, exploring how virtual routing instances and multi-protocol 
+BGP cooperate to provide isolated connectivity across a shared provider backbone. 
+Lab~2.3 covers the networking of virtual containers, progressing from Linux network 
+namespaces and IPIP tunneling through Docker networking (macvlan with VLAN 
+isolation, VXLAN with multicast routing) to Docker Swarm service orchestration.
+
+All experiments were performed in GNS3, using Cisco 7200 and 3725 routers for the 
+IPSec and BGP-MPLS scenarios, and Ubuntu Cloud Guest nodes with Docker for the 
+container networking exercises. Protocol behaviour was observed and verified using 
+Wireshark captures, Cisco IOS \texttt{show} commands, and Linux networking tools 
+throughout.
+
+The report follows the sequence of the lab guides. Each section identifies the 
+experimental setup, presents the relevant evidence, and explains the observed 
+behaviour in terms of the underlying protocols and mechanisms. Configuration 
+details that would interrupt the flow of the discussion are moved to appendices 
+where appropriate.
+
 \newpage
 
 \section{IKEv1 with Pre-Shared Keys}
@@ -261,6 +287,12 @@ The Key Exchange payload is therefore responsible for securely generating a comm
     \label{fig:dh_exchange}
 \end{figure}
 
+The Nonce payload (also visible in Figure~\ref{fig:dh_exchange}) contributes a 
+fresh random value to every exchange. Combined with the Diffie-Hellman output, it 
+ensures that even if the same DH parameters were reused across sessions, the 
+derived keying material would differ --- protecting against key reuse and replay 
+attacks.
+
 Figure~\ref{fig:identity} shows the final Main Mode exchanges where identity information and authentication data are transmitted in encrypted form. At this stage, the ISAKMP SA has already been established.
 
 \begin{figure}[H]
@@ -315,6 +347,11 @@ As a result, ICMP communication failed and no encrypted traffic was exchanged th
     \caption{Failed IPSec negotiation due to parameter mismatch}
     \label{fig:negotiation_failure}
 \end{figure}
+
+To trigger a negotiation failure, the IPSec protocol on R2 was changed from AH 
+to ESP while R1 retained the AH configuration, creating an incompatible 
+transform set. The resulting repeated Main Mode and Quick Mode exchanges are 
+shown in Figure~\ref{fig:negotiation_failure}.
 
 \subsection{ESP Tunnel Operation}
 
@@ -1085,12 +1122,14 @@ The command \texttt{clear crypto session} was executed to remove the active Secu
 
 Wireshark captures show the deletion of the existing SAs followed by the establishment of new IKEv2 and IPSec Security Associations.
 
-%\begin{figure}[H]
-%    \centering
-%    \includegraphics[width=\textwidth]{sa_reestablishment.png}
-%    \caption{Deletion and re-establishment of Security Associations}
-%    \label{fig:sa_reestablishment}
-%\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../Images/clear session msgs.png}
+    \caption{Deletion and re-establishment of IKEv2 Security Associations after 
+    clearing the crypto session, showing Informational deletion followed by new 
+    IKE\_SA\_INIT and IKE\_AUTH exchanges}
+    \label{fig:sa_reestablishment}
+\end{figure}
 
 After the previous SAs were removed, new IKE\_SA\_INIT and IKE\_AUTH exchanges were observed, resulting in the creation of new SPIs and new IPSec Security Associations.
 
@@ -1198,11 +1237,18 @@ Unlike IKEv2 Security Association rekeying, which replaces the IKE SA itself, IP
 
 \section{DMVPN Phase 3}
 
-The objective of this experiment was to configure and analyze a DMVPN Phase 3 network using RIP, NHRP redirects, and NHRP shortcuts. The behavior of DMVPN Phase 3 was compared with DMVPN Phase 1 and Phase 2 using Cisco IOS commands and Wireshark captures.
+The objective of this experiment was to configure and analyse a DMVPN Phase~3 
+network using RIP, NHRP redirects, and NHRP shortcuts. The behaviour of DMVPN 
+Phase~3 was compared with DMVPN Phase~1 and Phase~2 using Cisco IOS commands 
+and Wireshark captures.
 
+%------------------------------------------------------------
 \subsection{Topology}
+%------------------------------------------------------------
 
-Figure~\ref{fig:topology} shows the network topology used in the experiment. Router R1 operated as the DMVPN hub, while R2 and R3 operated as spokes.
+Figure~\ref{fig:topology} shows the network topology used in the experiment. 
+Router R1 operated as the DMVPN hub, while R2 and R3 operated as spokes. The 
+public underlay uses OSPF, while the overlay private network uses RIPv2.
 
 \begin{figure}[H]
     \centering
@@ -1211,71 +1257,86 @@ Figure~\ref{fig:topology} shows the network topology used in the experiment. Rou
     \label{fig:topology}
 \end{figure}
 
+%------------------------------------------------------------
 \subsection{DMVPN Phase 3 Configuration}
+%------------------------------------------------------------
 
-DMVPN Phase 3 was configured using:
-\begin{itemize}
-    \item mGRE tunnels;
-    \item RIP version 2 in the overlay network;
-    \item NHRP redirects on the hub;
-    \item NHRP shortcuts on the spokes.
-\end{itemize}
+DMVPN Phase~3 was configured using mGRE tunnel interfaces on all routers, RIPv2 
+in the overlay, NHRP redirects (\texttt{ip nhrp redirect}) on the hub, and NHRP 
+shortcuts (\texttt{ip nhrp shortcut}) on the spokes, combined with route 
+summarisation via \texttt{ip summary-address rip 0.0.0.0 0.0.0.0} on the hub's 
+tunnel interface.
 
+%------------------------------------------------------------
 \subsection{Role of \texttt{ip summary-address rip}}
+%------------------------------------------------------------
 
-The command made the hub advertise a default route to all spokes. As a result, the initial traffic was forwarded through the hub before a direct spoke-to-spoke tunnel was created.
-
-Figure~\ref{fig:riproute} shows the RIP default route learned by R2.
+This command causes R1 to advertise only a default route (\texttt{0.0.0.0/0}) to 
+all spokes via RIP, instead of individual spoke subnets. Figure~\ref{fig:riproute} 
+confirms that R2 learns only the default route via \texttt{10.10.10.1} and not 
+\texttt{192.168.3.0/24} directly.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.85\linewidth]{../Images/iprouterip_R2.png}
-    \caption{Default route learned through RIP}
+    \caption{Default route learned through RIP at R2}
     \label{fig:riproute}
 \end{figure}
 
+Because spokes only hold a default route toward the hub, all initial 
+spoke-to-spoke traffic transits R1, giving it the opportunity to issue NHRP 
+redirects. When the command was temporarily removed, R1 advertised specific spoke 
+subnets and R2 routed directly to R3 --- NHRP redirects were never triggered, 
+confirming the command is a prerequisite for Phase~3 operation.
+
+%------------------------------------------------------------
+\subsection{Role of RIP Split Horizon}
+%------------------------------------------------------------
+
+RIP split horizon prevents R1 from re-advertising routes learned from one spoke 
+back out the same mGRE tunnel interface toward other spokes. Without it, R2 and 
+R3 would learn each other's subnets via the hub and route directly, bypassing R1 
+entirely before NHRP shortcuts could be created. When split horizon was disabled 
+with \texttt{no ip split-horizon} on R1's tunnel interface, specific spoke routes 
+propagated to all spokes and no shortcuts were ever established, confirming that 
+split horizon and \texttt{ip summary-address rip} must both be active for Phase~3 
+to work correctly.
+
+%------------------------------------------------------------
+\subsection{OSPF vs RIP at the Public Network}
+%------------------------------------------------------------
+
+Two distinct routing protocol traffic types are visible at the public network 
+links. OSPF Hello packets carry outer destination \texttt{224.0.0.5} and are 
+sourced from physical underlay interfaces --- they are not GRE-encapsulated and 
+maintain adjacencies solely in the underlay. RIP Response packets, by contrast, 
+are GRE-encapsulated and carry outer loopback-to-loopback addresses (e.g., 
+\texttt{1.1.1.1} $\rightarrow$ \texttt{2.2.2.2}), travelling inside the mGRE 
+overlay to distribute private subnet reachability between sites. OSPF is never 
+aware of the private subnets, and RIP is never visible on the underlay.
+
+%------------------------------------------------------------
 \subsection{NHRP Redirects and Shortcuts}
+%------------------------------------------------------------
 
-Initially, the spokes only knew the NBMA address of the hub. After the first packets were forwarded through the hub, R1 generated an NHRP redirect informing the spoke that a better path existed.
-
-R2 then sent an NHRP Resolution Request and dynamically learned the NBMA address of R3. This created a direct spoke-to-spoke shortcut.
-
-Figure~\ref{fig:dmvpn} shows the DMVPN dynamic shortcut entry learned by R2.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\linewidth]{../Images/sh_dmvpnR2.png}
-    \caption{Dynamic DMVPN shortcut entry}
-    \label{fig:dmvpn}
-\end{figure}
-
-\newpage
-
-\subsection{Traffic Analysis}
-
-Figure~\ref{fig:trace} shows the traceroute between PC2 and PC3. The traffic was forwarded directly between spokes after the NHRP shortcut was created.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\linewidth]{../Images/tracePC2_PC3.png}
-    \caption{Traceroute between spokes}
-    \label{fig:trace}
-\end{figure}
-
-\subsection{Wireshark Analysis}
-
-Wireshark captures confirmed the operation of DMVPN Phase 3.
-
-Figure~\ref{fig:redirect} shows the NHRP Traffic Indication packets generated by the hub router. These packets informed the spokes that a better path existed.
+Initially R2 only knows the hub's NBMA address. When PC2 pings PC3, R2 forwards 
+the first ICMP Echo Request to R1. R1 simultaneously forwards it to R3 and sends 
+an NHRP Traffic Indication back to R2, identifying \texttt{10.10.10.3} as a 
+destination reachable via a better path. Figure~\ref{fig:redirect} shows these 
+Traffic Indication packets captured at the public network.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\linewidth]{../Images/trafficindic_wire.png}
-    \caption{NHRP Traffic Indication packets}
+    \caption{NHRP Traffic Indication packets generated by R1}
     \label{fig:redirect}
 \end{figure}
 
-Figure~\ref{fig:resolution} shows the NHRP Resolution Request and Reply packets exchanged during the shortcut creation process.
+R2 then sends an NHRP Resolution Request to resolve R3's NBMA address, carrying 
+its own source NBMA (\texttt{2.2.2.2}) and protocol (\texttt{10.10.10.2}) 
+addresses. R3 replies with its NBMA address (\texttt{3.3.3.3}). 
+Figure~\ref{fig:resolution} shows this exchange, and Figure~\ref{fig:dmvpn} shows 
+the resulting dynamic shortcut entry installed at R2.
 
 \begin{figure}[H]
     \centering
@@ -1284,37 +1345,61 @@ Figure~\ref{fig:resolution} shows the NHRP Resolution Request and Reply packets 
     \label{fig:resolution}
 \end{figure}
 
-\subsection{Role of RIP Split Horizon}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{../Images/sh_dmvpnR2.png}
+    \caption{Dynamic DMVPN shortcut entry at R2}
+    \label{fig:dmvpn}
+\end{figure}
 
-RIP split horizon prevents the hub from advertising routes learned from one spoke back to the same DMVPN interface. This forces the initial spoke-to-spoke traffic to pass through the hub, allowing NHRP redirects and shortcuts to operate correctly.
+All subsequent packets from PC2 to PC3 are sent directly to R3's NBMA address, 
+as confirmed by the traceroute in Figure~\ref{fig:trace}.
 
+%------------------------------------------------------------
+\subsection{Traffic Analysis}
+%------------------------------------------------------------
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{../Images/tracePC2_PC3.png}
+    \caption{Traceroute between spokes after shortcut creation}
+    \label{fig:trace}
+\end{figure}
+
+The traceroute confirms that after the NHRP shortcut is established, packets 
+travel directly between R2 and R3 without transiting R1.
+
+%------------------------------------------------------------
 \subsection{Comparison Between DMVPN Phases}
+%------------------------------------------------------------
 
-\begin{itemize}
-\item DMVPN Phase 1 uses point-to-point tunnels between the hub and the spokes. All spoke-to-spoke traffic is forwarded through the hub router, which creates a centralized but less scalable solution.
-\item DMVPN Phase 2 introduces dynamic spoke-to-spoke communication using NHRP. The routing protocol preserves the original next-hop information, allowing spokes to establish direct tunnels after the NHRP resolution process.
-\item DMVPN Phase 3 improves scalability by using route summarization and NHRP redirects. Initially, traffic is forwarded through the hub router. The hub then sends NHRP redirect messages, allowing the spokes to dynamically create shortcuts and establish direct communication.
-\end{itemize}
+\textbf{Phase~1} uses point-to-point hub-to-spoke tunnels. All spoke-to-spoke 
+traffic must transit R1 permanently --- simple to configure but does not scale.
 
-\subsection{Experimental Validation}
+\textbf{Phase~2} introduces mGRE on all routers. NHRP resolution allows direct 
+spoke-to-spoke tunnels, but the routing protocol must preserve the original 
+next-hop, requiring per-spoke routing entries on every spoke.
 
-The experimental behavior matched the theoretical explanation of DMVPN Phase 3:
-\begin{itemize}
-    \item RIP advertised a summarized default route;
-    \item the hub generated NHRP redirects;
-    \item spokes dynamically created shortcuts;
-    \item direct spoke-to-spoke communication was established after the first packets.
-\end{itemize}
+\textbf{Phase~3} decouples routing from NHRP via summarisation. Spokes need only 
+a single default route toward the hub; NHRP redirects and shortcuts build direct 
+paths on demand. Adding a new spoke requires no routing table changes on existing 
+spokes, making Phase~3 the most scalable of the three.
 
-\subsection{Comparison Between AI Explanation and Experimental Results}
+%------------------------------------------------------------
+\subsection{AI Comparison}
+%------------------------------------------------------------
 
-The AI explanation stated that RIP is used to advertise summarized routes from the hub to the spokes, while NHRP redirects and shortcuts are responsible for dynamically creating direct spoke-to-spoke communication.
+The AI correctly identified that \texttt{ip summary-address rip} injects a 
+default route from hub to spokes and that NHRP redirects trigger spoke-to-spoke 
+shortcut creation.
 
-The experimental behavior observed in the laboratory matched this explanation. The RIP routing table on R2 showed that the hub advertised a default route. 
-
-Wireshark captures confirmed the operation of NHRP redirects and shortcuts. The hub generated NHRP Traffic Indication packets, followed by NHRP Resolution Request and Resolution Reply packets exchanged between the spokes. After this process, a dynamic shortcut entry appeared in the DMVPN table, allowing direct spoke-to-spoke communication.
-
-These results confirmed the theoretical behavior of DMVPN Phase 3.
+Two discrepancies were found experimentally. First, the AI described RIP split 
+horizon as preventing routing loops in general, without identifying the specific 
+Phase~3 consequence: that disabling it causes spokes to learn direct routes and 
+bypass the hub before shortcuts are created. This was confirmed by the 
+split-horizon experiment above. Second, the AI stated that the hub sends the NHRP 
+redirect \emph{before} forwarding the packet. The Wireshark captures show the 
+redirect and the forwarded packet occurring simultaneously, not sequentially.
 
 \section{VRFs and BGP-MPLS L3VPNs}
 
@@ -1348,7 +1433,7 @@ The routing architecture of PE1 was analyzed by inspecting the global routing ta
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{../Images/PE1 routing table.png}
-    \caption{}
+    \caption{Global routing table of PE1, containing only provider infrastructure routes}
     \label{fig:pe1_global}
 \end{figure}
 
@@ -1414,7 +1499,7 @@ responsible for imposing a label that was assigned and advertised by the egress 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{../Images/BGP vpnv4 vrf blue 192.168.102.0.png}
-    \caption{}
+    \caption{BGP VPNv4 entry for prefix 192.168.102.0/24 at PE1, showing outgoing VPN label assigned by PE2}
     \label{fig:bgp_vpnv4}
 \end{figure}
 
@@ -1429,14 +1514,14 @@ is forwarded with the label stack observed in the capture.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{../Images/MPLS PE1 forwarding table.png}
-    \caption{}
+    \caption{MPLS forwarding table of PE1, showing transport label 17 toward PE2 and VPN label entries}
     \label{fig:mpls_pe1}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{../Images/MPLS PE2 forwarding table.png}
-    \caption{}
+    \caption{MPLS forwarding table of PE2, confirming PHP behavior and VPN label 19 mapping}
     \label{fig:mpls_pe2}
 \end{figure}
 
@@ -1497,6 +1582,11 @@ Figure~\ref{fig:bgp_update} presents the BGP Update message sent by PE2 to PE1 a
     \label{fig:bgp_update}
 \end{figure}
 
+Two additional capabilities are also negotiated: Route Refresh (type~2), which 
+allows peers to request a full re-advertisement of the BGP table without 
+resetting the session, and 4-octet AS number support (type~65), which permits AS 
+numbers above 65535. Both are visible in Figure~\ref{fig:bgp_open_pe1_content}.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{../Images/Content BGP update msg.png}
@@ -1513,6 +1603,30 @@ A VPNv4 route is an IPv4 prefix extended with a 64-bit Route Distinguisher, prod
 \subsection{Introduction}
 
 The objective of this exercise was to establish communication between two Linux network namespaces located on different nodes using an IPIP tunnel. Two Ubuntu nodes were used: \texttt{ub1} and \texttt{ub2}. Each node contained one network namespace connected to the host through a bridge interface and a virtual Ethernet pair (veth). Communication between the namespaces was achieved by creating an IPIP tunnel between the two hosts and configuring appropriate routing rules.
+
+A Linux network namespace is an isolated instance of the kernel's network stack, 
+with its own interfaces, routing table, ARP table, and firewall rules, completely 
+independent from the host and from other namespaces. It is the fundamental 
+isolation primitive underlying Docker containers and other container runtimes.
+
+\subsection{Topology}
+
+Container \texttt{cont0} (VLAN~10, \texttt{20.10.0.10} on \texttt{ub1}) and 
+\texttt{cont2} (VLAN~10, \texttt{20.10.0.11} on \texttt{ub2}) communicate using 
+VLAN ID~10, as confirmed by the \texttt{802.1Q} header in 
+Figure~\ref{fig:vlan10}. Containers \texttt{cont1} and \texttt{cont3} use VLAN 
+ID~20, as shown in Figure~\ref{fig:vlan20}. The two VLANs are isolated at 
+Layer~2 by the switch. Frames tagged with VLAN~10 are never delivered to 
+interfaces associated with VLAN~20.
+
+Figure~\ref{fig:topo_IPIP} shows the topology used.
+
+%\begin{figure}[H]
+%    \centering
+%    \includegraphics[width=0.9\linewidth]{../Images/}
+%    \caption{Topology}
+%    \label{fig:topo_IPIP}
+%\end{figure}
 
 \subsection{Configuration of the Namespaces and Tunnel}
 
@@ -2095,7 +2209,7 @@ docker exec b1 /bin/sh -c "arp -d 10.0.0.6; ping -c 4 10.0.0.6"
  
 Wireshark captures were performed on the \texttt{ens3} interface of \texttt{ub1} to observe the full encapsulation of the resulting packets.
  
-\subsubsection*{Packet Encapsulation}
+\subsubsection{Packet Encapsulation}
  
 All traffic between containers located on different nodes was encapsulated using the VXLAN protocol. Each packet consisted of two layers of IP addressing: an \textit{inner} IP header carrying the original container-to-container traffic, and an \textit{outer} IP header used for routing across the physical underlay network.
  
@@ -2110,7 +2224,7 @@ Figure~\ref{fig:icmp_encap} shows the full encapsulation of a captured ICMP echo
 \label{fig:icmp_encap}
 \end{figure}
  
-\subsubsection*{ARP Request and Reply}
+\subsubsection{ARP Request and Reply}
  
 ARP Request packets were sent with a multicast outer IP destination address corresponding to the VXLAN group of the overlay network (\texttt{239.1.1.3} for \texttt{bluenet}). This ensures that all nodes participating in the overlay receive the broadcast ARP Request, since VXLAN has no mechanism to natively broadcast at the underlay level. ARP Replies, being unicast, were encapsulated with the specific physical IP of the responding node as the outer destination.
  
@@ -2132,7 +2246,7 @@ Figure~\ref{fig:arp_request} shows a captured ARP Request and Figure~\ref{fig:ar
 \label{fig:arp_reply}
 \end{figure}
  
-\subsubsection*{ARP Cache}
+\subsubsection{ARP Cache}
  
 After the ping completed, the ARP cache of container \texttt{b1} was inspected using \texttt{arp -n}. The cache contained an entry mapping \texttt{10.0.0.6} to the MAC address of container \texttt{b6}'s network interface, matching exactly the inner Ethernet source address observed in the ARP Reply capture. This confirms that the ARP mechanism operates entirely at the overlay level, with containers unaware of the underlying VXLAN encapsulation.
  
@@ -2145,9 +2259,41 @@ Figure~\ref{fig:arp_cache} shows the ARP cache of container \texttt{b1} after th
 \label{fig:arp_cache}
 \end{figure}
  
-\subsubsection*{VNI Field}
+\subsubsection{VNI Field}
  
 The VXLAN header carries a 24-bit VNI field that identifies the overlay network to which the encapsulated frame belongs. In this exercise, VNI 33 was used for \texttt{bluenet} and VNI 66 for \texttt{rednet}. Upon receiving a VXLAN packet, the destination node uses the VNI to demultiplex the inner frame into the correct overlay network, in the same way that a VLAN tag identifies a broadcast domain on a trunk link. This allows multiple isolated overlay networks to coexist on the same physical infrastructure and share the same UDP port without frames leaking between networks.
+
+%------------------------------------------------------------
+\subsection{Comparison with AI Tool Explanation}
+\label{sec:vxlan_ai}
+%------------------------------------------------------------
+
+The AI tool was asked to explain the role of IGMP and multicast routing in this 
+setup, and to predict how ARP and ICMP packets would be encapsulated across nodes.
+
+The AI correctly described the general role of IGMP: each node signals membership 
+in the multicast group associated with its VXLAN interface, so that ARP broadcasts 
+--- which have no native VXLAN broadcast mechanism --- can be distributed to all 
+VTEP endpoints in the overlay. It also correctly predicted the double-encapsulation 
+structure: inner Ethernet/IP carrying container addresses, outer UDP/IP carrying 
+physical node addresses, with destination port 4789.
+
+Two discrepancies emerged from the experimental results. First, the AI stated that 
+ARP Replies would be sent to the multicast group address, like ARP Requests. The 
+captures in Figures~\ref{fig:arp_request} and~\ref{fig:arp_reply} show otherwise: 
+ARP Replies use a unicast outer destination --- the physical IP of the node hosting 
+the requesting container --- not the multicast group address. This is consistent 
+with the fact that by the time a reply is generated, the responding VTEP already 
+knows the requester's physical address from the incoming ARP Request, making 
+multicast unnecessary.
+
+Second, the AI described VXLAN isolation in general terms but did not explain the 
+specific role of the VNI field in demultiplexing multiple overlay networks sharing 
+the same physical infrastructure and UDP port. As confirmed by the captures, packets 
+between \texttt{bluenet} containers always carry VNI~33 and packets between 
+\texttt{rednet} containers always carry VNI~66, regardless of the physical nodes 
+involved. The VNI is what prevents frames from leaking between the two overlay 
+networks --- analogous to a VLAN tag on a trunk link --- a detail the AI omitted.
 
 \section{Docker Swarm Services}
 

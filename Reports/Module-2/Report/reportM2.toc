@@ -36,62 +36,67 @@
 \contentsline {subsection}{\numberline {4.3}Tunnel Establishment and Connectivity Test}{29}{subsection.4.3}%
 \contentsline {subsection}{\numberline {4.4}Analysis of IKE\_SA\_INIT Exchange}{30}{subsection.4.4}%
 \contentsline {subsection}{\numberline {4.5}SA Deletion and Re-establishment}{33}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}IKEv2 Security Association Rekeying}{33}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.6}IKEv2 Security Association Rekeying}{34}{subsection.4.6}%
 \contentsline {subsection}{\numberline {4.7}IPSec Security Association Rekeying}{36}{subsection.4.7}%
 \contentsline {section}{\numberline {5}DMVPN Phase 3}{38}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Topology}{38}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}DMVPN Phase 3 Configuration}{38}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Role of \texttt {ip summary-address rip}}{38}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}NHRP Redirects and Shortcuts}{39}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Traffic Analysis}{40}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}Wireshark Analysis}{40}{subsection.5.6}%
-\contentsline {subsection}{\numberline {5.7}Role of RIP Split Horizon}{40}{subsection.5.7}%
-\contentsline {subsection}{\numberline {5.8}Comparison Between DMVPN Phases}{40}{subsection.5.8}%
-\contentsline {subsection}{\numberline {5.9}Experimental Validation}{41}{subsection.5.9}%
-\contentsline {subsection}{\numberline {5.10}Comparison Between AI Explanation and Experimental Results}{41}{subsection.5.10}%
+\contentsline {subsection}{\numberline {5.4}Role of RIP Split Horizon}{39}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}OSPF vs RIP at the Public Network}{39}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}NHRP Redirects and Shortcuts}{39}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}Traffic Analysis}{41}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5.8}Comparison Between DMVPN Phases}{41}{subsection.5.8}%
+\contentsline {subsection}{\numberline {5.9}AI Comparison}{41}{subsection.5.9}%
 \contentsline {section}{\numberline {6}VRFs and BGP-MPLS L3VPNs}{41}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Introduction}{41}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Ping Between Sites and Loopback Sourcing}{42}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}PE1 Routing Tables}{42}{subsection.6.3}%
 \contentsline {subsection}{\numberline {6.4}MPLS Labels During Ping Analysis}{44}{subsection.6.4}%
 \contentsline {subsection}{\numberline {6.5}BGP Session Establishment and VPNv4 Route Advertisement}{47}{subsection.6.5}%
-\contentsline {section}{\numberline {7}Connecting network namespaces with IPIP tunnel}{50}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Introduction}{50}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Configuration of the Namespaces and Tunnel}{51}{subsection.7.2}%
-\contentsline {subsubsection}{\numberline {7.2.1}Namespace Configuration}{51}{subsubsection.7.2.1}%
-\contentsline {subsubsection}{\numberline {7.2.2}Physical Interface Configuration}{52}{subsubsection.7.2.2}%
-\contentsline {subsubsection}{\numberline {7.2.3}IPIP Tunnel Configuration}{52}{subsubsection.7.2.3}%
-\contentsline {subsubsection}{\numberline {7.2.4}Routing and IP Forwarding}{53}{subsubsection.7.2.4}%
-\contentsline {subsection}{\numberline {7.3}Verification of Connectivity}{53}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Verification of IPIP Encapsulation}{54}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}Tunnel Verification}{55}{subsection.7.5}%
-\contentsline {section}{\numberline {8}Macvlan Networks with VLAN Isolation}{56}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Introduction}{56}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}VLAN Interface Configuration}{56}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Macvlan Network Configuration}{57}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Container Deployment}{58}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}Verification of Connectivity and Isolation}{59}{subsection.8.5}%
-\contentsline {subsection}{\numberline {8.6}Traffic Analysis}{60}{subsection.8.6}%
-\contentsline {subsection}{\numberline {8.7}Discussion and Limitations}{62}{subsection.8.7}%
-\contentsline {section}{\numberline {9}Linux VXLAN with Multicast Routing}{63}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Introduction}{63}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}VXLAN Interface Configuration}{63}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Docker Network and Container Deployment}{64}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Multicast Routing Configuration}{65}{subsection.9.4}%
-\contentsline {subsection}{\numberline {9.5}Connectivity Verification}{65}{subsection.9.5}%
-\contentsline {subsection}{\numberline {9.6}IGMP Analysis}{66}{subsection.9.6}%
-\contentsline {subsection}{\numberline {9.7}ARP and ICMP Encapsulation Analysis}{67}{subsection.9.7}%
-\contentsline {section}{\numberline {10}Docker Swarm Services}{71}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Introduction}{71}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Service Creation}{71}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}Self-Healing: Single Container Failure}{71}{subsection.10.3}%
-\contentsline {subsection}{\numberline {10.4}Self-Healing: Node Failure}{72}{subsection.10.4}%
-\contentsline {subsection}{\numberline {10.5}Node Recovery and Rebalancing}{73}{subsection.10.5}%
-\contentsline {subsection}{\numberline {10.6}Load Balancing}{74}{subsection.10.6}%
-\contentsline {subsection}{\numberline {10.7}Service Rescaling}{78}{subsection.10.7}%
-\contentsline {subsection}{\numberline {10.8}Container Network Interfaces}{78}{subsection.10.8}%
-\contentsline {subsection}{\numberline {10.9}HTTP Request Path and VXLAN Encapsulation}{80}{subsection.10.9}%
-\contentsline {paragraph}{Container on ub1 (local).}{80}{figure.caption.89}%
-\contentsline {paragraph}{Container on a remote node (ub2 or ub3).}{81}{figure.caption.90}%
-\contentsline {subsection}{\numberline {10.10}Comparison with a Second Service: redsvc}{82}{subsection.10.10}%
-\contentsline {subsection}{\numberline {10.11}Comparison with AI Tool Explanation}{83}{subsection.10.11}%
+\contentsline {section}{\numberline {7}Connecting network namespaces with IPIP tunnel}{51}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Introduction}{51}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Topology}{52}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Configuration of the Namespaces and Tunnel}{52}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}Namespace Configuration}{52}{subsubsection.7.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.2}Physical Interface Configuration}{53}{subsubsection.7.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.3}IPIP Tunnel Configuration}{53}{subsubsection.7.3.3}%
+\contentsline {subsubsection}{\numberline {7.3.4}Routing and IP Forwarding}{54}{subsubsection.7.3.4}%
+\contentsline {subsection}{\numberline {7.4}Verification of Connectivity}{54}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Verification of IPIP Encapsulation}{55}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Tunnel Verification}{56}{subsection.7.6}%
+\contentsline {section}{\numberline {8}Macvlan Networks with VLAN Isolation}{57}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Introduction}{57}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}VLAN Interface Configuration}{57}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Macvlan Network Configuration}{58}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Container Deployment}{59}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Verification of Connectivity and Isolation}{60}{subsection.8.5}%
+\contentsline {subsection}{\numberline {8.6}Traffic Analysis}{61}{subsection.8.6}%
+\contentsline {subsection}{\numberline {8.7}Discussion and Limitations}{63}{subsection.8.7}%
+\contentsline {section}{\numberline {9}Linux VXLAN with Multicast Routing}{64}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Introduction}{64}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}VXLAN Interface Configuration}{64}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Docker Network and Container Deployment}{65}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Multicast Routing Configuration}{66}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}Connectivity Verification}{66}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.6}IGMP Analysis}{67}{subsection.9.6}%
+\contentsline {subsection}{\numberline {9.7}ARP and ICMP Encapsulation Analysis}{68}{subsection.9.7}%
+\contentsline {subsubsection}{\numberline {9.7.1}Packet Encapsulation}{69}{subsubsection.9.7.1}%
+\contentsline {subsubsection}{\numberline {9.7.2}ARP Request and Reply}{70}{subsubsection.9.7.2}%
+\contentsline {subsubsection}{\numberline {9.7.3}ARP Cache}{71}{subsubsection.9.7.3}%
+\contentsline {subsubsection}{\numberline {9.7.4}VNI Field}{71}{subsubsection.9.7.4}%
+\contentsline {subsection}{\numberline {9.8}Comparison with AI Tool Explanation}{72}{subsection.9.8}%
+\contentsline {section}{\numberline {10}Docker Swarm Services}{72}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Introduction}{72}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Service Creation}{72}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Self-Healing: Single Container Failure}{73}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Self-Healing: Node Failure}{74}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}Node Recovery and Rebalancing}{74}{subsection.10.5}%
+\contentsline {subsection}{\numberline {10.6}Load Balancing}{75}{subsection.10.6}%
+\contentsline {subsection}{\numberline {10.7}Service Rescaling}{79}{subsection.10.7}%
+\contentsline {subsection}{\numberline {10.8}Container Network Interfaces}{79}{subsection.10.8}%
+\contentsline {subsection}{\numberline {10.9}HTTP Request Path and VXLAN Encapsulation}{81}{subsection.10.9}%
+\contentsline {paragraph}{Container on ub1 (local).}{81}{figure.caption.90}%
+\contentsline {paragraph}{Container on a remote node (ub2 or ub3).}{82}{figure.caption.91}%
+\contentsline {subsection}{\numberline {10.10}Comparison with a Second Service: redsvc}{83}{subsection.10.10}%
+\contentsline {subsection}{\numberline {10.11}Comparison with AI Tool Explanation}{84}{subsection.10.11}%
