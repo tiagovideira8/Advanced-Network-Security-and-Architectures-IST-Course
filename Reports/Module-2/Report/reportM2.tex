@@ -335,11 +335,10 @@ The output confirmed active inbound and outbound AH Security Associations.
 
 \subsection{Negotiation Failure Analysis}
 
-Different cryptographic parameters were intentionally configured between peers in order to analyze negotiation failures.
-
-Figure~\ref{fig:negotiation_failure} shows repeated Main Mode and Quick Mode negotiations. Since the peers could not agree on compatible IPSec parameters, the Security Associations were not successfully established.
-
-As a result, ICMP communication failed and no encrypted traffic was exchanged through the tunnel.
+To trigger a negotiation failure, the IPSec protocol on R2 was changed from AH 
+to ESP while R1 retained the AH configuration, creating an incompatible 
+transform set. The resulting repeated Main Mode and Quick Mode exchanges are 
+shown in Figure~\ref{fig:negotiation_failure}.
 
 \begin{figure}[H]
     \centering
@@ -347,11 +346,6 @@ As a result, ICMP communication failed and no encrypted traffic was exchanged th
     \caption{Failed IPSec negotiation due to parameter mismatch}
     \label{fig:negotiation_failure}
 \end{figure}
-
-To trigger a negotiation failure, the IPSec protocol on R2 was changed from AH 
-to ESP while R1 retained the AH configuration, creating an incompatible 
-transform set. The resulting repeated Main Mode and Quick Mode exchanges are 
-shown in Figure~\ref{fig:negotiation_failure}.
 
 \subsection{ESP Tunnel Operation}
 
@@ -1094,14 +1088,14 @@ Figure~\ref{fig:ike_auth_content} presents the captured IKEv2 exchange messages.
     \centering
     \includegraphics[width=\textwidth]{../Images/Content of INIT IKEv2.png}
     \caption{Contents of the IKE\_SA\_INIT exchange}
-    \label{fig:ike_auth_content}
+    \label{fig:ikesa_init_overview}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{../Images/IKEv2 INIT payload expanded.png}
     \caption{Content of the payload: Proposal in the IKE\_SA\_INIT packet}
-    \label{fig:ike_auth_content}
+    \label{fig:ikesa_init_proposal}
 \end{figure}
 
 The capture shows the Security Parameter Indexes (SPIs), Security Association proposals, Diffie-Hellman key exchange payloads, and nonce payloads exchanged between both peers.
@@ -1578,7 +1572,7 @@ Figure~\ref{fig:bgp_update} presents the BGP Update message sent by PE2 to PE1 a
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{../Images/BGP update msgs.png}
-    \caption{Messages exchanged}
+    \caption{BGP Update messages exchanged between PE2 and PE1 advertising blue organization prefixes}
     \label{fig:bgp_update}
 \end{figure}
 
@@ -1590,7 +1584,7 @@ numbers above 65535. Both are visible in Figure~\ref{fig:bgp_open_pe1_content}.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{../Images/Content BGP update msg.png}
-    \caption{Contents of the message}
+    \caption{Contents of the BGP Update message, showing MP\_REACH\_NLRI with Route Distinguisher, VPN label, and EXTENDED\_COMMUNITIES with Route Target RT:1:1}
     \label{fig:bgp_update_content}
 \end{figure}
 
@@ -1611,15 +1605,12 @@ isolation primitive underlying Docker containers and other container runtimes.
 
 \subsection{Topology}
 
-Container \texttt{cont0} (VLAN~10, \texttt{20.10.0.10} on \texttt{ub1}) and 
-\texttt{cont2} (VLAN~10, \texttt{20.10.0.11} on \texttt{ub2}) communicate using 
-VLAN ID~10, as confirmed by the \texttt{802.1Q} header in 
-Figure~\ref{fig:vlan10}. Containers \texttt{cont1} and \texttt{cont3} use VLAN 
-ID~20, as shown in Figure~\ref{fig:vlan20}. The two VLANs are isolated at 
-Layer~2 by the switch. Frames tagged with VLAN~10 are never delivered to 
-interfaces associated with VLAN~20.
-
-Figure~\ref{fig:topo_IPIP} shows the topology used.
+Figure~\ref{fig:topo_IPIP} shows the setup used in this exercise. Node \texttt{ub1} 
+hosts namespace \texttt{blue} and node \texttt{ub2} hosts namespace \texttt{red}. 
+Each namespace is connected to its host via a bridge interface and a veth pair. 
+An IPIP tunnel (\texttt{tun0}) is established between the physical interfaces of 
+the two hosts (\texttt{192.168.50.1} and \texttt{192.168.50.2}), and static routes 
+on each host direct namespace traffic through the tunnel.
 
 %\begin{figure}[H]
 %    \centering

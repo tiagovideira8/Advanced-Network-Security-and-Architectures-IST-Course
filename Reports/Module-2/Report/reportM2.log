@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.24)  31 MAY 2026 21:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.24)  31 MAY 2026 21:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -735,11 +735,7 @@ Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 Package: duckuments 2019-10-03 v0.5 minimal working duckuments
 \g_duckuments_blindduck_start_int=\count354
 \g_duckuments_blindduck_end_int=\count355
-) (./reportM2.aux
-
-LaTeX Warning: Label `fig:ike_auth_content' multiply defined.
-
-)
+) (./reportM2.aux)
 \openout1 = `reportM2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 106.
@@ -861,565 +857,568 @@ Package pdftex.def Info: ../Images/8.png  used on input line 313.
 <../Images/10.png, id=630, 813.0375pt x 488.82625pt>
 File: ../Images/10.png Graphic file (type png)
 <use ../Images/10.png>
-Package pdftex.def Info: ../Images/10.png  used on input line 346.
+Package pdftex.def Info: ../Images/10.png  used on input line 345.
 (pdftex.def)             Requested size: 459.51054pt x 276.26938pt.
  [10 <../Images/8.png>]
-<../Images/11.png, id=640, 801.99625pt x 154.5775pt>
+<../Images/11.png, id=639, 801.99625pt x 154.5775pt>
 File: ../Images/11.png Graphic file (type png)
 <use ../Images/11.png>
-Package pdftex.def Info: ../Images/11.png  used on input line 370.
+Package pdftex.def Info: ../Images/11.png  used on input line 364.
 (pdftex.def)             Requested size: 459.51054pt x 88.56766pt.
-<../Images/9.png, id=642, 2055.68pt x 849.1725pt>
+<../Images/9.png, id=641, 2055.68pt x 849.1725pt>
 File: ../Images/9.png Graphic file (type png)
 <use ../Images/9.png>
-Package pdftex.def Info: ../Images/9.png  used on input line 379.
+Package pdftex.def Info: ../Images/9.png  used on input line 373.
 (pdftex.def)             Requested size: 459.51054pt x 189.81166pt.
  [11 <../Images/10.png> <../Images/11.png>] [12{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <../Images/9.png>] [13] [14] [15] [16]
-<../Images/R1-RA_cerificate_exchange.png, id=675, 1681.28125pt x 760.8425pt>
+<../Images/R1-RA_cerificate_exchange.png, id=674, 1681.28125pt x 760.8425pt>
 File: ../Images/R1-RA_cerificate_exchange.png Graphic file (type png)
 <use ../Images/R1-RA_cerificate_exchange.png>
-Package pdftex.def Info: ../Images/R1-RA_cerificate_exchange.png  used on input line 623.
+Package pdftex.def Info: ../Images/R1-RA_cerificate_exchange.png  used on input line 617.
 (pdftex.def)             Requested size: 483.69687pt x 218.88564pt.
-<../Images/R1-RA_PKIOperation.png, id=676, 1559.8275pt x 763.85374pt>
+<../Images/R1-RA_PKIOperation.png, id=675, 1559.8275pt x 763.85374pt>
 File: ../Images/R1-RA_PKIOperation.png Graphic file (type png)
 <use ../Images/R1-RA_PKIOperation.png>
-Package pdftex.def Info: ../Images/R1-RA_PKIOperation.png  used on input line 636.
+Package pdftex.def Info: ../Images/R1-RA_PKIOperation.png  used on input line 630.
 (pdftex.def)             Requested size: 483.69687pt x 236.86214pt.
  [17 <../Images/R1-RA_cerificate_exchange.png>]
-<../Images/R1-RA-certificate-packet.png, id=683, 1559.8275pt x 1015.795pt>
+<../Images/R1-RA-certificate-packet.png, id=682, 1559.8275pt x 1015.795pt>
 File: ../Images/R1-RA-certificate-packet.png Graphic file (type png)
 <use ../Images/R1-RA-certificate-packet.png>
-Package pdftex.def Info: ../Images/R1-RA-certificate-packet.png  used on input line 649.
+Package pdftex.def Info: ../Images/R1-RA-certificate-packet.png  used on input line 643.
 (pdftex.def)             Requested size: 483.69687pt x 314.98619pt.
  [18 <../Images/R1-RA_PKIOperation.png>]
-<../Images/Ping_PCs_ESP.png, id=692, 1003.75pt x 846.16125pt>
+<../Images/Ping_PCs_ESP.png, id=691, 1003.75pt x 846.16125pt>
 File: ../Images/Ping_PCs_ESP.png Graphic file (type png)
 <use ../Images/Ping_PCs_ESP.png>
-Package pdftex.def Info: ../Images/Ping_PCs_ESP.png  used on input line 664.
+Package pdftex.def Info: ../Images/Ping_PCs_ESP.png  used on input line 658.
 (pdftex.def)             Requested size: 483.69687pt x 407.76671pt.
  [19 <../Images/R1-RA-certificate-packet.png>] [20 <../Images/Ping_PCs_ESP.png>]
-<../Images/clear session msgs.png, id=705, 1172.38pt x 839.135pt>
+<../Images/clear session msgs.png, id=704, 1172.38pt x 839.135pt>
 File: ../Images/clear session msgs.png Graphic file (type png)
 <use ../Images/clear session msgs.png>
-Package pdftex.def Info: ../Images/clear session msgs.png  used on input line 700.
+Package pdftex.def Info: ../Images/clear session msgs.png  used on input line 694.
 (pdftex.def)             Requested size: 483.69687pt x 346.19867pt.
  [21 <../Images/clear session msgs.png>] [22]
-<../Images/Restarted nodes screenshot.png, id=716, 1808.7575pt x 860.21375pt>
+<../Images/Restarted nodes screenshot.png, id=715, 1808.7575pt x 860.21375pt>
 File: ../Images/Restarted nodes screenshot.png Graphic file (type png)
 <use ../Images/Restarted nodes screenshot.png>
-Package pdftex.def Info: ../Images/Restarted nodes screenshot.png  used on input line 782.
+Package pdftex.def Info: ../Images/Restarted nodes screenshot.png  used on input line 776.
 (pdftex.def)             Requested size: 483.69687pt x 230.02942pt.
  [23 <../Images/Restarted nodes screenshot.png>]
-<../Images/revoked-scep-traffic.png, id=723, 1879.02pt x 788.9475pt>
+<../Images/revoked-scep-traffic.png, id=722, 1879.02pt x 788.9475pt>
 File: ../Images/revoked-scep-traffic.png Graphic file (type png)
 <use ../Images/revoked-scep-traffic.png>
-Package pdftex.def Info: ../Images/revoked-scep-traffic.png  used on input line 823.
+Package pdftex.def Info: ../Images/revoked-scep-traffic.png  used on input line 817.
 (pdftex.def)             Requested size: 483.69687pt x 203.08702pt.
  [24 <../Images/revoked-scep-traffic.png>]
-<../Images/revoked-isakmp.png, id=731, 1510.64375pt x 886.31125pt>
+<../Images/revoked-isakmp.png, id=730, 1510.64375pt x 886.31125pt>
 File: ../Images/revoked-isakmp.png Graphic file (type png)
 <use ../Images/revoked-isakmp.png>
-Package pdftex.def Info: ../Images/revoked-isakmp.png  used on input line 838.
+Package pdftex.def Info: ../Images/revoked-isakmp.png  used on input line 832.
 (pdftex.def)             Requested size: 483.69687pt x 283.78767pt.
  [25 <../Images/revoked-isakmp.png>] [26] [27]
-<../Images/show crypto ikev2 prop R1.png, id=750, 671.50874pt x 220.825pt>
+<../Images/show crypto ikev2 prop R1.png, id=749, 671.50874pt x 220.825pt>
 File: ../Images/show crypto ikev2 prop R1.png Graphic file (type png)
 <use ../Images/show crypto ikev2 prop R1.png>
-Package pdftex.def Info: ../Images/show crypto ikev2 prop R1.png  used on input line 969.
+Package pdftex.def Info: ../Images/show crypto ikev2 prop R1.png  used on input line 963.
 (pdftex.def)             Requested size: 237.01411pt x 77.94022pt.
-<../Images/show crypto ikev2 prop R2.png, id=751, 671.50874pt x 220.825pt>
+<../Images/show crypto ikev2 prop R2.png, id=750, 671.50874pt x 220.825pt>
 File: ../Images/show crypto ikev2 prop R2.png Graphic file (type png)
 <use ../Images/show crypto ikev2 prop R2.png>
-Package pdftex.def Info: ../Images/show crypto ikev2 prop R2.png  used on input line 975.
+Package pdftex.def Info: ../Images/show crypto ikev2 prop R2.png  used on input line 969.
 (pdftex.def)             Requested size: 237.01411pt x 77.94022pt.
-<../Images/sh crypto policy R1.png, id=752, 339.2675pt x 220.825pt>
+<../Images/sh crypto policy R1.png, id=751, 339.2675pt x 220.825pt>
 File: ../Images/sh crypto policy R1.png Graphic file (type png)
 <use ../Images/sh crypto policy R1.png>
-Package pdftex.def Info: ../Images/sh crypto policy R1.png  used on input line 993.
+Package pdftex.def Info: ../Images/sh crypto policy R1.png  used on input line 987.
 (pdftex.def)             Requested size: 237.01411pt x 154.2698pt.
-<../Images/sh crypto policy R2.png, id=753, 339.2675pt x 220.825pt>
+<../Images/sh crypto policy R2.png, id=752, 339.2675pt x 220.825pt>
 File: ../Images/sh crypto policy R2.png Graphic file (type png)
 <use ../Images/sh crypto policy R2.png>
-Package pdftex.def Info: ../Images/sh crypto policy R2.png  used on input line 999.
+Package pdftex.def Info: ../Images/sh crypto policy R2.png  used on input line 993.
 (pdftex.def)             Requested size: 237.01411pt x 154.2698pt.
-<../Images/sh crypto ipsec profile R1.png, id=754, 642.4pt x 386.44376pt>
+<../Images/sh crypto ipsec profile R1.png, id=753, 642.4pt x 386.44376pt>
 File: ../Images/sh crypto ipsec profile R1.png Graphic file (type png)
 <use ../Images/sh crypto ipsec profile R1.png>
-Package pdftex.def Info: ../Images/sh crypto ipsec profile R1.png  used on input line 1017.
+Package pdftex.def Info: ../Images/sh crypto ipsec profile R1.png  used on input line 1011.
 (pdftex.def)             Requested size: 237.01411pt x 142.57507pt.
-<../Images/sh crypto ipsec profile R2.png, id=755, 642.4pt x 386.44376pt>
+<../Images/sh crypto ipsec profile R2.png, id=754, 642.4pt x 386.44376pt>
 File: ../Images/sh crypto ipsec profile R2.png Graphic file (type png)
 <use ../Images/sh crypto ipsec profile R2.png>
-Package pdftex.def Info: ../Images/sh crypto ipsec profile R2.png  used on input line 1023.
+Package pdftex.def Info: ../Images/sh crypto ipsec profile R2.png  used on input line 1017.
 (pdftex.def)             Requested size: 237.01411pt x 142.57507pt.
-<../Images/sh crypto ipsec sa R1.png, id=756, 804.00375pt x 906.38625pt>
+<../Images/sh crypto ipsec sa R1.png, id=755, 804.00375pt x 906.38625pt>
 File: ../Images/sh crypto ipsec sa R1.png Graphic file (type png)
 <use ../Images/sh crypto ipsec sa R1.png>
-Package pdftex.def Info: ../Images/sh crypto ipsec sa R1.png  used on input line 1041.
+Package pdftex.def Info: ../Images/sh crypto ipsec sa R1.png  used on input line 1035.
 (pdftex.def)             Requested size: 237.01411pt x 267.188pt.
-<../Images/sh crypto ipsec sa R2.png, id=757, 804.00375pt x 906.38625pt>
+<../Images/sh crypto ipsec sa R2.png, id=756, 804.00375pt x 906.38625pt>
 File: ../Images/sh crypto ipsec sa R2.png Graphic file (type png)
 <use ../Images/sh crypto ipsec sa R2.png>
-Package pdftex.def Info: ../Images/sh crypto ipsec sa R2.png  used on input line 1047.
+Package pdftex.def Info: ../Images/sh crypto ipsec sa R2.png  used on input line 1041.
 (pdftex.def)             Requested size: 237.01411pt x 267.188pt.
  [28 <../Images/show crypto ikev2 prop R1.png> <../Images/show crypto ikev2 prop R2.png> <../Images/sh crypto policy R1.png> <../Images/sh crypto policy R2.png> <../Images/sh crypto ipsec profile R1.png> <../Images/sh crypto ipsec profile R2.png>]
-<../Images/ping IKEv2 pc to pc.png, id=773, 955.57pt x 570.13pt>
+<../Images/ping IKEv2 pc to pc.png, id=772, 955.57pt x 570.13pt>
 File: ../Images/ping IKEv2 pc to pc.png Graphic file (type png)
 <use ../Images/ping IKEv2 pc to pc.png>
-Package pdftex.def Info: ../Images/ping IKEv2 pc to pc.png  used on input line 1073.
+Package pdftex.def Info: ../Images/ping IKEv2 pc to pc.png  used on input line 1067.
 (pdftex.def)             Requested size: 338.58632pt x 202.01044pt.
  [29 <../Images/sh crypto ipsec sa R1.png> <../Images/sh crypto ipsec sa R2.png>]
-<../Images/Content of INIT IKEv2.png, id=782, 951.555pt x 849.1725pt>
+
+LaTeX Warning: Reference `fig:ike_auth_content' on page 30 undefined on input line 1085.
+
+<../Images/Content of INIT IKEv2.png, id=780, 951.555pt x 849.1725pt>
 File: ../Images/Content of INIT IKEv2.png Graphic file (type png)
 <use ../Images/Content of INIT IKEv2.png>
-Package pdftex.def Info: ../Images/Content of INIT IKEv2.png  used on input line 1095.
+Package pdftex.def Info: ../Images/Content of INIT IKEv2.png  used on input line 1089.
 (pdftex.def)             Requested size: 483.69687pt x 431.6599pt.
- [30 <../Images/ping IKEv2 pc to pc.png>]
-<../Images/IKEv2 INIT payload expanded.png, id=790, 720.6925pt x 695.59875pt>
+[30 <../Images/ping IKEv2 pc to pc.png>]
+<../Images/IKEv2 INIT payload expanded.png, id=787, 720.6925pt x 695.59875pt>
 File: ../Images/IKEv2 INIT payload expanded.png Graphic file (type png)
 <use ../Images/IKEv2 INIT payload expanded.png>
-Package pdftex.def Info: ../Images/IKEv2 INIT payload expanded.png  used on input line 1102.
+Package pdftex.def Info: ../Images/IKEv2 INIT payload expanded.png  used on input line 1096.
 (pdftex.def)             Requested size: 483.69687pt x 466.85541pt.
  [31 <../Images/Content of INIT IKEv2.png>] [32 <../Images/IKEv2 INIT payload expanded.png>]
 File: ../Images/clear session msgs.png Graphic file (type png)
 <use ../Images/clear session msgs.png>
-Package pdftex.def Info: ../Images/clear session msgs.png  used on input line 1127.
+Package pdftex.def Info: ../Images/clear session msgs.png  used on input line 1121.
 (pdftex.def)             Requested size: 483.69687pt x 346.19867pt.
  [33]
-<../Images/IKEv2 rekeying CHILD SA msg.png, id=809, 1119.18124pt x 560.0925pt>
+<../Images/IKEv2 rekeying CHILD SA msg.png, id=806, 1119.18124pt x 560.0925pt>
 File: ../Images/IKEv2 rekeying CHILD SA msg.png Graphic file (type png)
 <use ../Images/IKEv2 rekeying CHILD SA msg.png>
-Package pdftex.def Info: ../Images/IKEv2 rekeying CHILD SA msg.png  used on input line 1164.
+Package pdftex.def Info: ../Images/IKEv2 rekeying CHILD SA msg.png  used on input line 1158.
 (pdftex.def)             Requested size: 483.69687pt x 242.06575pt.
  [34 <../Images/IKEv2 rekeying CHILD SA msg.png>]
-<../Images/sh crypto detailed evolution.png, id=817, 869.2475pt x 958.58125pt>
+<../Images/sh crypto detailed evolution.png, id=815, 869.2475pt x 958.58125pt>
 File: ../Images/sh crypto detailed evolution.png Graphic file (type png)
 <use ../Images/sh crypto detailed evolution.png>
-Package pdftex.def Info: ../Images/sh crypto detailed evolution.png  used on input line 1177.
+Package pdftex.def Info: ../Images/sh crypto detailed evolution.png  used on input line 1171.
 (pdftex.def)             Requested size: 483.69687pt x 533.42307pt.
  [35 <../Images/sh crypto detailed evolution.png>]
-<../Images/IKEv2 CHILD_SA msg ipsec.png, id=825, 1137.24875pt x 743.77875pt>
+<../Images/IKEv2 CHILD_SA msg ipsec.png, id=823, 1137.24875pt x 743.77875pt>
 File: ../Images/IKEv2 CHILD_SA msg ipsec.png Graphic file (type png)
 <use ../Images/IKEv2 CHILD_SA msg ipsec.png>
-Package pdftex.def Info: ../Images/IKEv2 CHILD_SA msg ipsec.png  used on input line 1201.
+Package pdftex.def Info: ../Images/IKEv2 CHILD_SA msg ipsec.png  used on input line 1195.
 (pdftex.def)             Requested size: 483.69687pt x 316.3458pt.
-<../Images/IKEv2 ipsec before rekeying.png, id=827, 798.985pt x 894.34125pt>
+<../Images/IKEv2 ipsec before rekeying.png, id=825, 798.985pt x 894.34125pt>
 File: ../Images/IKEv2 ipsec before rekeying.png Graphic file (type png)
 <use ../Images/IKEv2 ipsec before rekeying.png>
-Package pdftex.def Info: ../Images/IKEv2 ipsec before rekeying.png  used on input line 1215.
+Package pdftex.def Info: ../Images/IKEv2 ipsec before rekeying.png  used on input line 1209.
 (pdftex.def)             Requested size: 237.01411pt x 265.3022pt.
-<../Images/IKEv2 ipsec after rekeying.png, id=828, 801.99625pt x 906.38625pt>
+<../Images/IKEv2 ipsec after rekeying.png, id=826, 801.99625pt x 906.38625pt>
 File: ../Images/IKEv2 ipsec after rekeying.png Graphic file (type png)
 <use ../Images/IKEv2 ipsec after rekeying.png>
-Package pdftex.def Info: ../Images/IKEv2 ipsec after rekeying.png  used on input line 1221.
+Package pdftex.def Info: ../Images/IKEv2 ipsec after rekeying.png  used on input line 1215.
 (pdftex.def)             Requested size: 237.01411pt x 267.86568pt.
  [36 <../Images/IKEv2 CHILD_SA msg ipsec.png>] [37 <../Images/IKEv2 ipsec before rekeying.png> <../Images/IKEv2 ipsec after rekeying.png>]
-<../Images/topoly_DMVPN.png, id=844, 764.8575pt x 570.13pt>
+<../Images/topoly_DMVPN.png, id=842, 764.8575pt x 570.13pt>
 File: ../Images/topoly_DMVPN.png Graphic file (type png)
 <use ../Images/topoly_DMVPN.png>
-Package pdftex.def Info: ../Images/topoly_DMVPN.png  used on input line 1255.
+Package pdftex.def Info: ../Images/topoly_DMVPN.png  used on input line 1249.
 (pdftex.def)             Requested size: 290.22107pt x 216.32977pt.
-<../Images/iprouterip_R2.png, id=846, 874.26625pt x 425.59pt>
+<../Images/iprouterip_R2.png, id=844, 874.26625pt x 425.59pt>
 File: ../Images/iprouterip_R2.png Graphic file (type png)
 <use ../Images/iprouterip_R2.png>
-Package pdftex.def Info: ../Images/iprouterip_R2.png  used on input line 1281.
+Package pdftex.def Info: ../Images/iprouterip_R2.png  used on input line 1275.
 (pdftex.def)             Requested size: 411.14528pt x 200.14421pt.
  [38 <../Images/topoly_DMVPN.png>] [39 <../Images/iprouterip_R2.png>]
-<../Images/trafficindic_wire.png, id=861, 1136.245pt x 125.46875pt>
+<../Images/trafficindic_wire.png, id=859, 1136.245pt x 125.46875pt>
 File: ../Images/trafficindic_wire.png Graphic file (type png)
 <use ../Images/trafficindic_wire.png>
-Package pdftex.def Info: ../Images/trafficindic_wire.png  used on input line 1330.
+Package pdftex.def Info: ../Images/trafficindic_wire.png  used on input line 1324.
 (pdftex.def)             Requested size: 435.32422pt x 48.07108pt.
-<../Images/wire2.png, id=864, 1535.7375pt x 149.55875pt>
+<../Images/wire2.png, id=862, 1535.7375pt x 149.55875pt>
 File: ../Images/wire2.png Graphic file (type png)
 <use ../Images/wire2.png>
-Package pdftex.def Info: ../Images/wire2.png  used on input line 1343.
+Package pdftex.def Info: ../Images/wire2.png  used on input line 1337.
 (pdftex.def)             Requested size: 435.32422pt x 42.3942pt.
-<../Images/sh_dmvpnR2.png, id=865, 852.18375pt x 417.56pt>
+<../Images/sh_dmvpnR2.png, id=863, 852.18375pt x 417.56pt>
 File: ../Images/sh_dmvpnR2.png Graphic file (type png)
 <use ../Images/sh_dmvpnR2.png>
-Package pdftex.def Info: ../Images/sh_dmvpnR2.png  used on input line 1350.
+Package pdftex.def Info: ../Images/sh_dmvpnR2.png  used on input line 1344.
 (pdftex.def)             Requested size: 362.77264pt x 177.75691pt.
-<../Images/tracePC2_PC3.png, id=867, 889.3225pt x 149.55875pt>
+<../Images/tracePC2_PC3.png, id=865, 889.3225pt x 149.55875pt>
 File: ../Images/tracePC2_PC3.png Graphic file (type png)
 <use ../Images/tracePC2_PC3.png>
-Package pdftex.def Info: ../Images/tracePC2_PC3.png  used on input line 1364.
+Package pdftex.def Info: ../Images/tracePC2_PC3.png  used on input line 1358.
 (pdftex.def)             Requested size: 362.77264pt x 61.00684pt.
  [40 <../Images/trafficindic_wire.png> <../Images/wire2.png> <../Images/sh_dmvpnR2.png>] [41 <../Images/tracePC2_PC3.png>]
-<../Images/Ping Blue client vpn.png, id=886, 649.42625pt x 146.5475pt>
+<../Images/Ping Blue client vpn.png, id=884, 649.42625pt x 146.5475pt>
 File: ../Images/Ping Blue client vpn.png Graphic file (type png)
 <use ../Images/Ping Blue client vpn.png>
-Package pdftex.def Info: ../Images/Ping Blue client vpn.png  used on input line 1415.
+Package pdftex.def Info: ../Images/Ping Blue client vpn.png  used on input line 1409.
 (pdftex.def)             Requested size: 483.69687pt x 109.15228pt.
-<../Images/Ping Red client vpn.png, id=887, 649.42625pt x 146.5475pt>
+<../Images/Ping Red client vpn.png, id=885, 649.42625pt x 146.5475pt>
 File: ../Images/Ping Red client vpn.png Graphic file (type png)
 <use ../Images/Ping Red client vpn.png>
-Package pdftex.def Info: ../Images/Ping Red client vpn.png  used on input line 1422.
+Package pdftex.def Info: ../Images/Ping Red client vpn.png  used on input line 1416.
 (pdftex.def)             Requested size: 483.69687pt x 109.15228pt.
-<../Images/PE1 routing table.png, id=891, 719.68875pt x 385.44pt>
+<../Images/PE1 routing table.png, id=889, 719.68875pt x 385.44pt>
 File: ../Images/PE1 routing table.png Graphic file (type png)
 <use ../Images/PE1 routing table.png>
-Package pdftex.def Info: ../Images/PE1 routing table.png  used on input line 1435.
+Package pdftex.def Info: ../Images/PE1 routing table.png  used on input line 1429.
 (pdftex.def)             Requested size: 483.69687pt x 259.06096pt.
  [42 <../Images/Ping Blue client vpn.png> <../Images/Ping Red client vpn.png>]
-<../Images/Blue vrf routing table PE1.png, id=904, 719.68875pt x 366.36874pt>
+<../Images/Blue vrf routing table PE1.png, id=902, 719.68875pt x 366.36874pt>
 File: ../Images/Blue vrf routing table PE1.png Graphic file (type png)
 <use ../Images/Blue vrf routing table PE1.png>
-Package pdftex.def Info: ../Images/Blue vrf routing table PE1.png  used on input line 1444.
+Package pdftex.def Info: ../Images/Blue vrf routing table PE1.png  used on input line 1438.
 (pdftex.def)             Requested size: 483.69687pt x 246.24283pt.
-<../Images/Red vrf routing table PE1.png, id=905, 719.68875pt x 365.365pt>
+<../Images/Red vrf routing table PE1.png, id=903, 719.68875pt x 365.365pt>
 File: ../Images/Red vrf routing table PE1.png Graphic file (type png)
 <use ../Images/Red vrf routing table PE1.png>
-Package pdftex.def Info: ../Images/Red vrf routing table PE1.png  used on input line 1451.
+Package pdftex.def Info: ../Images/Red vrf routing table PE1.png  used on input line 1445.
 (pdftex.def)             Requested size: 483.69687pt x 245.5682pt.
  [43 <../Images/PE1 routing table.png> <../Images/Blue vrf routing table PE1.png>]
-Overfull \hbox (30.25896pt too wide) in paragraph at lines 1456--1457
+Overfull \hbox (30.25896pt too wide) in paragraph at lines 1450--1451
 \OT1/cmr/m/n/12 try for \OT1/cmtt/m/n/12 10.10.1.0/24 \OT1/cmr/m/n/12 cor-re-sponds to the PE1--Blue1 seg-ment. The static route for \OT1/cmtt/m/n/12 192.168.101.0/24
  []
 
-<../Images/MPLS 2 labels ping Blue.png, id=914, 1357.07pt x 524.96124pt>
+<../Images/MPLS 2 labels ping Blue.png, id=912, 1357.07pt x 524.96124pt>
 File: ../Images/MPLS 2 labels ping Blue.png Graphic file (type png)
 <use ../Images/MPLS 2 labels ping Blue.png>
-Package pdftex.def Info: ../Images/MPLS 2 labels ping Blue.png  used on input line 1469.
+Package pdftex.def Info: ../Images/MPLS 2 labels ping Blue.png  used on input line 1463.
 (pdftex.def)             Requested size: 483.69687pt x 187.10349pt.
 [44 <../Images/Red vrf routing table PE1.png>]
-<../Images/MPLS 1 label ping Blue.png, id=922, 1357.07pt x 425.59pt>
+<../Images/MPLS 1 label ping Blue.png, id=920, 1357.07pt x 425.59pt>
 File: ../Images/MPLS 1 label ping Blue.png Graphic file (type png)
 <use ../Images/MPLS 1 label ping Blue.png>
-Package pdftex.def Info: ../Images/MPLS 1 label ping Blue.png  used on input line 1476.
+Package pdftex.def Info: ../Images/MPLS 1 label ping Blue.png  used on input line 1470.
 (pdftex.def)             Requested size: 483.69687pt x 151.68619pt.
-<../Images/BGP vpnv4 vrf blue 192.168.102.0.png, id=924, 713.66624pt x 188.705pt>
+<../Images/BGP vpnv4 vrf blue 192.168.102.0.png, id=922, 713.66624pt x 188.705pt>
 File: ../Images/BGP vpnv4 vrf blue 192.168.102.0.png Graphic file (type png)
 <use ../Images/BGP vpnv4 vrf blue 192.168.102.0.png>
-Package pdftex.def Info: ../Images/BGP vpnv4 vrf blue 192.168.102.0.png  used on input line 1501.
+Package pdftex.def Info: ../Images/BGP vpnv4 vrf blue 192.168.102.0.png  used on input line 1495.
 (pdftex.def)             Requested size: 483.69687pt x 127.8973pt.
  [45 <../Images/MPLS 2 labels ping Blue.png> <../Images/MPLS 1 label ping Blue.png>]
-<../Images/MPLS PE1 forwarding table.png, id=933, 713.66624pt x 188.705pt>
+<../Images/MPLS PE1 forwarding table.png, id=931, 713.66624pt x 188.705pt>
 File: ../Images/MPLS PE1 forwarding table.png Graphic file (type png)
 <use ../Images/MPLS PE1 forwarding table.png>
-Package pdftex.def Info: ../Images/MPLS PE1 forwarding table.png  used on input line 1516.
+Package pdftex.def Info: ../Images/MPLS PE1 forwarding table.png  used on input line 1510.
 (pdftex.def)             Requested size: 483.69687pt x 127.8973pt.
-<../Images/MPLS PE2 forwarding table.png, id=934, 713.66624pt x 188.705pt>
+<../Images/MPLS PE2 forwarding table.png, id=932, 713.66624pt x 188.705pt>
 File: ../Images/MPLS PE2 forwarding table.png Graphic file (type png)
 <use ../Images/MPLS PE2 forwarding table.png>
-Package pdftex.def Info: ../Images/MPLS PE2 forwarding table.png  used on input line 1523.
+Package pdftex.def Info: ../Images/MPLS PE2 forwarding table.png  used on input line 1517.
 (pdftex.def)             Requested size: 483.69687pt x 127.8973pt.
  [46 <../Images/BGP vpnv4 vrf blue 192.168.102.0.png> <../Images/MPLS PE1 forwarding table.png> <../Images/MPLS PE2 forwarding table.png>]
-<../Images/BGP open msgs.png, id=947, 1316.92pt x 835.12pt>
+<../Images/BGP open msgs.png, id=945, 1316.92pt x 835.12pt>
 File: ../Images/BGP open msgs.png Graphic file (type png)
 <use ../Images/BGP open msgs.png>
-Package pdftex.def Info: ../Images/BGP open msgs.png  used on input line 1561.
+Package pdftex.def Info: ../Images/BGP open msgs.png  used on input line 1555.
 (pdftex.def)             Requested size: 483.69687pt x 306.73407pt.
  [47]
-<../Images/Contents BGP open msg.png, id=954, 959.585pt x 826.08624pt>
+<../Images/Contents BGP open msg.png, id=952, 959.585pt x 826.08624pt>
 File: ../Images/Contents BGP open msg.png Graphic file (type png)
 <use ../Images/Contents BGP open msg.png>
-Package pdftex.def Info: ../Images/Contents BGP open msg.png  used on input line 1569.
+Package pdftex.def Info: ../Images/Contents BGP open msg.png  used on input line 1563.
 (pdftex.def)             Requested size: 483.69687pt x 416.40764pt.
  [48 <../Images/BGP open msgs.png>]
-<../Images/BGP update msgs.png, id=963, 1316.92pt x 835.12pt>
+<../Images/BGP update msgs.png, id=961, 1316.92pt x 835.12pt>
 File: ../Images/BGP update msgs.png Graphic file (type png)
 <use ../Images/BGP update msgs.png>
-Package pdftex.def Info: ../Images/BGP update msgs.png  used on input line 1580.
+Package pdftex.def Info: ../Images/BGP update msgs.png  used on input line 1574.
 (pdftex.def)             Requested size: 483.69687pt x 306.73407pt.
  [49 <../Images/Contents BGP open msg.png>]
-<../Images/Content BGP update msg.png, id=973, 1316.92pt x 745.78625pt>
+<../Images/Content BGP update msg.png, id=971, 1316.92pt x 745.78625pt>
 File: ../Images/Content BGP update msg.png Graphic file (type png)
 <use ../Images/Content BGP update msg.png>
-Package pdftex.def Info: ../Images/Content BGP update msg.png  used on input line 1592.
+Package pdftex.def Info: ../Images/Content BGP update msg.png  used on input line 1586.
 (pdftex.def)             Requested size: 483.69687pt x 273.92238pt.
  [50 <../Images/BGP update msgs.png>] [51 <../Images/Content BGP update msg.png>]
 
-LaTeX Warning: Reference `fig:topo_IPIP' on page 52 undefined on input line 1622.
+LaTeX Warning: Reference `fig:topo_IPIP' on page 52 undefined on input line 1608.
 
 [52] [53]
-<../Images/ping from ub1 to ub2.png, id=997, 626.34pt x 212.795pt>
+<../Images/ping from ub1 to ub2.png, id=991, 626.34pt x 212.795pt>
 File: ../Images/ping from ub1 to ub2.png Graphic file (type png)
 <use ../Images/ping from ub1 to ub2.png>
-Package pdftex.def Info: ../Images/ping from ub1 to ub2.png  used on input line 1774.
+Package pdftex.def Info: ../Images/ping from ub1 to ub2.png  used on input line 1765.
 (pdftex.def)             Requested size: 435.32422pt x 147.90344pt.
  [54]
-<../Images/ip route & ip link ub2.png, id=1005, 1204.5pt x 349.305pt>
+<../Images/ip route & ip link ub2.png, id=999, 1204.5pt x 349.305pt>
 File: ../Images/ip route & ip link ub2.png Graphic file (type png)
 <use ../Images/ip route & ip link ub2.png>
-Package pdftex.def Info: ../Images/ip route & ip link ub2.png  used on input line 1785.
+Package pdftex.def Info: ../Images/ip route & ip link ub2.png  used on input line 1776.
 (pdftex.def)             Requested size: 435.32422pt x 126.24538pt.
-<../Images/IPIP tunnel ping.png, id=1007, 1134.2375pt x 878.28125pt>
+<../Images/IPIP tunnel ping.png, id=1001, 1134.2375pt x 878.28125pt>
 File: ../Images/IPIP tunnel ping.png Graphic file (type png)
 <use ../Images/IPIP tunnel ping.png>
-Package pdftex.def Info: ../Images/IPIP tunnel ping.png  used on input line 1807.
+Package pdftex.def Info: ../Images/IPIP tunnel ping.png  used on input line 1798.
 (pdftex.def)             Requested size: 459.51054pt x 355.80917pt.
  [55 <../Images/ping from ub1 to ub2.png> <../Images/ip route & ip link ub2.png>]
-<../Images/tunnel show in ub2.png, id=1017, 626.34pt x 60.225pt>
+<../Images/tunnel show in ub2.png, id=1011, 626.34pt x 60.225pt>
 File: ../Images/tunnel show in ub2.png Graphic file (type png)
 <use ../Images/tunnel show in ub2.png>
-Package pdftex.def Info: ../Images/tunnel show in ub2.png  used on input line 1826.
+Package pdftex.def Info: ../Images/tunnel show in ub2.png  used on input line 1817.
 (pdftex.def)             Requested size: 411.14528pt x 39.53448pt.
  [56 <../Images/IPIP tunnel ping.png> <../Images/tunnel show in ub2.png>]
-<../Images/ip a ub1 cont VLAN.png, id=1026, 967.615pt x 491.8375pt>
+<../Images/ip a ub1 cont VLAN.png, id=1020, 967.615pt x 491.8375pt>
 File: ../Images/ip a ub1 cont VLAN.png Graphic file (type png)
 <use ../Images/ip a ub1 cont VLAN.png>
-Package pdftex.def Info: ../Images/ip a ub1 cont VLAN.png  used on input line 1872.
+Package pdftex.def Info: ../Images/ip a ub1 cont VLAN.png  used on input line 1863.
 (pdftex.def)             Requested size: 435.32422pt x 221.2723pt.
  [57]
-<../Images/docker network ls ub1 cont VLAN.png, id=1033, 596.2275pt x 95.35625pt>
+<../Images/docker network ls ub1 cont VLAN.png, id=1027, 596.2275pt x 95.35625pt>
 File: ../Images/docker network ls ub1 cont VLAN.png Graphic file (type png)
 <use ../Images/docker network ls ub1 cont VLAN.png>
-Package pdftex.def Info: ../Images/docker network ls ub1 cont VLAN.png  used on input line 1899.
+Package pdftex.def Info: ../Images/docker network ls ub1 cont VLAN.png  used on input line 1890.
 (pdftex.def)             Requested size: 386.95897pt x 61.8877pt.
-<../Images/inspect mynet10 ub1 cont VLAN.png, id=1035, 771.88374pt x 800.9925pt>
+<../Images/inspect mynet10 ub1 cont VLAN.png, id=1029, 771.88374pt x 800.9925pt>
 File: ../Images/inspect mynet10 ub1 cont VLAN.png Graphic file (type png)
 <use ../Images/inspect mynet10 ub1 cont VLAN.png>
-Package pdftex.def Info: ../Images/inspect mynet10 ub1 cont VLAN.png  used on input line 1910.
+Package pdftex.def Info: ../Images/inspect mynet10 ub1 cont VLAN.png  used on input line 1901.
 (pdftex.def)             Requested size: 459.51054pt x 476.83478pt.
  [58 <../Images/ip a ub1 cont VLAN.png> <../Images/docker network ls ub1 cont VLAN.png>] [59 <../Images/inspect mynet10 ub1 cont VLAN.png>]
-<../Images/docker ps ub1 cont VLAN.png, id=1050, 771.88374pt x 94.3525pt>
+<../Images/docker ps ub1 cont VLAN.png, id=1044, 771.88374pt x 94.3525pt>
 File: ../Images/docker ps ub1 cont VLAN.png Graphic file (type png)
 <use ../Images/docker ps ub1 cont VLAN.png>
-Package pdftex.def Info: ../Images/docker ps ub1 cont VLAN.png  used on input line 1945.
+Package pdftex.def Info: ../Images/docker ps ub1 cont VLAN.png  used on input line 1936.
 (pdftex.def)             Requested size: 411.14528pt x 50.25708pt.
-<../Images/pings between containers VLAN.png, id=1052, 622.325pt x 352.31625pt>
+<../Images/pings between containers VLAN.png, id=1046, 622.325pt x 352.31625pt>
 File: ../Images/pings between containers VLAN.png Graphic file (type png)
 <use ../Images/pings between containers VLAN.png>
-Package pdftex.def Info: ../Images/pings between containers VLAN.png  used on input line 1988.
+Package pdftex.def Info: ../Images/pings between containers VLAN.png  used on input line 1979.
 (pdftex.def)             Requested size: 459.51054pt x 260.14546pt.
  [60 <../Images/docker ps ub1 cont VLAN.png>]
-<../Images/VLAN 802.1Q id 10.png, id=1063, 822.07124pt x 647.41875pt>
+<../Images/VLAN 802.1Q id 10.png, id=1057, 822.07124pt x 647.41875pt>
 File: ../Images/VLAN 802.1Q id 10.png Graphic file (type png)
 <use ../Images/VLAN 802.1Q id 10.png>
-Package pdftex.def Info: ../Images/VLAN 802.1Q id 10.png  used on input line 2005.
+Package pdftex.def Info: ../Images/VLAN 802.1Q id 10.png  used on input line 1996.
 (pdftex.def)             Requested size: 459.51054pt x 361.88026pt.
  [61 <../Images/pings between containers VLAN.png>]
-<../Images/VLAN 802.1Q id 20.png, id=1069, 822.07124pt x 647.41875pt>
+<../Images/VLAN 802.1Q id 20.png, id=1065, 822.07124pt x 647.41875pt>
 File: ../Images/VLAN 802.1Q id 20.png Graphic file (type png)
 <use ../Images/VLAN 802.1Q id 20.png>
-Package pdftex.def Info: ../Images/VLAN 802.1Q id 20.png  used on input line 2012.
+Package pdftex.def Info: ../Images/VLAN 802.1Q id 20.png  used on input line 2003.
 (pdftex.def)             Requested size: 459.51054pt x 361.88026pt.
  [62 <../Images/VLAN 802.1Q id 10.png>] [63 <../Images/VLAN 802.1Q id 20.png>]
-Overfull \hbox (10.27484pt too wide) in paragraph at lines 2039--2040
+Overfull \hbox (10.27484pt too wide) in paragraph at lines 2030--2031
 []\OT1/cmtt/m/n/12 rednet\OT1/cmr/m/n/12 , us-ing sub-net \OT1/cmtt/m/n/12 11.0.0.0/24 \OT1/cmr/m/n/12 and VNI 66, as-so-ci-ated with mul-ti-cast group \OT1/cmtt/m/n/12 239.1.1.6\OT1/cmr/m/n/12 . 
  []
 
 [64]
-<../Images/vxlan interfaces ub1.png, id=1088, 958.58125pt x 149.55875pt>
+<../Images/vxlan interfaces ub1.png, id=1084, 958.58125pt x 149.55875pt>
 File: ../Images/vxlan interfaces ub1.png Graphic file (type png)
 <use ../Images/vxlan interfaces ub1.png>
-Package pdftex.def Info: ../Images/vxlan interfaces ub1.png  used on input line 2090.
+Package pdftex.def Info: ../Images/vxlan interfaces ub1.png  used on input line 2081.
 (pdftex.def)             Requested size: 435.32422pt x 67.91925pt.
 
-Overfull \hbox (16.47838pt too wide) in paragraph at lines 2112--2112
+Overfull \hbox (16.47838pt too wide) in paragraph at lines 2103--2103
 []\OT1/cmtt/m/n/12 docker run --privileged --net=bluenet --name=b1 --ip=10.0.0.1 -itd alpine /bin/sh 
  []
 
 
-Overfull \hbox (16.47838pt too wide) in paragraph at lines 2113--2113
+Overfull \hbox (16.47838pt too wide) in paragraph at lines 2104--2104
 []\OT1/cmtt/m/n/12 docker run --privileged --net=bluenet --name=b2 --ip=10.0.0.2 -itd alpine /bin/sh[] 
  []
 
 
-Overfull \hbox (16.47838pt too wide) in paragraph at lines 2114--2114
+Overfull \hbox (16.47838pt too wide) in paragraph at lines 2105--2105
 []\OT1/cmtt/m/n/12 docker run --privileged --net=rednet  --name=r1 --ip=11.0.0.1 -itd alpine /bin/sh[] 
  []
 
 
-Overfull \hbox (16.47838pt too wide) in paragraph at lines 2115--2115
+Overfull \hbox (16.47838pt too wide) in paragraph at lines 2106--2106
 []\OT1/cmtt/m/n/12 docker run --privileged --net=rednet  --name=r2 --ip=11.0.0.2 -itd alpine /bin/sh[] 
  []
 
-<../Images/docker network ls ub1.png, id=1091, 637.38126pt x 79.29625pt>
+<../Images/docker network ls ub1.png, id=1087, 637.38126pt x 79.29625pt>
 File: ../Images/docker network ls ub1.png Graphic file (type png)
 <use ../Images/docker network ls ub1.png>
-Package pdftex.def Info: ../Images/docker network ls ub1.png  used on input line 2124.
+Package pdftex.def Info: ../Images/docker network ls ub1.png  used on input line 2115.
 (pdftex.def)             Requested size: 386.95897pt x 48.14073pt.
 [65 <../Images/vxlan interfaces ub1.png>]
-<../Images/docker container ls ub1.png, id=1100, 810.02625pt x 130.4875pt>
+<../Images/docker container ls ub1.png, id=1096, 810.02625pt x 130.4875pt>
 File: ../Images/docker container ls ub1.png Graphic file (type png)
 <use ../Images/docker container ls ub1.png>
-Package pdftex.def Info: ../Images/docker container ls ub1.png  used on input line 2131.
+Package pdftex.def Info: ../Images/docker container ls ub1.png  used on input line 2122.
 (pdftex.def)             Requested size: 386.95897pt x 62.33661pt.
-<../Images/ping results ub1 VXLAN.png, id=1102, 644.4075pt x 732.7375pt>
+<../Images/ping results ub1 VXLAN.png, id=1098, 644.4075pt x 732.7375pt>
 File: ../Images/ping results ub1 VXLAN.png Graphic file (type png)
 <use ../Images/ping results ub1 VXLAN.png>
-Package pdftex.def Info: ../Images/ping results ub1 VXLAN.png  used on input line 2171.
+Package pdftex.def Info: ../Images/ping results ub1 VXLAN.png  used on input line 2162.
 (pdftex.def)             Requested size: 435.32422pt x 495.01253pt.
  [66 <../Images/docker network ls ub1.png> <../Images/docker container ls ub1.png>] [67 <../Images/ping results ub1 VXLAN.png>]
-<../Images/igmp groups r1.png, id=1117, 859.21pt x 135.50626pt>
+<../Images/igmp groups r1.png, id=1113, 859.21pt x 135.50626pt>
 File: ../Images/igmp groups r1.png Graphic file (type png)
 <use ../Images/igmp groups r1.png>
-Package pdftex.def Info: ../Images/igmp groups r1.png  used on input line 2186.
+Package pdftex.def Info: ../Images/igmp groups r1.png  used on input line 2177.
 (pdftex.def)             Requested size: 411.14528pt x 64.84169pt.
-<../Images/membership report multicast R1-ub3.png, id=1119, 1133.23375pt x 766.865pt>
+<../Images/membership report multicast R1-ub3.png, id=1115, 1133.23375pt x 766.865pt>
 File: ../Images/membership report multicast R1-ub3.png Graphic file (type png)
 <use ../Images/membership report multicast R1-ub3.png>
-Package pdftex.def Info: ../Images/membership report multicast R1-ub3.png  used on input line 2197.
+Package pdftex.def Info: ../Images/membership report multicast R1-ub3.png  used on input line 2188.
 (pdftex.def)             Requested size: 459.51054pt x 310.95308pt.
  [68 <../Images/igmp groups r1.png> <../Images/membership report multicast R1-ub3.png>]
-Overfull \hbox (0.16911pt too wide) in paragraph at lines 2216--2217
+Overfull \hbox (0.16911pt too wide) in paragraph at lines 2207--2208
 []\OT1/cmr/m/n/12 The in-ner IP header con-tained the con-tainer source and des-ti-na-tion ad-dresses (e.g. \OT1/cmtt/m/n/12 10.0.0.1
  []
 
-<../Images/icmp encapsulation VXLAN.png, id=1129, 954.56625pt x 773.89125pt>
+<../Images/icmp encapsulation VXLAN.png, id=1125, 954.56625pt x 773.89125pt>
 File: ../Images/icmp encapsulation VXLAN.png Graphic file (type png)
 <use ../Images/icmp encapsulation VXLAN.png>
-Package pdftex.def Info: ../Images/icmp encapsulation VXLAN.png  used on input line 2222.
+Package pdftex.def Info: ../Images/icmp encapsulation VXLAN.png  used on input line 2213.
 (pdftex.def)             Requested size: 459.51054pt x 372.52635pt.
 [69 <../Images/icmp encapsulation VXLAN.png>]
-<../Images/arp request VXLAN.png, id=1138, 1173.38374pt x 888.31876pt>
+<../Images/arp request VXLAN.png, id=1134, 1173.38374pt x 888.31876pt>
 File: ../Images/arp request VXLAN.png Graphic file (type png)
 <use ../Images/arp request VXLAN.png>
-Package pdftex.def Info: ../Images/arp request VXLAN.png  used on input line 2237.
+Package pdftex.def Info: ../Images/arp request VXLAN.png  used on input line 2228.
 (pdftex.def)             Requested size: 459.51054pt x 347.86615pt.
-<../Images/arp reply VXLAN.png, id=1139, 1147.28625pt x 739.76375pt>
+<../Images/arp reply VXLAN.png, id=1135, 1147.28625pt x 739.76375pt>
 File: ../Images/arp reply VXLAN.png Graphic file (type png)
 <use ../Images/arp reply VXLAN.png>
-Package pdftex.def Info: ../Images/arp reply VXLAN.png  used on input line 2244.
+Package pdftex.def Info: ../Images/arp reply VXLAN.png  used on input line 2235.
 (pdftex.def)             Requested size: 459.51054pt x 296.28404pt.
  [70 <../Images/arp request VXLAN.png>]
-<../Images/arp cache in ub1 b1.png, id=1148, 545.03625pt x 96.36pt>
+<../Images/arp cache in ub1 b1.png, id=1144, 545.03625pt x 96.36pt>
 File: ../Images/arp cache in ub1 b1.png Graphic file (type png)
 <use ../Images/arp cache in ub1 b1.png>
-Package pdftex.def Info: ../Images/arp cache in ub1 b1.png  used on input line 2257.
+Package pdftex.def Info: ../Images/arp cache in ub1 b1.png  used on input line 2248.
 (pdftex.def)             Requested size: 362.77264pt x 64.13591pt.
  [71 <../Images/arp reply VXLAN.png> <../Images/arp cache in ub1 b1.png>] [72]
-<../Images/docker node ls ub1 dswarm.png, id=1164, 903.375pt x 110.4125pt>
+<../Images/docker node ls ub1 dswarm.png, id=1160, 903.375pt x 110.4125pt>
 File: ../Images/docker node ls ub1 dswarm.png Graphic file (type png)
 <use ../Images/docker node ls ub1 dswarm.png>
-Package pdftex.def Info: ../Images/docker node ls ub1 dswarm.png  used on input line 2317.
+Package pdftex.def Info: ../Images/docker node ls ub1 dswarm.png  used on input line 2308.
 (pdftex.def)             Requested size: 507.88318pt x 62.07654pt.
 
-Overfull \hbox (24.18631pt too wide) in paragraph at lines 2317--2318
+Overfull \hbox (24.18631pt too wide) in paragraph at lines 2308--2309
  [][] 
  []
 
-<../Images/docker service ps bluesvc after shut ub1.png, id=1166, 1350.04375pt x 165.61874pt>
+<../Images/docker service ps bluesvc after shut ub1.png, id=1162, 1350.04375pt x 165.61874pt>
 File: ../Images/docker service ps bluesvc after shut ub1.png Graphic file (type png)
 <use ../Images/docker service ps bluesvc after shut ub1.png>
-Package pdftex.def Info: ../Images/docker service ps bluesvc after shut ub1.png  used on input line 2336.
+Package pdftex.def Info: ../Images/docker service ps bluesvc after shut ub1.png  used on input line 2327.
 (pdftex.def)             Requested size: 507.88318pt x 62.30399pt.
 
-Overfull \hbox (24.18631pt too wide) in paragraph at lines 2336--2337
+Overfull \hbox (24.18631pt too wide) in paragraph at lines 2327--2328
  [][] 
  []
 
-<../Images/docker service ps bluesvc after restart still shut.png, id=1168, 1378.14874pt x 162.6075pt>
+<../Images/docker service ps bluesvc after restart still shut.png, id=1164, 1378.14874pt x 162.6075pt>
 File: ../Images/docker service ps bluesvc after restart still shut.png Graphic file (type png)
 <use ../Images/docker service ps bluesvc after restart still shut.png>
-Package pdftex.def Info: ../Images/docker service ps bluesvc after restart still shut.png  used on input line 2347.
+Package pdftex.def Info: ../Images/docker service ps bluesvc after restart still shut.png  used on input line 2338.
 (pdftex.def)             Requested size: 507.88318pt x 59.92563pt.
 
-Overfull \hbox (24.18631pt too wide) in paragraph at lines 2347--2348
+Overfull \hbox (24.18631pt too wide) in paragraph at lines 2338--2339
  [][] 
  []
 
 [73 <../Images/docker node ls ub1 dswarm.png> <../Images/docker service ps bluesvc after shut ub1.png>]
-<../Images/node ls after ub3 left swarm.png, id=1179, 1378.14874pt x 289.08pt>
+<../Images/node ls after ub3 left swarm.png, id=1175, 1378.14874pt x 289.08pt>
 File: ../Images/node ls after ub3 left swarm.png Graphic file (type png)
 <use ../Images/node ls after ub3 left swarm.png>
-Package pdftex.def Info: ../Images/node ls after ub3 left swarm.png  used on input line 2364.
+Package pdftex.def Info: ../Images/node ls after ub3 left swarm.png  used on input line 2355.
 (pdftex.def)             Requested size: 507.88318pt x 106.53445pt.
 
-Overfull \hbox (24.18631pt too wide) in paragraph at lines 2364--2365
+Overfull \hbox (24.18631pt too wide) in paragraph at lines 2355--2356
  [][] 
  []
 
-<../Images/node ls after ub3 rejoined swarm.png, id=1181, 1378.14874pt x 310.15875pt>
+<../Images/node ls after ub3 rejoined swarm.png, id=1177, 1378.14874pt x 310.15875pt>
 File: ../Images/node ls after ub3 rejoined swarm.png Graphic file (type png)
 <use ../Images/node ls after ub3 rejoined swarm.png>
-Package pdftex.def Info: ../Images/node ls after ub3 rejoined swarm.png  used on input line 2382.
+Package pdftex.def Info: ../Images/node ls after ub3 rejoined swarm.png  used on input line 2373.
 (pdftex.def)             Requested size: 507.88318pt x 114.3026pt.
 
-Overfull \hbox (24.18631pt too wide) in paragraph at lines 2382--2383
+Overfull \hbox (24.18631pt too wide) in paragraph at lines 2373--2374
  [][] 
  []
 
 [74 <../Images/docker service ps bluesvc after restart still shut.png> <../Images/node ls after ub3 left swarm.png>]
-<../Images/1780147043317_image.png, id=1191, 1378.14874pt x 457.71pt>
+<../Images/1780147043317_image.png, id=1187, 1378.14874pt x 457.71pt>
 File: ../Images/1780147043317_image.png Graphic file (type png)
 <use ../Images/1780147043317_image.png>
-Package pdftex.def Info: ../Images/1780147043317_image.png  used on input line 2397.
+Package pdftex.def Info: ../Images/1780147043317_image.png  used on input line 2388.
 (pdftex.def)             Requested size: 507.88318pt x 168.67958pt.
 
-Overfull \hbox (24.18631pt too wide) in paragraph at lines 2397--2398
+Overfull \hbox (24.18631pt too wide) in paragraph at lines 2388--2389
  [][] 
  []
 
 [75 <../Images/node ls after ub3 rejoined swarm.png> <../Images/1780147043317_image.png>]
-<../Images/script run saartools ubdswarm1.png, id=1200, 578.16pt x 437.635pt>
+<../Images/script run saartools ubdswarm1.png, id=1196, 578.16pt x 437.635pt>
 File: ../Images/script run saartools ubdswarm1.png Graphic file (type png)
 <use ../Images/script run saartools ubdswarm1.png>
-Package pdftex.def Info: ../Images/script run saartools ubdswarm1.png  used on input line 2414.
+Package pdftex.def Info: ../Images/script run saartools ubdswarm1.png  used on input line 2405.
 (pdftex.def)             Requested size: 362.77264pt x 274.59631pt.
-<../Images/7.3.3 http get.png, id=1203, 997.7275pt x 805.0075pt>
+<../Images/7.3.3 http get.png, id=1199, 997.7275pt x 805.0075pt>
 File: ../Images/7.3.3 http get.png Graphic file (type png)
 <use ../Images/7.3.3 http get.png>
-Package pdftex.def Info: ../Images/7.3.3 http get.png  used on input line 2425.
+Package pdftex.def Info: ../Images/7.3.3 http get.png  used on input line 2416.
 (pdftex.def)             Requested size: 435.32422pt x 351.23181pt.
  [76 <../Images/script run saartools ubdswarm1.png>]
-<../Images/7.3.3 http 200.png, id=1212, 997.7275pt x 805.0075pt>
+<../Images/7.3.3 http 200.png, id=1208, 997.7275pt x 805.0075pt>
 File: ../Images/7.3.3 http 200.png Graphic file (type png)
 <use ../Images/7.3.3 http 200.png>
-Package pdftex.def Info: ../Images/7.3.3 http 200.png  used on input line 2432.
+Package pdftex.def Info: ../Images/7.3.3 http 200.png  used on input line 2423.
 (pdftex.def)             Requested size: 435.32422pt x 351.23181pt.
  [77 <../Images/7.3.3 http get.png>]
-<../Images/7.3.3 wireshark overview.png, id=1220, 1840.8775pt x 614.295pt>
+<../Images/7.3.3 wireshark overview.png, id=1215, 1840.8775pt x 614.295pt>
 File: ../Images/7.3.3 wireshark overview.png Graphic file (type png)
 <use ../Images/7.3.3 wireshark overview.png>
-Package pdftex.def Info: ../Images/7.3.3 wireshark overview.png  used on input line 2441.
+Package pdftex.def Info: ../Images/7.3.3 wireshark overview.png  used on input line 2432.
 (pdftex.def)             Requested size: 459.51054pt x 153.33904pt.
  [78 <../Images/7.3.3 http 200.png> <../Images/7.3.3 wireshark overview.png>]
-<../Images/7.3.4 scale down.png, id=1230, 1364.09625pt x 458.71375pt>
+<../Images/7.3.4 scale down.png, id=1226, 1364.09625pt x 458.71375pt>
 File: ../Images/7.3.4 scale down.png Graphic file (type png)
 <use ../Images/7.3.4 scale down.png>
-Package pdftex.def Info: ../Images/7.3.4 scale down.png  used on input line 2458.
+Package pdftex.def Info: ../Images/7.3.4 scale down.png  used on input line 2449.
 (pdftex.def)             Requested size: 435.32422pt x 146.39243pt.
-<../Images/7.3.5 ip addr ub1.png, id=1234, 1300.86pt x 417.56pt>
+<../Images/7.3.5 ip addr ub1.png, id=1230, 1300.86pt x 417.56pt>
 File: ../Images/7.3.5 ip addr ub1.png Graphic file (type png)
 <use ../Images/7.3.5 ip addr ub1.png>
-Package pdftex.def Info: ../Images/7.3.5 ip addr ub1.png  used on input line 2471.
+Package pdftex.def Info: ../Images/7.3.5 ip addr ub1.png  used on input line 2462.
 (pdftex.def)             Requested size: 435.32422pt x 139.73213pt.
-<../Images/7.3.5 ip addr ub2.png, id=1235, 1300.86pt x 417.56pt>
+<../Images/7.3.5 ip addr ub2.png, id=1231, 1300.86pt x 417.56pt>
 File: ../Images/7.3.5 ip addr ub2.png Graphic file (type png)
 <use ../Images/7.3.5 ip addr ub2.png>
-Package pdftex.def Info: ../Images/7.3.5 ip addr ub2.png  used on input line 2478.
+Package pdftex.def Info: ../Images/7.3.5 ip addr ub2.png  used on input line 2469.
 (pdftex.def)             Requested size: 435.32422pt x 139.73213pt.
  [79 <../Images/7.3.4 scale down.png> <../Images/7.3.5 ip addr ub1.png>]
-<../Images/7.3.5 ip addr ub3.png, id=1246, 1300.86pt x 417.56pt>
+<../Images/7.3.5 ip addr ub3.png, id=1242, 1300.86pt x 417.56pt>
 File: ../Images/7.3.5 ip addr ub3.png Graphic file (type png)
 <use ../Images/7.3.5 ip addr ub3.png>
-Package pdftex.def Info: ../Images/7.3.5 ip addr ub3.png  used on input line 2485.
+Package pdftex.def Info: ../Images/7.3.5 ip addr ub3.png  used on input line 2476.
 (pdftex.def)             Requested size: 435.32422pt x 139.73213pt.
  [80 <../Images/7.3.5 ip addr ub2.png> <../Images/7.3.5 ip addr ub3.png>]
-<../Images/7.3.6 wireshark overview.png, id=1256, 1130.2225pt x 477.785pt>
+<../Images/7.3.6 wireshark overview.png, id=1252, 1130.2225pt x 477.785pt>
 File: ../Images/7.3.6 wireshark overview.png Graphic file (type png)
 <use ../Images/7.3.6 wireshark overview.png>
-Package pdftex.def Info: ../Images/7.3.6 wireshark overview.png  used on input line 2519.
+Package pdftex.def Info: ../Images/7.3.6 wireshark overview.png  used on input line 2510.
 (pdftex.def)             Requested size: 459.51054pt x 194.24548pt.
-<../Images/7.3.6 http direct.png, id=1258, 1042.89626pt x 477.785pt>
+<../Images/7.3.6 http direct.png, id=1254, 1042.89626pt x 477.785pt>
 File: ../Images/7.3.6 http direct.png Graphic file (type png)
 <use ../Images/7.3.6 http direct.png>
-Package pdftex.def Info: ../Images/7.3.6 http direct.png  used on input line 2530.
+Package pdftex.def Info: ../Images/7.3.6 http direct.png  used on input line 2521.
 (pdftex.def)             Requested size: 435.32422pt x 199.43625pt.
  [81 <../Images/7.3.6 wireshark overview.png> <../Images/7.3.6 http direct.png>]
-<../Images/7.3.6 vxlan tunnelled.png, id=1268, 1002.74625pt x 914.41624pt>
+<../Images/7.3.6 vxlan tunnelled.png, id=1264, 1002.74625pt x 914.41624pt>
 File: ../Images/7.3.6 vxlan tunnelled.png Graphic file (type png)
 <use ../Images/7.3.6 vxlan tunnelled.png>
-Package pdftex.def Info: ../Images/7.3.6 vxlan tunnelled.png  used on input line 2539.
+Package pdftex.def Info: ../Images/7.3.6 vxlan tunnelled.png  used on input line 2530.
 (pdftex.def)             Requested size: 435.32422pt x 396.9865pt.
  [82 <../Images/7.3.6 vxlan tunnelled.png>]
-<../Images/7.3.6 vxlan filter.png, id=1276, 1743.51375pt x 719.68875pt>
+<../Images/7.3.6 vxlan filter.png, id=1272, 1743.51375pt x 719.68875pt>
 File: ../Images/7.3.6 vxlan filter.png Graphic file (type png)
 <use ../Images/7.3.6 vxlan filter.png>
-Package pdftex.def Info: ../Images/7.3.6 vxlan filter.png  used on input line 2552.
+Package pdftex.def Info: ../Images/7.3.6 vxlan filter.png  used on input line 2543.
 (pdftex.def)             Requested size: 459.51054pt x 189.67336pt.
-<../Images/7.3.7 redsvc ps.png, id=1278, 1153.30875pt x 252.945pt>
+<../Images/7.3.7 redsvc ps.png, id=1274, 1153.30875pt x 252.945pt>
 File: ../Images/7.3.7 redsvc ps.png Graphic file (type png)
 <use ../Images/7.3.7 redsvc ps.png>
-Package pdftex.def Info: ../Images/7.3.7 redsvc ps.png  used on input line 2570.
+Package pdftex.def Info: ../Images/7.3.7 redsvc ps.png  used on input line 2561.
 (pdftex.def)             Requested size: 435.32422pt x 95.47554pt.
-<../Images/7.3.7 vxlan redsvc.png, id=1280, 1153.30875pt x 573.14125pt>
+<../Images/7.3.7 vxlan redsvc.png, id=1276, 1153.30875pt x 573.14125pt>
 File: ../Images/7.3.7 vxlan redsvc.png Graphic file (type png)
 <use ../Images/7.3.7 vxlan redsvc.png>
-Package pdftex.def Info: ../Images/7.3.7 vxlan redsvc.png  used on input line 2579.
+Package pdftex.def Info: ../Images/7.3.7 vxlan redsvc.png  used on input line 2570.
 (pdftex.def)             Requested size: 459.51054pt x 228.3604pt.
  [83 <../Images/7.3.6 vxlan filter.png> <../Images/7.3.7 redsvc ps.png>] [84 <../Images/7.3.7 vxlan redsvc.png>] (./reportM2.aux)
  ***********
@@ -1430,25 +1429,22 @@ L3 programming layer <2024-01-22>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `reportM2.out' has not changed.
 (rerunfilecheck)             Checksum: EBB5C2A8C04EE043E8B1C38284D93315;19826.
  ) 
 Here is how much of TeX's memory you used:
- 36686 strings out of 474222
- 786617 string characters out of 5748733
+ 36688 strings out of 474222
+ 786667 string characters out of 5748733
  1942975 words of memory out of 5000000
- 58104 multiletter control sequences out of 15000+600000
+ 58106 multiletter control sequences out of 15000+600000
  569076 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  101i,13n,117p,1059b,1072s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on reportM2.pdf (85 pages, 9224774 bytes).
+Output written on reportM2.pdf (85 pages, 9224353 bytes).
 PDF statistics:
- 1401 PDF objects out of 1440 (max. 8388607)
- 1065 compressed objects within 11 object streams
+ 1397 PDF objects out of 1440 (max. 8388607)
+ 1061 compressed objects within 11 object streams
  280 named destinations out of 1000 (max. 500000)
  1444 words of extra memory for PDF output out of 10000 (max. 10000000)
 
