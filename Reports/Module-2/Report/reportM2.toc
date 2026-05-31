@@ -60,16 +60,16 @@
 \contentsline {subsection}{\numberline {7.3}Configuration of the Namespaces and Tunnel}{52}{subsection.7.3}%
 \contentsline {subsubsection}{\numberline {7.3.1}Namespace Configuration}{52}{subsubsection.7.3.1}%
 \contentsline {subsubsection}{\numberline {7.3.2}Physical Interface Configuration}{53}{subsubsection.7.3.2}%
-\contentsline {subsubsection}{\numberline {7.3.3}IPIP Tunnel Configuration}{53}{subsubsection.7.3.3}%
+\contentsline {subsubsection}{\numberline {7.3.3}IPIP Tunnel Configuration}{54}{subsubsection.7.3.3}%
 \contentsline {subsubsection}{\numberline {7.3.4}Routing and IP Forwarding}{54}{subsubsection.7.3.4}%
-\contentsline {subsection}{\numberline {7.4}Verification of Connectivity}{54}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.4}Verification of Connectivity}{55}{subsection.7.4}%
 \contentsline {subsection}{\numberline {7.5}Verification of IPIP Encapsulation}{55}{subsection.7.5}%
 \contentsline {subsection}{\numberline {7.6}Tunnel Verification}{56}{subsection.7.6}%
 \contentsline {section}{\numberline {8}Macvlan Networks with VLAN Isolation}{57}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Introduction}{57}{subsection.8.1}%
 \contentsline {subsection}{\numberline {8.2}VLAN Interface Configuration}{57}{subsection.8.2}%
 \contentsline {subsection}{\numberline {8.3}Macvlan Network Configuration}{58}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Container Deployment}{59}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.4}Container Deployment}{60}{subsection.8.4}%
 \contentsline {subsection}{\numberline {8.5}Verification of Connectivity and Isolation}{60}{subsection.8.5}%
 \contentsline {subsection}{\numberline {8.6}Traffic Analysis}{61}{subsection.8.6}%
 \contentsline {subsection}{\numberline {8.7}Discussion and Limitations}{63}{subsection.8.7}%
@@ -96,7 +96,7 @@
 \contentsline {subsection}{\numberline {10.7}Service Rescaling}{79}{subsection.10.7}%
 \contentsline {subsection}{\numberline {10.8}Container Network Interfaces}{79}{subsection.10.8}%
 \contentsline {subsection}{\numberline {10.9}HTTP Request Path and VXLAN Encapsulation}{81}{subsection.10.9}%
-\contentsline {paragraph}{Container on ub1 (local).}{81}{figure.caption.90}%
-\contentsline {paragraph}{Container on a remote node (ub2 or ub3).}{82}{figure.caption.91}%
+\contentsline {paragraph}{Container on ub1 (local).}{81}{figure.caption.91}%
+\contentsline {paragraph}{Container on a remote node (ub2 or ub3).}{82}{figure.caption.92}%
 \contentsline {subsection}{\numberline {10.10}Comparison with a Second Service: redsvc}{83}{subsection.10.10}%
 \contentsline {subsection}{\numberline {10.11}Comparison with AI Tool Explanation}{84}{subsection.10.11}%
